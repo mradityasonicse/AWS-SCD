@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #ff9900;
+    --primary-2: #ffb84d;
+    --primary-3: #ff7a00;
+    --bg-dark: #070a10;
+    --bg-card: #0d1320;
+    --bg-card-hover: #141c2c;
+  }
+
+  * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #070a10;
+    color: #f1f5f9;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-heading {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Animations */
+@keyframes tickerSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: tickerSlide 40s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.animate-dot-pulse {
+  animation: dotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes auroraA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, 40px) scale(1.15); }
+}
+
+@keyframes auroraB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, -40px) scale(1.1); }
+}
+
+@keyframes auroraC {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(calc(-50% + 50px), calc(-50% - 30px)) scale(1.08); }
+}
+
+.animate-aurora-a {
+  animation: auroraA 18s ease-in-out infinite;
+}
+
+.animate-aurora-b {
+  animation: auroraB 22s ease-in-out infinite;
+}
+
+.animate-aurora-c {
+  animation: auroraC 26s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070a10;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c2638;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9900;
+}
