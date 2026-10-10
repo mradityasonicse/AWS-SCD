@@ -31,10 +31,10 @@ export const ContactSection: React.FC = () => {
       {/* Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#A45AFA]/8 rounded-full blur-[190px] pointer-events-none" />
 
-      {/* Section Header with [ 13 ] Index */}
+      {/* Section Header with [ 10 ] Index */}
       <div className="border-b border-white/10 pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
         <div className="flex items-baseline gap-6">
-          <span className="text-[#ff9900] font-mono text-sm tracking-widest">[ 13 ]</span>
+          <span className="text-[#ff9900] font-mono text-sm tracking-widest">[ 10 ]</span>
           <div>
             <p className="text-[#ff9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
               <span className="w-6 h-[1px] bg-[#ff9900]" />
@@ -199,7 +199,7 @@ export const ContactSection: React.FC = () => {
                   >
                     <option value="General Inquiry" className="bg-[#090d24]">General Inquiry</option>
                     <option value="Sponsorship & Partnership" className="bg-[#090d24]">Sponsorship &amp; Partnership</option>
-                    <option value="College Delegation (10+ tickets)" className="bg-[#090d24]">College Delegation (10+ tickets)</option>
+                    <option value="College Delegation & Group Attendance" className="bg-[#090d24]">College Delegation &amp; Group Attendance</option>
                     <option value="Speaker Proposal (CFP)" className="bg-[#090d24]">Speaker Proposal (CFP)</option>
                     <option value="Volunteer with AWS SBG RISU" className="bg-[#090d24]">Volunteer with AWS SBG RISU</option>
                   </select>

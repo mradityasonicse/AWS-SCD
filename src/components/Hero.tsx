@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, IdCard, MapPin, Calendar, Users, Trophy } from 'lucide-react';
+import { ArrowRight, MapPin, Calendar, Users, Trophy } from 'lucide-react';
 
-interface HeroProps {
-  onRegisterClick: () => void;
-}
-
-export const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
+export const Hero: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 16,
     hours: 12,
@@ -161,20 +157,20 @@ export const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
 
         {/* Action CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-          <button
-            onClick={onRegisterClick}
+          <a
+            href="#agenda"
             className="cursor-pointer group bg-gradient-to-r from-[#ff9900] via-[#ffb84d] to-[#ff7a00] hover:from-[#ffb84d] hover:to-[#ff9900] text-black font-black text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300 shadow-[0_12px_40px_rgba(255,153,0,0.45)] hover:shadow-[0_16px_50px_rgba(255,153,0,0.65)] hover:-translate-y-1 flex items-center gap-2.5"
           >
-            <span>Claim Your Ticket · ₹259</span>
+            <span>Explore Summit Agenda</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
 
           <a
-            href="#badge"
+            href="#venue"
             className="group backdrop-blur-md bg-white/5 hover:bg-white/10 text-white border border-white/15 hover:border-[#ff9900]/50 font-bold text-sm sm:text-base px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 flex items-center gap-2.5"
           >
-            <IdCard className="w-5 h-5 text-[#ffb84d] group-hover:scale-105 transition-transform shrink-0 stroke-[2]" />
-            <span className="tracking-wide">Generate Attendee Badge</span>
+            <MapPin className="w-5 h-5 text-[#ffb84d] group-hover:scale-105 transition-transform shrink-0 stroke-[2]" />
+            <span className="tracking-wide">Campus &amp; Venue Details</span>
           </a>
         </div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CosmicBackground } from './components/CosmicBackground';
 import { Ticker } from './components/Ticker';
 import { Navbar } from './components/Navbar';
@@ -12,24 +12,12 @@ import { Agenda } from './components/Agenda';
 import { Venue } from './components/Venue';
 import { Contests } from './components/Contests';
 import { Sponsors } from './components/Sponsors';
-import { BadgeGenerator } from './components/BadgeGenerator';
-import { Tickets } from './components/Tickets';
 import { Team } from './components/Team';
 import { FAQ } from './components/FAQ';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { FloatingCta } from './components/FloatingCta';
-import { RegisterModal } from './components/RegisterModal';
 
 export const App: React.FC = () => {
-  const [registerModalOpen, setRegisterModalOpen] = useState(false);
-  const [selectedTierId, setSelectedTierId] = useState<string>('early-bird');
-
-  const handleOpenRegister = (tierId: string = 'early-bird') => {
-    setSelectedTierId(tierId);
-    setRegisterModalOpen(true);
-  };
-
   const handleOpenContact = () => {
     const el = document.querySelector('#contact');
     if (el) {
@@ -47,18 +35,18 @@ export const App: React.FC = () => {
       <CosmicBackground />
 
       {/* Floating Island Navigation Bar */}
-      <Navbar onRegisterClick={() => handleOpenRegister('early-bird')} />
+      <Navbar />
 
       {/* Main Summit Experience Hierarchy */}
       <main className="relative z-10 flex flex-col">
         {/* Hero Section with Live Flip Countdown */}
-        <Hero onRegisterClick={() => handleOpenRegister('early-bird')} />
+        <Hero />
 
         {/* Infinite Kinetic Phrase & Partner Marquee */}
         <LogoMarquee />
 
         {/* [ 01 ] What is SCD & Conference Pillars */}
-        <About onRegisterClick={() => handleOpenRegister('early-bird')} />
+        <About />
 
         {/* High-Impact Statistics Strip */}
         <ImpactStats />
@@ -81,34 +69,18 @@ export const App: React.FC = () => {
         {/* [ 07 ] Ecosystem Partners & Academic Host */}
         <Sponsors onOpenContact={handleOpenContact} />
 
-        {/* [ 08 ] Participation Badge Generator */}
-        <BadgeGenerator />
-
-        {/* [ 09 ] Ticket Passes & Seat Capacity */}
-        <Tickets onSelectTier={(tierId) => handleOpenRegister(tierId)} />
-
-        {/* [ 10 ] Core Organizing Team */}
+        {/* [ 08 ] Core Organizing Team */}
         <Team />
 
-        {/* [ 11 ] Frequently Asked Questions */}
+        {/* [ 09 ] Frequently Asked Questions */}
         <FAQ />
 
-        {/* [ 13 ] Direct Organizer Desk & Inquiries */}
+        {/* [ 10 ] Direct Organizer Desk & Inquiries */}
         <ContactSection />
       </main>
 
       {/* Comprehensive Brand Footer */}
       <Footer />
-
-      {/* Floating Sticky Registration Dock */}
-      <FloatingCta onRegisterClick={() => handleOpenRegister('early-bird')} />
-
-      {/* Multi-tier Two-step Interactive Registration Modal */}
-      <RegisterModal
-        isOpen={registerModalOpen}
-        onClose={() => setRegisterModalOpen(false)}
-        initialTierId={selectedTierId}
-      />
     </div>
   );
 };

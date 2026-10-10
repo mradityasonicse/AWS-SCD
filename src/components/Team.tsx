@@ -6,10 +6,10 @@ export const Team: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden px-4" id="team">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header with [ 10 ] Index */}
+        {/* Section Header with [ 08 ] Index */}
         <div className="border-b border-white/10 pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-6">
-            <span className="text-[#ff9900] font-mono text-sm tracking-widest">[ 10 ]</span>
+            <span className="text-[#ff9900] font-mono text-sm tracking-widest">[ 08 ]</span>
             <div>
               <p className="text-[#ff9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
                 <span className="w-6 h-[1px] bg-[#ff9900]" />

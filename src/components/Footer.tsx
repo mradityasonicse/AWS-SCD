@@ -108,10 +108,7 @@ export const Footer: React.FC = () => {
                 <a href="#contests" className="hover:text-white transition-colors">Kahoot Quiz &amp; Prizes</a>
               </li>
               <li>
-                <a href="#badge" className="hover:text-white transition-colors">Custom Holographic Badge</a>
-              </li>
-              <li>
-                <a href="#tickets" className="hover:text-white transition-colors">Tickets &amp; Passes</a>
+                <a href="#contact" className="hover:text-white transition-colors">Contact Organizers</a>
               </li>
               <li>
                 <a href="#team" className="hover:text-white transition-colors">Core Organizing Team</a>

@@ -23,8 +23,8 @@ export const Ticker: React.FC = () => {
         </span>
         <span className="text-[#ff9900] opacity-70 text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded text-[9.5px] font-bold">REGISTRATION OPEN</span>
-          EARLY BIRD PASSES FILLING RAPIDLY
+          <span className="bg-[#ff9900]/20 text-[#ffb84d] border border-[#ff9900]/40 px-2 py-0.5 rounded text-[9.5px] font-bold">OCTOBER 26, 2026</span>
+          FLAGSHIP CLOUD CONFERENCE AT RISU CAMPUS
         </span>
         <span className="text-[#ff9900] opacity-70 text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
@@ -54,8 +54,8 @@ export const Ticker: React.FC = () => {
         </span>
         <span className="text-[#ff9900] opacity-70 text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded text-[9.5px] font-bold">REGISTRATION OPEN</span>
-          EARLY BIRD PASSES FILLING RAPIDLY
+          <span className="bg-[#ff9900]/20 text-[#ffb84d] border border-[#ff9900]/40 px-2 py-0.5 rounded text-[9.5px] font-bold">OCTOBER 26, 2026</span>
+          FLAGSHIP CLOUD CONFERENCE AT RISU CAMPUS
         </span>
         <span className="text-[#ff9900] opacity-70 text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">

@@ -14,10 +14,10 @@ export const FAQ: React.FC = () => {
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#A45AFA]/8 rounded-full blur-[170px] pointer-events-none" />
 
-      {/* Section Header with [ 11 ] Index */}
+      {/* Section Header with [ 09 ] Index */}
       <div className="border-b border-white/10 pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
         <div className="flex items-baseline gap-6">
-          <span className="text-[#ff9900] font-mono text-sm tracking-widest">[ 11 ]</span>
+          <span className="text-[#ff9900] font-mono text-sm tracking-widest">[ 09 ]</span>
           <div>
             <p className="text-[#ff9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
               <span className="w-6 h-[1px] bg-[#ff9900]" />

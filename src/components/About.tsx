@@ -2,11 +2,7 @@ import React from 'react';
 import { PILLARS, WHY_ATTEND } from '../data/eventData';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
-interface AboutProps {
-  onRegisterClick: () => void;
-}
-
-export const About: React.FC<AboutProps> = ({ onRegisterClick }) => {
+export const About: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden px-4 sm:px-6" id="about">
       <div className="max-w-7xl mx-auto">
@@ -102,13 +98,13 @@ export const About: React.FC<AboutProps> = ({ onRegisterClick }) => {
                   ))}
                 </ul>
 
-                <button
-                  onClick={onRegisterClick}
+                <a
+                  href="#contact"
                   className="w-full cursor-pointer bg-gradient-to-r from-[#ff9900] to-[#ff7a00] hover:from-[#ffb84d] hover:to-[#ff9900] text-black font-extrabold text-sm py-3.5 rounded-xl transition-all shadow-[0_6px_20px_rgba(255,153,0,0.4)] flex items-center justify-center gap-2 group"
                 >
-                  <span>Book Early Bird Pass (₹259)</span>
+                  <span>Connect With Student Desk</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

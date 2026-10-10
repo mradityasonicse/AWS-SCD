@@ -24,19 +24,6 @@ export interface AgendaItem {
   category: 'Keynote' | 'Tech' | 'Networking' | 'Fun' | 'Ceremony';
 }
 
-export interface TicketTier {
-  id: string;
-  name: string;
-  price: number;
-  badge: string;
-  status: 'available' | 'closing-soon' | 'closed';
-  buttonText: string;
-  glowColor: string;
-  ticketsClaimed: number;
-  totalTickets: number;
-  features: string[];
-  popular?: boolean;
-}
 
 export interface FAQItem {
   question: string;
@@ -98,8 +85,7 @@ export const EVENT_DETAILS = {
     meetup: "https://www.meetup.com/aws-sbg-at-risu/",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
     instagram: "https://www.instagram.com/aws_student_builder_group_risu/",
-    twitter: "https://x.com/awsscrisu/",
-    registrationLink: "https://meetio.online/events/aws-scd-risu-2026/ticket"
+    twitter: "https://x.com/awsscrisu/"
   }
 };
 
@@ -247,7 +233,7 @@ export const SPEAKERS: Speaker[] = [
     current_designation: "DevRel Engineer",
     topic: "Building Resilient Event Platforms on AWS Serverless",
     image: "/deepak_nishad_.jpg",
-    bio: "Community builder and developer advocate driving seamless event ticketing and developer ecosystems with cloud technologies.",
+    bio: "Community builder and developer advocate driving developer ecosystems and cloud platforms.",
     linkedin: "https://www.linkedin.com/in/aishwarygathe/"
   }
 ];
@@ -256,11 +242,11 @@ export const AGENDA: AgendaItem[] = [
   {
     time: "08:00",
     ampm: "AM",
-    title: "Registration, Badge Collection & Hot Breakfast",
+    title: "Attendee Check-in & Hot Breakfast",
     type: "Check-in",
     typeColor: "#f0a838",
     duration: "60 min",
-    subtitle: "Collect your official attendee kit, custom holographic badge & connect over breakfast at RISU.",
+    subtitle: "Check in with the student desk, collect your official welcome kit & connect over breakfast at RISU.",
     dotColor: "#f0a838",
     category: "Networking"
   },
@@ -436,7 +422,7 @@ export const CONTESTS: ContestItem[] = [
     pill: "Win with friends",
     title: "Bring your builder squad, top the community leaderboard.",
     steps: [
-      "Register for AWS SCD 2026 and get your unique referral code.",
+      "Join the AWS SCD 2026 community and get your unique referral code.",
       "Share it with your classmates, peers, and tech clubs across colleges.",
       "Ensure your crew checks in on event day at Rungta International Skills University.",
       "Top referrers take home smart wearables, AWS hoodies, and exclusive swags."
@@ -468,93 +454,6 @@ export const PRIZES: PrizeItem[] = [
   }
 ];
 
-export const TICKETS: TicketTier[] = [
-  {
-    id: "early-bird",
-    name: "EARLY BIRD",
-    price: 259,
-    badge: "Closing Soon",
-    status: "closing-soon",
-    buttonText: "Secure Early Bird",
-    glowColor: "#ff9900",
-    ticketsClaimed: 185,
-    totalTickets: 200,
-    features: [
-      "Full Event Day Access at RISU Campus",
-      "All AWS Keynotes & Tech Sessions",
-      "Exclusive AWS Student Swag Kit",
-      "Custom Holographic Lanyard Badge",
-      "Official Verified Participation Certificate",
-      "Breakfast, High Tea & Full Buffet Lunch",
-      "Eligibility for Kahoot Quiz & Lucky Draws",
-      "Best Discounted Price Guaranteed"
-    ]
-  },
-  {
-    id: "regular",
-    name: "REGULAR BUILDER",
-    price: 299,
-    badge: "Filling Fast",
-    status: "available",
-    buttonText: "Book Standard Pass",
-    glowColor: "#3b82f6",
-    popular: true,
-    ticketsClaimed: 120,
-    totalTickets: 300,
-    features: [
-      "Full Event Day Access at RISU Campus",
-      "All AWS Keynotes & Tech Sessions",
-      "Exclusive AWS Student Swag Kit",
-      "Custom Holographic Lanyard Badge",
-      "Official Verified Participation Certificate",
-      "Breakfast, High Tea & Full Buffet Lunch",
-      "Full Hands-on Demo Track Access",
-      "Cloud Architecture Networking Access"
-    ]
-  },
-  {
-    id: "premium",
-    name: "PREMIUM PASS",
-    price: 499,
-    badge: "Limited Seats",
-    status: "closing-soon",
-    buttonText: "Upgrade to Premium",
-    glowColor: "#ec4899",
-    ticketsClaimed: 85,
-    totalTickets: 100,
-    features: [
-      "Reserved Front-Row Auditorium Seating",
-      "Exclusive AWS Community Event T-Shirt",
-      "Post-Event Closed AMA with AWS Speakers",
-      "Priority Fast-Track Check-In at RISU",
-      "Full Buffet Lunch & Premium Refreshments",
-      "Exclusive Student Swag Box",
-      "Special Mention Certificate of Excellence",
-      "Private Professional Networking Lounge"
-    ]
-  },
-  {
-    id: "patron",
-    name: "COMMUNITY PATRON",
-    price: 3999,
-    badge: "Sold Out",
-    status: "closed",
-    buttonText: "Become a Patron (Closed)",
-    glowColor: "#eab308",
-    ticketsClaimed: 25,
-    totalTickets: 25,
-    features: [
-      "VIP Fast-Track Check-In & Stage Access",
-      "Includes All PREMIUM Ticket Privileges",
-      "VIP Seating throughout the Event",
-      "On-Stage Recognition at Opening Ceremony",
-      "Official Patron Appreciation Memento",
-      "Speaker Meet & Greet Dinner Access",
-      "Name & Logo on Official Website & Screens",
-      "Exclusive Speaker & Leadership Group Photo"
-    ]
-  }
-];
 
 export const SPONSORS: Sponsor[] = [
   {
@@ -567,7 +466,7 @@ export const SPONSORS: Sponsor[] = [
     name: "Meetio",
     logo: "/meetio.png",
     category: "Technology",
-    description: "Official ticketing, badge credentials & event technology partner."
+    description: "Official developer community and digital event platform partner."
   },
   {
     name: "Rungta International Skills University",
@@ -653,15 +552,15 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Is there any restriction on college, branch or graduation year?",
-    answer: "Zero restrictions. Students from Rungta International Skills University (RISU) as well as any college across Chhattisgarh and India can register. All academic branches and batches are warmly welcome."
+    answer: "Zero restrictions. Students from Rungta International Skills University (RISU) as well as any college across Chhattisgarh and India can participate. All academic branches and batches are warmly welcome."
   },
   {
     question: "What should I bring on the day of the event?",
-    answer: "Bring your College Student ID card, confirmation ticket (on your phone), and a fully charged laptop with charger if you wish to participate in the hands-on architecture clinics and live quizzes."
+    answer: "Bring your College Student ID card and a fully charged laptop with charger if you wish to participate in the hands-on architecture clinics and live quizzes."
   },
   {
     question: "Will food, swags, and certificates be provided?",
-    answer: "Yes! Every ticket includes full breakfast, lavish buffet lunch, high tea, an official AWS Student Swag Kit, custom holographic attendee badge, and a verified Certificate of Participation co-signed by AWS SBG & RISU."
+    answer: "Yes! The summit includes full breakfast, lavish buffet lunch, high tea, an official AWS Student Swag Kit, and a verified Certificate of Participation co-signed by AWS SBG & RISU."
   },
   {
     question: "How do I reach Rungta International Skills University (RISU), Bhilai?",

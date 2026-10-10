@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, IdCard } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/eventData';
 
-interface NavbarProps {
-  onRegisterClick: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ onRegisterClick }) => {
+export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -25,8 +21,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onRegisterClick }) => {
     { name: 'AGENDA', href: '#agenda' },
     { name: 'VENUE', href: '#venue' },
     { name: 'CONTESTS', href: '#contests' },
-    { name: 'BADGE', href: '#badge' },
-    { name: 'PASSES', href: '#tickets' },
     { name: 'TEAM', href: '#team' },
     { name: 'FAQ', href: '#faq' },
     { name: 'CONTACT', href: '#contact' },
@@ -86,20 +80,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onRegisterClick }) => {
           {/* Action CTAs */}
           <div className="flex items-center gap-2 sm:gap-3">
             <a
-              href="#badge"
-              className="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff9900]/50 transition-all hover:bg-[#ff9900]/10"
-            >
-              <IdCard className="w-3.5 h-3.5 text-[#ffb84d]" />
-              <span>Badge</span>
-            </a>
-
-            <button
-              onClick={onRegisterClick}
+              href="#contact"
               className="cursor-pointer bg-gradient-to-r from-[#ff9900] via-[#ffb84d] to-[#ff7a00] hover:from-[#ffb84d] hover:to-[#ff9900] text-black font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl transition-all duration-200 shadow-[0_6px_24px_rgba(255,153,0,0.45)] hover:shadow-[0_10px_32px_rgba(255,153,0,0.7)] hover:-translate-y-0.5 flex items-center gap-1.5"
             >
-              <span>REGISTER</span>
+              <span>GET IN TOUCH</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
-            </button>
+            </a>
 
             {/* Mobile Hamburger Button */}
             <button
@@ -128,16 +114,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onRegisterClick }) => {
               ))}
             </div>
             <div className="pt-2 flex gap-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onRegisterClick();
-                }}
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full bg-[#ff9900] text-black font-extrabold text-xs py-2.5 rounded-lg flex items-center justify-center gap-1.5 shadow-lg"
               >
-                <span>REGISTER NOW</span>
+                <span>GET IN TOUCH</span>
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         )}
