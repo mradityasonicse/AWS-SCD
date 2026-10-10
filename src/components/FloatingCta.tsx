@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, IdCard } from 'lucide-react';
 
 interface FloatingCtaProps {
   onRegisterClick: () => void;
@@ -47,7 +47,7 @@ export const FloatingCta: React.FC<FloatingCtaProps> = ({ onRegisterClick }) => 
             href="#badge"
             className="hidden sm:inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-white/10 hover:border-white/25 transition-colors"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#ffb84d]" />
+            <IdCard className="w-3.5 h-3.5 text-[#ffb84d]" />
             <span>Badge</span>
           </a>
           <button

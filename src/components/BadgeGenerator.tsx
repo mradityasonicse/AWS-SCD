@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Download, Sparkles, Upload, ZoomIn, Check } from 'lucide-react';
+import { Download, IdCard, Upload, ZoomIn, Check } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import confetti from 'canvas-confetti';
 
@@ -109,8 +109,8 @@ export const BadgeGenerator: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-5xl mx-auto">
         {/* Controls Column */}
         <div className="lg:col-span-6 space-y-5 rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 backdrop-blur-xl">
-          <div className="flex items-center gap-2 pb-4 border-b border-white/10">
-            <Sparkles className="w-5 h-5 text-[#FF9900]" />
+          <div className="flex items-center gap-2.5 pb-4 border-b border-white/10">
+            <IdCard className="w-5 h-5 text-[#ffb84d]" />
             <h3 className="text-lg font-bold text-white">Badge Customizer</h3>
           </div>
 

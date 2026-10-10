@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles, MapPin, Calendar, Users, Trophy } from 'lucide-react';
+import { ArrowRight, IdCard, MapPin, Calendar, Users, Trophy } from 'lucide-react';
 
 interface HeroProps {
   onRegisterClick: () => void;
@@ -54,10 +54,9 @@ export const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
-        {/* Pill Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#ff9900]/10 border border-[#ff9900]/30 text-[#ffb84d] text-xs font-bold tracking-wider uppercase mb-8 shadow-[0_0_20px_rgba(255,153,0,0.15)] animate-in fade-in slide-in-from-top-4 duration-700">
+        {/* University Host Banner - Clean & Static */}
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#ff9900]/10 border border-[#ff9900]/30 text-[#ffb84d] text-xs font-bold tracking-wider uppercase mb-8">
           <img src="/risu-logo.png" alt="RISU" className="w-5 h-5 object-contain rounded-full bg-white/20 p-0.5 shrink-0" />
-          <span className="w-2 h-2 rounded-full bg-[#ff9900] shadow-[0_0_8px_#ff9900] animate-ping" />
           <span className="flex items-center gap-1.5">
             <strong>RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong> · HOSTED BY AWS SBG RISU
           </span>
@@ -174,8 +173,8 @@ export const Hero: React.FC<HeroProps> = ({ onRegisterClick }) => {
             href="#badge"
             className="group backdrop-blur-md bg-white/5 hover:bg-white/10 text-white border border-white/15 hover:border-[#ff9900]/50 font-bold text-sm sm:text-base px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-1 flex items-center gap-2.5"
           >
-            <Sparkles className="w-5 h-5 text-[#ffb84d] group-hover:rotate-12 transition-transform" />
-            <span>Generate Attendee Badge</span>
+            <IdCard className="w-5 h-5 text-[#ffb84d] group-hover:scale-105 transition-transform shrink-0 stroke-[2]" />
+            <span className="tracking-wide">Generate Attendee Badge</span>
           </a>
         </div>
 

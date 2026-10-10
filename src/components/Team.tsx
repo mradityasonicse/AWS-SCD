@@ -1,12 +1,8 @@
 import React from 'react';
 import { ORGANIZERS } from '../data/eventData';
-import { ArrowUpRight, Clapperboard } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
-interface TeamProps {
-  onRollCredits: () => void;
-}
-
-export const Team: React.FC<TeamProps> = ({ onRollCredits }) => {
+export const Team: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden px-4" id="team">
       <div className="max-w-7xl mx-auto">
@@ -25,13 +21,9 @@ export const Team: React.FC<TeamProps> = ({ onRollCredits }) => {
             </div>
           </div>
           
-          <button
-            onClick={onRollCredits}
-            className="cursor-pointer group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-[#ff9900]/10 border border-white/15 hover:border-[#ff9900]/40 text-slate-300 hover:text-white transition-all text-xs font-mono font-bold"
-          >
-            <Clapperboard className="w-4 h-4 text-[#ff9900] group-hover:rotate-12 transition-transform" />
-            <span>Roll Credits →</span>
-          </button>
+          <p className="text-slate-400 text-sm max-w-sm font-mono">
+            AWS SBG LEADERSHIP · STUDENT VOLUNTEERS · FACULTY MENTORS
+          </p>
         </div>
 
         {/* Team Grid */}

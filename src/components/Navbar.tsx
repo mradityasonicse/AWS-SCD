@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowUpRight, IdCard } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/eventData';
 
 interface NavbarProps {
@@ -89,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRegisterClick }) => {
               href="#badge"
               className="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff9900]/50 transition-all hover:bg-[#ff9900]/10"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#ffb84d]" />
+              <IdCard className="w-3.5 h-3.5 text-[#ffb84d]" />
               <span>Badge</span>
             </a>
 

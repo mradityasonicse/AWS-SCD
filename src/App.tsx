@@ -19,12 +19,10 @@ import { FAQ } from './components/FAQ';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { FloatingCta } from './components/FloatingCta';
-import { CreditsRoll } from './components/CreditsRoll';
 import { RegisterModal } from './components/RegisterModal';
 
 export const App: React.FC = () => {
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
-  const [creditsRollOpen, setCreditsRollOpen] = useState(false);
   const [selectedTierId, setSelectedTierId] = useState<string>('early-bird');
 
   const handleOpenRegister = (tierId: string = 'early-bird') => {
@@ -90,7 +88,7 @@ export const App: React.FC = () => {
         <Tickets onSelectTier={(tierId) => handleOpenRegister(tierId)} />
 
         {/* [ 10 ] Core Organizing Team */}
-        <Team onRollCredits={() => setCreditsRollOpen(true)} />
+        <Team />
 
         {/* [ 11 ] Frequently Asked Questions */}
         <FAQ />
@@ -104,12 +102,6 @@ export const App: React.FC = () => {
 
       {/* Floating Sticky Registration Dock */}
       <FloatingCta onRegisterClick={() => handleOpenRegister('early-bird')} />
-
-      {/* Interactive Cinematic After-Credits Roll */}
-      <CreditsRoll
-        isOpen={creditsRollOpen}
-        onClose={() => setCreditsRollOpen(false)}
-      />
 
       {/* Multi-tier Two-step Interactive Registration Modal */}
       <RegisterModal

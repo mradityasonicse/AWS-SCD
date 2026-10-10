@@ -676,38 +676,3 @@ export const FAQS: FAQItem[] = [
     answer: "We welcome industry and community partners! Please write to aws.sbg.risu@gmail.com or connect directly via the Contact section on this website to receive the sponsorship prospectus."
   }
 ];
-
-export const CREDITS_ROLL = {
-  presents: "AWS Student Builder Group · RISU presents",
-  title: "AWS Student Community Day 2026",
-  dateAndVenue: "October 26, 2026 · Rungta International Skills University, Bhilai",
-  coreTeam: [
-    { role: "Team Lead · Lead Organiser", name: "Uddyan Sahu" },
-    { role: "Technical Lead · Co-Organiser", name: "Gunjan Ghangare" },
-    { role: "Event & Operations Lead", name: "Chetna Sakarde" },
-    { role: "Design & Brand Lead", name: "Netra Khobragade" },
-    { role: "Community & Outreach Lead", name: "Aryan Vijaykar" },
-    { role: "Academic Patrons", name: "RISU Faculty Advisory Board" }
-  ],
-  onStage: [
-    { role: "Special Address (Virtual)", name: "Jessica Gilmore, EdD (Amazon)" },
-    { role: "Opening Keynote", name: "Praful Bagai (Head of DevRel AWS)" },
-    { role: "Speaker · High Scale Systems", name: "Deepak Nishad (Snapmint)" },
-    { role: "Speaker · AI Agents with Bedrock", name: "Nikita Mourya (AWS Community Builder)" },
-    { role: "Speaker · Cloud Security", name: "Varsha Verma (AWS Community Builder)" },
-    { role: "Speaker · Agile AI on AWS", name: "Anmoldeep Singh Arora (Accenture)" },
-    { role: "Speaker · Serverless Events", name: "Aishwary Gathe (Meetio)" }
-  ],
-  partners: [
-    { role: "Title Partner", name: "Amazon Web Services (AWS)" },
-    { role: "Academic Host Institution", name: "Rungta International Skills University (RISU)" },
-    { role: "Technology Partner", name: "Meetio" },
-    { role: "Student Community", name: "AWS Student Builder Groups" }
-  ],
-  volunteers: [
-    "Ayush Sharma", "Pooja Verma", "Nikhil Agrawal", "Riya Patel", "Aditya Sahu", 
-    "Shubham Dewangan", "Ananya Sen", "Tushar Gupta", "Sakshi Dubey", "Aman Jain"
-  ],
-  starring: "550+ Student Builders from across India who made Central India's cloud revolution real.",
-  closing: "Thank you, Bhilai & Central India!"
-};
