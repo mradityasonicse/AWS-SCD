@@ -44,7 +44,7 @@ export const Team: React.FC<TeamProps> = ({ onRollCredits }) => {
               {/* Photo / Crest Container */}
               <div className="w-28 h-28 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-4 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform shadow-lg relative">
                 <img
-                  src={member.image || '/risu-crest.svg'}
+                  src={member.image || '/risu-logo.png'}
                   alt={member.name}
                   className="max-h-16 w-auto object-contain drop-shadow-[0_0_12px_rgba(255,153,0,0.3)]"
                 />

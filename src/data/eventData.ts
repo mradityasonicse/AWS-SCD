@@ -571,7 +571,7 @@ export const SPONSORS: Sponsor[] = [
   },
   {
     name: "Rungta International Skills University",
-    logo: "/risu-logo.svg",
+    logo: "/risu-logo.png",
     category: "Academic Host",
     description: "Skill-first university empowering the next generation of cloud architects."
   },
@@ -587,7 +587,7 @@ export const COMMUNITY_PARTNERS = [
   { name: "AWS SBG Amity", logo: "/AWS_SBG.png", category: "Community" },
   { name: "AWS SBG SSIPMT", logo: "/AWS_SBG.png", category: "Community" },
   { name: "AWS Cloud Club Central India", logo: "/AWS.png", category: "Community" },
-  { name: "RISU Student Tech Council", logo: "/risu-crest.svg", category: "Host Community" },
+  { name: "RISU Student Tech Council", logo: "/risu-logo.png", category: "Host Community" },
 ];
 
 export const ORGANIZERS: TeamMember[] = [
@@ -596,7 +596,7 @@ export const ORGANIZERS: TeamMember[] = [
     name: "Uddyan Sahu",
     title: "AWS SBG Leader, RISU",
     role: "Team Lead · Lead Organiser",
-    image: "/risu-crest.svg",
+    image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/in/uddyan-sahu/",
     email: "aws.sbg.risu@gmail.com"
   },
@@ -605,7 +605,7 @@ export const ORGANIZERS: TeamMember[] = [
     name: "Gunjan Ghangare",
     title: "AWS Community Enthusiast",
     role: "Technical Lead · Co-Organiser",
-    image: "/risu-crest.svg",
+    image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/in/gunjanghangare"
   },
   {
@@ -613,7 +613,7 @@ export const ORGANIZERS: TeamMember[] = [
     name: "Chetna Sakarde",
     title: "Operations Specialist",
     role: "Event & Operations Lead",
-    image: "/risu-crest.svg",
+    image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
   },
   {
@@ -621,7 +621,7 @@ export const ORGANIZERS: TeamMember[] = [
     name: "Netra Khobragade",
     title: "Visual Designer",
     role: "Design & Brand Lead",
-    image: "/risu-crest.svg",
+    image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
   },
   {
@@ -629,7 +629,7 @@ export const ORGANIZERS: TeamMember[] = [
     name: "Aryan Vijaykar",
     title: "Cloud Outreach Strategist",
     role: "Community & Outreach Lead",
-    image: "/risu-crest.svg",
+    image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
   },
   {
@@ -637,7 +637,7 @@ export const ORGANIZERS: TeamMember[] = [
     name: "Prof. RISU Mentors",
     title: "Faculty Advisory Board, RISU",
     role: "Academic Patrons",
-    image: "/risu-crest.svg",
+    image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
   }
 ];

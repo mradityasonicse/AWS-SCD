@@ -21,7 +21,9 @@ export const Footer: React.FC = () => {
               <div className="h-6 w-[1px] bg-white/20" />
               <img src="/AWS_SBG.png" alt="AWS SBG" className="h-7 w-auto object-contain" />
               <div className="h-6 w-[1px] bg-white/20" />
-              <img src="/risu-crest.svg" alt="RISU" className="h-8 w-auto object-contain rounded" />
+              <div className="h-8 w-8 rounded-lg bg-white/10 p-1 border border-white/20 flex items-center justify-center">
+                <img src="/risu-logo.png" alt="RISU" className="h-full w-full object-contain" />
+              </div>
             </div>
 
             <div>
@@ -126,8 +128,10 @@ export const Footer: React.FC = () => {
               Academic Host Partner
             </h4>
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 space-y-2">
-              <div className="flex items-center gap-2">
-                <img src="/risu-crest.svg" alt="RISU" className="h-6 w-auto" />
+              <div className="flex items-center gap-2.5">
+                <div className="h-7 w-7 rounded-lg bg-white/10 p-0.5 border border-white/20 flex items-center justify-center shrink-0">
+                  <img src="/risu-logo.png" alt="RISU" className="h-full w-full object-contain" />
+                </div>
                 <span className="text-xs font-bold text-white">
                   Rungta International Skills University
                 </span>

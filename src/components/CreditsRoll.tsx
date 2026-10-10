@@ -97,11 +97,13 @@ export const CreditsRoll: React.FC<CreditsRollProps> = ({ isOpen, onClose }) => 
       >
         {/* Presenters */}
         <div className="space-y-4">
-          <img
-            src="/risu-crest.svg"
-            alt="RISU"
-            className="w-16 h-16 mx-auto mb-6 object-contain drop-shadow-[0_0_20px_rgba(255,153,0,0.5)]"
-          />
+          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/10 p-2 border border-white/20 backdrop-blur-md flex items-center justify-center shadow-[0_0_20px_rgba(255,153,0,0.3)]">
+            <img
+              src="/risu-logo.png"
+              alt="RISU"
+              className="w-full h-full object-contain"
+            />
+          </div>
           <p className="text-slate-400 font-mono text-sm tracking-widest uppercase">
             {CREDITS_ROLL.presents}
           </p>

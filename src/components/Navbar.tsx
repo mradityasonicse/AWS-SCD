@@ -45,11 +45,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onRegisterClick }) => {
           {/* Brand logos */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="flex items-center gap-2">
-              <img
-                src="/risu-crest.svg"
-                alt="RISU Crest"
-                className="h-9 w-9 object-contain drop-shadow-[0_0_12px_rgba(255,153,0,0.4)] group-hover:scale-105 transition-transform"
-              />
+              <div className="h-9 w-9 rounded-xl bg-white/10 p-1 border border-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                <img
+                  src="/risu-logo.png"
+                  alt="RISU Logo"
+                  className="h-full w-full object-contain"
+                />
+              </div>
               <div className="h-6 w-px bg-white/20" />
               <img
                 src="/AWS.png"

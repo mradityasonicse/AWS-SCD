@@ -260,7 +260,9 @@ export const BadgeGenerator: React.FC = () => {
                 <img src="/AWS_SBG.png" alt="AWS SBG" className="h-6 w-auto object-contain" />
               </div>
               <div className="flex items-center gap-1.5">
-                <img src="/risu-crest.svg" alt="RISU" className="h-7 w-auto object-contain rounded" />
+                <div className="h-7 w-7 rounded-lg bg-white/10 p-0.5 border border-white/20 flex items-center justify-center shrink-0">
+                  <img src="/risu-logo.png" alt="RISU" className="h-full w-full object-contain" />
+                </div>
                 <span className="font-extrabold text-xs text-white tracking-wider">RISU</span>
               </div>
             </div>

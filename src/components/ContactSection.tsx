@@ -59,11 +59,11 @@ export const ContactSection: React.FC = () => {
             </span>
 
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#A45AFA] to-purple-800 p-0.5 border border-white/20 overflow-hidden shrink-0">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#A45AFA] to-purple-800 p-1 border border-white/20 overflow-hidden shrink-0 flex items-center justify-center bg-white/10 backdrop-blur-md">
                 <img
-                  src="/risu-crest.svg"
+                  src="/risu-logo.png"
                   alt="Uddyan Sahu"
-                  className="w-full h-full object-cover rounded-2xl bg-[#090d24]"
+                  className="w-11 h-11 object-contain"
                 />
               </div>
 

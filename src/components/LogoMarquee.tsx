@@ -4,11 +4,11 @@ export const LogoMarquee: React.FC = () => {
   const logos = [
     { name: 'Amazon Web Services', src: '/AWS.png', badge: 'Cloud Leader' },
     { name: 'AWS Student Builder Group', src: '/AWS_SBG.png', badge: 'Global Community' },
-    { name: 'RISU Bhilai', src: '/risu-logo.svg', badge: 'Academic Host' },
+    { name: 'RISU Bhilai', src: '/risu-logo.png', badge: 'Academic Host' },
     { name: 'Meetio', src: '/meetio.png', badge: 'Ticketing Partner' },
     { name: 'Amazon Bedrock', src: '/AWS.png', badge: 'Generative AI' },
     { name: 'AWS Cloud Clubs', src: '/AWS_SBG.png', badge: 'Student Network' },
-    { name: 'RISU Innovation Cell', src: '/risu-crest.svg', badge: 'Tech Incubator' },
+    { name: 'RISU Innovation Cell', src: '/risu-logo.png', badge: 'Tech Incubator' },
   ];
 
   const marqueeLogos = [...logos, ...logos, ...logos];

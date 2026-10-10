@@ -44,11 +44,11 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               </span>
             </div>
 
-            <div className="h-28 flex items-center justify-center my-2">
+            <div className="h-28 w-full rounded-2xl bg-white/[0.04] border border-white/5 flex items-center justify-center my-2 p-3">
               <img
                 src={sponsor.logo}
                 alt={sponsor.name}
-                className="max-h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-md"
+                className="max-h-16 max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-md"
               />
             </div>
 
@@ -78,11 +78,13 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               key={partner.name}
               className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 flex flex-col items-center justify-center gap-3 hover:border-white/20 transition-all group"
             >
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="h-10 w-auto object-contain transition-transform group-hover:scale-110"
-              />
+              <div className="h-12 w-full flex items-center justify-center">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-h-10 max-w-[100px] object-contain transition-transform group-hover:scale-110"
+                />
+              </div>
               <span className="text-xs font-bold text-slate-200">{partner.name}</span>
             </div>
           ))}
