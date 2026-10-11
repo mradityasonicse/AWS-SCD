@@ -32,7 +32,7 @@ export const CosmicBackground: React.FC = () => {
       color: string;
     }[] = [];
 
-    const colors = ['#A45AFA', '#60A5FA', '#FF9900', '#F3E8FF', '#38BDF8'];
+    const colors = ['#D946EF', '#22D3EE', '#FACC15', '#C026D3', '#06B6D4'];
 
     for (let i = 0; i < numStars; i++) {
       stars.push({
@@ -66,8 +66,8 @@ export const CosmicBackground: React.FC = () => {
         height / 2,
         Math.max(width, height)
       );
-      gradient.addColorStop(0, 'rgba(164, 90, 250, 0.04)');
-      gradient.addColorStop(0.5, 'rgba(15, 23, 42, 0.02)');
+      gradient.addColorStop(0, 'rgba(217, 70, 239, 0.08)');
+      gradient.addColorStop(0.5, 'rgba(34, 211, 238, 0.04)');
       gradient.addColorStop(1, 'transparent');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
@@ -103,9 +103,9 @@ export const CosmicBackground: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(s.x, s.y);
             ctx.lineTo(s2.x, s2.y);
-            ctx.strokeStyle = '#A45AFA';
-            ctx.globalAlpha = (1 - dist / 110) * 0.12;
-            ctx.lineWidth = 0.6;
+            ctx.strokeStyle = '#D946EF';
+            ctx.globalAlpha = (1 - dist / 110) * 0.18;
+            ctx.lineWidth = 0.7;
             ctx.stroke();
           }
         }
@@ -125,12 +125,14 @@ export const CosmicBackground: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#FAFAFA]">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-      {/* Ambient ambient glow orbs */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#A45AFA]/15 rounded-full blur-[140px]" />
-      <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-indigo-600/10 rounded-full blur-[160px]" />
-      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[#FF9900]/10 rounded-full blur-[180px]" />
+      {/* Subtle architectural grid mesh */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_40%,transparent_90%)] opacity-40 pointer-events-none" />
+      {/* ShopVibe Ambient glow orbs */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#D946EF]/10 rounded-full blur-[140px]" />
+      <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-[#22D3EE]/10 rounded-full blur-[160px]" />
+      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[#FACC15]/10 rounded-full blur-[180px]" />
     </div>
   );
 };

@@ -1,13 +1,36 @@
 @import "tailwindcss";
 
+@theme {
+  --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
 @layer base {
   :root {
-    --primary: #ff9900;
-    --primary-2: #ffb84d;
-    --primary-3: #ff7a00;
-    --bg-dark: #070a10;
-    --bg-card: #0d1320;
-    --bg-card-hover: #141c2c;
+    /* ShopVibe Design System Color Palette */
+    --primary: #D946EF;
+    --primary-hover: #C026D3;
+    --primary-active: #A21CAF;
+    --secondary: #22D3EE;
+    --tertiary: #FACC15;
+    --bg-global: #FAFAFA;
+    --surface: #FFFFFF;
+    --border-color: #E5E5E5;
+    --text-primary: #171717;
+    --text-secondary: #525252;
+    --text-muted: #737373;
+
+    /* Theme Mappings */
+    --amz-accent: #D946EF;
+    --amz-search: #22D3EE;
+    --amz-buy: #D946EF;
+    --amz-border: #E5E5E5;
+    --bg-dark: #FAFAFA;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #FDF4FF;
   }
 
   * {
@@ -16,23 +39,71 @@
   }
 
   body {
-    background-color: #070a10;
-    color: #f1f5f9;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    overflow-x: hidden;
+    background-color: #FAFAFA;
+    color: #171717;
+    font-family: 'Nunito', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.01em;
+    overflow-x: clip;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+}
+
+/* Typography Stack with Poppins for Headings */
+.font-heading {
+  font-family: 'Poppins', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+.font-display {
+  font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif;
 }
 
 .font-serif {
   font-family: 'Instrument Serif', Georgia, serif;
 }
 
-.font-heading {
-  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+.font-mono {
+  font-family: 'Space Mono', 'JetBrains Mono', monospace;
 }
 
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
+/* ShopVibe Brand CTA Button */
+.amz-btn-buy {
+  background-color: #D946EF;
+  color: #FFFFFF;
+  border: 1px solid #C026D3;
+  border-radius: 9999px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(217, 70, 239, 0.35);
+  transition: all 0.2s ease;
+}
+
+.amz-btn-buy:hover {
+  background-color: #C026D3;
+  border-color: #A21CAF;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(217, 70, 239, 0.5);
+}
+
+.amz-btn-buy:active {
+  background-color: #A21CAF;
+  transform: translateY(0);
+}
+
+/* ShopVibe Card Hover Elevation */
+.amz-card-hover {
+  border-color: #E5E5E5;
+  transition: all 0.25s ease;
+}
+
+.amz-card-hover:hover {
+  border-color: #D946EF;
+  box-shadow: 0 14px 32px rgba(217, 70, 239, 0.12);
 }
 
 /* Animations */
@@ -102,17 +173,31 @@
   animation: auroraC 26s ease-in-out infinite;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - ShopVibe Style */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #070a10;
+  background: #FAFAFA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1c2638;
+  background: #E5E5E5;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff9900;
+  background: #D946EF;
 }
+
+/* 3D Transform Utilities for Text3DFlip */
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
+
+
