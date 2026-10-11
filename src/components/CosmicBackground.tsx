@@ -18,10 +18,13 @@ export const CosmicBackground: React.FC = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
 
-    // Particle system
-    const numStars = Math.min(width > 768 ? 90 : 45, 120);
+    // Particle system - optimized count for buttery 60/120fps on mobile
+    const isMobile = width < 768;
+    const numStars = isMobile ? 32 : 75;
+    const maxLineDist = isMobile ? 85 : 110;
+
     const stars: {
       x: number;
       y: number;
@@ -38,9 +41,9 @@ export const CosmicBackground: React.FC = () => {
       stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 2 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * (isMobile ? 1.6 : 2.2) + 0.5,
+        speedX: (Math.random() - 0.5) * 0.25,
+        speedY: (Math.random() - 0.5) * 0.25,
         opacity: Math.random() * 0.7 + 0.2,
         color: colors[Math.floor(Math.random() * colors.length)],
       });
@@ -52,7 +55,15 @@ export const CosmicBackground: React.FC = () => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches && e.touches.length > 0) {
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
@@ -99,12 +110,12 @@ export const CosmicBackground: React.FC = () => {
           const dy = s.y - s2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 110) {
+          if (dist < maxLineDist) {
             ctx.beginPath();
             ctx.moveTo(s.x, s.y);
             ctx.lineTo(s2.x, s2.y);
             ctx.strokeStyle = '#D946EF';
-            ctx.globalAlpha = (1 - dist / 110) * 0.18;
+            ctx.globalAlpha = (1 - dist / maxLineDist) * 0.18;
             ctx.lineWidth = 0.7;
             ctx.stroke();
           }
@@ -120,6 +131,7 @@ export const CosmicBackground: React.FC = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

@@ -214,7 +214,17 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
   className = "",
 }) => {
   const [activeIndex, setActiveIndex] = useState(0); // Uddyan Sahu lead default
+  const [isMobile, setIsMobile] = useState(false);
   const count = members.length;
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile, { passive: true });
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Navigation handlers
   const handleNext = useCallback(() => {
@@ -242,36 +252,36 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
 
   return (
     <div
-      className={`relative w-full max-w-5xl mx-auto rounded-[32px] sm:rounded-[36px] bg-white border border-neutral-200 shadow-xl p-6 sm:p-10 overflow-hidden flex flex-col items-center select-none backdrop-blur-2xl ${className}`}
+      className={`relative w-full max-w-5xl mx-auto rounded-[28px] sm:rounded-[36px] bg-white border border-neutral-200 shadow-xl p-4 xs:p-6 sm:p-10 overflow-hidden flex flex-col items-center select-none backdrop-blur-2xl ${className}`}
     >
       {/* Top Frame Ambient Glow Line */}
       <div className="absolute top-0 left-12 right-12 h-[1px] bg-gradient-to-r from-transparent via-[#D946EF]/40 to-transparent pointer-events-none" />
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#D946EF]/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Studio Frame Clean Top Bar */}
-      <div className="w-full flex items-center justify-between pb-6 border-b border-neutral-200 mb-2 relative z-10">
-        <div className="flex items-center gap-2.5">
+      <div className="w-full flex items-center justify-between pb-4 sm:pb-6 border-b border-neutral-200 mb-2 relative z-10">
+        <div className="flex items-center gap-2 sm:gap-2.5">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D946EF] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D946EF]"></span>
           </span>
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600">
-            AWS SBG Core Leadership Deck
+          <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 truncate">
+            AWS SBG Leadership
           </span>
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-mono text-neutral-400 hidden sm:inline">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span className="text-xs font-mono text-neutral-400">
             [ 0{activeIndex + 1} / 0{members.length} ]
           </span>
-          <span className="text-[11px] font-mono text-[#D946EF] bg-[#D946EF]/10 border border-[#D946EF]/30 px-2.5 py-0.5 rounded-full font-bold">
+          <span className="text-[10px] sm:text-[11px] font-mono text-[#D946EF] bg-[#D946EF]/10 border border-[#D946EF]/30 px-2 sm:px-2.5 py-0.5 rounded-full font-bold">
             SCD 2026
           </span>
         </div>
       </div>
 
       {/* Deck Stage Frame */}
-      <div className="relative w-full h-[470px] sm:h-[490px] flex items-center justify-center">
+      <div className="relative w-full h-[450px] xs:h-[470px] sm:h-[490px] flex items-center justify-center">
         {members.map((member, index) => {
           // Symmetrical Parabolic Fan Wrapping
           let offset = index - activeIndex;
@@ -281,13 +291,15 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
 
           const isActive = offset === 0;
 
-          // Parabolic geometry calculations
-          const x = offset * 115;
-          const y = Math.pow(Math.abs(offset), 1.6) * 14;
-          const rotate = offset * 6.5;
-          const scale = isActive ? 1.0 : Math.max(0.88, 1 - Math.abs(offset) * 0.045);
+          // Parabolic geometry calculations adapted for mobile vs desktop
+          const spread = isMobile ? 38 : 115;
+          const rotFactor = isMobile ? 3.5 : 6.5;
+          const x = offset * spread;
+          const y = Math.pow(Math.abs(offset), 1.6) * (isMobile ? 10 : 14);
+          const rotate = offset * rotFactor;
+          const scale = isActive ? 1.0 : Math.max(0.85, 1 - Math.abs(offset) * 0.05);
           const zIndex = 50 - Math.abs(offset) * 10;
-          const opacity = isActive ? 1 : Math.max(0.5, 0.9 - Math.abs(offset) * 0.2);
+          const opacity = isActive ? 1 : Math.max(0.4, 0.9 - Math.abs(offset) * 0.22);
 
           return (
             <motion.div
@@ -312,17 +324,17 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
               }}
               drag={isActive ? "x" : false}
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.2}
+              dragElastic={0.25}
               onDragEnd={(_, info) => {
-                if (info.offset.x < -45) handleNext();
-                else if (info.offset.x > 45) handlePrev();
+                if (info.offset.x < -35) handleNext();
+                else if (info.offset.x > 35) handlePrev();
               }}
               onClick={() => {
                 if (!isActive) {
                   setActiveIndex(index);
                 }
               }}
-              className={`absolute top-6 w-[290px] sm:w-[315px] h-[415px] sm:h-[425px] rounded-[30px] p-6 flex flex-col justify-between cursor-pointer transition-colors duration-300 ease-out ${
+              className={`absolute top-4 sm:top-6 w-[265px] xs:w-[285px] sm:w-[315px] h-[395px] xs:h-[415px] sm:h-[425px] rounded-[26px] sm:rounded-[30px] p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-colors duration-300 ease-out ${
                 isActive
                   ? "bg-white text-[#171717] shadow-[0_30px_70px_-15px_rgba(217,70,239,0.25)] border-2 border-[#D946EF]"
                   : "bg-neutral-50 text-neutral-700 shadow-md border border-neutral-200 hover:border-neutral-300"

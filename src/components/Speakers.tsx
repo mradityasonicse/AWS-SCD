@@ -12,11 +12,20 @@ const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3
 );
 
 export const Speakers: React.FC = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check, { passive: true });
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   return (
-    <section className="py-24 relative overflow-visible px-4" id="speakers">
+    <section className="py-20 sm:py-24 relative overflow-visible px-4" id="speakers">
       <div className="max-w-7xl mx-auto">
         {/* Section Header with [ 03 ] Index */}
-        <div className="border-b border-neutral-200 pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        <div className="border-b border-neutral-200 pb-6 mb-12 sm:mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-6">
             <span className="text-[#D946EF] font-mono text-sm tracking-widest">[ 03 ]</span>
             <div>
@@ -44,7 +53,7 @@ export const Speakers: React.FC = () => {
         {/* Natural Full-Page Stacking Cards Flow (Zero nested frames, zero AI slop) */}
         <StackingCards
           totalCards={SPEAKERS.length}
-          scaleMultiplier={0.03}
+          scaleMultiplier={isMobile ? 0.02 : 0.03}
           className="relative pb-24"
         >
           {SPEAKERS.map((speaker: Speaker, index: number) => {
@@ -54,12 +63,12 @@ export const Speakers: React.FC = () => {
               <StackingCardItem
                 key={speaker.id}
                 index={index}
-                topPosition={`${92 + index * 14}px`}
-                className="sticky top-0 mb-24 sm:mb-32"
+                topPosition={isMobile ? `${68 + index * 8}px` : `${92 + index * 14}px`}
+                className="sticky top-0 mb-16 sm:mb-32"
               >
                 <div
                   className={cn(
-                    "w-full max-w-5xl mx-auto rounded-3xl p-6 sm:p-10 border transition-all duration-300 relative overflow-hidden backdrop-blur-xl bg-white",
+                    "w-full max-w-5xl mx-auto rounded-3xl p-5 sm:p-10 border transition-all duration-300 relative overflow-hidden backdrop-blur-xl bg-white",
                     isKeynote
                       ? "border-2 border-[#D946EF]/50 shadow-[0_20px_50px_rgba(217,70,239,0.14)]"
                       : "border border-neutral-200 shadow-xl"
@@ -107,18 +116,18 @@ export const Speakers: React.FC = () => {
                         </div>
 
                         {/* Speaker Name */}
-                        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#171717] tracking-tight leading-tight mb-1.5">
+                        <h3 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-[#171717] tracking-tight leading-tight mb-1.5">
                           {speaker.name}
                         </h3>
 
                         {/* Designation */}
-                        <p className="text-base sm:text-lg font-bold text-[#D946EF] mb-4">
+                        <p className="text-sm sm:text-lg font-bold text-[#D946EF] mb-3 sm:mb-4">
                           {speaker.current_designation}
                         </p>
 
                         {/* Bio */}
                         {speaker.bio && (
-                          <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
+                          <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-5 sm:mb-6">
                             {speaker.bio}
                           </p>
                         )}
@@ -126,25 +135,25 @@ export const Speakers: React.FC = () => {
 
                       {/* Session Topic Box */}
                       {speaker.topic && (
-                        <div className="p-4 sm:p-5 rounded-2xl bg-neutral-50 border border-neutral-200 mb-6">
-                          <div className="flex items-center gap-1.5 text-[#D946EF] text-[11px] font-mono font-bold uppercase tracking-wider mb-1.5">
+                        <div className="p-3.5 sm:p-5 rounded-2xl bg-neutral-50 border border-neutral-200 mb-5 sm:mb-6">
+                          <div className="flex items-center gap-1.5 text-[#D946EF] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider mb-1 sm:mb-1.5">
                             <BookOpen className="w-3.5 h-3.5" />
                             <span>Session Topic</span>
                           </div>
-                          <h4 className="text-sm sm:text-base font-bold text-[#171717] leading-snug">
+                          <h4 className="text-xs sm:text-base font-bold text-[#171717] leading-snug">
                             {speaker.topic}
                           </h4>
                         </div>
                       )}
 
                       {/* Action Links */}
-                      <div className="flex flex-wrap items-center gap-4 pt-1">
+                      <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
                         {speaker.linkedin && (
                           <a
                             href={speaker.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#D946EF] hover:bg-[#C026D3] text-white font-bold text-xs tracking-wide shadow-md hover:scale-105 transition-all"
+                            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#D946EF] hover:bg-[#C026D3] active:bg-[#A21CAF] text-white font-bold text-xs tracking-wide shadow-md hover:scale-105 transition-all"
                           >
                             <LinkedInIcon className="w-3.5 h-3.5 fill-current" />
                             <span>Connect on LinkedIn</span>
@@ -164,7 +173,7 @@ export const Speakers: React.FC = () => {
 
                     {/* Right Portrait (5 cols) */}
                     <div className="lg:col-span-5 flex flex-col items-center">
-                      <div className="relative w-full max-w-[320px] aspect-square sm:aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-200 bg-neutral-100 shadow-xl group flex items-center justify-center p-3">
+                      <div className="relative w-full max-w-[220px] xs:max-w-[260px] sm:max-w-[320px] aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-200 bg-neutral-100 shadow-xl group flex items-center justify-center p-2.5 sm:p-3">
                         <img
                           src={speaker.image}
                           alt={speaker.name}

@@ -96,7 +96,7 @@ export const Venue: React.FC = () => {
               href={EVENT_DETAILS.mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#D946EF] hover:bg-[#C026D3] text-white transition-all font-bold text-sm w-fit shadow-md hover:shadow-[0_8px_25px_rgba(217,70,239,0.35)]"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#D946EF] hover:bg-[#C026D3] text-white transition-all font-bold text-sm w-full sm:w-fit shadow-md hover:shadow-[0_8px_25px_rgba(217,70,239,0.35)]"
             >
               <span>Open in Google Maps</span>
               <ExternalLink className="w-4 h-4 text-white" />
@@ -105,21 +105,21 @@ export const Venue: React.FC = () => {
 
           {/* Right Map & Campus Preview (7 cols) */}
           <div className="lg:col-span-7 rounded-3xl bg-white border border-neutral-200 shadow-xl overflow-hidden flex flex-col">
-            <div className="p-4 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between">
+            <div className="p-3.5 sm:p-4 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-red-400" />
-                <span className="w-3 h-3 rounded-full bg-[#D946EF]" />
-                <span className="w-3 h-3 rounded-full bg-emerald-400" />
-                <span className="text-xs font-mono text-neutral-500 ml-2">
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-400" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#D946EF]" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-400" />
+                <span className="text-[11px] sm:text-xs font-mono text-neutral-500 ml-1 sm:ml-2 truncate max-w-[190px] sm:max-w-none">
                   RISU Knowledge City · 21.2167° N, 81.3833° E
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-[#D946EF] uppercase font-bold px-2 py-0.5 rounded bg-[#D946EF]/10 border border-[#D946EF]/30">
+              <span className="text-[9px] sm:text-[10px] font-mono text-[#D946EF] uppercase font-bold px-2 py-0.5 rounded bg-[#D946EF]/10 border border-[#D946EF]/30 shrink-0">
                 CAMPUS LIVE
               </span>
             </div>
 
-            <div className="h-[360px] sm:h-[420px] w-full relative">
+            <div className="h-[300px] xs:h-[360px] sm:h-[420px] w-full relative">
               <iframe
                 title="Rungta International Skills University Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14878.835166440263!2d81.3444497!3d21.2037149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a29235bc45f49ab%3A0xe54d65609425ef81!2sRungta%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
@@ -129,7 +129,7 @@ export const Venue: React.FC = () => {
               />
             </div>
 
-            <div className="p-4 bg-neutral-50 border-t border-neutral-200 flex items-center justify-between text-xs font-mono">
+            <div className="p-3.5 sm:p-4 bg-neutral-50 border-t border-neutral-200 flex flex-col sm:flex-row gap-1 sm:gap-0 items-start sm:items-center justify-between text-xs font-mono">
               <span className="text-neutral-500">Kohka-Kurud Road, Bhilai, CG 490024</span>
               <span className="text-[#D946EF] font-bold">Rungta Knowledge City</span>
             </div>

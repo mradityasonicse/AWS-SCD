@@ -42,12 +42,12 @@ export const Agenda: React.FC = () => {
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-2 mb-14">
+        <div className="flex items-center gap-2 mb-10 sm:mb-14 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
-              className={`cursor-pointer px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 border ${
+              className={`cursor-pointer px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 border shrink-0 ${
                 activeFilter === cat
                   ? 'bg-[#D946EF] text-white border-[#D946EF] shadow-[0_4px_16px_rgba(217,70,239,0.35)]'
                   : 'bg-white text-neutral-600 border-neutral-200 hover:border-neutral-300 hover:text-neutral-900'
@@ -59,7 +59,7 @@ export const Agenda: React.FC = () => {
         </div>
 
         {/* Timeline Layout */}
-        <div className="relative pl-6 sm:pl-10 border-l border-neutral-200 flex flex-col gap-8">
+        <div className="relative pl-6 sm:pl-10 border-l border-neutral-200 flex flex-col gap-6 sm:gap-8">
           {filteredAgenda.map((item: AgendaItem, idx: number) => (
             <div key={idx} className="relative group">
               {/* Timeline Pin Dot */}
@@ -68,10 +68,10 @@ export const Agenda: React.FC = () => {
                 style={{ backgroundColor: item.dotColor || '#D946EF' }}
               />
 
-              <div className="p-6 sm:p-7 rounded-2xl bg-white border border-neutral-200 hover:border-[#D946EF]/50 transition-all duration-300 hover:translate-x-1 shadow-xs hover:shadow-[0_14px_32px_rgba(217,70,239,0.12)]">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                  <div className="flex items-center gap-3">
-                    <span className="font-serif italic text-2xl text-[#D946EF]">
+              <div className="p-4 xs:p-5 sm:p-7 rounded-2xl bg-white border border-neutral-200 hover:border-[#D946EF]/50 transition-all duration-300 hover:translate-x-1 shadow-xs hover:shadow-[0_14px_32px_rgba(217,70,239,0.12)]">
+                <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-2.5 sm:mb-3">
+                  <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+                    <span className="font-serif italic text-xl sm:text-2xl text-[#D946EF]">
                       {item.time} {item.ampm}
                     </span>
                     <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-neutral-100 text-neutral-700 border border-neutral-200">
@@ -79,7 +79,7 @@ export const Agenda: React.FC = () => {
                     </span>
                   </div>
 
-                  <span className="flex items-center gap-1.5 text-xs text-neutral-500 font-mono">
+                  <span className="flex items-center gap-1.5 text-[11px] sm:text-xs text-neutral-500 font-mono">
                     <Clock className="w-3.5 h-3.5 text-[#D946EF]" />
                     {item.duration}
                   </span>

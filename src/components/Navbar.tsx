@@ -30,10 +30,12 @@ export const Navbar: React.FC = () => {
   return (
     <header className="fixed top-9 left-0 right-0 z-[100] px-3 sm:px-6 py-2 transition-all duration-300 pointer-events-none">
       <div
-        className={`max-w-[1380px] w-full mx-auto rounded-full transition-all duration-300 pointer-events-auto border relative ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-2xl border-neutral-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] py-2 px-4 sm:px-6'
-            : 'bg-white/85 backdrop-blur-xl border-neutral-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] py-2 px-4 sm:px-6'
+        className={`max-w-[1380px] w-full mx-auto transition-all duration-300 pointer-events-auto border relative ${
+          mobileMenuOpen
+            ? 'rounded-[28px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.12)] border-neutral-200 py-3 px-5'
+            : scrolled
+              ? 'rounded-full bg-white/95 backdrop-blur-2xl border-neutral-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] py-2 px-4 sm:px-6'
+              : 'rounded-full bg-white/85 backdrop-blur-xl border-neutral-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] py-2 px-4 sm:px-6'
         }`}
       >
         <div className="flex items-center justify-between gap-3 sm:gap-4">
@@ -94,7 +96,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
               href="#contact"
-              className="group cursor-pointer bg-[#D946EF] hover:bg-[#C026D3] active:bg-[#A21CAF] text-white font-bold text-xs px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(217,70,239,0.35)] hover:shadow-[0_6px_22px_rgba(217,70,239,0.5)] hover:-translate-y-0.5 flex items-center gap-1.5 shrink-0"
+              className="hidden sm:flex group cursor-pointer bg-[#D946EF] hover:bg-[#C026D3] active:bg-[#A21CAF] text-white font-bold text-xs px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(217,70,239,0.35)] hover:shadow-[0_6px_22px_rgba(217,70,239,0.5)] hover:-translate-y-0.5 items-center gap-1.5 shrink-0"
             >
               <span>GET IN TOUCH</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -103,7 +105,7 @@ export const Navbar: React.FC = () => {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-full transition-colors cursor-pointer border border-neutral-200"
+              className="xl:hidden p-2 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 active:scale-95 rounded-full transition-all cursor-pointer border border-neutral-200"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-[#D946EF]" /> : <Menu className="w-5 h-5" />}
@@ -113,8 +115,8 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden mt-3 pt-3 border-t border-neutral-200 animate-in fade-in slide-in-from-top-2">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-semibold py-2">
+          <div className="xl:hidden mt-3 pt-3 border-t border-neutral-200 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="grid grid-cols-2 xs:grid-cols-3 gap-2 text-xs font-semibold py-2">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
@@ -123,10 +125,10 @@ export const Navbar: React.FC = () => {
                     setActiveItem(link.id);
                     setMobileMenuOpen(false);
                   }}
-                  className="px-3 py-2.5 rounded-xl text-neutral-700 hover:text-[#D946EF] hover:bg-[#D946EF]/10 transition-colors flex items-center gap-2"
+                  className="px-3 py-2.5 rounded-xl text-neutral-700 active:bg-[#D946EF]/15 hover:text-[#D946EF] hover:bg-[#D946EF]/10 transition-colors flex items-center gap-2"
                 >
-                  <link.icon className="w-3.5 h-3.5 text-[#D946EF]" />
-                  <span>{link.name}</span>
+                  <link.icon className="w-3.5 h-3.5 text-[#D946EF] shrink-0" />
+                  <span className="truncate">{link.name}</span>
                 </a>
               ))}
             </div>
@@ -134,7 +136,7 @@ export const Navbar: React.FC = () => {
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full bg-[#D946EF] hover:bg-[#C026D3] text-white font-extrabold text-xs py-2.5 rounded-full flex items-center justify-center gap-1.5 shadow-lg"
+                className="w-full bg-[#D946EF] hover:bg-[#C026D3] active:bg-[#A21CAF] text-white font-extrabold text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg shadow-[#D946EF]/25"
               >
                 <span>GET IN TOUCH</span>
                 <ArrowUpRight className="w-4 h-4" />
