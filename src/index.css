@@ -41,7 +41,6 @@
 
   * {
     box-sizing: border-box;
-    scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -52,6 +51,10 @@
     overflow-x: clip;
     background-color: #0B0F17;
     color-scheme: dark;
+  }
+
+  section[id] {
+    scroll-margin-top: 96px;
   }
 
   body {

@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
-  // Smooth scroll click handler with header offset calculation
+  // Smooth scroll click handler with header offset calculation and mobile touch resilience
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
       e.preventDefault();
@@ -74,12 +74,28 @@ export const Navbar: React.FC = () => {
       setMobileMenuOpen(false);
 
       const targetId = href.replace('#', '');
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        const top = targetElement.getBoundingClientRect().top + window.pageYOffset - 90;
-        window.scrollTo({ top, behavior: 'smooth' });
-        window.history.pushState(null, '', href);
+      if (!targetId) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.pushState(null, '', '/');
+        return;
       }
+
+      // Small delay allows mobile touch gesture release and drawer collapse to start
+      // so browser does not cancel smooth scroll due to gesture collision or layout change
+      setTimeout(() => {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const yOffset = -90; // Height of ticker (36px) + floating nav (48px) + breathing room
+          const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+
+          window.scrollTo({
+            top: Math.max(0, y),
+            behavior: 'smooth',
+          });
+
+          window.history.pushState(null, '', href);
+        }
+      }, 80);
     },
     []
   );
@@ -89,8 +105,20 @@ export const Navbar: React.FC = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-9 left-0 right-0 z-[100] px-3 sm:px-6 py-2 pointer-events-none transform-gpu will-change-transform"
+      className={cn(
+        "fixed top-9 left-0 right-0 z-[100] px-3 sm:px-6 py-2 transform-gpu will-change-transform",
+        mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+      )}
     >
+      {/* Mobile background backdrop dismiss */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-xs z-[-1] xl:hidden pointer-events-auto cursor-pointer"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       <div
         className={cn(
           "max-w-[1380px] w-full mx-auto pointer-events-auto border relative transition-[background-color,border-color,box-shadow,border-radius] duration-200 transform-gpu",
@@ -202,9 +230,11 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Hamburger Button */}
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 text-slate-300 hover:text-white hover:bg-[#161E2D] active:scale-95 rounded-full transition-all cursor-pointer border border-[#232F3E]"
+              className="xl:hidden p-2.5 text-slate-300 hover:text-white hover:bg-[#161E2D] active:scale-95 rounded-full transition-all cursor-pointer border border-[#232F3E]"
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-[#FF9900]" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -219,7 +249,7 @@ export const Navbar: React.FC = () => {
               animate={{ opacity: 1, height: 'auto', y: 0 }}
               exit={{ opacity: 0, height: 0, y: -6 }}
               transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="xl:hidden mt-3 pt-3 border-t border-[#232F3E] overflow-hidden"
+              className="xl:hidden mt-3 pt-3 border-t border-[#232F3E] max-h-[calc(100vh-130px)] overflow-y-auto no-scrollbar"
             >
               <div className="grid grid-cols-2 xs:grid-cols-3 gap-2 text-xs font-semibold py-2">
                 {navLinks.map((link) => (
@@ -228,7 +258,7 @@ export const Navbar: React.FC = () => {
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href, link.id)}
                     className={cn(
-                      "px-3 py-2.5 rounded-xl transition-all duration-150 flex items-center gap-2",
+                      "px-3 py-2.5 rounded-xl transition-all duration-150 flex items-center gap-2 cursor-pointer select-none active:scale-[0.97]",
                       activeItem === link.id
                         ? "bg-[#FF9900] text-[#0B0F17] font-black shadow-md"
                         : "text-slate-200 active:bg-[#FF9900]/15 hover:text-[#FF9900] hover:bg-[#FF9900]/10"
@@ -236,7 +266,7 @@ export const Navbar: React.FC = () => {
                   >
                     <link.icon
                       className={cn(
-                        "w-3.5 h-3.5 shrink-0",
+                        "w-4 h-4 shrink-0",
                         activeItem === link.id ? "text-[#0B0F17]" : "text-[#FF9900]"
                       )}
                     />
@@ -248,7 +278,7 @@ export const Navbar: React.FC = () => {
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact', 'contact')}
-                  className="w-full bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] text-[#0B0F17] font-black text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg shadow-[#FF9900]/25 hover:brightness-110 transition-all"
+                  className="w-full bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] text-[#0B0F17] font-black text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg shadow-[#FF9900]/25 hover:brightness-110 active:scale-[0.98] transition-all cursor-pointer"
                 >
                   <span>GET IN TOUCH</span>
                   <ArrowUpRight className="w-4 h-4" />
