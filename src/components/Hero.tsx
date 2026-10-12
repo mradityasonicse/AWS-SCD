@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, MapPin, Calendar, Users, Trophy } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import confetti from 'canvas-confetti';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
+import { CloudTerminal } from './CloudTerminal';
 
 export const Hero: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -60,12 +60,12 @@ export const Hero: React.FC = () => {
     <section className="relative min-h-screen pt-36 pb-20 flex flex-col justify-center items-center text-center overflow-hidden px-4">
       {/* Aurora glowing background gradients */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="aurora a1 w-[560px] h-[560px] bg-gradient-to-tr from-[#FF9900]/15 to-transparent rounded-full blur-[100px] -top-32 left-[10%] animate-aurora-a" />
-        <div className="aurora a2 w-[500px] h-[500px] bg-gradient-to-bl from-[#00A4E4]/12 to-transparent rounded-full blur-[110px] -bottom-24 right-[10%] animate-aurora-b" />
-        <div className="aurora a3 w-[420px] h-[420px] bg-gradient-to-r from-[#FFD814]/08 to-transparent rounded-full blur-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-aurora-c" />
+        <div className="aurora a1 w-[560px] h-[560px] bg-gradient-to-tr from-[#FF9900]/12 to-transparent rounded-full blur-[120px] -top-32 left-[10%] animate-aurora-a" />
+        <div className="aurora a2 w-[500px] h-[500px] bg-gradient-to-bl from-[#00A4E4]/10 to-transparent rounded-full blur-[130px] -bottom-24 right-[10%] animate-aurora-b" />
+        <div className="aurora a3 w-[420px] h-[420px] bg-gradient-to-r from-[#FFD814]/06 to-transparent rounded-full blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-aurora-c" />
 
         {/* Subtle grid mesh overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#232f3e_1px,transparent_1px),linear-gradient(to_bottom,#232f3e_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_20%,transparent_80%)] opacity-40" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#232f3e_1px,transparent_1px),linear-gradient(to_bottom,#232f3e_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_20%,transparent_80%)] opacity-30" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
@@ -85,63 +85,31 @@ export const Hero: React.FC = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9900] opacity-75" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF9900]" />
           </span>
-          <span className="flex items-center gap-1.5 flex-wrap justify-center">
+          <span className="flex items-center gap-1.5 flex-wrap justify-center font-mono">
             <strong>RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong> · HOSTED BY AWS SBG RISU
           </span>
         </motion.div>
 
-        {/* Grand Typography with Instrument Serif Italics */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+        {/* Grand Authoritative Summit Title (Clean, Powerful, Zero AI Slop) */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white leading-[1.04] sm:leading-[1.02] mb-8 flex flex-col items-center select-none"
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-6 select-none"
         >
-          <span className="block font-heading">
-            <Text3DFlip
-              className="justify-center font-heading"
-              textClassName="font-heading text-white"
-              flipTextClassName="font-heading text-[#FF9900]"
-              rotateDirection="top"
-              staggerDuration={0.03}
-            >
-              Student
-            </Text3DFlip>
-          </span>
-          <span className="block font-serif italic font-normal text-[#FF9900] tracking-normal my-0.5 sm:my-1">
-            <Text3DFlip
-              className="justify-center font-serif italic font-normal"
-              textClassName="font-serif italic font-normal text-[#FF9900]"
-              flipTextClassName="font-serif italic font-normal text-[#38BDF8]"
-              rotateDirection="top"
-              staggerDuration={0.03}
-            >
-              Community
-            </Text3DFlip>
-          </span>
-          <span className="block font-heading">
-            <Text3DFlip
-              className="justify-center font-heading"
-              textClassName="font-heading text-white"
-              flipTextClassName="font-heading text-[#FF9900]"
-              rotateDirection="top"
-              staggerDuration={0.03}
-            >
-              Day 2026
-            </Text3DFlip>
-          </span>
-          <span className="block font-serif italic text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-slate-400 font-normal tracking-wide mt-2">
-            <Text3DFlip
-              className="justify-center font-serif italic"
-              textClassName="font-serif italic text-slate-400"
-              flipTextClassName="font-serif italic text-[#FF9900]"
-              rotateDirection="top"
-              staggerDuration={0.02}
-            >
-              Central India · Bhilai
-            </Text3DFlip>
-          </span>
-        </motion.h1>
+          <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white leading-[1.02]">
+            <span className="block text-white">AWS STUDENT</span>
+            <span className="block bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] bg-clip-text text-transparent">
+              COMMUNITY DAY
+            </span>
+          </h1>
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 text-slate-400 font-mono text-xs sm:text-lg font-bold tracking-widest uppercase">
+            <span className="text-[#FF9900]">[ 2026 ]</span>
+            <span>CENTRAL INDIA</span>
+            <span className="text-[#FF9900]">·</span>
+            <span>BHILAI EDITION</span>
+          </div>
+        </motion.div>
 
         {/* Narrative Subtitle */}
         <motion.p
@@ -259,7 +227,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0 mb-12 sm:mb-16"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0 mb-10 sm:mb-12"
         >
           <a
             href="#agenda"
@@ -279,11 +247,27 @@ export const Hero: React.FC = () => {
           </a>
         </motion.div>
 
+        {/* Real Interactive AWS Cloud Developer Terminal (Zero AI Slop) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full mt-2 mb-12 px-2"
+        >
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#FF9900] animate-pulse" />
+            <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">
+              Live CloudShell &amp; Developer CLI
+            </span>
+          </div>
+          <CloudTerminal />
+        </motion.div>
+
         {/* Scroll cue */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
+          transition={{ duration: 1, delay: 0.85 }}
           className="flex flex-col items-center gap-2 text-slate-500 text-[10px] uppercase tracking-[0.25em]"
         >
           <span>Explore The Summit</span>
@@ -293,3 +277,5 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+
+export default Hero;

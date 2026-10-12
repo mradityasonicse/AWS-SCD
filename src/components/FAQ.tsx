@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FAQS, EVENT_DETAILS } from '../data/eventData';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 import { ScrollReveal } from '@/components/ui/motion-primitives';
 
 export const FAQ: React.FC = () => {
@@ -30,14 +29,7 @@ export const FAQ: React.FC = () => {
                 Frequently Asked Questions
               </p>
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
-                <Text3DFlip
-                  textClassName="text-white"
-                  flipTextClassName="text-[#FF9900]"
-                  rotateDirection="top"
-                  staggerDuration={0.02}
-                >
-                  Everything you need to know.
-                </Text3DFlip>
+                Everything you need to know.
               </h2>
             </div>
           </div>

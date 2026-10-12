@@ -3,7 +3,6 @@ import { SPEAKERS, type Speaker } from '../data/eventData';
 import { ArrowUpRight, Building2, BookOpen, Sparkles, ArrowRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { cn } from '@/lib/utils';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 
 const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3.5" }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -82,14 +81,7 @@ export const Speakers: React.FC = () => {
                   Summit Speakers
                 </p>
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-                  <Text3DFlip
-                    textClassName="text-white"
-                    flipTextClassName="text-[#FF9900]"
-                    rotateDirection="top"
-                    staggerDuration={0.02}
-                  >
-                    The first names are in.
-                  </Text3DFlip>
+                  The first names are in.
                 </h2>
               </div>
             </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { EVENT_DETAILS } from '../data/eventData';
 import { MapPin, Navigation, Train, Plane, ExternalLink } from 'lucide-react';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
 
 export const Venue: React.FC = () => {
@@ -24,14 +23,7 @@ export const Venue: React.FC = () => {
                   Event Campus
                 </p>
                 <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
-                  <Text3DFlip
-                    textClassName="text-white"
-                    flipTextClassName="text-[#FF9900]"
-                    rotateDirection="top"
-                    staggerDuration={0.02}
-                  >
-                    Hosted at RISU Bhilai.
-                  </Text3DFlip>
+                  Hosted at RISU Bhilai.
                 </h2>
               </div>
             </div>

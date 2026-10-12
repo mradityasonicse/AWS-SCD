@@ -1,7 +1,6 @@
 import React from 'react';
 import { PILLARS, WHY_ATTEND } from '../data/eventData';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
 
 export const About: React.FC = () => {
@@ -34,14 +33,7 @@ export const About: React.FC = () => {
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-[#232F3E]">
               <div className="max-w-3xl overflow-visible pb-1">
                 <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
-                  <Text3DFlip
-                    textClassName="text-white"
-                    flipTextClassName="text-[#FF9900]"
-                    rotateDirection="top"
-                    staggerDuration={0.02}
-                  >
-                    One day to level up as a builder.
-                  </Text3DFlip>
+                  One day to level up as a builder.
                 </h2>
               </div>
               <p className="text-slate-400 text-xs sm:text-sm font-mono max-w-sm leading-relaxed lg:text-right shrink-0">
@@ -72,7 +64,7 @@ export const About: React.FC = () => {
               {PILLARS.map((pillar) => (
                 <StaggerItem key={pillar.num}>
                   <SpotlightCard className="p-5 sm:p-6 transition-all duration-300 flex items-start gap-5 hover:translate-x-1 shadow-md">
-                    <span className="font-serif italic text-3xl sm:text-4xl text-[#FF9900] leading-none shrink-0 pt-0.5 group-hover:scale-110 transition-transform">
+                    <span className="font-mono font-black text-2xl sm:text-3xl text-[#FF9900] leading-none shrink-0 pt-1 group-hover:scale-105 transition-transform">
                       {pillar.num}
                     </span>
                     <div>

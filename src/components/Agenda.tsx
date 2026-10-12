@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { AGENDA, type AgendaItem } from '../data/eventData';
 import { Clock, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 import { ScrollReveal, SpotlightCard } from '@/components/ui/motion-primitives';
 
 export const Agenda: React.FC = () => {
@@ -34,14 +33,7 @@ export const Agenda: React.FC = () => {
                   Event Timetable
                 </p>
                 <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
-                  <Text3DFlip
-                    textClassName="text-white"
-                    flipTextClassName="text-[#FF9900]"
-                    rotateDirection="top"
-                    staggerDuration={0.02}
-                  >
-                    One full day, start to finish.
-                  </Text3DFlip>
+                  One full day, start to finish.
                 </h2>
               </div>
             </div>

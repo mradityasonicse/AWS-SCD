@@ -1,7 +1,6 @@
 import React from 'react';
 import { CONTESTS, PRIZES } from '../data/eventData';
 import { Trophy, Gift, Smartphone } from 'lucide-react';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
 
 export const Contests: React.FC = () => {
@@ -24,14 +23,7 @@ export const Contests: React.FC = () => {
                   Summit Contests
                 </p>
                 <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
-                  <Text3DFlip
-                    textClassName="text-white"
-                    flipTextClassName="text-[#FF9900]"
-                    rotateDirection="top"
-                    staggerDuration={0.02}
-                  >
-                    Play, build, and win big.
-                  </Text3DFlip>
+                  Play, build, and win big.
                 </h2>
               </div>
             </div>
@@ -105,7 +97,7 @@ export const Contests: React.FC = () => {
                 <SpotlightCard className="h-full p-6 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5">
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="font-serif italic text-3xl text-[#FF9900] leading-none">
+                      <span className="font-mono font-black text-2xl sm:text-3xl text-[#FF9900] leading-none">
                         {prize.rank}
                       </span>
                       <span className="text-xs font-mono font-bold text-[#38BDF8] bg-[#00A4E4]/15 px-2.5 py-1 rounded-full border border-[#00A4E4]/30">

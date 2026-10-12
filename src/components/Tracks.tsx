@@ -1,7 +1,6 @@
 import React from 'react';
 import { TRACKS } from '../data/eventData';
 import { Brain, Server, ShieldCheck, Zap } from 'lucide-react';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
 
 export const Tracks: React.FC = () => {
@@ -39,14 +38,7 @@ export const Tracks: React.FC = () => {
                   Learning Tracks
                 </p>
                 <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
-                  <Text3DFlip
-                    textClassName="text-white"
-                    flipTextClassName="text-[#FF9900]"
-                    rotateDirection="top"
-                    staggerDuration={0.02}
-                  >
-                    Engineered for every stage of builder.
-                  </Text3DFlip>
+                  Engineered for every stage of builder.
                 </h2>
               </div>
             </div>
@@ -63,7 +55,7 @@ export const Tracks: React.FC = () => {
               <SpotlightCard className="h-full p-7 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-serif italic text-4xl text-[#FF9900]/70 group-hover:text-[#FF9900] transition-colors leading-none">
+                    <span className="font-mono font-black text-3xl text-[#FF9900] group-hover:scale-105 transition-transform leading-none">
                       {track.num}
                     </span>
                     <div className="p-2.5 rounded-xl bg-[#161E2D] border border-[#232F3E] group-hover:border-[#FF9900]/30 transition-colors group-hover:scale-110">

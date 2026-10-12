@@ -1,7 +1,6 @@
 import React from 'react';
 import { Mail, HeartHandshake } from 'lucide-react';
 import { SPONSORS, COMMUNITY_PARTNERS } from '../data/eventData';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
 
 interface SponsorsProps {
@@ -27,14 +26,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
                 Partners &amp; Supporters
               </p>
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
-                <Text3DFlip
-                  textClassName="text-white"
-                  flipTextClassName="text-[#FF9900]"
-                  rotateDirection="top"
-                  staggerDuration={0.02}
-                >
-                  Backed by the best in the ecosystem.
-                </Text3DFlip>
+                Backed by the best in the ecosystem.
               </h2>
             </div>
           </div>

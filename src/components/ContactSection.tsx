@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { EVENT_DETAILS, ORGANIZERS } from '../data/eventData';
-import Text3DFlip from '@/registry/magicui/text-3d-flip';
 import { ScrollReveal, SpotlightCard } from '@/components/ui/motion-primitives';
 
 export const ContactSection: React.FC = () => {
@@ -53,14 +52,7 @@ export const ContactSection: React.FC = () => {
                 Get In Touch
               </p>
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
-                <Text3DFlip
-                  textClassName="text-white"
-                  flipTextClassName="text-[#FF9900]"
-                  rotateDirection="top"
-                  staggerDuration={0.02}
-                >
-                  Let's connect and build together.
-                </Text3DFlip>
+                Let's connect and build together.
               </h2>
             </div>
           </div>
