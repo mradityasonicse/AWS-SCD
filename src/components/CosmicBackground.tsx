@@ -10,28 +10,40 @@ export const CosmicBackground: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    const setupCanvas = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.scale(dpr, dpr);
+    };
+
+    setupCanvas();
 
     const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      setupCanvas();
     };
     window.addEventListener('resize', handleResize, { passive: true });
 
-    // Particle system - optimized count for buttery 60/120fps on mobile
+    // Particle system - optimized count for rock-solid 60/120fps
     const isMobile = width < 768;
-    const numStars = isMobile ? 32 : 75;
-    const maxLineDist = isMobile ? 85 : 110;
+    const numStars = isMobile ? 36 : 80;
+    const maxLineDist = isMobile ? 90 : 120;
 
     const stars: {
       x: number;
       y: number;
-      size: number;
+      baseSize: number;
       speedX: number;
       speedY: number;
       opacity: number;
+      phase: number;
       color: string;
     }[] = [];
 
@@ -41,69 +53,89 @@ export const CosmicBackground: React.FC = () => {
       stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * (isMobile ? 1.6 : 2.2) + 0.5,
-        speedX: (Math.random() - 0.5) * 0.25,
-        speedY: (Math.random() - 0.5) * 0.25,
-        opacity: Math.random() * 0.7 + 0.2,
+        baseSize: Math.random() * (isMobile ? 1.6 : 2.2) + 0.6,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.6 + 0.25,
+        phase: Math.random() * Math.PI * 2,
         color: colors[Math.floor(Math.random() * colors.length)],
       });
     }
 
-    let mouseX = width / 2;
-    let mouseY = height / 2;
+    let targetMouseX = width / 2;
+    let targetMouseY = height / 2;
+    let smoothMouseX = width / 2;
+    let smoothMouseY = height / 2;
+
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      targetMouseX = e.clientX;
+      targetMouseY = e.clientY;
     };
+
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches && e.touches.length > 0) {
-        mouseX = e.touches[0].clientX;
-        mouseY = e.touches[0].clientY;
+        targetMouseX = e.touches[0].clientX;
+        targetMouseY = e.touches[0].clientY;
       }
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-    const render = () => {
+    const render = (time: number) => {
+      // Smooth lerp mouse coordinates for fluid cinematic inertia
+      smoothMouseX += (targetMouseX - smoothMouseX) * 0.06;
+      smoothMouseY += (targetMouseY - smoothMouseY) * 0.06;
+
       ctx.clearRect(0, 0, width, height);
 
-      // Deep cosmic AWS gradient
+      // Deep cosmic AWS radial glow centered on smooth mouse
       const gradient = ctx.createRadialGradient(
-        mouseX,
-        mouseY,
-        50,
+        smoothMouseX,
+        smoothMouseY,
+        40,
         width / 2,
         height / 2,
         Math.max(width, height)
       );
       gradient.addColorStop(0, 'rgba(255, 153, 0, 0.09)');
-      gradient.addColorStop(0.4, 'rgba(0, 164, 228, 0.05)');
+      gradient.addColorStop(0.35, 'rgba(0, 164, 228, 0.05)');
+      gradient.addColorStop(0.8, 'rgba(11, 15, 23, 0.02)');
       gradient.addColorStop(1, 'transparent');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
 
+      const tSec = time * 0.001;
+
       // Render stars & lines
       for (let i = 0; i < stars.length; i++) {
         const s = stars[i];
+
+        // Smooth velocity
         s.x += s.speedX;
         s.y += s.speedY;
 
+        // Screen wrap
         if (s.x < 0) s.x = width;
         if (s.x > width) s.x = 0;
         if (s.y < 0) s.y = height;
         if (s.y > height) s.y = 0;
 
+        // Subtle organic twinkle
+        const twinkle = Math.sin(tSec * 2 + s.phase) * 0.25;
+        const currentOpacity = Math.max(0.1, Math.min(1, s.opacity + twinkle));
+        const currentSize = s.baseSize * (1 + twinkle * 0.3);
+
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.arc(s.x, s.y, currentSize, 0, Math.PI * 2);
         ctx.fillStyle = s.color;
-        ctx.globalAlpha = s.opacity;
+        ctx.globalAlpha = currentOpacity;
         ctx.shadowBlur = 8;
         ctx.shadowColor = s.color;
         ctx.fill();
         ctx.shadowBlur = 0;
 
-        // Draw connective web for nearby stars
+        // Connective constellation lines for nearby stars
         for (let j = i + 1; j < stars.length; j++) {
           const s2 = stars[j];
           const dx = s.x - s2.x;
@@ -126,7 +158,7 @@ export const CosmicBackground: React.FC = () => {
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    animationFrameId = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -148,3 +180,5 @@ export const CosmicBackground: React.FC = () => {
     </div>
   );
 };
+
+export default CosmicBackground;

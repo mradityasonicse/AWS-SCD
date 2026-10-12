@@ -11,13 +11,14 @@ export const LogoMarquee: React.FC = () => {
     { name: 'RISU Innovation Cell', src: '/risu-logo.png', badge: 'Tech Incubator' },
   ];
 
-  const marqueeLogos = [...logos, ...logos, ...logos];
+  // Exactly two duplicate sets for seamless 50% translateX loop
+  const marqueeLogos = [...logos, ...logos];
 
   return (
     <section className="relative bg-[#131921]/90 border-y border-[#232F3E] overflow-hidden py-6 backdrop-blur-md">
       {/* Editorial Bold Phrase Marquee */}
       <div className="overflow-hidden whitespace-nowrap mb-6 border-b border-[#232F3E] pb-4">
-        <div className="animate-marquee flex items-center gap-12 font-heading font-black text-3xl sm:text-5xl uppercase tracking-tighter text-white">
+        <div className="animate-marquee flex items-center gap-12 font-heading font-black text-3xl sm:text-5xl uppercase tracking-tighter text-white will-change-transform">
           <span className="flex items-center gap-8">
             <span>BUILD</span>
             <span className="text-[#FF9900] font-serif italic text-4xl">✦</span>
@@ -55,7 +56,7 @@ export const LogoMarquee: React.FC = () => {
 
       {/* Brand Logos Stream */}
       <div className="flex w-full overflow-hidden">
-        <div className="animate-marquee flex items-center gap-8 sm:gap-12 py-1">
+        <div className="animate-marquee flex items-center gap-8 sm:gap-12 py-1 will-change-transform">
           {marqueeLogos.map((item, idx) => (
             <div
               key={`${item.name}-${idx}`}
@@ -81,3 +82,5 @@ export const LogoMarquee: React.FC = () => {
     </section>
   );
 };
+
+export default LogoMarquee;

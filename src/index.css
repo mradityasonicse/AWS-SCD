@@ -145,6 +145,7 @@
   display: inline-flex;
   white-space: nowrap;
   animation: tickerSlide 40s linear infinite;
+  will-change: transform;
 }
 
 .animate-ticker:hover {
@@ -169,6 +170,7 @@
   display: flex;
   width: max-content;
   animation: marquee 32s linear infinite;
+  will-change: transform;
 }
 
 .animate-marquee:hover {
@@ -192,14 +194,28 @@
 
 .animate-aurora-a {
   animation: auroraA 18s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-aurora-b {
   animation: auroraB 22s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-aurora-c {
   animation: auroraC 26s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker,
+  .animate-marquee,
+  .animate-aurora-a,
+  .animate-aurora-b,
+  .animate-aurora-c,
+  .animate-dot-pulse {
+    animation: none !important;
+  }
 }
 
 /* Custom scrollbar - AWS Dark Style */
@@ -226,7 +242,3 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-
-
-
-

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -213,9 +213,11 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
   members = ORGANIZER_TEAM,
   className = "",
 }) => {
-  const [activeIndex, setActiveIndex] = useState(0); // Uddyan Sahu lead default
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const count = members.length;
+  const stageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -235,6 +237,13 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
     setActiveIndex((prev) => (prev - 1 + count) % count);
   }, [count]);
 
+  // Subtle auto-rotation when user is not actively interacting
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(handleNext, 6000);
+    return () => clearInterval(interval);
+  }, [isHovered, handleNext]);
+
   // Keyboard navigation (← and →)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -252,7 +261,11 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
 
   return (
     <div
+      ref={stageRef}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       className={`relative w-full max-w-5xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#131921] border border-[#232F3E] shadow-2xl p-4 xs:p-6 sm:p-10 overflow-hidden flex flex-col items-center select-none backdrop-blur-2xl ${className}`}
+      style={{ perspective: "1200px" }}
     >
       {/* Top Frame Ambient Glow Line */}
       <div className="absolute top-0 left-12 right-12 h-[1px] bg-gradient-to-r from-transparent via-[#FF9900]/40 to-transparent pointer-events-none" />
@@ -280,8 +293,11 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
         </div>
       </div>
 
-      {/* Deck Stage Frame */}
-      <div className="relative w-full h-[450px] xs:h-[470px] sm:h-[490px] flex items-center justify-center">
+      {/* Deck Stage Frame with 3D Space */}
+      <div
+        className="relative w-full h-[450px] xs:h-[470px] sm:h-[490px] flex items-center justify-center"
+        style={{ transformStyle: "preserve-3d" }}
+      >
         {members.map((member, index) => {
           // Symmetrical Parabolic Fan Wrapping
           let offset = index - activeIndex;
@@ -318,9 +334,9 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
               }}
               transition={{
                 type: "spring",
-                stiffness: 260,
+                stiffness: 280,
                 damping: 26,
-                mass: 0.85,
+                mass: 0.8,
               }}
               drag={isActive ? "x" : false}
               dragConstraints={{ left: 0, right: 0 }}
