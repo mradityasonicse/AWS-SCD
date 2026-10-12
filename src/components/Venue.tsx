@@ -133,14 +133,33 @@ export const Venue: React.FC = () => {
 
                 <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#0B0F17] overflow-hidden group">
                   <iframe
-                    title="RISU Bhilai Location Map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.539308688487!2d81.33924377598851!3d21.210452380482596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a29235e1657c913%3A0xa621d9eb169123fe!2sRungta%20International%20Skills%20University!5e0!3m2!1sen!2sin!4v1713500000000!5m2!1sen!2sin"
-                    className="w-full h-full border-0 filter grayscale contrast-125 opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500"
+                    title="Rungta International Skills University - Campus Satellite View"
+                    src="https://maps.google.com/maps?q=21.2350,81.3462&t=k&z=17&ie=UTF8&output=embed"
+                    className="w-full h-full border-0 transition-all duration-300"
                     loading="lazy"
+                    allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"
                   />
-                  <div className="absolute top-4 left-4 pointer-events-none bg-[#131921]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#232F3E] text-xs font-mono text-slate-300 shadow-md">
-                    📍 21.2105° N, 81.3414° E · Bhilai
+                  {/* Floating Coordinates & Campus Location Drop Pin Badge */}
+                  <div className="absolute top-4 left-4 pointer-events-none bg-[#131921]/95 backdrop-blur-md px-3.5 py-2 rounded-xl border border-[#232F3E] text-xs font-mono text-slate-200 shadow-xl flex items-center gap-2.5 z-10">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9900] opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF9900]" />
+                    </span>
+                    <div>
+                      <div className="font-bold text-white flex items-center gap-1.5">
+                        <span>📍 Rungta International Skills University</span>
+                      </div>
+                      <div className="text-[10px] text-slate-400">
+                        21.2350° N, 81.3462° E · Kohka-Kurud Road, Bhilai
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Satellite Mode HUD Tag */}
+                  <div className="absolute bottom-4 right-4 pointer-events-none bg-[#0B0F17]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#232F3E] text-[10px] font-mono text-emerald-400 flex items-center gap-2 z-10">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>SATELLITE HIGH-RES · PINNED</span>
                   </div>
                 </div>
               </div>
