@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Menu, X, ArrowUpRight, Sparkles, Layers, Users, Calendar, MapPin, Trophy, HeartHandshake, HelpCircle, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { EVENT_DETAILS } from '../data/eventData';
+import { cn } from '@/lib/utils';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -21,50 +22,98 @@ export const Navbar: React.FC = () => {
     { id: 'contact', name: 'Contact', href: '#contact', icon: Mail },
   ];
 
-  // Scroll listener for sticky styling and dynamic scroll spy
+  // Zero-lag off-thread Scroll Spy using IntersectionObserver (eliminates layout thrashing)
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      // Scroll spy logic
-      const sections = navLinks.map((link) => link.id);
-      const scrollPosition = window.scrollY + 200;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveItem(sections[i]);
-          break;
-        }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveItem(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-90px 0px -55% 0px',
+        threshold: 0.05,
       }
+    );
+
+    navLinks.forEach((link) => {
+      const el = document.getElementById(link.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // RAF-throttled scroll state updater (only triggers re-render when boolean value actually flips)
+  useEffect(() => {
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        const isScrolled = window.scrollY > 20;
+        setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+        rafId = null;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  // Smooth scroll click handler with header offset calculation
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
+      e.preventDefault();
+      setActiveItem(id);
+      setMobileMenuOpen(false);
+
+      const targetId = href.replace('#', '');
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const top = targetElement.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top, behavior: 'smooth' });
+        window.history.pushState(null, '', href);
+      }
+    },
+    []
+  );
 
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-9 left-0 right-0 z-[100] px-3 sm:px-6 py-2 transition-all duration-300 pointer-events-none"
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-9 left-0 right-0 z-[100] px-3 sm:px-6 py-2 pointer-events-none transform-gpu will-change-transform"
     >
       <div
-        className={`max-w-[1380px] w-full mx-auto transition-all duration-300 pointer-events-auto border relative ${
+        className={cn(
+          "max-w-[1380px] w-full mx-auto pointer-events-auto border relative transition-[background-color,border-color,box-shadow,border-radius] duration-200 transform-gpu",
           mobileMenuOpen
-            ? 'rounded-[28px] bg-[#131921] shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-[#232F3E] py-3 px-5'
+            ? "rounded-[28px] bg-[#131921] shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-[#232F3E] py-3 px-5"
             : scrolled
-              ? 'rounded-full bg-[#131921]/90 backdrop-blur-2xl border-[#232F3E] shadow-[0_10px_35px_rgba(0,0,0,0.5)] py-2 px-4 sm:px-6'
-              : 'rounded-full bg-[#131921]/80 backdrop-blur-xl border-[#232F3E] shadow-[0_4px_25px_rgba(0,0,0,0.4)] py-2 px-4 sm:px-6'
-        }`}
+              ? "rounded-full bg-[#131921]/92 backdrop-blur-xl border-[#232F3E] shadow-[0_10px_35px_rgba(0,0,0,0.5)] py-2 px-4 sm:px-6"
+              : "rounded-full bg-[#131921]/80 backdrop-blur-lg border-[#232F3E] shadow-[0_4px_25px_rgba(0,0,0,0.4)] py-2 px-4 sm:px-6"
+        )}
       >
         <div className="flex items-center justify-between gap-3 sm:gap-4">
           {/* Brand logos */}
-          <a href="#" className="flex items-center gap-3 group shrink-0">
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.history.pushState(null, '', '/');
+            }}
+            className="flex items-center gap-3 group shrink-0"
+          >
             <div className="flex items-center gap-2">
-              <div className="h-9 w-9 rounded-xl bg-[#161E2D] p-1 border border-[#232F3E] backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm relative">
+              <div className="h-9 w-9 rounded-xl bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-sm relative">
                 <img
                   src="/risu-logo.png"
                   alt="RISU Logo"
@@ -90,7 +139,7 @@ export const Navbar: React.FC = () => {
             </div>
           </a>
 
-          {/* Desktop Navigation Links with Animated Pill Indicator */}
+          {/* Desktop Navigation Links with Smooth Spring Pill */}
           <nav
             className="hidden xl:flex items-center justify-center gap-1 bg-[#161E2D]/90 border border-[#232F3E] rounded-full px-2 py-1 relative"
             aria-label="Primary navigation"
@@ -105,33 +154,35 @@ export const Navbar: React.FC = () => {
                 <a
                   key={link.id}
                   href={link.href}
-                  onClick={() => setActiveItem(link.id)}
+                  onClick={(e) => handleNavClick(e, link.href, link.id)}
                   onMouseEnter={() => setHoveredItem(link.id)}
-                  className={`relative px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer select-none inline-flex items-center gap-1.5 text-xs tracking-wider z-10 ${
+                  className={cn(
+                    "relative px-3 py-1.5 rounded-full transition-colors duration-150 cursor-pointer select-none inline-flex items-center gap-1.5 text-xs tracking-wider z-10",
                     isActive
-                      ? 'text-[#0B0F17] font-black'
-                      : 'text-slate-300 hover:text-white font-semibold'
-                  }`}
+                      ? "text-[#0B0F17] font-black"
+                      : "text-slate-300 hover:text-white font-semibold"
+                  )}
                 >
-                  {/* Sliding Active Pill */}
+                  {/* Sliding Active Pill with optimized spring parameters */}
                   {isActive && (
                     <motion.div
                       layoutId="navbar-active-pill"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      className="absolute inset-0 bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#FF9900] rounded-full shadow-[0_4px_16px_rgba(255,153,0,0.4)] -z-10"
+                      transition={{
+                        type: "spring",
+                        stiffness: 450,
+                        damping: 32,
+                        mass: 0.5,
+                      }}
+                      className="absolute inset-0 bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#FF9900] rounded-full shadow-[0_2px_14px_rgba(255,153,0,0.4)] -z-10"
                     />
                   )}
 
-                  {/* Subtle Hover Pill */}
+                  {/* High-speed CSS hover backdrop (zero layoutId collision) */}
                   {isHovered && !isActive && (
-                    <motion.div
-                      layoutId="navbar-hover-pill"
-                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
-                      className="absolute inset-0 bg-white/10 rounded-full -z-10"
-                    />
+                    <div className="absolute inset-0 bg-white/10 rounded-full -z-10 transition-opacity duration-150" />
                   )}
 
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
                   <span>{link.name}</span>
                 </a>
               );
@@ -142,6 +193,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
               href="#contact"
+              onClick={(e) => handleNavClick(e, '#contact', 'contact')}
               className="hidden sm:flex group cursor-pointer bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] text-[#0B0F17] font-black text-xs px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(255,153,0,0.35)] hover:shadow-[0_6px_22px_rgba(255,153,0,0.5)] hover:-translate-y-0.5 items-center gap-1.5 shrink-0"
             >
               <span>GET IN TOUCH</span>
@@ -166,7 +218,7 @@ export const Navbar: React.FC = () => {
               initial={{ opacity: 0, height: 0, y: -6 }}
               animate={{ opacity: 1, height: 'auto', y: 0 }}
               exit={{ opacity: 0, height: 0, y: -6 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
               className="xl:hidden mt-3 pt-3 border-t border-[#232F3E] overflow-hidden"
             >
               <div className="grid grid-cols-2 xs:grid-cols-3 gap-2 text-xs font-semibold py-2">
@@ -174,17 +226,20 @@ export const Navbar: React.FC = () => {
                   <a
                     key={link.id}
                     href={link.href}
-                    onClick={() => {
-                      setActiveItem(link.id);
-                      setMobileMenuOpen(false);
-                    }}
-                    className={`px-3 py-2.5 rounded-xl transition-all duration-200 flex items-center gap-2 ${
+                    onClick={(e) => handleNavClick(e, link.href, link.id)}
+                    className={cn(
+                      "px-3 py-2.5 rounded-xl transition-all duration-150 flex items-center gap-2",
                       activeItem === link.id
-                        ? 'bg-[#FF9900] text-[#0B0F17] font-black shadow-md'
-                        : 'text-slate-200 active:bg-[#FF9900]/15 hover:text-[#FF9900] hover:bg-[#FF9900]/10'
-                    }`}
+                        ? "bg-[#FF9900] text-[#0B0F17] font-black shadow-md"
+                        : "text-slate-200 active:bg-[#FF9900]/15 hover:text-[#FF9900] hover:bg-[#FF9900]/10"
+                    )}
                   >
-                    <link.icon className={`w-3.5 h-3.5 shrink-0 ${activeItem === link.id ? 'text-[#0B0F17]' : 'text-[#FF9900]'}`} />
+                    <link.icon
+                      className={cn(
+                        "w-3.5 h-3.5 shrink-0",
+                        activeItem === link.id ? "text-[#0B0F17]" : "text-[#FF9900]"
+                      )}
+                    />
                     <span className="truncate">{link.name}</span>
                   </a>
                 ))}
@@ -192,7 +247,7 @@ export const Navbar: React.FC = () => {
               <div className="pt-2 flex gap-2">
                 <a
                   href="#contact"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, '#contact', 'contact')}
                   className="w-full bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] text-[#0B0F17] font-black text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg shadow-[#FF9900]/25 hover:brightness-110 transition-all"
                 >
                   <span>GET IN TOUCH</span>
@@ -207,3 +262,4 @@ export const Navbar: React.FC = () => {
   );
 };
 
+export default Navbar;
