@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, MapPin, Calendar, Users, Trophy } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import confetti from 'canvas-confetti';
-import { CloudTerminal } from './CloudTerminal';
 
 export const Hero: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -245,22 +244,6 @@ export const Hero: React.FC = () => {
             <MapPin className="w-5 h-5 text-[#FF9900] group-hover:scale-105 transition-transform shrink-0 stroke-[2]" />
             <span className="tracking-wide">Campus &amp; Venue Details</span>
           </a>
-        </motion.div>
-
-        {/* Real Interactive AWS Cloud Developer Terminal (Zero AI Slop) */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full mt-2 mb-12 px-2"
-        >
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#FF9900] animate-pulse" />
-            <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">
-              Live CloudShell &amp; Developer CLI
-            </span>
-          </div>
-          <CloudTerminal />
         </motion.div>
 
         {/* Scroll cue */}
