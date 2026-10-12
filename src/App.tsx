@@ -27,7 +27,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#FAFAFA] text-[#171717] selection:bg-[#D946EF] selection:text-white font-sans antialiased overflow-x-clip">
+    <div className="relative min-h-screen bg-[#0B0F17] text-[#F8FAFC] selection:bg-[#FF9900] selection:text-[#0B0F17] font-sans antialiased overflow-x-clip">
       {/* Top Breaking News Ticker */}
       <Ticker />
 

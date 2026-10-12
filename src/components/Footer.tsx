@@ -8,34 +8,34 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative border-t border-neutral-200 bg-white text-neutral-600 pt-16 pb-12 px-4 sm:px-6">
+    <footer className="relative border-t border-[#232F3E] bg-[#0B0F17] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
       {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-10 bg-[#D946EF]/15 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-10 bg-[#FF9900]/12 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-neutral-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#232F3E]">
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img src="/AWS.png" alt="AWS" className="h-8 w-auto object-contain" />
-              <div className="h-6 w-[1px] bg-neutral-200" />
+              <div className="h-6 w-[1px] bg-[#232F3E]" />
               <img src="/AWS_SBG.png" alt="AWS SBG" className="h-7 w-auto object-contain" />
-              <div className="h-6 w-[1px] bg-neutral-200" />
-              <div className="h-8 w-8 rounded-lg bg-neutral-100 p-1 border border-neutral-200 flex items-center justify-center">
+              <div className="h-6 w-[1px] bg-[#232F3E]" />
+              <div className="h-8 w-8 rounded-lg bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center">
                 <img src="/risu-logo.png" alt="RISU" className="h-full w-full object-contain" />
               </div>
             </div>
 
             <div>
-              <h3 className="text-lg font-black text-[#171717]">
+              <h3 className="text-lg font-black text-white">
                 AWS Student Community Day Bhilai 2026
               </h3>
-              <p className="text-xs font-semibold text-[#D946EF] mt-0.5">
+              <p className="text-xs font-semibold text-[#FF9900] mt-0.5">
                 Hosted at {EVENT_DETAILS.institution} (RISU)
               </p>
             </div>
 
-            <p className="text-xs text-neutral-500 leading-relaxed max-w-sm">
+            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Chhattisgarh's premier student-led cloud conference bringing together ambitious undergraduates, AWS heroes, and visionary software builders.
             </p>
 
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
                 href={EVENT_DETAILS.socials.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-600 hover:text-[#D946EF] hover:border-[#D946EF]/40 transition-all"
+                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
                 href={EVENT_DETAILS.socials.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-600 hover:text-[#D946EF] hover:border-[#D946EF]/40 transition-all"
+                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
                 href={EVENT_DETAILS.socials.twitter}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-600 hover:text-[#D946EF] hover:border-[#D946EF]/40 transition-all"
+                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all"
                 aria-label="Twitter / X"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 href={`mailto:${EVENT_DETAILS.contactEmail}`}
-                className="p-2 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-600 hover:text-[#D946EF] hover:border-[#D946EF]/40 transition-all"
+                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all"
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
@@ -85,58 +85,58 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-widest text-[#171717]">
+            <h4 className="text-xs font-black uppercase tracking-widest text-white">
               Navigation
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#about" className="hover:text-[#D946EF] transition-colors">About Summit</a>
+                <a href="#about" className="hover:text-[#FF9900] transition-colors">About Summit</a>
               </li>
               <li>
-                <a href="#tracks" className="hover:text-[#D946EF] transition-colors">Learning Tracks</a>
+                <a href="#tracks" className="hover:text-[#FF9900] transition-colors">Learning Tracks</a>
               </li>
               <li>
-                <a href="#speakers" className="hover:text-[#D946EF] transition-colors">Speakers &amp; Keynotes</a>
+                <a href="#speakers" className="hover:text-[#FF9900] transition-colors">Speakers &amp; Keynotes</a>
               </li>
               <li>
-                <a href="#agenda" className="hover:text-[#D946EF] transition-colors">Session Timetable</a>
+                <a href="#agenda" className="hover:text-[#FF9900] transition-colors">Session Timetable</a>
               </li>
               <li>
-                <a href="#venue" className="hover:text-[#D946EF] transition-colors">Campus Venue &amp; Transit</a>
+                <a href="#venue" className="hover:text-[#FF9900] transition-colors">Campus Venue &amp; Transit</a>
               </li>
               <li>
-                <a href="#contests" className="hover:text-[#D946EF] transition-colors">Kahoot Quiz &amp; Prizes</a>
+                <a href="#contests" className="hover:text-[#FF9900] transition-colors">Kahoot Quiz &amp; Prizes</a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#D946EF] transition-colors">Contact Organizers</a>
+                <a href="#contact" className="hover:text-[#FF9900] transition-colors">Contact Organizers</a>
               </li>
               <li>
-                <a href="#team" className="hover:text-[#D946EF] transition-colors">Core Organizing Team</a>
+                <a href="#team" className="hover:text-[#FF9900] transition-colors">Core Organizing Team</a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-[#D946EF] transition-colors">Frequently Asked Questions</a>
+                <a href="#faq" className="hover:text-[#FF9900] transition-colors">Frequently Asked Questions</a>
               </li>
             </ul>
           </div>
 
           {/* Academic Host & Community */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-widest text-[#171717]">
+            <h4 className="text-xs font-black uppercase tracking-widest text-white">
               Academic Host Partner
             </h4>
-            <div className="rounded-2xl border border-neutral-200 bg-neutral-50/70 p-4 space-y-2">
+            <div className="rounded-2xl border border-[#232F3E] bg-[#131921] p-4 space-y-2">
               <div className="flex items-center gap-2.5">
-                <div className="h-7 w-7 rounded-lg bg-neutral-100 p-0.5 border border-neutral-200 flex items-center justify-center shrink-0">
+                <div className="h-7 w-7 rounded-lg bg-[#161E2D] p-0.5 border border-[#232F3E] flex items-center justify-center shrink-0">
                   <img src="/risu-logo.png" alt="RISU" className="h-full w-full object-contain" />
                 </div>
-                <span className="text-xs font-bold text-[#171717]">
+                <span className="text-xs font-bold text-white">
                   Rungta International Skills University
                 </span>
               </div>
-              <p className="text-[11px] text-neutral-500 leading-relaxed">
+              <p className="text-[11px] text-slate-400 leading-relaxed">
                 Rungta Knowledge City, Kohka-Kurud Road, Bhilai, Chhattisgarh 490024
               </p>
-              <p className="text-[11px] text-neutral-400">
+              <p className="text-[11px] text-slate-500">
                 Department of Computer Science &amp; Cloud Technologies
               </p>
             </div>
@@ -144,18 +144,18 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Legal & Credits */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <p>
             © 2026 AWS Student Builder Group RISU. All rights reserved.
           </p>
 
-          <p className="max-w-md text-center sm:text-right text-[10px] text-neutral-400 leading-snug">
+          <p className="max-w-md text-center sm:text-right text-[10px] text-slate-500 leading-snug">
             AWS Student Community Day is an independent student conference hosted by the AWS SBG at Rungta International Skills University (RISU) and is not run by Amazon Web Services, Inc.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-neutral-100 border border-neutral-200 text-neutral-600 hover:text-[#D946EF] hover:bg-neutral-200 transition-colors cursor-pointer"
+            className="p-2.5 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/50 transition-colors cursor-pointer"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />

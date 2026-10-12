@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Sparkles, Layers, Users, Calendar, MapPin, Trophy, HeartHandshake, HelpCircle, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { EVENT_DETAILS } from '../data/eventData';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState('about');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const navLinks = [
     { id: 'about', name: 'About', href: '#about', icon: Sparkles },
@@ -27,29 +21,59 @@ export const Navbar: React.FC = () => {
     { id: 'contact', name: 'Contact', href: '#contact', icon: Mail },
   ];
 
+  // Scroll listener for sticky styling and dynamic scroll spy
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+
+      // Scroll spy logic
+      const sections = navLinks.map((link) => link.id);
+      const scrollPosition = window.scrollY + 200;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveItem(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-9 left-0 right-0 z-[100] px-3 sm:px-6 py-2 transition-all duration-300 pointer-events-none">
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-9 left-0 right-0 z-[100] px-3 sm:px-6 py-2 transition-all duration-300 pointer-events-none"
+    >
       <div
         className={`max-w-[1380px] w-full mx-auto transition-all duration-300 pointer-events-auto border relative ${
           mobileMenuOpen
-            ? 'rounded-[28px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.12)] border-neutral-200 py-3 px-5'
+            ? 'rounded-[28px] bg-[#131921] shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-[#232F3E] py-3 px-5'
             : scrolled
-              ? 'rounded-full bg-white/95 backdrop-blur-2xl border-neutral-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.08)] py-2 px-4 sm:px-6'
-              : 'rounded-full bg-white/85 backdrop-blur-xl border-neutral-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] py-2 px-4 sm:px-6'
+              ? 'rounded-full bg-[#131921]/90 backdrop-blur-2xl border-[#232F3E] shadow-[0_10px_35px_rgba(0,0,0,0.5)] py-2 px-4 sm:px-6'
+              : 'rounded-full bg-[#131921]/80 backdrop-blur-xl border-[#232F3E] shadow-[0_4px_25px_rgba(0,0,0,0.4)] py-2 px-4 sm:px-6'
         }`}
       >
         <div className="flex items-center justify-between gap-3 sm:gap-4">
           {/* Brand logos */}
           <a href="#" className="flex items-center gap-3 group shrink-0">
             <div className="flex items-center gap-2">
-              <div className="h-9 w-9 rounded-xl bg-neutral-100 p-1 border border-neutral-200 backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
+              <div className="h-9 w-9 rounded-xl bg-[#161E2D] p-1 border border-[#232F3E] backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm relative">
                 <img
                   src="/risu-logo.png"
                   alt="RISU Logo"
                   className="h-full w-full object-contain"
                 />
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FF9900] rounded-full animate-ping pointer-events-none opacity-75" />
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FF9900] rounded-full" />
               </div>
-              <div className="h-6 w-px bg-neutral-200" />
+              <div className="h-6 w-px bg-[#232F3E]" />
               <img
                 src="/AWS.png"
                 alt="AWS Logo"
@@ -57,34 +81,56 @@ export const Navbar: React.FC = () => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-sm sm:text-base tracking-tight text-[#171717] flex items-center gap-1.5">
-                AWS SCD <span className="text-[#D946EF] font-serif italic text-base">2026</span>
+              <span className="font-extrabold text-sm sm:text-base tracking-tight text-white flex items-center gap-1.5">
+                AWS SCD <span className="text-[#FF9900] font-serif italic text-base">2026</span>
               </span>
-              <span className="text-[10px] text-neutral-500 uppercase tracking-widest font-mono hidden md:inline">
+              <span className="text-[10px] text-slate-400 uppercase tracking-widest font-mono hidden md:inline">
                 {EVENT_DETAILS.institutionAcronym} · Central India
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links with Animated Pill Indicator */}
           <nav
-            className="hidden xl:flex items-center justify-center gap-1 bg-neutral-100/80 border border-neutral-200/80 rounded-full px-2 py-1"
+            className="hidden xl:flex items-center justify-center gap-1 bg-[#161E2D]/90 border border-[#232F3E] rounded-full px-2 py-1 relative"
             aria-label="Primary navigation"
+            onMouseLeave={() => setHoveredItem(null)}
           >
             {navLinks.map((link) => {
               const Icon = link.icon;
               const isActive = activeItem === link.id;
+              const isHovered = hoveredItem === link.id;
+
               return (
                 <a
                   key={link.id}
                   href={link.href}
                   onClick={() => setActiveItem(link.id)}
-                  className={`px-3 py-1.5 rounded-full transition-all duration-200 cursor-pointer select-none inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider ${
+                  onMouseEnter={() => setHoveredItem(link.id)}
+                  className={`relative px-3 py-1.5 rounded-full transition-colors duration-200 cursor-pointer select-none inline-flex items-center gap-1.5 text-xs tracking-wider z-10 ${
                     isActive
-                      ? 'bg-[#D946EF] text-white font-bold shadow-[0_4px_14px_rgba(217,70,239,0.35)]'
-                      : 'text-neutral-600 hover:text-neutral-900 hover:bg-white/80'
+                      ? 'text-[#0B0F17] font-black'
+                      : 'text-slate-300 hover:text-white font-semibold'
                   }`}
                 >
+                  {/* Sliding Active Pill */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="navbar-active-pill"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      className="absolute inset-0 bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#FF9900] rounded-full shadow-[0_4px_16px_rgba(255,153,0,0.4)] -z-10"
+                    />
+                  )}
+
+                  {/* Subtle Hover Pill */}
+                  {isHovered && !isActive && (
+                    <motion.div
+                      layoutId="navbar-hover-pill"
+                      transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                      className="absolute inset-0 bg-white/10 rounded-full -z-10"
+                    />
+                  )}
+
                   <Icon className="w-3.5 h-3.5" />
                   <span>{link.name}</span>
                 </a>
@@ -96,7 +142,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
               href="#contact"
-              className="hidden sm:flex group cursor-pointer bg-[#D946EF] hover:bg-[#C026D3] active:bg-[#A21CAF] text-white font-bold text-xs px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(217,70,239,0.35)] hover:shadow-[0_6px_22px_rgba(217,70,239,0.5)] hover:-translate-y-0.5 items-center gap-1.5 shrink-0"
+              className="hidden sm:flex group cursor-pointer bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] text-[#0B0F17] font-black text-xs px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(255,153,0,0.35)] hover:shadow-[0_6px_22px_rgba(255,153,0,0.5)] hover:-translate-y-0.5 items-center gap-1.5 shrink-0"
             >
               <span>GET IN TOUCH</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -105,46 +151,59 @@ export const Navbar: React.FC = () => {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 active:scale-95 rounded-full transition-all cursor-pointer border border-neutral-200"
+              className="xl:hidden p-2 text-slate-300 hover:text-white hover:bg-[#161E2D] active:scale-95 rounded-full transition-all cursor-pointer border border-[#232F3E]"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-[#D946EF]" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[#FF9900]" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="xl:hidden mt-3 pt-3 border-t border-neutral-200 animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="grid grid-cols-2 xs:grid-cols-3 gap-2 text-xs font-semibold py-2">
-              {navLinks.map((link) => (
+        {/* Mobile Navigation Drawer with Smooth AnimatePresence */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0, y: -6 }}
+              animate={{ opacity: 1, height: 'auto', y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -6 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="xl:hidden mt-3 pt-3 border-t border-[#232F3E] overflow-hidden"
+            >
+              <div className="grid grid-cols-2 xs:grid-cols-3 gap-2 text-xs font-semibold py-2">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    onClick={() => {
+                      setActiveItem(link.id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`px-3 py-2.5 rounded-xl transition-all duration-200 flex items-center gap-2 ${
+                      activeItem === link.id
+                        ? 'bg-[#FF9900] text-[#0B0F17] font-black shadow-md'
+                        : 'text-slate-200 active:bg-[#FF9900]/15 hover:text-[#FF9900] hover:bg-[#FF9900]/10'
+                    }`}
+                  >
+                    <link.icon className={`w-3.5 h-3.5 shrink-0 ${activeItem === link.id ? 'text-[#0B0F17]' : 'text-[#FF9900]'}`} />
+                    <span className="truncate">{link.name}</span>
+                  </a>
+                ))}
+              </div>
+              <div className="pt-2 flex gap-2">
                 <a
-                  key={link.id}
-                  href={link.href}
-                  onClick={() => {
-                    setActiveItem(link.id);
-                    setMobileMenuOpen(false);
-                  }}
-                  className="px-3 py-2.5 rounded-xl text-neutral-700 active:bg-[#D946EF]/15 hover:text-[#D946EF] hover:bg-[#D946EF]/10 transition-colors flex items-center gap-2"
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] text-[#0B0F17] font-black text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg shadow-[#FF9900]/25 hover:brightness-110 transition-all"
                 >
-                  <link.icon className="w-3.5 h-3.5 text-[#D946EF] shrink-0" />
-                  <span className="truncate">{link.name}</span>
+                  <span>GET IN TOUCH</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
-              ))}
-            </div>
-            <div className="pt-2 flex gap-2">
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full bg-[#D946EF] hover:bg-[#C026D3] active:bg-[#A21CAF] text-white font-extrabold text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg shadow-[#D946EF]/25"
-              >
-                <span>GET IN TOUCH</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 };
+

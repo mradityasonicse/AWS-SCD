@@ -42,30 +42,34 @@ export const Hero: React.FC = () => {
     <section className="relative min-h-screen pt-36 pb-20 flex flex-col justify-center items-center text-center overflow-hidden px-4">
       {/* Aurora glowing background gradients */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="aurora a1 w-[560px] h-[560px] bg-gradient-to-tr from-[#D946EF]/15 to-transparent rounded-full blur-[100px] -top-32 left-[10%] animate-aurora-a" />
-        <div className="aurora a2 w-[500px] h-[500px] bg-gradient-to-bl from-[#22D3EE]/15 to-transparent rounded-full blur-[110px] -bottom-24 right-[10%] animate-aurora-b" />
-        <div className="aurora a3 w-[420px] h-[420px] bg-gradient-to-r from-[#FACC15]/10 to-transparent rounded-full blur-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-aurora-c" />
+        <div className="aurora a1 w-[560px] h-[560px] bg-gradient-to-tr from-[#FF9900]/15 to-transparent rounded-full blur-[100px] -top-32 left-[10%] animate-aurora-a" />
+        <div className="aurora a2 w-[500px] h-[500px] bg-gradient-to-bl from-[#00A4E4]/12 to-transparent rounded-full blur-[110px] -bottom-24 right-[10%] animate-aurora-b" />
+        <div className="aurora a3 w-[420px] h-[420px] bg-gradient-to-r from-[#FFD814]/08 to-transparent rounded-full blur-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-aurora-c" />
         
         {/* Subtle grid mesh overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_20%,transparent_80%)] opacity-60" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#232f3e_1px,transparent_1px),linear-gradient(to_bottom,#232f3e_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_20%,transparent_80%)] opacity-40" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
-        {/* University Host Banner - Clean & Static */}
-        <div className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#D946EF]/10 border border-[#D946EF]/30 text-[#D946EF] text-[11px] sm:text-xs font-bold tracking-wider uppercase mb-8 max-w-full text-center flex-wrap">
-          <img src="/risu-logo.png" alt="RISU" className="w-4 h-4 sm:w-5 sm:h-5 object-contain rounded-full bg-white p-0.5 shrink-0 shadow-xs" />
+        {/* University Host Banner with Live Beacon */}
+        <div className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#FF9900]/10 border border-[#FF9900]/30 text-[#FF9900] text-[11px] sm:text-xs font-bold tracking-wider uppercase mb-8 max-w-full text-center flex-wrap shadow-[0_0_20px_rgba(255,153,0,0.15)]">
+          <img src="/risu-logo.png" alt="RISU" className="w-4 h-4 sm:w-5 sm:h-5 object-contain rounded-full bg-[#161E2D] p-0.5 border border-[#232F3E] shrink-0 shadow-xs" />
+          <span className="relative flex h-2 w-2 items-center justify-center">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9900] opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF9900]" />
+          </span>
           <span className="flex items-center gap-1.5 flex-wrap justify-center">
             <strong>RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong> · HOSTED BY AWS SBG RISU
           </span>
         </div>
 
         {/* Grand Typography with Instrument Serif Italics */}
-        <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-[#171717] leading-[0.95] sm:leading-[0.92] mb-8 flex flex-col items-center">
+        <h1 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white leading-[0.95] sm:leading-[0.92] mb-8 flex flex-col items-center">
           <span className="block font-heading">
             <Text3DFlip
               className="justify-center font-heading"
-              textClassName="font-heading text-[#171717]"
-              flipTextClassName="font-heading text-[#D946EF]"
+              textClassName="font-heading text-white"
+              flipTextClassName="font-heading text-[#FF9900]"
               rotateDirection="top"
               staggerDuration={0.03}
               transition={{ type: "spring", damping: 25, stiffness: 160 }}
@@ -73,11 +77,11 @@ export const Hero: React.FC = () => {
               Student
             </Text3DFlip>
           </span>
-          <span className="block font-serif italic font-normal text-[#D946EF] tracking-normal my-0.5 sm:my-1">
+          <span className="block font-serif italic font-normal text-[#FF9900] tracking-normal my-0.5 sm:my-1">
             <Text3DFlip
               className="justify-center font-serif italic font-normal"
-              textClassName="font-serif italic font-normal text-[#D946EF]"
-              flipTextClassName="font-serif italic font-normal text-[#22D3EE]"
+              textClassName="font-serif italic font-normal text-[#FF9900]"
+              flipTextClassName="font-serif italic font-normal text-[#38BDF8]"
               rotateDirection="top"
               staggerDuration={0.03}
               transition={{ type: "spring", damping: 25, stiffness: 160 }}
@@ -88,8 +92,8 @@ export const Hero: React.FC = () => {
           <span className="block font-heading">
             <Text3DFlip
               className="justify-center font-heading"
-              textClassName="font-heading text-[#171717]"
-              flipTextClassName="font-heading text-[#D946EF]"
+              textClassName="font-heading text-white"
+              flipTextClassName="font-heading text-[#FF9900]"
               rotateDirection="top"
               staggerDuration={0.03}
               transition={{ type: "spring", damping: 25, stiffness: 160 }}
@@ -97,11 +101,11 @@ export const Hero: React.FC = () => {
               Day 2026
             </Text3DFlip>
           </span>
-          <span className="block font-serif italic text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-neutral-500 font-normal tracking-wide mt-2">
+          <span className="block font-serif italic text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-slate-400 font-normal tracking-wide mt-2">
             <Text3DFlip
               className="justify-center font-serif italic"
-              textClassName="font-serif italic text-neutral-500"
-              flipTextClassName="font-serif italic text-[#D946EF]"
+              textClassName="font-serif italic text-slate-400"
+              flipTextClassName="font-serif italic text-[#FF9900]"
               rotateDirection="top"
               staggerDuration={0.02}
               transition={{ type: "spring", damping: 25, stiffness: 160 }}
@@ -112,85 +116,85 @@ export const Hero: React.FC = () => {
         </h1>
 
         {/* Narrative Subtitle */}
-        <p className="max-w-2xl text-neutral-600 text-sm sm:text-lg md:text-xl font-normal leading-relaxed mb-8 sm:mb-10 text-balance px-2 sm:px-0">
+        <p className="max-w-2xl text-slate-300 text-sm sm:text-lg md:text-xl font-normal leading-relaxed mb-8 sm:mb-10 text-balance px-2 sm:px-0">
           One day. One stage. The ultimate student-driven AWS cloud gathering in Central India.
-          Keynotes from <strong className="text-neutral-900">AWS DevRel leadership</strong> and <strong className="text-neutral-900">Amazon leaders</strong>, hands-on GenAI clinics with Amazon Bedrock, and <strong className="text-[#D946EF]">500+ builders</strong> charting tomorrow's cloud computing future.
+          Keynotes from <strong className="text-white">AWS DevRel leadership</strong> and <strong className="text-white">Amazon leaders</strong>, hands-on GenAI clinics with Amazon Bedrock, and <strong className="text-[#FF9900]">500+ builders</strong> charting tomorrow's cloud computing future.
         </p>
 
         {/* Quick Facts Strip */}
-        <div className="backdrop-blur-xl bg-white/90 border border-neutral-200/90 rounded-2xl p-2.5 sm:p-3 mb-8 sm:mb-10 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] w-full sm:w-auto">
+        <div className="backdrop-blur-xl bg-[#131921]/90 border border-[#232F3E] rounded-2xl p-2.5 sm:p-3 mb-8 sm:mb-10 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-6 shadow-[0_10px_35px_rgba(0,0,0,0.5)] w-full sm:w-auto">
           <div className="flex items-center gap-2 px-2.5 py-1.5">
-            <Calendar className="w-4 h-4 text-[#D946EF] shrink-0" />
+            <Calendar className="w-4 h-4 text-[#FF9900] shrink-0" />
             <div className="text-left">
-              <span className="text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-widest block font-mono">Date</span>
-              <span className="text-[#171717] font-bold text-xs sm:text-sm">26 Oct 2026</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Date</span>
+              <span className="text-white font-bold text-xs sm:text-sm">26 Oct 2026</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-8 bg-neutral-200" />
+          <div className="hidden sm:block w-px h-8 bg-[#232F3E]" />
 
           <div className="flex items-center gap-2 px-2.5 py-1.5">
-            <Users className="w-4 h-4 text-[#D946EF] shrink-0" />
+            <Users className="w-4 h-4 text-[#FF9900] shrink-0" />
             <div className="text-left">
-              <span className="text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-widest block font-mono">Audience</span>
-              <span className="text-[#171717] font-bold text-xs sm:text-sm">550+ Builders</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Audience</span>
+              <span className="text-white font-bold text-xs sm:text-sm">550+ Builders</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-8 bg-neutral-200" />
+          <div className="hidden sm:block w-px h-8 bg-[#232F3E]" />
 
           <div className="flex items-center gap-2 px-2.5 py-1.5">
-            <MapPin className="w-4 h-4 text-[#D946EF] shrink-0" />
+            <MapPin className="w-4 h-4 text-[#FF9900] shrink-0" />
             <div className="text-left">
-              <span className="text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-widest block font-mono">Host Campus</span>
-              <span className="text-[#171717] font-bold text-xs sm:text-sm">RISU, Bhilai</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Host Campus</span>
+              <span className="text-white font-bold text-xs sm:text-sm">RISU, Bhilai</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-8 bg-neutral-200" />
+          <div className="hidden sm:block w-px h-8 bg-[#232F3E]" />
 
           <div className="flex items-center gap-2 px-2.5 py-1.5">
-            <Trophy className="w-4 h-4 text-[#FACC15] shrink-0" />
+            <Trophy className="w-4 h-4 text-[#FFD814] shrink-0" />
             <div className="text-left">
-              <span className="text-[9px] sm:text-[10px] text-neutral-400 uppercase tracking-widest block font-mono">Contests</span>
-              <span className="text-[#171717] font-bold text-xs sm:text-sm">Echo Dot &amp; Swags</span>
+              <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Contests</span>
+              <span className="text-white font-bold text-xs sm:text-sm">Echo Dot &amp; Swags</span>
             </div>
           </div>
         </div>
 
         {/* Dynamic Countdown Box */}
-        <div className="backdrop-blur-xl bg-white/95 border border-neutral-200 rounded-2xl px-3.5 py-4 sm:px-10 sm:py-6 shadow-[0_14px_32px_rgba(217,70,239,0.12)] mb-8 sm:mb-10 flex items-center justify-center gap-1.5 xs:gap-3 sm:gap-6 relative overflow-hidden max-w-full">
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#D946EF] to-transparent" />
+        <div className="backdrop-blur-xl bg-[#131921]/95 border border-[#232F3E] rounded-2xl px-3.5 py-4 sm:px-10 sm:py-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)] mb-8 sm:mb-10 flex items-center justify-center gap-1.5 xs:gap-3 sm:gap-6 relative overflow-hidden max-w-full">
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF9900] to-transparent" />
           
           <div className="flex flex-col items-center min-w-[46px] xs:min-w-[56px] sm:min-w-[70px]">
-            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-[#171717]">
+            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-white">
               {String(timeLeft.days).padStart(2, '0')}
             </span>
-            <span className="text-[9px] sm:text-xs font-bold text-neutral-400 uppercase tracking-widest mt-1">Days</span>
+            <span className="text-[9px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Days</span>
           </div>
 
-          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#D946EF]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
+          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#FF9900]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
 
           <div className="flex flex-col items-center min-w-[46px] xs:min-w-[56px] sm:min-w-[70px]">
-            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-[#171717]">
+            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-white">
               {String(timeLeft.hours).padStart(2, '0')}
             </span>
-            <span className="text-[9px] sm:text-xs font-bold text-neutral-400 uppercase tracking-widest mt-1">Hours</span>
+            <span className="text-[9px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Hours</span>
           </div>
 
-          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#D946EF]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
+          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#FF9900]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
 
           <div className="flex flex-col items-center min-w-[46px] xs:min-w-[56px] sm:min-w-[70px]">
-            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-[#171717]">
+            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-white">
               {String(timeLeft.minutes).padStart(2, '0')}
             </span>
-            <span className="text-[9px] sm:text-xs font-bold text-neutral-400 uppercase tracking-widest mt-1">Minutes</span>
+            <span className="text-[9px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Minutes</span>
           </div>
 
-          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#D946EF]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
+          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#FF9900]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
 
           <div className="flex flex-col items-center min-w-[46px] xs:min-w-[56px] sm:min-w-[70px]">
-            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight bg-gradient-to-b from-[#D946EF] to-[#C026D3] bg-clip-text text-transparent">
+            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight bg-gradient-to-b from-[#FF9900] to-[#EC7211] bg-clip-text text-transparent">
               {String(timeLeft.seconds).padStart(2, '0')}
             </span>
-            <span className="text-[9px] sm:text-xs font-bold text-[#D946EF] uppercase tracking-widest mt-1">Seconds</span>
+            <span className="text-[9px] sm:text-xs font-bold text-[#FF9900] uppercase tracking-widest mt-1">Seconds</span>
           </div>
         </div>
 
@@ -198,7 +202,7 @@ export const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0 mb-12 sm:mb-16">
           <a
             href="#agenda"
-            className="group px-7 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-bold flex items-center justify-center gap-2.5 rounded-full bg-[#D946EF] hover:bg-[#C026D3] active:bg-[#A21CAF] text-white shadow-[0_12px_40px_rgba(217,70,239,0.35)] hover:-translate-y-0.5 transition-all"
+            className="group px-7 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-black flex items-center justify-center gap-2.5 rounded-full bg-[#FF9900] hover:bg-[#FFAC33] active:bg-[#E68A00] text-[#0B0F17] shadow-[0_12px_40px_rgba(255,153,0,0.35)] hover:-translate-y-0.5 transition-all cursor-pointer"
           >
             <span>Explore Summit Agenda</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -206,17 +210,17 @@ export const Hero: React.FC = () => {
 
           <a
             href="#venue"
-            className="group backdrop-blur-md bg-white hover:bg-neutral-50 active:bg-neutral-100 text-neutral-800 border border-neutral-200 hover:border-[#D946EF]/50 font-bold text-sm sm:text-base px-6 py-3.5 sm:px-7 sm:py-4 rounded-full transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2.5 shadow-sm"
+            className="group backdrop-blur-md bg-[#161E2D] hover:bg-[#1C273B] active:bg-[#131921] text-white border border-[#232F3E] hover:border-[#FF9900]/60 font-bold text-sm sm:text-base px-6 py-3.5 sm:px-7 sm:py-4 rounded-full transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2.5 shadow-md cursor-pointer"
           >
-            <MapPin className="w-5 h-5 text-[#D946EF] group-hover:scale-105 transition-transform shrink-0 stroke-[2]" />
+            <MapPin className="w-5 h-5 text-[#FF9900] group-hover:scale-105 transition-transform shrink-0 stroke-[2]" />
             <span className="tracking-wide">Campus &amp; Venue Details</span>
           </a>
         </div>
 
         {/* Scroll cue */}
-        <div className="flex flex-col items-center gap-2 text-neutral-400 text-[10px] uppercase tracking-[0.25em]">
+        <div className="flex flex-col items-center gap-2 text-slate-500 text-[10px] uppercase tracking-[0.25em]">
           <span>Explore The Summit</span>
-          <div className="w-[1px] h-8 bg-gradient-to-b from-neutral-400 to-transparent animate-pulse" />
+          <div className="w-[1px] h-8 bg-gradient-to-b from-slate-500 to-transparent animate-pulse" />
         </div>
       </div>
     </section>

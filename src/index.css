@@ -10,27 +10,33 @@
 
 @layer base {
   :root {
-    /* ShopVibe Design System Color Palette */
-    --primary: #D946EF;
-    --primary-hover: #C026D3;
-    --primary-active: #A21CAF;
-    --secondary: #22D3EE;
-    --tertiary: #FACC15;
-    --bg-global: #FAFAFA;
-    --surface: #FFFFFF;
-    --border-color: #E5E5E5;
-    --text-primary: #171717;
-    --text-secondary: #525252;
-    --text-muted: #737373;
+    /* AWS Dark Design System Palette */
+    --primary: #FF9900;              /* AWS Signature Smile Orange */
+    --primary-hover: #FFAC33;        /* Warm amber hover */
+    --primary-active: #E68A00;       /* Deep active orange */
+    --secondary: #00A4E4;            /* AWS Cloud Service Cyan/Blue */
+    --tertiary: #FFD814;             /* Amazon Accent Yellow */
+    --bg-global: #0B0F17;            /* Deep AWS Midnight Navy */
+    --surface: #131921;              /* Amazon Squid Ink Nav Dark */
+    --surface-card: #161E2D;         /* AWS Elevated Console Surface */
+    --surface-card-hover: #1E293B;   /* Interactive Card Hover */
+    --border-color: #232F3E;         /* AWS Navy Border */
+    --border-strong: #37475A;        /* Amazon Nav Divider */
+    --text-primary: #FFFFFF;         /* Crisp White Text */
+    --text-secondary: #94A3B8;       /* Legible Slate Text */
+    --text-muted: #64748B;           /* Subdued Helper Text */
 
-    /* Theme Mappings */
-    --amz-accent: #D946EF;
-    --amz-search: #22D3EE;
-    --amz-buy: #D946EF;
-    --amz-border: #E5E5E5;
-    --bg-dark: #FAFAFA;
-    --bg-card: #FFFFFF;
-    --bg-card-hover: #FDF4FF;
+    /* Amazon Semantic Tokens Mapping */
+    --amz-nav-dark: #131921;
+    --amz-nav-secondary: #232F3E;
+    --amz-accent: #FF9900;
+    --amz-search: #FEBD69;
+    --amz-buy: #FF9900;
+    --amz-buy-hover: #FFAC33;
+    --amz-border: #232F3E;
+    --bg-dark: #0B0F17;
+    --bg-card: #131921;
+    --bg-card-hover: #161E2D;
   }
 
   * {
@@ -44,11 +50,13 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     overflow-x: clip;
+    background-color: #0B0F17;
+    color-scheme: dark;
   }
 
   body {
-    background-color: #FAFAFA;
-    color: #171717;
+    background-color: #0B0F17;
+    color: #F8FAFC;
     font-family: 'Nunito', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     letter-spacing: -0.01em;
     overflow-x: clip;
@@ -61,6 +69,7 @@
     font-family: 'Poppins', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     letter-spacing: -0.02em;
     font-weight: 800;
+    color: #FFFFFF;
   }
 }
 
@@ -92,38 +101,38 @@
   font-family: 'Space Mono', 'JetBrains Mono', monospace;
 }
 
-/* ShopVibe Brand CTA Button */
+/* AWS Signature Action CTA Button */
 .amz-btn-buy {
-  background-color: #D946EF;
-  color: #FFFFFF;
-  border: 1px solid #C026D3;
+  background-color: #FF9900;
+  color: #0B0F17;
+  border: 1px solid #FFAC33;
   border-radius: 9999px;
-  font-weight: 700;
-  box-shadow: 0 4px 14px rgba(217, 70, 239, 0.35);
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(255, 153, 0, 0.35);
   transition: all 0.2s ease;
 }
 
 .amz-btn-buy:hover {
-  background-color: #C026D3;
-  border-color: #A21CAF;
+  background-color: #FFAC33;
+  border-color: #FFB84D;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(217, 70, 239, 0.5);
+  box-shadow: 0 6px 24px rgba(255, 153, 0, 0.5);
 }
 
 .amz-btn-buy:active {
-  background-color: #A21CAF;
+  background-color: #E68A00;
   transform: translateY(0);
 }
 
-/* ShopVibe Card Hover Elevation */
+/* AWS Card Hover Elevation */
 .amz-card-hover {
-  border-color: #E5E5E5;
+  border-color: #232F3E;
   transition: all 0.25s ease;
 }
 
 .amz-card-hover:hover {
-  border-color: #D946EF;
-  box-shadow: 0 14px 32px rgba(217, 70, 239, 0.12);
+  border-color: #FF9900;
+  box-shadow: 0 14px 32px rgba(255, 153, 0, 0.15);
 }
 
 /* Animations */
@@ -193,19 +202,19 @@
   animation: auroraC 26s ease-in-out infinite;
 }
 
-/* Custom scrollbar - ShopVibe Style */
+/* Custom scrollbar - AWS Dark Style */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAFAFA;
+  background: #0B0F17;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E5E5E5;
+  background: #232F3E;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D946EF;
+  background: #FF9900;
 }
 
 /* 3D Transform Utilities for Text3DFlip */

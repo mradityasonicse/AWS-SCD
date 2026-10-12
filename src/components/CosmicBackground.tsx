@@ -35,7 +35,7 @@ export const CosmicBackground: React.FC = () => {
       color: string;
     }[] = [];
 
-    const colors = ['#D946EF', '#22D3EE', '#FACC15', '#C026D3', '#06B6D4'];
+    const colors = ['#FF9900', '#FFAC33', '#00A4E4', '#38BDF8', '#FFD814', '#F8FAFC'];
 
     for (let i = 0; i < numStars; i++) {
       stars.push({
@@ -68,7 +68,7 @@ export const CosmicBackground: React.FC = () => {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Deep cosmic gradient
+      // Deep cosmic AWS gradient
       const gradient = ctx.createRadialGradient(
         mouseX,
         mouseY,
@@ -77,8 +77,8 @@ export const CosmicBackground: React.FC = () => {
         height / 2,
         Math.max(width, height)
       );
-      gradient.addColorStop(0, 'rgba(217, 70, 239, 0.08)');
-      gradient.addColorStop(0.5, 'rgba(34, 211, 238, 0.04)');
+      gradient.addColorStop(0, 'rgba(255, 153, 0, 0.09)');
+      gradient.addColorStop(0.4, 'rgba(0, 164, 228, 0.05)');
       gradient.addColorStop(1, 'transparent');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
@@ -114,8 +114,8 @@ export const CosmicBackground: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(s.x, s.y);
             ctx.lineTo(s2.x, s2.y);
-            ctx.strokeStyle = '#D946EF';
-            ctx.globalAlpha = (1 - dist / maxLineDist) * 0.18;
+            ctx.strokeStyle = '#FF9900';
+            ctx.globalAlpha = (1 - dist / maxLineDist) * 0.16;
             ctx.lineWidth = 0.7;
             ctx.stroke();
           }
@@ -137,14 +137,14 @@ export const CosmicBackground: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#FAFAFA]">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#0B0F17]">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-      {/* Subtle architectural grid mesh */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_40%,transparent_90%)] opacity-40 pointer-events-none" />
-      {/* ShopVibe Ambient glow orbs */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#D946EF]/10 rounded-full blur-[140px]" />
-      <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-[#22D3EE]/10 rounded-full blur-[160px]" />
-      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[#FACC15]/10 rounded-full blur-[180px]" />
+      {/* Subtle AWS navy architectural grid mesh */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#232f3e_1px,transparent_1px),linear-gradient(to_bottom,#232f3e_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_40%,transparent_90%)] opacity-35 pointer-events-none" />
+      {/* AWS Cloud Ambient glow orbs */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#FF9900]/10 rounded-full blur-[140px]" />
+      <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-[#00A4E4]/08 rounded-full blur-[160px]" />
+      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[#FFD814]/06 rounded-full blur-[180px]" />
     </div>
   );
 };

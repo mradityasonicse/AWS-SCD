@@ -25,18 +25,18 @@ export const Speakers: React.FC = () => {
     <section className="py-20 sm:py-24 relative overflow-visible px-4" id="speakers">
       <div className="max-w-7xl mx-auto">
         {/* Section Header with [ 03 ] Index */}
-        <div className="border-b border-neutral-200 pb-6 mb-12 sm:mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        <div className="border-b border-[#232F3E] pb-6 mb-12 sm:mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-6">
-            <span className="text-[#D946EF] font-mono text-sm tracking-widest">[ 03 ]</span>
+            <span className="text-[#FF9900] font-mono text-sm tracking-widest">[ 03 ]</span>
             <div>
-              <p className="text-[#D946EF] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
-                <span className="w-6 h-[1px] bg-[#D946EF]" />
+              <p className="text-[#FF9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
+                <span className="w-6 h-[1px] bg-[#FF9900]" />
                 Summit Speakers
               </p>
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#171717] tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
                 <Text3DFlip
-                  textClassName="text-[#171717]"
-                  flipTextClassName="text-[#D946EF]"
+                  textClassName="text-white"
+                  flipTextClassName="text-[#FF9900]"
                   rotateDirection="top"
                   staggerDuration={0.02}
                 >
@@ -45,7 +45,7 @@ export const Speakers: React.FC = () => {
               </h2>
             </div>
           </div>
-          <p className="text-neutral-500 text-sm max-w-sm font-mono">
+          <p className="text-slate-400 text-sm max-w-sm font-mono">
             AWS DEVREL · CLOUD BUILDERS · ACCENTURE · SNAPMINT
           </p>
         </div>
@@ -68,17 +68,17 @@ export const Speakers: React.FC = () => {
               >
                 <div
                   className={cn(
-                    "w-full max-w-5xl mx-auto rounded-3xl p-5 sm:p-10 border transition-all duration-300 relative overflow-hidden backdrop-blur-xl bg-white",
+                    "w-full max-w-5xl mx-auto rounded-3xl p-5 sm:p-10 border transition-all duration-300 relative overflow-hidden backdrop-blur-xl bg-[#131921]",
                     isKeynote
-                      ? "border-2 border-[#D946EF]/50 shadow-[0_20px_50px_rgba(217,70,239,0.14)]"
-                      : "border border-neutral-200 shadow-xl"
+                      ? "border-2 border-[#FF9900]/50 shadow-[0_20px_50px_rgba(255,153,0,0.18)]"
+                      : "border border-[#232F3E] shadow-2xl"
                   )}
                 >
                   {/* Subtle Ambient Glow */}
                   <div
                     className={cn(
                       "absolute -top-24 -right-24 w-72 h-72 rounded-full blur-[100px] pointer-events-none",
-                      isKeynote ? "bg-[#D946EF]/10" : "bg-[#22D3EE]/10"
+                      isKeynote ? "bg-[#FF9900]/12" : "bg-[#00A4E4]/08"
                     )}
                   />
 
@@ -88,7 +88,7 @@ export const Speakers: React.FC = () => {
                       <div>
                         {/* Header Badges */}
                         <div className="flex flex-wrap items-center gap-2.5 mb-4">
-                          <span className="font-mono text-xs font-black text-[#D946EF] bg-[#D946EF]/10 border border-[#D946EF]/30 px-2.5 py-1 rounded-full">
+                          <span className="font-mono text-xs font-black text-[#FF9900] bg-[#FF9900]/10 border border-[#FF9900]/30 px-2.5 py-1 rounded-full">
                             [ 0{index + 1} / 0{SPEAKERS.length} ]
                           </span>
 
@@ -96,38 +96,38 @@ export const Speakers: React.FC = () => {
                             className={cn(
                               "text-[10px] font-mono font-extrabold uppercase tracking-widest px-3 py-1 rounded-full flex items-center gap-1.5",
                               isKeynote
-                                ? "bg-[#22D3EE]/15 text-[#0891B2] border border-[#22D3EE]/30"
-                                : "bg-neutral-100 text-neutral-700 border border-neutral-200"
+                                ? "bg-[#00A4E4]/15 text-[#38BDF8] border border-[#00A4E4]/30"
+                                : "bg-[#161E2D] text-slate-300 border border-[#232F3E]"
                             )}
                           >
                             <span
                               className={cn(
                                 "w-1.5 h-1.5 rounded-full",
-                                isKeynote ? "bg-[#D946EF] animate-pulse" : "bg-emerald-500"
+                                isKeynote ? "bg-[#FF9900] animate-pulse" : "bg-emerald-400"
                               )}
                             />
                             {isKeynote ? "Keynote Leader" : "Technical Session"}
                           </span>
 
-                          <span className="text-xs font-mono text-neutral-500 flex items-center gap-1">
-                            <Building2 className="w-3.5 h-3.5 text-[#D946EF]" />
+                          <span className="text-xs font-mono text-slate-400 flex items-center gap-1">
+                            <Building2 className="w-3.5 h-3.5 text-[#FF9900]" />
                             {speaker.company}
                           </span>
                         </div>
 
                         {/* Speaker Name */}
-                        <h3 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-[#171717] tracking-tight leading-tight mb-1.5">
+                        <h3 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-1.5">
                           {speaker.name}
                         </h3>
 
                         {/* Designation */}
-                        <p className="text-sm sm:text-lg font-bold text-[#D946EF] mb-3 sm:mb-4">
+                        <p className="text-sm sm:text-lg font-bold text-[#FF9900] mb-3 sm:mb-4">
                           {speaker.current_designation}
                         </p>
 
                         {/* Bio */}
                         {speaker.bio && (
-                          <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-5 sm:mb-6">
+                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5 sm:mb-6">
                             {speaker.bio}
                           </p>
                         )}
@@ -135,12 +135,12 @@ export const Speakers: React.FC = () => {
 
                       {/* Session Topic Box */}
                       {speaker.topic && (
-                        <div className="p-3.5 sm:p-5 rounded-2xl bg-neutral-50 border border-neutral-200 mb-5 sm:mb-6">
-                          <div className="flex items-center gap-1.5 text-[#D946EF] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider mb-1 sm:mb-1.5">
+                        <div className="p-3.5 sm:p-5 rounded-2xl bg-[#161E2D] border border-[#232F3E] mb-5 sm:mb-6">
+                          <div className="flex items-center gap-1.5 text-[#FF9900] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider mb-1 sm:mb-1.5">
                             <BookOpen className="w-3.5 h-3.5" />
                             <span>Session Topic</span>
                           </div>
-                          <h4 className="text-xs sm:text-base font-bold text-[#171717] leading-snug">
+                          <h4 className="text-xs sm:text-base font-bold text-white leading-snug">
                             {speaker.topic}
                           </h4>
                         </div>
@@ -153,7 +153,7 @@ export const Speakers: React.FC = () => {
                             href={speaker.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#D946EF] hover:bg-[#C026D3] active:bg-[#A21CAF] text-white font-bold text-xs tracking-wide shadow-md hover:scale-105 transition-all"
+                            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#FF9900] hover:bg-[#FFAC33] active:bg-[#E68A00] text-[#0B0F17] font-black text-xs tracking-wide shadow-md hover:scale-105 transition-all cursor-pointer"
                           >
                             <LinkedInIcon className="w-3.5 h-3.5 fill-current" />
                             <span>Connect on LinkedIn</span>
@@ -163,7 +163,7 @@ export const Speakers: React.FC = () => {
 
                         <a
                           href="#agenda"
-                          className="inline-flex items-center gap-1 text-xs font-bold text-neutral-600 hover:text-[#D946EF] transition-colors"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-[#FF9900] transition-colors"
                         >
                           <span>View on Agenda</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
@@ -173,17 +173,17 @@ export const Speakers: React.FC = () => {
 
                     {/* Right Portrait (5 cols) */}
                     <div className="lg:col-span-5 flex flex-col items-center">
-                      <div className="relative w-full max-w-[220px] xs:max-w-[260px] sm:max-w-[320px] aspect-[4/5] rounded-3xl overflow-hidden border-2 border-neutral-200 bg-neutral-100 shadow-xl group flex items-center justify-center p-2.5 sm:p-3">
+                      <div className="relative w-full max-w-[220px] xs:max-w-[260px] sm:max-w-[320px] aspect-[4/5] rounded-3xl overflow-hidden border-2 border-[#232F3E] bg-[#161E2D] shadow-xl group flex items-center justify-center p-2.5 sm:p-3">
                         <img
                           src={speaker.image}
                           alt={speaker.name}
                           className="w-full h-full object-cover rounded-2xl relative z-0 transition-transform duration-500 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
-                        <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl border border-neutral-200 shadow-sm">
-                          <span className="text-xs font-bold text-[#171717] truncate">{speaker.name}</span>
-                          <span className="text-[10px] font-mono text-[#D946EF] uppercase font-bold shrink-0">{speaker.company}</span>
+                        <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between bg-[#131921]/95 backdrop-blur-md px-3.5 py-2 rounded-xl border border-[#232F3E] shadow-sm">
+                          <span className="text-xs font-bold text-white truncate">{speaker.name}</span>
+                          <span className="text-[10px] font-mono text-[#FF9900] uppercase font-bold shrink-0">{speaker.company}</span>
                         </div>
                       </div>
                     </div>
