@@ -1,43 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ArrowRight, MapPin, Calendar, Users, Trophy } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import confetti from 'canvas-confetti';
+import { CountdownTimer } from './CountdownTimer';
 
 export const Hero: React.FC = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 16,
-    hours: 12,
-    minutes: 44,
-    seconds: 32,
-  });
-
-  useEffect(() => {
-    // Dynamic countdown target 16 days ahead
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 16);
-    targetDate.setHours(targetDate.getHours() + 12);
-
-    const updateTimer = () => {
-      const now = new Date();
-      const diff = targetDate.getTime() - now.getTime();
-
-      if (diff <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      setTimeLeft({ days, hours, minutes, seconds });
-    };
-
-    updateTimer();
-    const interval = setInterval(updateTimer, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleConfetti = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -132,7 +99,7 @@ export const Hero: React.FC = () => {
             <Calendar className="w-4 h-4 text-[#FF9900] shrink-0" />
             <div className="text-left">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Date</span>
-              <span className="text-white font-bold text-xs sm:text-sm">26 Oct 2026</span>
+              <span className="text-white font-bold text-xs sm:text-sm">21 Oct 2026</span>
             </div>
           </div>
           <div className="hidden sm:block w-px h-8 bg-[#232F3E]" />
@@ -164,61 +131,14 @@ export const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Dynamic Countdown Box with Smooth Flip Digits */}
+        {/* Master Mechanical 3D Split-Flap Countdown Timer */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.95, y: 15 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="backdrop-blur-xl bg-[#131921]/95 border border-[#232F3E] rounded-2xl px-3.5 py-4 sm:px-10 sm:py-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)] mb-8 sm:mb-10 flex items-center justify-center gap-1.5 xs:gap-3 sm:gap-6 relative overflow-hidden max-w-full"
+          className="w-full flex justify-center"
         >
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF9900] to-transparent" />
-
-          {/* Days */}
-          <div className="flex flex-col items-center min-w-[46px] xs:min-w-[56px] sm:min-w-[70px]">
-            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-white">
-              {String(timeLeft.days).padStart(2, '0')}
-            </span>
-            <span className="text-[9px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Days</span>
-          </div>
-
-          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#FF9900]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
-
-          {/* Hours */}
-          <div className="flex flex-col items-center min-w-[46px] xs:min-w-[56px] sm:min-w-[70px]">
-            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-white">
-              {String(timeLeft.hours).padStart(2, '0')}
-            </span>
-            <span className="text-[9px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Hours</span>
-          </div>
-
-          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#FF9900]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
-
-          {/* Minutes */}
-          <div className="flex flex-col items-center min-w-[46px] xs:min-w-[56px] sm:min-w-[70px]">
-            <span className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight text-white">
-              {String(timeLeft.minutes).padStart(2, '0')}
-            </span>
-            <span className="text-[9px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Minutes</span>
-          </div>
-
-          <span className="text-xl xs:text-2xl sm:text-4xl font-light text-[#FF9900]/60 -mt-1 sm:-mt-2 animate-pulse">:</span>
-
-          {/* Seconds with AnimatePresence pulse */}
-          <div className="flex flex-col items-center min-w-[46px] xs:min-w-[56px] sm:min-w-[70px] relative overflow-hidden">
-            <AnimatePresence mode="popLayout">
-              <motion.span
-                key={timeLeft.seconds}
-                initial={{ y: 8, opacity: 0.6 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -8, opacity: 0.4 }}
-                transition={{ duration: 0.25, ease: 'easeOut' }}
-                className="text-2xl xs:text-3xl sm:text-5xl font-black font-mono tracking-tight bg-gradient-to-b from-[#FF9900] to-[#EC7211] bg-clip-text text-transparent inline-block"
-              >
-                {String(timeLeft.seconds).padStart(2, '0')}
-              </motion.span>
-            </AnimatePresence>
-            <span className="text-[9px] sm:text-xs font-bold text-[#FF9900] uppercase tracking-widest mt-1">Seconds</span>
-          </div>
+          <CountdownTimer />
         </motion.div>
 
         {/* Action CTAs */}

@@ -23,7 +23,7 @@ export const Ticker: React.FC = () => {
         </span>
         <span className="text-[#FF9900] opacity-80 text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          <span className="bg-[#00A4E4]/15 text-[#38BDF8] border border-[#00A4E4]/30 px-2 py-0.5 rounded-full text-[9.5px] font-bold">OCTOBER 26, 2026</span>
+          <span className="bg-[#00A4E4]/15 text-[#38BDF8] border border-[#00A4E4]/30 px-2 py-0.5 rounded-full text-[9.5px] font-bold">OCTOBER 21, 2026</span>
           FLAGSHIP CLOUD CONFERENCE AT RISU CAMPUS
         </span>
         <span className="text-[#FF9900] opacity-80 text-[10px]">✦</span>
@@ -54,7 +54,7 @@ export const Ticker: React.FC = () => {
         </span>
         <span className="text-[#FF9900] opacity-80 text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          <span className="bg-[#00A4E4]/15 text-[#38BDF8] border border-[#00A4E4]/30 px-2 py-0.5 rounded-full text-[9.5px] font-bold">OCTOBER 26, 2026</span>
+          <span className="bg-[#00A4E4]/15 text-[#38BDF8] border border-[#00A4E4]/30 px-2 py-0.5 rounded-full text-[9.5px] font-bold">OCTOBER 21, 2026</span>
           FLAGSHIP CLOUD CONFERENCE AT RISU CAMPUS
         </span>
         <span className="text-[#FF9900] opacity-80 text-[10px]">✦</span>
