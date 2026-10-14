@@ -81,6 +81,7 @@ export const EVENT_DETAILS = {
   mapUrl: "https://www.google.com/maps/search/?api=1&query=21.2350,81.3462+(Rungta+International+Skills+University+Bhilai)",
   contactEmail: "aws.sbg.risu@gmail.com",
   contactPhone: "+91 8518903022",
+  registrationUrl: "#register",
   socials: {
     meetup: "https://www.meetup.com/aws-sbg-at-risu/",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",

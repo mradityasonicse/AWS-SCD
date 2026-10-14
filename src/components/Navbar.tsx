@@ -221,16 +221,18 @@ export const Navbar: React.FC = () => {
 
           {/* Action CTAs */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Desktop Register CTA */}
             <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact', 'contact')}
+              href={EVENT_DETAILS.registrationUrl || '#register'}
+              target={EVENT_DETAILS.registrationUrl?.startsWith('http') ? '_blank' : undefined}
+              rel={EVENT_DETAILS.registrationUrl?.startsWith('http') ? 'noopener noreferrer' : undefined}
               className="hidden sm:flex group cursor-pointer text-[#0B0F17] font-black text-xs px-4 sm:px-5 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 items-center gap-1.5 shrink-0"
               style={{
                 backgroundColor: 'var(--theme-accent, #AD5CFF)',
                 boxShadow: '0 4px 16px var(--theme-accent-glow, rgba(140,82,255,0.35))',
               }}
             >
-              <span>GET IN TOUCH</span>
+              <span>REGISTER NOW</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
 
@@ -285,15 +287,16 @@ export const Navbar: React.FC = () => {
               </div>
               <div className="pt-2 flex gap-2">
                 <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, '#contact', 'contact')}
+                  href={EVENT_DETAILS.registrationUrl || '#register'}
+                  target={EVENT_DETAILS.registrationUrl?.startsWith('http') ? '_blank' : undefined}
+                  rel={EVENT_DETAILS.registrationUrl?.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="w-full text-[#0B0F17] font-black text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg active:scale-[0.98] transition-all cursor-pointer"
                   style={{
                     backgroundColor: 'var(--theme-accent, #AD5CFF)',
                     boxShadow: '0 4px 16px var(--theme-accent-glow, rgba(140,82,255,0.35))',
                   }}
                 >
-                  <span>GET IN TOUCH</span>
+                  <span>REGISTER NOW</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
