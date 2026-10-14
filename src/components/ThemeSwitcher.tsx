@@ -1,38 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useTheme, SECONDARY_COLORS, type SecondaryColorKey } from '../context/ThemeContext';
 import { Palette, Check, X, Sliders } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-export const ThemeSwitcher: React.FC = () => {
+export interface ThemeSwitcherProps {
+  className?: string;
+  showLabel?: boolean;
+}
+
+export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', showLabel = true }) => {
   const { secondaryColor, setSecondaryColor, bgMode, setBgMode, currentColorConfig } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+
+  // Close modal when pressing Escape key
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
 
   return (
     <>
       {/* Trigger Button - Clean, technical, styled like AWS Developer Console badge */}
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#161E2D] hover:bg-[#1C2536] border border-[#232F3E] text-xs font-mono font-bold text-slate-300 hover:text-white transition-all duration-150 cursor-pointer shadow-sm group"
+        className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-full bg-[#161E2D] hover:bg-[#1C2536] border border-[#232F3E] text-xs font-mono font-bold text-slate-300 hover:text-white transition-all duration-150 cursor-pointer shadow-sm group shrink-0 ${className}`}
         title="AWS Builder Theme Controls"
         aria-label="Theme settings"
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
       >
         <span
-          className="w-2.5 h-2.5 rounded-full transition-transform group-hover:scale-125"
+          className="w-2.5 h-2.5 rounded-full transition-transform group-hover:scale-125 shrink-0"
           style={{ backgroundColor: currentColorConfig.hex }}
         />
-        <span className="hidden sm:inline font-sans text-[11px] font-semibold text-slate-200">
-          Theme:
-        </span>
-        <span className="text-[11px] font-bold" style={{ color: currentColorConfig.hex }}>
+        {showLabel && (
+          <span className="hidden md:inline font-sans text-[11px] font-semibold text-slate-200">
+            Theme:
+          </span>
+        )}
+        <span className="text-[11px] font-bold hidden sm:inline" style={{ color: currentColorConfig.hex }}>
           {currentColorConfig.label.split(' ')[0]}
         </span>
-        <Sliders className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors ml-0.5" />
+        <Sliders className="w-3 h-3 text-slate-400 group-hover:text-white transition-colors shrink-0" />
       </button>
 
-      {/* Floating Theme Customizer Panel - Modeled directly after WhatsApp Screenshot 1 */}
-      <AnimatePresence>
-        {isOpen && (
-          <div className="fixed inset-0 z-[120] flex items-center justify-center p-4">
+      {/* Floating Theme Customizer Panel rendered via Portal so position:fixed covers full viewport */}
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <AnimatePresence>
+            {isOpen && (
+              <div
+                className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="theme-customizer-title"
+              >
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -40,6 +70,7 @@ export const ThemeSwitcher: React.FC = () => {
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
               className="absolute inset-0 bg-black/60 backdrop-blur-xs cursor-pointer"
+              aria-hidden="true"
             />
 
             {/* Panel */}
@@ -60,15 +91,17 @@ export const ThemeSwitcher: React.FC = () => {
                     <Palette className="w-4 h-4" style={{ color: currentColorConfig.hex }} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm tracking-tight">Theme Customizer</h3>
+                    <h3 id="theme-customizer-title" className="font-bold text-sm tracking-tight">Theme Customizer</h3>
                     <p className="text-[10px] text-slate-400 font-mono uppercase tracking-wider">
                       AWS Builder Group System
                     </p>
                   </div>
                 </div>
                 <button
+                  type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-1 rounded-lg hover:bg-[#1E2638] text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg hover:bg-[#1E2638] text-slate-400 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+                  aria-label="Close theme customizer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -82,26 +115,32 @@ export const ThemeSwitcher: React.FC = () => {
                 <div className="flex items-center gap-3">
                   {/* Dark Mode Option */}
                   <button
+                    type="button"
                     onClick={() => setBgMode('dark')}
-                    className={`relative w-9 h-9 rounded-full bg-[#111622] border-2 cursor-pointer transition-all flex items-center justify-center ${
+                    className={`relative w-9 h-9 rounded-full bg-[#111622] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
                       bgMode === 'dark'
                         ? 'border-white ring-2 ring-white/30 scale-105'
                         : 'border-[#232F3E] hover:border-slate-500'
                     }`}
                     title="Dark Background"
+                    aria-label="Select dark background"
+                    aria-pressed={bgMode === 'dark'}
                   >
                     {bgMode === 'dark' && <Check className="w-3.5 h-3.5 text-white stroke-[3]" />}
                   </button>
 
                   {/* Light Mode Option */}
                   <button
+                    type="button"
                     onClick={() => setBgMode('light')}
-                    className={`relative w-9 h-9 rounded-full bg-[#FFFFFF] border-2 cursor-pointer transition-all flex items-center justify-center ${
+                    className={`relative w-9 h-9 rounded-full bg-[#FFFFFF] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
                       bgMode === 'light'
                         ? 'border-[#AD5CFF] ring-2 ring-[#AD5CFF]/40 scale-105'
                         : 'border-slate-400 hover:border-white'
                     }`}
                     title="Light Background"
+                    aria-label="Select light background"
+                    aria-pressed={bgMode === 'light'}
                   >
                     {bgMode === 'light' && <Check className="w-3.5 h-3.5 text-[#111622] stroke-[3]" />}
                   </button>
@@ -129,15 +168,18 @@ export const ThemeSwitcher: React.FC = () => {
 
                     return (
                       <button
+                        type="button"
                         key={key}
                         onClick={() => setSecondaryColor(key)}
-                        className={`relative w-8 h-8 rounded-full cursor-pointer transition-all duration-150 flex items-center justify-center ${
+                        className={`relative w-8 h-8 rounded-full cursor-pointer transition-all duration-150 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
                           isSelected
                             ? 'ring-3 ring-white ring-offset-2 ring-offset-[#131922] scale-110 shadow-lg'
                             : 'hover:scale-105 hover:opacity-90'
                         }`}
                         style={{ backgroundColor: color.hex }}
                         title={color.label}
+                        aria-label={`Select ${color.label} accent color`}
+                        aria-pressed={isSelected}
                       >
                         {isSelected && <Check className="w-3.5 h-3.5 text-white stroke-[3]" />}
                       </button>
@@ -154,7 +196,9 @@ export const ThemeSwitcher: React.FC = () => {
             </motion.div>
           </div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
+    )}
     </>
   );
 };

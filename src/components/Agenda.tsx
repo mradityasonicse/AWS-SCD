@@ -19,10 +19,10 @@ export const Agenda: React.FC = () => {
 
   // Agenda High-Level Chapters (Matches Screenshot 2 layout)
   const agendaChapters = [
-    { num: '1', title: 'Keynote & AWS DevRel Leadership Address', cat: 'Keynote' },
-    { num: '2', title: 'Generative AI Clinic: Amazon Bedrock & Claude', cat: 'Tech' },
-    { num: '3', title: 'Cloud Architecture, Serverless & Security', cat: 'Tech' },
-    { num: '4', title: 'Hands-on Jam, Live Kahoot Arena & Networking', cat: 'Networking' },
+    { num: '1', title: 'Keynote & AWS DevRel Leadership Address', cat: 'Keynote', color: '#FF9900' },
+    { num: '2', title: 'Generative AI Clinic: Amazon Bedrock & Claude', cat: 'Tech', color: 'var(--theme-accent, #AD5CFF)' },
+    { num: '3', title: 'Cloud Architecture, Serverless & Security', cat: 'Tech', color: '#42B4FF' },
+    { num: '4', title: 'Hands-on Jam, Live Kahoot Arena & Networking', cat: 'Networking', color: '#00E582' },
   ];
 
   return (
@@ -46,7 +46,7 @@ export const Agenda: React.FC = () => {
                   <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                   Official Program Schedule
                 </p>
-                <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
+                <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
                   Agenda &amp; Timeline.
                 </h2>
               </div>
@@ -72,7 +72,7 @@ export const Agenda: React.FC = () => {
               {/* Top Row: Left Headline + Right AWS Mark */}
               <div className="flex items-start justify-between gap-6 mb-8">
                 <div>
-                  <h3 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-none mb-3">
+                  <h3 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none mb-3">
                     Agenda
                   </h3>
                   <div className="flex items-center gap-2 text-xs font-mono text-slate-400 uppercase tracking-widest">
@@ -106,7 +106,7 @@ export const Agenda: React.FC = () => {
                     >
                       <span
                         className="font-mono text-base sm:text-xl font-bold shrink-0 transition-transform group-hover:scale-110"
-                        style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                        style={{ color: ch.color }}
                       >
                         {ch.num}.
                       </span>
@@ -201,62 +201,83 @@ export const Agenda: React.FC = () => {
                 transition={{ duration: 0.3, delay: idx * 0.03, ease: [0.16, 1, 0.3, 1] }}
                 className="relative group"
               >
-                {/* Timeline Pin Dot */}
-                <div
-                  className="absolute -left-[31px] sm:-left-[47px] top-6 w-3.5 h-3.5 rounded-full border-2 border-[#111622] transition-transform duration-200 group-hover:scale-125"
-                  style={{
-                    backgroundColor:
-                      item.dotColor === '#D946EF' || item.dotColor === '#FF9900'
-                        ? 'var(--theme-accent, #AD5CFF)'
-                        : item.dotColor || 'var(--theme-accent, #AD5CFF)',
-                    boxShadow: `0 0 10px ${currentColorConfig.glow}`,
-                  }}
-                />
+                {(() => {
+                  const sessionColor =
+                    item.typeColor === '#D946EF'
+                      ? 'var(--theme-accent, #AD5CFF)'
+                      : item.typeColor || item.dotColor || 'var(--theme-accent, #AD5CFF)';
 
-                <SpotlightCard
-                  spotlightColor={currentColorConfig.glow}
-                  borderColor={currentColorConfig.hex + '50'}
-                  className="p-5 sm:p-7 transition-all duration-200 hover:translate-x-1 shadow-md bg-[#131922] border-[#232F3E]"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-2.5 sm:mb-3">
-                    <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
-                      <span
-                        className="font-mono font-bold text-lg sm:text-xl"
-                        style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                  return (
+                    <>
+                      {/* Timeline Pin Dot */}
+                      <div
+                        className="absolute -left-[31px] sm:-left-[47px] top-6 w-3.5 h-3.5 rounded-full border-2 border-[#111622] transition-transform duration-200 group-hover:scale-125"
+                        style={{
+                          backgroundColor: sessionColor,
+                          boxShadow: `0 0 10px ${sessionColor}50`,
+                        }}
+                      />
+
+                      <SpotlightCard
+                        spotlightColor={`${sessionColor}25`}
+                        borderColor={`${sessionColor}35`}
+                        className="p-5 sm:p-7 transition-all duration-200 hover:translate-x-1 shadow-md bg-[#131922] border-[#232F3E] relative overflow-hidden"
                       >
-                        {item.time} {item.ampm}
-                      </span>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#161E2D] text-slate-300 border border-[#232F3E]">
-                        {item.type}
-                      </span>
-                    </div>
+                        {/* Top subtle highlight */}
+                        <div
+                          className="absolute top-0 left-0 right-0 h-[2px] opacity-75 group-hover:opacity-100 transition-opacity"
+                          style={{ backgroundColor: sessionColor }}
+                        />
 
-                    <span className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-400 font-mono">
-                      <Clock className="w-3.5 h-3.5" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
-                      {item.duration}
-                    </span>
-                  </div>
+                        <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-2.5 sm:mb-3">
+                          <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+                            <span
+                              className="font-mono font-bold text-lg sm:text-xl"
+                              style={{ color: sessionColor }}
+                            >
+                              {item.time} {item.ampm}
+                            </span>
+                            <span
+                              className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border"
+                              style={{
+                                color: sessionColor,
+                                backgroundColor: `color-mix(in srgb, ${sessionColor} 12%, transparent)`,
+                                borderColor: `color-mix(in srgb, ${sessionColor} 30%, transparent)`,
+                              }}
+                            >
+                              {item.type}
+                            </span>
+                          </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-white transition-colors">
-                    {item.title}
-                  </h3>
+                          <span className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-400 font-mono">
+                            <Clock className="w-3.5 h-3.5" style={{ color: sessionColor }} />
+                            {item.duration}
+                          </span>
+                        </div>
 
-                  {item.speaker && (
-                    <div
-                      className="flex items-center gap-2 mb-3 text-xs font-semibold"
-                      style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-                    >
-                      <User className="w-3.5 h-3.5" />
-                      <span>{item.speaker}</span>
-                    </div>
-                  )}
+                        <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-white transition-colors">
+                          {item.title}
+                        </h3>
 
-                  {item.subtitle && (
-                    <p className="text-slate-400 text-sm leading-relaxed">
-                      {item.subtitle}
-                    </p>
-                  )}
-                </SpotlightCard>
+                        {item.speaker && (
+                          <div
+                            className="flex items-center gap-2 mb-3 text-xs font-semibold"
+                            style={{ color: sessionColor }}
+                          >
+                            <User className="w-3.5 h-3.5" />
+                            <span>{item.speaker}</span>
+                          </div>
+                        )}
+
+                        {item.subtitle && (
+                          <p className="text-slate-400 text-sm leading-relaxed">
+                            {item.subtitle}
+                          </p>
+                        )}
+                      </SpotlightCard>
+                    </>
+                  );
+                })()}
               </motion.div>
             ))}
           </AnimatePresence>

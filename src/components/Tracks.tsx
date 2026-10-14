@@ -9,11 +9,11 @@ export const Tracks: React.FC = () => {
       case 'Brain':
         return <Brain className="w-6 h-6 text-[#FF9900]" />;
       case 'Server':
-        return <Server className="w-6 h-6 text-[#38BDF8]" />;
+        return <Server className="w-6 h-6 text-[#42B4FF]" />;
       case 'ShieldCheck':
-        return <ShieldCheck className="w-6 h-6 text-[#10B981]" />;
+        return <ShieldCheck className="w-6 h-6 text-[#00E582]" />;
       case 'Zap':
-        return <Zap className="w-6 h-6 text-[#FFD814]" />;
+        return <Zap className="w-6 h-6 text-[#AD5CFF]" />;
       default:
         return <Brain className="w-6 h-6 text-[#FF9900]" />;
     }
@@ -40,7 +40,7 @@ export const Tracks: React.FC = () => {
                   <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                   Learning Tracks
                 </p>
-                <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
+                <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
                   Engineered for every stage of builder.
                 </h2>
               </div>
@@ -53,43 +53,60 @@ export const Tracks: React.FC = () => {
 
         {/* Tracks Grid with Stagger & SpotlightCards */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.08}>
-          {TRACKS.map((track) => (
-            <StaggerItem key={track.num}>
-              <SpotlightCard className="h-full p-7 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5">
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span
-                      className="font-mono font-black text-3xl group-hover:scale-105 transition-transform leading-none"
-                      style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-                    >
-                      {track.num}
-                    </span>
-                    <div className="p-2.5 rounded-xl bg-[#161E2D] border border-[#232F3E] transition-colors group-hover:scale-110">
-                      {getIcon(track.icon)}
+          {TRACKS.map((track, tIdx) => {
+            const trackColors = [
+              { color: '#FF9900', glow: 'rgba(255, 153, 0, 0.25)' },
+              { color: '#42B4FF', glow: 'rgba(66, 180, 255, 0.25)' },
+              { color: '#00E582', glow: 'rgba(0, 229, 130, 0.25)' },
+              { color: 'var(--theme-accent, #AD5CFF)', glow: 'var(--theme-accent-glow, rgba(173, 92, 255, 0.25))' },
+            ];
+            const cfg = trackColors[tIdx % trackColors.length];
+
+            return (
+              <StaggerItem key={track.num}>
+                <SpotlightCard
+                  spotlightColor={cfg.glow}
+                  borderColor={cfg.color + '40'}
+                  className="h-full p-7 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5 bg-[#131922] border-[#232F3E] group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <span
+                        className="font-mono font-black text-3xl group-hover:scale-105 transition-transform leading-none"
+                        style={{ color: cfg.color }}
+                      >
+                        {track.num}
+                      </span>
+                      <div
+                        className="p-2.5 rounded-xl bg-[#161E2D] border transition-all group-hover:scale-110"
+                        style={{ borderColor: cfg.color + '40' }}
+                      >
+                        {getIcon(track.icon)}
+                      </div>
                     </div>
+
+                    <h3 className="text-xl font-bold text-white mb-3 transition-colors">
+                      {track.title}
+                    </h3>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6 font-sans">
+                      {track.description}
+                    </p>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 transition-colors">
-                    {track.title}
-                  </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                    {track.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-[#232F3E] flex flex-wrap gap-1.5">
-                  {track.tags.map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#161E2D] text-slate-300 border border-[#232F3E] transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </SpotlightCard>
-            </StaggerItem>
-          ))}
+                  <div className="pt-4 border-t border-[#232F3E] flex flex-wrap gap-1.5">
+                    {track.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#161E2D] text-slate-300 border border-[#232F3E] group-hover:border-slate-500 transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </SpotlightCard>
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
       </div>
     </section>

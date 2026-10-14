@@ -5,7 +5,35 @@ import { EVENT_DETAILS } from '../data/eventData';
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.history.pushState(null, '', '/');
   };
+
+  const handleFooterNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    if (!targetId) {
+      scrollToTop();
+      return;
+    }
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const yOffset = -90;
+      const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      window.history.pushState(null, '', href);
+    }
+  };
+
+  const footerLinks = [
+    { name: 'About Summit', href: '#about' },
+    { name: 'Learning Tracks', href: '#tracks' },
+    { name: 'Speakers & Keynotes', href: '#speakers' },
+    { name: 'Session Timetable', href: '#agenda' },
+    { name: 'Campus Venue & Transit', href: '#venue' },
+    { name: 'Kahoot Quiz & Prizes', href: '#contests' },
+    { name: 'Core Organizing Team', href: '#team' },
+    { name: 'Frequently Asked Questions', href: '#faq' },
+  ];
 
   return (
     <footer className="relative border-t border-[#232F3E] bg-[#0B0F17] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
@@ -18,8 +46,8 @@ export const Footer: React.FC = () => {
               <div className="h-6 w-[1px] bg-[#232F3E]" />
               <img src="/AWS_SBG.png" alt="AWS SBG" className="h-7 w-auto object-contain" />
               <div className="h-6 w-[1px] bg-[#232F3E]" />
-              <div className="h-8 w-8 rounded-lg bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center">
-                <img src="/risu-logo.png" alt="RISU" className="h-full w-full object-contain" />
+              <div className="h-8 w-8 rounded-lg bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center shadow-sm">
+                <img src="/main-logo.svg" alt="Brand Logo" className="h-full w-full object-contain drop-shadow-[0_0_6px_rgba(173,92,255,0.4)]" />
               </div>
             </div>
 
@@ -43,8 +71,8 @@ export const Footer: React.FC = () => {
               <a
                 href={EVENT_DETAILS.socials.linkedin}
                 target="_blank"
-                rel="noreferrer"
-                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -54,8 +82,8 @@ export const Footer: React.FC = () => {
               <a
                 href={EVENT_DETAILS.socials.instagram}
                 target="_blank"
-                rel="noreferrer"
-                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -65,8 +93,8 @@ export const Footer: React.FC = () => {
               <a
                 href={EVENT_DETAILS.socials.twitter}
                 target="_blank"
-                rel="noreferrer"
-                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
                 aria-label="Twitter / X"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -75,7 +103,7 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 href={`mailto:${EVENT_DETAILS.contactEmail}`}
-                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all"
+                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
@@ -89,32 +117,25 @@ export const Footer: React.FC = () => {
               Navigation
             </h4>
             <ul className="space-y-2 text-xs">
-              <li>
-                <a href="#about" className="hover:text-[#FF9900] transition-colors">About Summit</a>
-              </li>
-              <li>
-                <a href="#tracks" className="hover:text-[#FF9900] transition-colors">Learning Tracks</a>
-              </li>
-              <li>
-                <a href="#speakers" className="hover:text-[#FF9900] transition-colors">Speakers &amp; Keynotes</a>
-              </li>
-              <li>
-                <a href="#agenda" className="hover:text-[#FF9900] transition-colors">Session Timetable</a>
-              </li>
-              <li>
-                <a href="#venue" className="hover:text-[#FF9900] transition-colors">Campus Venue &amp; Transit</a>
-              </li>
-              <li>
-                <a href="#contests" className="hover:text-[#FF9900] transition-colors">Kahoot Quiz &amp; Prizes</a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-[#FF9900] transition-colors">Contact Organizers</a>
-              </li>
-              <li>
-                <a href="#team" className="hover:text-[#FF9900] transition-colors">Core Organizing Team</a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-[#FF9900] transition-colors">Frequently Asked Questions</a>
+              {footerLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleFooterNavClick(e, link.href)}
+                    className="hover:text-[var(--theme-accent,#AD5CFF)] transition-colors inline-block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--theme-accent,#AD5CFF)] rounded px-1 -mx-1"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+              <li className="pt-2 border-t border-[#232F3E]/60 mt-1">
+                <a
+                  href={`mailto:${EVENT_DETAILS.contactEmail}`}
+                  className="inline-flex items-center gap-1.5 text-slate-400 hover:text-[#FF9900] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FF9900] rounded px-1 -mx-1"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#FF9900]" />
+                  <span>Direct Organizer Desk</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -126,8 +147,8 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="rounded-2xl border border-[#232F3E] bg-[#131921] p-4 space-y-2">
               <div className="flex items-center gap-2.5">
-                <div className="h-7 w-7 rounded-lg bg-[#161E2D] p-0.5 border border-[#232F3E] flex items-center justify-center shrink-0">
-                  <img src="/risu-logo.png" alt="RISU" className="h-full w-full object-contain" />
+                <div className="h-7 w-7 rounded-lg bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center shrink-0">
+                  <img src="/main-logo.svg" alt="Academic Host" className="h-full w-full object-contain drop-shadow-[0_0_4px_rgba(173,92,255,0.4)]" />
                 </div>
                 <span className="text-xs font-bold text-white">
                   Rungta International Skills University
@@ -143,19 +164,20 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Legal & Credits */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
+        {/* Bottom Legal & Credits (Poster Small Footer Scale: Inter Medium 16-20px responsive) */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 poster-small-footer text-slate-400">
           <p>
             © 2026 AWS Student Builder Group RISU. All rights reserved.
           </p>
 
-          <p className="max-w-md text-center sm:text-right text-[10px] text-slate-500 leading-snug">
+          <p className="max-w-md text-center sm:text-right text-slate-400 leading-snug">
             AWS Student Community Day is an independent student conference hosted by the AWS SBG at Rungta International Skills University (RISU) and is not run by Amazon Web Services, Inc.
           </p>
 
           <button
+            type="button"
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/50 transition-colors cursor-pointer"
+            className="p-2.5 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/50 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />

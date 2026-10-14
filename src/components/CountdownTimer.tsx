@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useId } from 'react';
+import React, { useState, useEffect, useRef, useId, useCallback } from 'react';
 import { Calendar, Sparkles, Check, Download, Volume2, VolumeX, Share2, MapPin, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import confetti from 'canvas-confetti';
@@ -14,45 +14,63 @@ interface TimeLeft {
 }
 
 // ---------------------------------------------------------------------------
-// Mechanical 3D Split-Flap Card Component
+// Colon Separator between Countdown Units
+// ---------------------------------------------------------------------------
+const ColonSeparator: React.FC = () => (
+  <div
+    className="h-11 xs:h-13 sm:h-18 md:h-22 lg:h-26 flex flex-col items-center justify-center gap-1.5 sm:gap-2.5 md:gap-3 px-0.5 sm:px-1 md:px-1.5 select-none"
+    aria-hidden="true"
+  >
+    <span
+      className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full animate-pulse"
+      style={{
+        backgroundColor: 'var(--theme-accent, #AD5CFF)',
+        boxShadow: '0 0 10px var(--theme-accent, #AD5CFF), 0 0 16px var(--theme-accent-glow, rgba(173, 92, 255, 0.6))',
+      }}
+    />
+    <span
+      className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full animate-pulse"
+      style={{
+        backgroundColor: 'var(--theme-accent, #AD5CFF)',
+        boxShadow: '0 0 10px var(--theme-accent, #AD5CFF), 0 0 16px var(--theme-accent-glow, rgba(173, 92, 255, 0.6))',
+      }}
+    />
+  </div>
+);
+
+// ---------------------------------------------------------------------------
+// Mechanical 3D Split-Flap Card Component (Elfsight Orange Retro Airport Theme)
 // ---------------------------------------------------------------------------
 interface SplitFlapCardProps {
   value: number;
   label: string;
-  isSeconds?: boolean;
 }
 
-const SplitFlapCard: React.FC<SplitFlapCardProps> = ({ value, label, isSeconds = false }) => {
+const SplitFlapCard: React.FC<SplitFlapCardProps> = ({ value, label }) => {
   const formatted = String(Math.max(0, value)).padStart(2, '0');
   const [tens, ones] = formatted.split('');
 
   return (
     <div className="flex flex-col items-center">
-      {/* Unit Chassis / Frame */}
-      <div className="relative group">
-        {/* Dual Flip Digit Housing */}
-        <div className="relative flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 bg-[#090D14] border border-[#232F3E] rounded-xl sm:rounded-2xl">
-          {/* Digit 1 (Tens) */}
-          <SingleDigitTile digit={tens} isSeconds={isSeconds} />
+      {/* Dual Flip Digit Housing */}
+      <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
+        {/* Digit 1 (Tens) */}
+        <SingleDigitTile digit={tens} />
 
-          {/* Digit 2 (Ones) */}
-          <SingleDigitTile digit={ones} isSeconds={isSeconds} />
-        </div>
+        {/* Digit 2 (Ones) */}
+        <SingleDigitTile digit={ones} />
       </div>
 
       {/* Unit Label Pill */}
-      <div className="mt-2.5 flex items-center gap-1.5">
-        {isSeconds && (
-          <span className="inline-flex rounded-full h-1.5 w-1.5 bg-[#FF9900]" />
-        )}
-        <span
-          className={`text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.18em] transition-colors ${
-            isSeconds ? 'text-[#FF9900]' : 'text-slate-400'
-          }`}
-        >
-          {label}
-        </span>
-      </div>
+      <span
+        className="mt-2 sm:mt-2.5 md:mt-3 text-[11px] xs:text-xs sm:text-sm md:text-base font-bold tracking-wider select-none"
+        style={{
+          color: 'var(--theme-accent, #AD5CFF)',
+          textShadow: '0 0 14px var(--theme-accent-glow, rgba(173, 92, 255, 0.4))',
+        }}
+      >
+        {label}
+      </span>
     </div>
   );
 };
@@ -62,45 +80,47 @@ const SplitFlapCard: React.FC<SplitFlapCardProps> = ({ value, label, isSeconds =
 // ---------------------------------------------------------------------------
 interface SingleDigitTileProps {
   digit: string;
-  isSeconds?: boolean;
 }
 
-const SingleDigitTile: React.FC<SingleDigitTileProps> = ({ digit, isSeconds = false }) => {
+const SingleDigitTile: React.FC<SingleDigitTileProps> = ({ digit }) => {
   return (
     <div
-      className="relative w-7 xs:w-9 sm:w-13 md:w-16 h-12 xs:h-14 sm:h-20 md:h-24 bg-[#111722] rounded-lg sm:rounded-xl overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] border border-[#1E293B]"
-      style={{ perspective: 600 }}
+      className="relative w-7 xs:w-8.5 sm:w-12 md:w-15 lg:w-18 h-11 xs:h-13 sm:h-18 md:h-22 lg:h-26 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border"
+      style={{
+        background:
+          'linear-gradient(180deg, color-mix(in srgb, var(--theme-accent, #AD5CFF) 88%, white 12%) 0%, var(--theme-accent, #AD5CFF) 50%, color-mix(in srgb, var(--theme-accent, #AD5CFF) 75%, black 25%) 100%)',
+        borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 65%, white 35%)',
+        boxShadow:
+          '0 10px 28px var(--theme-accent-glow, rgba(173, 92, 255, 0.4)), 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5)',
+        perspective: 800,
+      }}
     >
       {/* Top Half Highlight Sheen */}
-      <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/[0.08] to-transparent pointer-events-none z-20" />
+      <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/28 via-white/10 to-transparent pointer-events-none z-20 rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl" />
 
       {/* Bottom Half Shadow */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/28 via-black/10 to-transparent pointer-events-none z-20 rounded-b-lg sm:rounded-b-xl md:rounded-b-2xl" />
 
       {/* Center Split Horizontal Groove & Notches */}
-      <div className="absolute top-1/2 left-0 right-0 h-[1.5px] bg-[#070A0F] z-30 shadow-[0_1px_0_rgba(255,255,255,0.06)] -translate-y-1/2" />
-      <div className="absolute top-1/2 left-0 w-1 h-1.5 bg-[#090D14] rounded-r-full -translate-y-1/2 z-30 border-r border-[#232F3E]" />
-      <div className="absolute top-1/2 right-0 w-1 h-1.5 bg-[#090D14] rounded-l-full -translate-y-1/2 z-30 border-l border-[#232F3E]" />
+      <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-[#0E1117]/90 z-30 shadow-[0_1px_0_rgba(255,255,255,0.22)] -translate-y-1/2" />
+      <div className="absolute top-1/2 left-0 w-1 sm:w-1.5 md:w-2 h-2 sm:h-3 md:h-3.5 bg-[#0F141D] rounded-r-full -translate-y-1/2 z-30" />
+      <div className="absolute top-1/2 right-0 w-1 sm:w-1.5 md:w-2 h-2 sm:h-3 md:h-3.5 bg-[#0F141D] rounded-l-full -translate-y-1/2 z-30" />
 
       {/* Animated 3D Flip Digit */}
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={digit}
-          initial={{ rotateX: 85, opacity: 0.2, filter: 'blur(1px)' }}
-          animate={{ rotateX: 0, opacity: 1, filter: 'blur(0px)' }}
-          exit={{ rotateX: -85, opacity: 0.1, filter: 'blur(1px)' }}
+          initial={{ rotateX: 90, opacity: 0.8, filter: 'brightness(0.95)' }}
+          animate={{ rotateX: 0, opacity: 1, filter: 'brightness(1)' }}
+          exit={{ rotateX: -90, opacity: 0.8, filter: 'brightness(0.85)' }}
           transition={{
-            duration: 0.32,
-            ease: [0.16, 1, 0.3, 1],
+            duration: 0.38,
+            ease: [0.25, 1, 0.5, 1],
           }}
-          className="w-full h-full flex items-center justify-center font-mono font-black select-none"
-          style={{ transformStyle: 'preserve-3d' }}
+          className="w-full h-full flex items-center justify-center select-none"
+          style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}
         >
-          <span
-            className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl tracking-tighter tabular-nums leading-none font-bold ${
-              isSeconds ? 'text-[#FF9900]' : 'text-white'
-            }`}
-          >
+          <span className="text-white font-black font-sans select-none tracking-tight leading-none text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
             {digit}
           </span>
         </motion.div>
@@ -134,7 +154,7 @@ export const CountdownTimer: React.FC = () => {
   const targetDateStr = EVENT_DETAILS.isoDate || '2026-10-21T08:00:00+05:30';
 
   // Play synthesized crisp split-flap mechanical click tick
-  const playMechanicalTick = () => {
+  const playMechanicalTick = useCallback(() => {
     if (!soundEnabled) return;
     try {
       if (!audioCtxRef.current) {
@@ -164,7 +184,7 @@ export const CountdownTimer: React.FC = () => {
     } catch {
       // AudioContext not allowed or not supported; ignore gracefully
     }
-  };
+  }, [soundEnabled]);
 
   useEffect(() => {
     const target = new Date(targetDateStr).getTime();
@@ -209,7 +229,7 @@ export const CountdownTimer: React.FC = () => {
     calculateTime();
     const interval = setInterval(calculateTime, 1000);
     return () => clearInterval(interval);
-  }, [targetDateStr, soundEnabled]);
+  }, [targetDateStr, playMechanicalTick]);
 
   // Close calendar dropdown when clicking outside
   useEffect(() => {
@@ -232,7 +252,7 @@ export const CountdownTimer: React.FC = () => {
       particleCount: 65,
       spread: 70,
       origin: { x, y },
-      colors: ['#FF9900', '#FFAC33', '#00A4E4', '#38BDF8', '#FFD814', '#FFFFFF'],
+      colors: ['#FF9900', '#42B4FF', '#FF57EA', '#00E582', '#AD5CFF', '#FFFFFF'],
       ticks: 240,
       gravity: 1.1,
       scalar: 1,
@@ -294,7 +314,7 @@ export const CountdownTimer: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto mb-10 select-none">
+    <div className="w-full max-w-4xl mx-auto mb-6 sm:mb-8 select-none">
       {/* Technical Countdown Chassis */}
       <div className="relative rounded-2xl bg-[#0F141D] border border-[#232F3E] p-4 sm:p-7 md:p-8 shadow-xl">
         {/* Top Telemetry Strip */}
@@ -315,50 +335,78 @@ export const CountdownTimer: React.FC = () => {
               type="button"
               onClick={() => setSoundEnabled((prev) => !prev)}
               title={soundEnabled ? 'Mute mechanical tick' : 'Enable mechanical audio feedback'}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold transition-all border ${
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold transition-all border"
+              style={
                 soundEnabled
-                  ? 'bg-[#FF9900]/15 text-[#FF9900] border-[#FF9900]/40'
-                  : 'bg-[#131921] text-slate-400 border-[#232F3E] hover:text-white'
-              }`}
+                  ? {
+                      backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)',
+                      color: 'var(--theme-accent, #AD5CFF)',
+                      borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)',
+                    }
+                  : {
+                      backgroundColor: '#131921',
+                      color: '#94A3B8',
+                      borderColor: '#232F3E',
+                    }
+              }
             >
-                {soundEnabled ? (
-                  <>
-                    <Volume2 className="w-3.5 h-3.5 text-[#FF9900]" />
-                    <span className="hidden xs:inline">AUDIO ON</span>
-                  </>
-                ) : (
-                  <>
-                    <VolumeX className="w-3.5 h-3.5 text-slate-500" />
-                    <span className="hidden xs:inline">AUDIO OFF</span>
-                  </>
-                )}
-              </button>
+              {soundEnabled ? (
+                <>
+                  <Volume2 className="w-3.5 h-3.5" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
+                  <span className="hidden xs:inline">AUDIO ON</span>
+                </>
+              ) : (
+                <>
+                  <VolumeX className="w-3.5 h-3.5 text-slate-500" />
+                  <span className="hidden xs:inline">AUDIO OFF</span>
+                </>
+              )}
+            </button>
 
-              <button
-                type="button"
-                onClick={triggerCelebration}
-                title="Tap for builder burst"
-                className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9900]/10 hover:bg-[#FF9900]/20 text-[#FF9900] border border-[#FF9900]/30 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-              >
-                <Sparkles className="w-3 h-3 text-[#FFD814]" />
-                <span className="hidden xs:inline">BURST</span>
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={triggerCelebration}
+              title="Tap for builder burst"
+              className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold border transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              style={{
+                backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 12%, transparent)',
+                color: 'var(--theme-accent, #AD5CFF)',
+                borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 30%, transparent)',
+              }}
+            >
+              <Sparkles className="w-3 h-3" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
+              <span className="hidden xs:inline">BURST</span>
+            </button>
           </div>
+        </div>
 
-          {/* Centerpiece: Mechanical Split-Flap Countdown Units */}
-          <div className="relative z-10 grid grid-cols-4 gap-2 xs:gap-3 sm:gap-6 md:gap-8 items-center justify-center my-2">
+        {/* Centerpiece: Mechanical Split-Flap Countdown Units with glowing colon separators */}
+        <div className="relative z-10 flex items-start justify-center gap-1 xs:gap-1.5 sm:gap-3 md:gap-5 lg:gap-6 my-3 sm:my-5">
+          {/* Ambient glow matching theme accent behind the digits */}
+          <div
+            className="absolute inset-0 pointer-events-none -z-10"
+            style={{
+              background: 'radial-gradient(ellipse at center, var(--theme-accent-glow, rgba(173, 92, 255, 0.22)) 0%, transparent 72%)',
+            }}
+          />
+
             {/* Days */}
             <SplitFlapCard value={timeLeft.days} label="Days" />
+
+            <ColonSeparator />
 
             {/* Hours */}
             <SplitFlapCard value={timeLeft.hours} label="Hours" />
 
+            <ColonSeparator />
+
             {/* Minutes */}
             <SplitFlapCard value={timeLeft.minutes} label="Minutes" />
 
-            {/* Seconds (Pulsing highlight) */}
-            <SplitFlapCard value={timeLeft.seconds} label="Seconds" isSeconds />
+            <ColonSeparator />
+
+            {/* Seconds */}
+            <SplitFlapCard value={timeLeft.seconds} label="Seconds" />
           </div>
 
           {/* Telemetry Progress Bar towards 21 October */}
@@ -366,13 +414,13 @@ export const CountdownTimer: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs">
               {/* Event Schedule Info */}
               <div className="flex items-center gap-2 text-slate-300">
-                <Calendar className="w-4 h-4 text-[#FF9900] shrink-0" />
+                <Calendar className="w-4 h-4 shrink-0" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
                 <span className="font-medium">
                   <strong className="text-white">Wednesday, 21 October 2026</strong> · 08:00 AM IST
                 </span>
                 <span className="hidden md:inline text-slate-600">|</span>
                 <span className="hidden md:flex items-center gap-1 text-slate-400">
-                  <MapPin className="w-3 h-3 text-[#00A4E4]" />
+                  <MapPin className="w-3 h-3 text-[#42B4FF]" />
                   RISU Campus, Bhilai
                 </span>
               </div>
@@ -382,7 +430,11 @@ export const CountdownTimer: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setCalendarOpen((prev) => !prev)}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF9900] hover:bg-[#FFAC33] active:scale-95 text-[#0B0F17] font-bold text-xs shadow-sm transition-all cursor-pointer"
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-white font-bold text-xs transition-all cursor-pointer active:scale-95 hover:brightness-110"
+                  style={{
+                    backgroundColor: 'var(--theme-accent, #AD5CFF)',
+                    boxShadow: '0 4px 14px var(--theme-accent-glow, rgba(173, 92, 255, 0.35))',
+                  }}
                   aria-expanded={calendarOpen}
                   aria-controls={dropdownId}
                 >
@@ -427,7 +479,7 @@ export const CountdownTimer: React.FC = () => {
                         onClick={handleDownloadIcs}
                         className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white hover:bg-[#1A2332] transition-colors text-left cursor-pointer"
                       >
-                        <Download className="w-4 h-4 text-[#00A4E4]" />
+                        <Download className="w-4 h-4 text-[#42B4FF]" />
                         <span>Apple / Outlook (.ics)</span>
                       </button>
 

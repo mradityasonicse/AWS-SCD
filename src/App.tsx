@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { ArchitecturalGridBackground } from './components/ArchitecturalGridBackground';
 import { Ticker } from './components/Ticker';
@@ -15,40 +15,47 @@ import { Contests } from './components/Contests';
 import { Sponsors } from './components/Sponsors';
 import { Team } from './components/Team';
 import { FAQ } from './components/FAQ';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { QuickRegisterModal } from './components/QuickRegisterModal';
+import { MobileRegisterBar } from './components/MobileRegisterBar';
 
 export const App: React.FC = () => {
+  const [registerModalOpen, setRegisterModalOpen] = useState(false);
+
   const handleOpenContact = () => {
-    const el = document.querySelector('#contact');
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.pageYOffset - 90;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+    window.location.href = 'mailto:aws.sbg.risu@gmail.com?subject=Sponsorship%20Inquiry%20-%20AWS%20Student%20Community%20Day%202026';
   };
 
   return (
     <ThemeProvider>
       <div
-        className="relative min-h-screen text-[#F8FAFC] font-sans antialiased overflow-x-clip transition-colors duration-300"
+        className="relative min-h-screen text-[#F8FAFC] font-sans antialiased overflow-x-clip transition-colors duration-300 pb-16 sm:pb-0"
         style={{
           backgroundColor: 'var(--theme-bg, #111622)',
           color: 'var(--theme-text, #F8FAFC)',
         }}
       >
+        {/* Skip to Main Content for Accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-3 focus:z-[200] focus:px-4 focus:py-2 focus:bg-[#FF9900] focus:text-[#0B0F17] focus:font-black focus:text-xs focus:rounded-full focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white"
+        >
+          Skip to main content
+        </a>
+
         {/* Top Breaking News Ticker */}
         <Ticker />
 
         {/* Precision Architectural Grid Background (Zero AI Slop) */}
         <ArchitecturalGridBackground />
 
-        {/* Floating Island Navigation Bar with Theme Switcher */}
-        <Navbar />
+        {/* Floating Island Navigation Bar */}
+        <Navbar onOpenRegister={() => setRegisterModalOpen(true)} />
 
-      {/* Main Summit Experience Hierarchy */}
-      <main className="relative z-10 flex flex-col">
+        {/* Main Summit Experience Hierarchy */}
+        <main id="main-content" className="relative z-10 flex flex-col">
         {/* Hero Section with Live Flip Countdown */}
-        <Hero />
+        <Hero onOpenRegister={() => setRegisterModalOpen(true)} />
 
         {/* Infinite Kinetic Phrase & Partner Marquee */}
         <LogoMarquee />
@@ -82,13 +89,19 @@ export const App: React.FC = () => {
 
         {/* [ 09 ] Frequently Asked Questions */}
         <FAQ />
-
-        {/* [ 10 ] Direct Organizer Desk & Inquiries */}
-        <ContactSection />
       </main>
 
       {/* Comprehensive Brand Footer */}
       <Footer />
+
+      {/* Mobile Easy Register Floating Action Bar */}
+      <MobileRegisterBar onOpenRegister={() => setRegisterModalOpen(true)} />
+
+      {/* God-level Smooth Quick Register & Pass Generator Modal */}
+      <QuickRegisterModal
+        isOpen={registerModalOpen}
+        onClose={() => setRegisterModalOpen(false)}
+      />
     </div>
     </ThemeProvider>
   );

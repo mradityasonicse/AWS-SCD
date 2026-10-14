@@ -21,6 +21,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
     let width = window.innerWidth;
     let height = window.innerHeight;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const CELL_SIZE = 56; // Precision grid cell size
 
@@ -38,6 +39,9 @@ export const ArchitecturalGridBackground: React.FC = () => {
 
     const handleResize = () => {
       setupCanvas();
+      if (prefersReducedMotion) {
+        render();
+      }
     };
     window.addEventListener('resize', handleResize, { passive: true });
 
@@ -136,16 +140,22 @@ export const ArchitecturalGridBackground: React.FC = () => {
         }
       }
 
-      animationFrameId = requestAnimationFrame(render);
+      if (!prefersReducedMotion) {
+        animationFrameId = requestAnimationFrame(render);
+      }
     };
 
-    animationFrameId = requestAnimationFrame(render);
+    if (prefersReducedMotion) {
+      render();
+    } else {
+      animationFrameId = requestAnimationFrame(render);
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, [currentColorConfig, bgMode]);
 

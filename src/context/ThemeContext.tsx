@@ -1,59 +1,14 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type SecondaryColorKey = 'purple' | 'blue' | 'pink' | 'green' | 'orange';
-export type BgModeKey = 'dark' | 'light';
+import {
+  type SecondaryColorKey,
+  type BgModeKey,
+  type SecondaryColorConfig,
+  SECONDARY_COLORS,
+} from './themeTokens';
 
-export interface SecondaryColorConfig {
-  key: SecondaryColorKey;
-  label: string;
-  hex: string;
-  hoverHex: string;
-  rgb: string;
-  glow: string;
-}
-
-export const SECONDARY_COLORS: Record<SecondaryColorKey, SecondaryColorConfig> = {
-  purple: {
-    key: 'purple',
-    label: 'Electric Violet',
-    hex: '#AD5CFF',
-    hoverHex: '#BC73FF',
-    rgb: '173, 92, 255',
-    glow: 'rgba(173, 92, 255, 0.25)',
-  },
-  blue: {
-    key: 'blue',
-    label: 'Cloud Cyan',
-    hex: '#38BDF8',
-    hoverHex: '#5BCBFA',
-    rgb: '56, 189, 248',
-    glow: 'rgba(56, 189, 248, 0.25)',
-  },
-  pink: {
-    key: 'pink',
-    label: 'Neon Magenta',
-    hex: '#EC4899',
-    hoverHex: '#F45FA6',
-    rgb: '236, 72, 153',
-    glow: 'rgba(236, 72, 153, 0.25)',
-  },
-  green: {
-    key: 'green',
-    label: 'Emerald Green',
-    hex: '#10B981',
-    hoverHex: '#34D399',
-    rgb: '16, 185, 129',
-    glow: 'rgba(16, 185, 129, 0.25)',
-  },
-  orange: {
-    key: 'orange',
-    label: 'Smile Orange',
-    hex: '#FF9900',
-    hoverHex: '#FFAC33',
-    rgb: '255, 153, 0',
-    glow: 'rgba(255, 153, 0, 0.25)',
-  },
-};
+export type { SecondaryColorKey, BgModeKey, SecondaryColorConfig };
+export { SECONDARY_COLORS };
 
 interface ThemeContextType {
   secondaryColor: SecondaryColorKey;
@@ -69,8 +24,12 @@ const THEME_STORAGE_KEY_COLOR = 'aws_scd_theme_color';
 const THEME_STORAGE_KEY_BG = 'aws_scd_theme_bg';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default to purple (#AD5CFF) as requested
-  const [secondaryColor, setSecondaryColorState] = useState<SecondaryColorKey>('purple');
+  // Default to saved theme color, or Electric purple (#AD5CFF) as fallback
+  const [secondaryColor, setSecondaryColorState] = useState<SecondaryColorKey>(() => {
+    if (typeof window === 'undefined') return 'purple';
+    const saved = localStorage.getItem(THEME_STORAGE_KEY_COLOR) as SecondaryColorKey;
+    return saved && SECONDARY_COLORS[saved] ? saved : 'purple';
+  });
 
   // Default to dark as featured in the AWS Builder Group reference image
   const [bgMode, setBgModeState] = useState<BgModeKey>(() => {

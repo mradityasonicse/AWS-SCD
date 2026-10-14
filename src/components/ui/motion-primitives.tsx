@@ -151,6 +151,11 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
         'relative rounded-xl sm:rounded-2xl border border-[#232F3E] bg-[#131921] overflow-hidden transition-all duration-300 hover:border-[#37475A] group',
         className
       )}
+      style={{
+        backgroundColor: 'var(--theme-surface-card, #131921)',
+        borderColor: 'var(--theme-border, #232F3E)',
+        ...props.style,
+      }}
       {...props}
     >
       {/* Dynamic Cursor Spotlight Radial Overlay */}

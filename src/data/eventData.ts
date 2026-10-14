@@ -81,9 +81,9 @@ export const EVENT_DETAILS = {
   mapUrl: "https://www.google.com/maps/search/?api=1&query=21.2350,81.3462+(Rungta+International+Skills+University+Bhilai)",
   contactEmail: "aws.sbg.risu@gmail.com",
   contactPhone: "+91 8518903022",
-  registrationUrl: "#register",
+  registrationUrl: "https://www.meetup.com/aws-sbg-at-rungta-college-of-engineering-and-technology/events/316879036/?utm_medium=referral&utm_campaign=announce_event&utm_source=link&utm_version=v2&member_id=476107778",
   socials: {
-    meetup: "https://www.meetup.com/aws-sbg-at-risu/",
+    meetup: "https://www.meetup.com/aws-sbg-at-rungta-college-of-engineering-and-technology/events/316879036/?utm_medium=referral&utm_campaign=announce_event&utm_source=link&utm_version=v2&member_id=476107778",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
     instagram: "https://www.instagram.com/aws_student_builder_group_risu/",
     twitter: "https://x.com/awsscrisu/"
@@ -245,10 +245,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Attendee Check-in & Hot Breakfast",
     type: "Check-in",
-    typeColor: "#f0a838",
+    typeColor: "#00E582",
     duration: "60 min",
     subtitle: "Check in with the student desk, collect your official welcome kit & connect over breakfast at RISU.",
-    dotColor: "#f0a838",
+    dotColor: "#00E582",
     category: "Networking"
   },
   {
@@ -256,10 +256,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Grand Opening Ceremony & Welcome Note",
     type: "Ceremony",
-    typeColor: "#34d399",
+    typeColor: "#00E582",
     duration: "30 min",
     subtitle: "Welcome address by Leadership at Rungta International Skills University and AWS SBG RISU Leads.",
-    dotColor: "#34d399",
+    dotColor: "#00E582",
     category: "Ceremony"
   },
   {
@@ -268,10 +268,10 @@ export const AGENDA: AgendaItem[] = [
     title: "Jessica Gilmore, EdD — Special Address",
     speaker: "Jessica Gilmore, EdD",
     type: "Special Keynote (Virtual)",
-    typeColor: "#38bdf8",
+    typeColor: "#42B4FF",
     duration: "20 min",
     subtitle: "Global Education & Customer Success Leader, Amazon",
-    dotColor: "#38bdf8",
+    dotColor: "#42B4FF",
     category: "Keynote"
   },
   {
@@ -280,10 +280,10 @@ export const AGENDA: AgendaItem[] = [
     title: "Praful Bagai — Opening Keynote: Future of Cloud Builders",
     speaker: "Praful Bagai",
     type: "Opening Keynote",
-    typeColor: "#f90",
+    typeColor: "#FF9900",
     duration: "40 min",
     subtitle: "Head of DevRel – India & South Asia, Amazon Web Services (AWS)",
-    dotColor: "#f90",
+    dotColor: "#FF9900",
     category: "Keynote"
   },
   {
@@ -292,10 +292,10 @@ export const AGENDA: AgendaItem[] = [
     title: "The Building Blocks of AI Agents with Amazon Bedrock",
     speaker: "Nikita Mourya",
     type: "Technical Session",
-    typeColor: "#a855f7",
+    typeColor: "#AD5CFF",
     duration: "45 min",
     subtitle: "AWS Community Builder & Staff Platform Engineer",
-    dotColor: "#a855f7",
+    dotColor: "#AD5CFF",
     category: "Tech"
   },
   {
@@ -303,10 +303,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "AWS Kahoot Quiz & Cloud Trivia — Round 1",
     type: "Activity",
-    typeColor: "#f43f5e",
+    typeColor: "#FF57EA",
     duration: "20 min",
     subtitle: "Live mobile trivia on auditorium screen. Top scorers win instant Amazon Echo Dots & swags!",
-    dotColor: "#f43f5e",
+    dotColor: "#FF57EA",
     category: "Fun"
   },
   {
@@ -315,10 +315,10 @@ export const AGENDA: AgendaItem[] = [
     title: "Cloud Under Lockdown: Rethinking Zero-Trust Security",
     speaker: "Varsha Verma",
     type: "Technical Session",
-    typeColor: "#38bdf8",
+    typeColor: "#42B4FF",
     duration: "45 min",
     subtitle: "AWS Community Builder & Cloud Security Specialist",
-    dotColor: "#38bdf8",
+    dotColor: "#42B4FF",
     category: "Tech"
   },
   {
@@ -326,10 +326,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Lavish Buffet Lunch, Tech Expo & Community Networking",
     type: "Networking Break",
-    typeColor: "#34d399",
+    typeColor: "#00E582",
     duration: "70 min",
     subtitle: "Enjoy a sumptuous multi-course buffet while connecting with sponsors, mentors & peers at RISU.",
-    dotColor: "#34d399",
+    dotColor: "#00E582",
     category: "Networking"
   },
   {
@@ -338,10 +338,10 @@ export const AGENDA: AgendaItem[] = [
     title: "Scaling to 90 Million Users: Highly Available Cloud Blueprint",
     speaker: "Deepak Nishad",
     type: "Technical Session",
-    typeColor: "#f90",
+    typeColor: "#FF9900",
     duration: "45 min",
     subtitle: "DevOps Engineer at Snapmint reveals secrets of handling hyperscale workloads.",
-    dotColor: "#f90",
+    dotColor: "#FF9900",
     category: "Tech"
   },
   {
@@ -350,10 +350,10 @@ export const AGENDA: AgendaItem[] = [
     title: "Agile AI with AWS: Rapid Prototyping to Enterprise Deployment",
     speaker: "Anmoldeep Singh Arora",
     type: "Technical Session",
-    typeColor: "#ec4899",
+    typeColor: "#FF57EA",
     duration: "45 min",
     subtitle: "AI Engineer at Accenture on deploying scalable LLMs and generative pipelines.",
-    dotColor: "#ec4899",
+    dotColor: "#FF57EA",
     category: "Tech"
   },
   {
@@ -362,10 +362,10 @@ export const AGENDA: AgendaItem[] = [
     title: "Building Resilient Event Infrastructure with Serverless",
     speaker: "Aishwary Gathe",
     type: "Technical Session",
-    typeColor: "#38bdf8",
+    typeColor: "#42B4FF",
     duration: "30 min",
     subtitle: "DevRel at Meetio on event-driven architectures & real-world reliability.",
-    dotColor: "#38bdf8",
+    dotColor: "#42B4FF",
     category: "Tech"
   },
   {
@@ -373,10 +373,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Grand Panel Discussion: Breaking Into Cloud & AI in 2026",
     type: "Panel Discussion",
-    typeColor: "#a855f7",
+    typeColor: "#AD5CFF",
     duration: "40 min",
     subtitle: "All speakers on stage: open Q&A, cloud careers, certifications, and open source opportunities.",
-    dotColor: "#a855f7",
+    dotColor: "#AD5CFF",
     category: "Keynote"
   },
   {
@@ -384,10 +384,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "AWS Kahoot Grand Finale & Mega Lucky Draw",
     type: "Activity",
-    typeColor: "#f43f5e",
+    typeColor: "#FF57EA",
     duration: "25 min",
     subtitle: "Final showdown for the Amazon Echo Dot, Fire TV Stick, smart tech gifts, and certification vouchers.",
-    dotColor: "#f43f5e",
+    dotColor: "#FF57EA",
     category: "Fun"
   },
   {
@@ -395,10 +395,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Closing Ceremony, Volunteer Felicitation & Official Group Photo",
     type: "Ceremony",
-    typeColor: "#34d399",
+    typeColor: "#00E582",
     duration: "35 min",
     subtitle: "Vote of thanks by AWS SBG RISU, distribution of certificates, and grand community photograph.",
-    dotColor: "#34d399",
+    dotColor: "#00E582",
     category: "Ceremony"
   }
 ];
@@ -471,7 +471,7 @@ export const SPONSORS: Sponsor[] = [
   },
   {
     name: "Rungta International Skills University",
-    logo: "/risu-logo.png",
+    logo: "/main-logo.svg",
     category: "Academic Host",
     description: "Skill-first university empowering the next generation of cloud architects."
   },
@@ -487,7 +487,7 @@ export const COMMUNITY_PARTNERS = [
   { name: "AWS SBG Amity", logo: "/AWS_SBG.png", category: "Community" },
   { name: "AWS SBG SSIPMT", logo: "/AWS_SBG.png", category: "Community" },
   { name: "AWS Cloud Club Central India", logo: "/AWS.png", category: "Community" },
-  { name: "RISU Student Tech Council", logo: "/risu-logo.png", category: "Host Community" },
+  { name: "RISU Student Tech Council", logo: "/main-logo.svg", category: "Host Community" },
 ];
 
 export const ORGANIZERS: TeamMember[] = [
@@ -573,6 +573,6 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "I want to sponsor, partner, or volunteer. Where should I reach out?",
-    answer: "We welcome industry and community partners! Please write to aws.sbg.risu@gmail.com or connect directly via the Contact section on this website to receive the sponsorship prospectus."
+    answer: "We welcome industry and community partners! Please write directly to aws.sbg.risu@gmail.com to receive the official sponsorship prospectus and partner deck."
   }
 ];

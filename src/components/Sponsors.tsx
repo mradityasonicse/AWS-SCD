@@ -28,7 +28,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
                 <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                 Partners &amp; Supporters
               </p>
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
+              <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
                 Backed by the best in the ecosystem.
               </h2>
             </div>
@@ -41,37 +41,47 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
 
       {/* Primary Key Sponsors Grid */}
       <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 justify-items-center" staggerDelay={0.08}>
-        {SPONSORS.map((sponsor) => (
-          <StaggerItem key={sponsor.name} className="w-full">
-            <SpotlightCard className="w-full h-full p-8 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 shadow-md">
-              <div className="mb-4">
-                <span
-                  className="inline-block text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full text-[#0B0F17]"
-                  style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
-                >
-                  {sponsor.category}
-                </span>
-              </div>
+        {SPONSORS.map((sponsor, idx) => {
+          const badgeColors = [
+            '#FF9900', // Title Sponsor (AWS Smile Orange)
+            'var(--theme-accent, #AD5CFF)', // Host University (Electric Purple)
+            '#42B4FF', // Cloud Blue
+            '#00E582', // Cyber Green
+          ];
+          const badgeBg = badgeColors[idx % badgeColors.length];
 
-              <div className="h-28 w-full rounded-2xl bg-[#161E2D] border border-[#232F3E] flex items-center justify-center my-2 p-3">
-                <img
-                  src={sponsor.logo}
-                  alt={sponsor.name}
-                  className="max-h-16 max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
-                />
-              </div>
+          return (
+            <StaggerItem key={sponsor.name} className="w-full">
+              <SpotlightCard className="w-full h-full p-8 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 shadow-md">
+                <div className="mb-4">
+                  <span
+                    className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full text-[#0B0F17]"
+                    style={{ backgroundColor: badgeBg }}
+                  >
+                    {sponsor.category}
+                  </span>
+                </div>
 
-              <div className="mt-4">
-                <h4 className="font-extrabold text-white text-base mb-1">
-                  {sponsor.name}
-                </h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  {sponsor.description}
-                </p>
-              </div>
-            </SpotlightCard>
-          </StaggerItem>
-        ))}
+                <div className="h-28 w-full rounded-2xl bg-[#161E2D] border border-[#232F3E] flex items-center justify-center my-2 p-3">
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    className="max-h-16 max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
+                  />
+                </div>
+
+                <div className="mt-4">
+                  <h4 className="font-bold text-white text-base mb-1">
+                    {sponsor.name}
+                  </h4>
+                  <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                    {sponsor.description}
+                  </p>
+                </div>
+              </SpotlightCard>
+            </StaggerItem>
+          );
+        })}
       </StaggerContainer>
 
       {/* Community Partners Strip */}
@@ -113,7 +123,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               <HeartHandshake className="w-6 h-6" />
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-black text-white mb-3">
+            <h3 className="font-heading text-3xl sm:text-5xl font-normal text-white tracking-wide uppercase leading-none mb-3">
               Partner with Central India's Largest Student Cloud Summit
             </h3>
             <p className="text-sm text-slate-300 max-w-xl leading-relaxed mb-8">
@@ -122,9 +132,9 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
 
             <button
               onClick={onOpenContact}
-              className="cursor-pointer bg-[#FF9900] hover:bg-[#FFAC33] active:bg-[#E68A00] text-[#0B0F17] font-bold text-sm px-8 py-3.5 rounded-full transition-all duration-200 shadow-md flex items-center gap-2 active:scale-95"
+              className="jitter-btn-base jitter-btn-orange font-bold text-sm px-8 py-3.5 flex items-center gap-2 cursor-pointer"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4 stroke-[2.5]" />
               <span>Request Sponsor Prospectus</span>
             </button>
           </div>

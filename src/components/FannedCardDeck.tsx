@@ -25,6 +25,7 @@ export interface TeamOrganizer {
   bio: string;
   linkedin: string;
   scope: string[];
+  image?: string;
 }
 
 // ============================================================================
@@ -40,7 +41,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Lead Organiser",
     initials: "US",
     code: "ORG-01",
-    accentColor: "#AD5CFF", // Electric Violet
+    accentColor: "#AD5CFF", // Electric Purple
     tagline: "Leading Central India's premier student cloud summit, speaker curation & flagship direction.",
     bio: "AWS Student Builder Group Leader at RISU. Spearheading the inaugural SCD Central India gathering, connecting student builders with AWS DevRel leadership.",
     linkedin: "https://www.linkedin.com/in/uddyan-sahu/",
@@ -54,11 +55,26 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Technical Lead",
     initials: "GG",
     code: "ORG-02",
-    accentColor: "#BE7BFF", // Bright Violet
+    accentColor: "#FF9900", // AWS Smile Orange
     tagline: "Architecting hands-on workshops, cloud labs & live hackathon infrastructure.",
     bio: "AWS community enthusiast focusing on serverless workloads and container architectures. Directs technical logistics, coding arena & live demos.",
     linkedin: "https://www.linkedin.com/in/gunjanghangare",
     scope: ["Cloud Workshops", "Live Arena", "Technical Logistics"],
+  },
+  {
+    id: "aditya",
+    name: "ADITYA SONI",
+    role: "Co-Tech Lead",
+    title: "Cloud & Systems Architect",
+    badge: "Co-Tech Lead",
+    initials: "AS",
+    code: "ORG-03",
+    accentColor: "#AD5CFF", // Electric Purple
+    image: "/aditya_soni.jpg",
+    tagline: "Architecting cloud infrastructure, developer pipelines & high-concurrency summit systems.",
+    bio: "Co-Technical Lead at AWS SCD RISU. Engineering production cloud workflows, interactive developer platforms, and technical arena infra for 500+ builders.",
+    linkedin: "https://www.linkedin.com/in/aditya-soni-cse/",
+    scope: ["Cloud Infra", "DevOps Pipelines", "Technical Arena"],
   },
   {
     id: "chetna",
@@ -67,8 +83,8 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     title: "Operations Specialist",
     badge: "Operations Lead",
     initials: "CS",
-    code: "ORG-03",
-    accentColor: "#C084FC", // Soft Orchid
+    code: "ORG-04",
+    accentColor: "#42B4FF", // Cloud Blue
     tagline: "Orchestrating stage logistics, hospitality, delegate check-in & welcome kits.",
     bio: "Directing on-ground event operations, venue management at RISU, volunteer brigades, and delegate experience for 500+ builders.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
@@ -81,8 +97,8 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     title: "Visual Designer",
     badge: "Brand & Design",
     initials: "NK",
-    code: "ORG-04",
-    accentColor: "#A855F7", // Design Purple
+    code: "ORG-05",
+    accentColor: "#FF57EA", // Neon Pink
     tagline: "Crafting the visual identity, summit stage animations & community brand aesthetic.",
     bio: "Leading creative direction, conference merchandise, stage motion visuals, and high-fidelity collateral for AWS SCD 2026.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
@@ -95,8 +111,8 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     title: "Cloud Outreach Strategist",
     badge: "Community Lead",
     initials: "AV",
-    code: "ORG-05",
-    accentColor: "#9333EA", // Royal Violet
+    code: "ORG-06",
+    accentColor: "#00E582", // Cyber Green
     tagline: "Uniting 500+ student builders across 15+ universities in Central India.",
     bio: "Fostering university partnerships, campus ambassador programs, and regional student developer chapters across Chhattisgarh.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
@@ -109,8 +125,8 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     title: "Faculty Advisory Board, RISU",
     badge: "Faculty Mentors",
     initials: "RM",
-    code: "ORG-06",
-    accentColor: "#AD5CFF", // Electric Violet
+    code: "ORG-07",
+    accentColor: "#AD5CFF", // Electric Purple
     tagline: "Academic patronage, institutional support & mentor guidance from Rungta International Skills University.",
     bio: "Guiding student leaders, coordinating university infrastructure, and fostering academic excellence in cloud education.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
@@ -168,10 +184,10 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
         </span>
       </div>
 
-      {/* Central Monogram Crest */}
+      {/* Central Portrait or Monogram Crest */}
       <div className="flex items-center justify-center my-auto z-10">
         <div
-          className={`relative w-20 h-20 rounded-2xl flex items-center justify-center font-black text-2xl transition-all duration-300 ${
+          className={`relative w-20 h-20 rounded-2xl flex items-center justify-center font-black text-2xl overflow-hidden transition-all duration-300 ${
             isActive
               ? "bg-[#0B0F15] text-white shadow-md border-2"
               : "bg-white/5 text-slate-300 border border-white/10"
@@ -180,18 +196,26 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
             borderColor: isActive ? member.accentColor : "rgba(255,255,255,0.12)",
           }}
         >
-          <span
-            style={{
-              fontFamily: "'Plus Jakarta Sans', -apple-system, sans-serif",
-            }}
-          >
-            {member.initials}
-          </span>
+          {member.image ? (
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <span
+              style={{
+                fontFamily: "'Space Grotesk', -apple-system, sans-serif",
+              }}
+            >
+              {member.initials}
+            </span>
+          )}
 
           {/* Active status pulse pip */}
           {isActive && (
             <span
-              className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-[#141C24] flex items-center justify-center"
+              className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-[#141C24] flex items-center justify-center z-20"
               style={{ backgroundColor: member.accentColor }}
             >
               <Sparkles className="w-2 h-2 text-black" />
@@ -309,7 +333,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
 
       {/* Deck Stage Frame with 3D Space */}
       <div
-        className="relative w-full h-[450px] xs:h-[470px] sm:h-[490px] flex items-center justify-center"
+        className="relative w-full h-[450px] xs:h-[470px] sm:h-[490px] flex items-center justify-center overflow-x-clip max-w-full"
         style={{ transformStyle: "preserve-3d" }}
       >
         {members.map((member, index) => {
@@ -414,7 +438,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                 <div className="flex items-baseline justify-between mb-1">
                   <h4
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+                      fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif",
                     }}
                     className={`font-black tracking-tight transition-colors duration-300 ${
                       isActive ? "text-xl text-white" : "text-base text-slate-300"
@@ -433,7 +457,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
 
                 <p
                   style={{
-                    fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+                    fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif",
                   }}
                   className={`text-xs font-bold transition-colors duration-300 ${
                     isActive ? "text-[#AD5CFF] mb-2" : "text-slate-400 mb-0 truncate"
@@ -445,7 +469,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                 {isActive && (
                   <p
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+                      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
                     }}
                     className="text-xs leading-relaxed line-clamp-2 text-slate-300 transition-colors duration-300"
                   >

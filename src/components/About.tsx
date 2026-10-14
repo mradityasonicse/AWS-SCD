@@ -41,7 +41,7 @@ export const About: React.FC = () => {
             {/* Main Title Row with Vertical Balance */}
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-[#232F3E]">
               <div className="max-w-3xl overflow-visible pb-1">
-                <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+                <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-none">
                   One day to level up as a builder.
                 </h2>
               </div>
@@ -70,26 +70,42 @@ export const About: React.FC = () => {
 
             {/* Three Pillars with Staggered SpotlightCards */}
             <StaggerContainer className="flex flex-col gap-4 mt-4" staggerDelay={0.1}>
-              {PILLARS.map((pillar) => (
-                <StaggerItem key={pillar.num}>
-                  <SpotlightCard className="p-5 sm:p-6 transition-all duration-300 flex items-start gap-5 hover:translate-x-1 shadow-md">
-                    <span
-                      className="font-mono font-black text-2xl sm:text-3xl leading-none shrink-0 pt-1 transition-transform"
-                      style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              {PILLARS.map((pillar, pIdx) => {
+                const pillarColors = [
+                  '#42B4FF', // Cloud Blue (Learn)
+                  'var(--theme-accent, #AD5CFF)', // Electric Purple (Connect)
+                  '#00E582', // Cyber Green (Belong)
+                ];
+                const pColor = pillarColors[pIdx % pillarColors.length];
+
+                return (
+                  <StaggerItem key={pillar.num}>
+                    <SpotlightCard
+                      borderColor={pColor + '40'}
+                      className="p-5 sm:p-6 transition-all duration-300 flex items-start gap-5 hover:translate-x-1 shadow-md bg-[#131922] border-[#232F3E]"
                     >
-                      {pillar.num}
-                    </span>
-                    <div>
-                      <h3 className="text-white font-bold text-lg mb-1 transition-colors">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">
-                        {pillar.desc}
-                      </p>
-                    </div>
-                  </SpotlightCard>
-                </StaggerItem>
-              ))}
+                      <span
+                        className="font-mono font-black text-2xl sm:text-3xl leading-none shrink-0 pt-1 transition-transform group-hover:scale-105"
+                        style={{ color: pColor }}
+                      >
+                        {pillar.num}
+                      </span>
+                      <div>
+                        <h3 className="text-white font-bold text-lg mb-1 transition-colors flex items-center gap-2">
+                          <span>{pillar.title}</span>
+                          <span
+                            className="w-1.5 h-1.5 rounded-full inline-block"
+                            style={{ backgroundColor: pColor }}
+                          />
+                        </h3>
+                        <p className="text-slate-400 text-sm leading-relaxed">
+                          {pillar.desc}
+                        </p>
+                      </div>
+                    </SpotlightCard>
+                  </StaggerItem>
+                );
+              })}
             </StaggerContainer>
           </div>
 
@@ -125,15 +141,11 @@ export const About: React.FC = () => {
                   </ul>
 
                   <a
-                    href="#contact"
-                    className="w-full cursor-pointer text-[#0B0F17] font-black text-sm py-3.5 rounded-full transition-all flex items-center justify-center gap-2 group active:scale-[0.99]"
-                    style={{
-                      backgroundColor: 'var(--theme-accent, #AD5CFF)',
-                      boxShadow: '0 4px 14px var(--theme-accent-glow, rgba(173,92,255,0.25))',
-                    }}
+                    href="#team"
+                    className="w-full jitter-btn-base jitter-btn-register cursor-pointer text-sm py-3.5 flex items-center justify-center gap-2 group"
                   >
                     <span>Connect With Student Desk</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight className="w-4 h-4 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
                 </div>
               </SpotlightCard>

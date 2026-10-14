@@ -47,7 +47,7 @@ export const CosmicBackground: React.FC = () => {
       color: string;
     }[] = [];
 
-    const colors = ['#FF9900', '#FFAC33', '#00A4E4', '#38BDF8', '#FFD814', '#F8FAFC'];
+    const colors = ['#FF9900', '#42B4FF', '#FF57EA', '#00E582', '#AD5CFF', '#F8FAFC'];
 
     for (let i = 0; i < numStars; i++) {
       stars.push({
@@ -175,8 +175,8 @@ export const CosmicBackground: React.FC = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#232f3e_1px,transparent_1px),linear-gradient(to_bottom,#232f3e_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_40%,transparent_90%)] opacity-35 pointer-events-none" />
       {/* AWS Cloud Ambient glow orbs */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#FF9900]/10 rounded-full blur-[140px]" />
-      <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-[#00A4E4]/08 rounded-full blur-[160px]" />
-      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[#FFD814]/06 rounded-full blur-[180px]" />
+      <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-[#42B4FF]/08 rounded-full blur-[160px]" />
+      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[var(--theme-accent,#AD5CFF)]/06 rounded-full blur-[180px]" />
     </div>
   );
 };

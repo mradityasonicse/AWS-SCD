@@ -106,7 +106,7 @@ export const Speakers: React.FC = () => {
                   <span className="w-5 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                   Summit Speakers
                 </p>
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+                <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
                   The first names are in.
                 </h2>
               </div>
@@ -169,8 +169,8 @@ export const Speakers: React.FC = () => {
           </div>
         </div>
 
-        {/* Horizontal Moving Cards Track with Spring Physics */}
-        <div className="relative w-full flex-1 flex items-center overflow-visible z-10 my-auto">
+        {/* Horizontal Moving Cards Track with Spring Physics (Clipped on mobile) */}
+        <div className="relative w-full flex-1 flex items-center overflow-x-clip z-10 my-auto">
           <motion.div
             ref={trackRef}
             style={{ x }}
@@ -178,6 +178,16 @@ export const Speakers: React.FC = () => {
           >
             {SPEAKERS.map((speaker: Speaker, index: number) => {
               const isKeynote = speaker.category === 'keynote';
+              const speakerColors = [
+                'var(--theme-accent, #AD5CFF)', // 1: Jessica Gilmore (Purple)
+                '#FF9900',                      // 2: Praful Bagai (AWS Orange)
+                '#42B4FF',                      // 3: Deepak Nishad (Cloud Blue)
+                '#FF57EA',                      // 4: Nikita Mourya (Neon Pink)
+                '#00E582',                      // 5: Varsha Verma (Cyber Green)
+                'var(--theme-accent, #AD5CFF)', // 6: Anmoldeep Singh (Electric Purple)
+                '#42B4FF',                      // 7: Aishwary Gathe (Cloud Blue)
+              ];
+              const spkColor = speakerColors[index % speakerColors.length];
 
               return (
                 <motion.div
@@ -185,28 +195,30 @@ export const Speakers: React.FC = () => {
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 350, damping: 22 }}
                   className={cn(
-                    "shrink-0 w-[84vw] xs:w-[350px] sm:w-[420px] md:w-[460px] lg:w-[480px] rounded-2xl p-5 sm:p-7 border relative overflow-hidden bg-[#131921] transition-colors duration-200 flex flex-col justify-between group shadow-xl will-change-transform",
+                    "shrink-0 w-[84vw] xs:w-[350px] sm:w-[420px] md:w-[460px] lg:w-[480px] rounded-2xl p-5 sm:p-7 border relative overflow-hidden bg-[#131921] transition-all duration-300 flex flex-col justify-between group shadow-xl will-change-transform",
                     isKeynote
                       ? "border-2 shadow-2xl"
-                      : "border border-[#232F3E] hover:border-slate-500"
+                      : "border border-[#232F3E] hover:border-slate-400"
                   )}
                   style={{
-                    borderColor: isKeynote ? 'var(--theme-accent, #AD5CFF)' : undefined,
+                    borderColor: isKeynote ? spkColor : undefined,
                   }}
                 >
+                  {/* Top colored accent line */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[3px] opacity-80 group-hover:opacity-100 transition-opacity"
+                    style={{ backgroundColor: spkColor }}
+                  />
+
                   {/* Top Badges */}
                   <div className="relative z-10">
                     <div className="flex items-center justify-between gap-2 mb-4">
                       <span
                         className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0 border"
                         style={{
-                          color: isKeynote ? 'var(--theme-accent, #AD5CFF)' : '#94A3B8',
-                          backgroundColor: isKeynote
-                            ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 10%, transparent)'
-                            : '#161E2D',
-                          borderColor: isKeynote
-                            ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 30%, transparent)'
-                            : '#232F3E',
+                          color: spkColor,
+                          backgroundColor: `color-mix(in srgb, ${spkColor} 12%, transparent)`,
+                          borderColor: `color-mix(in srgb, ${spkColor} 30%, transparent)`,
                         }}
                       >
                         [ 0{index + 1} / 0{SPEAKERS.length} ]
@@ -216,23 +228,30 @@ export const Speakers: React.FC = () => {
                         <span
                           className="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0 border"
                           style={{
-                            color: 'var(--theme-accent, #AD5CFF)',
-                            backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 14%, transparent)',
-                            borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 35%, transparent)',
+                            color: spkColor,
+                            backgroundColor: `color-mix(in srgb, ${spkColor} 15%, transparent)`,
+                            borderColor: `color-mix(in srgb, ${spkColor} 35%, transparent)`,
                           }}
                         >
-                          <Sparkles className="w-3 h-3" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
+                          <Sparkles className="w-3 h-3" style={{ color: spkColor }} />
                           <span>Keynote Leader</span>
                         </span>
                       ) : (
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0 bg-[#161E2D] text-slate-300 border border-[#232F3E]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span
+                          className="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0 border"
+                          style={{
+                            color: spkColor,
+                            backgroundColor: `color-mix(in srgb, ${spkColor} 12%, transparent)`,
+                            borderColor: `color-mix(in srgb, ${spkColor} 28%, transparent)`,
+                          }}
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: spkColor }} />
                           <span>Technical Session</span>
                         </span>
                       )}
 
                       <span className="text-xs font-mono text-slate-400 flex items-center gap-1 shrink-0 truncate max-w-[130px]">
-                        <Building2 className="w-3.5 h-3.5 shrink-0" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
+                        <Building2 className="w-3.5 h-3.5 shrink-0" style={{ color: spkColor }} />
                         <span className="truncate">{speaker.company}</span>
                       </span>
                     </div>
@@ -253,7 +272,7 @@ export const Speakers: React.FC = () => {
                         </h3>
                         <p
                           className="text-xs sm:text-sm font-bold leading-snug line-clamp-1 mb-1"
-                          style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                          style={{ color: spkColor }}
                         >
                           {speaker.current_designation}
                         </p>
@@ -268,7 +287,7 @@ export const Speakers: React.FC = () => {
                       <div className="p-3.5 sm:p-4 rounded-xl bg-[#161E2D] border border-[#232F3E] mb-3 sm:mb-4 shadow-sm transition-colors group-hover:border-[#37475A]">
                         <div
                           className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider mb-1"
-                          style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                          style={{ color: spkColor }}
                         >
                           <BookOpen className="w-3 h-3" />
                           <span>Session Topic</span>
@@ -298,7 +317,7 @@ export const Speakers: React.FC = () => {
                         whileTap={{ scale: 0.96 }}
                         className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full font-bold text-xs tracking-wide shadow-sm transition-all cursor-pointer font-sans select-none"
                         style={{
-                          backgroundColor: 'var(--theme-accent, #AD5CFF)',
+                          backgroundColor: spkColor,
                           color: '#0B0F17',
                         }}
                       >
@@ -313,9 +332,6 @@ export const Speakers: React.FC = () => {
                     <a
                       href="#agenda"
                       className="inline-flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
-                      style={{
-                        '--hover-accent': 'var(--theme-accent, #AD5CFF)'
-                      } as React.CSSProperties}
                     >
                       <span>Agenda</span>
                       <ArrowUpRight className="w-3 h-3" />
