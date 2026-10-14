@@ -6,20 +6,23 @@ import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/co
 export const Contests: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden px-4 sm:px-6" id="contests">
-      {/* Background glow */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#FFD814]/05 rounded-full blur-[170px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header with [ 06 ] Index */}
         <ScrollReveal>
           <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
-              <span className="text-[#FF9900] font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0">
+              <span
+                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              >
                 [ 06 ]
               </span>
               <div>
-                <p className="text-[#FF9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
-                  <span className="w-6 h-[1px] bg-[#FF9900]" />
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
+                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                >
+                  <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                   Summit Contests
                 </p>
                 <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
@@ -40,9 +43,12 @@ export const Contests: React.FC = () => {
               <SpotlightCard
                 className={`h-full p-8 sm:p-9 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${
                   contest.featured
-                    ? 'border-2 border-[#FF9900]/50 shadow-[0_20px_50px_rgba(255,153,0,0.18)]'
+                    ? 'border-2 shadow-[0_20px_50px_rgba(0,0,0,0.4)]'
                     : 'border border-[#232F3E] shadow-xl'
                 }`}
+                style={{
+                  borderColor: contest.featured ? 'var(--theme-accent, #AD5CFF)' : undefined,
+                }}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-6">
@@ -50,7 +56,7 @@ export const Contests: React.FC = () => {
                       {contest.tag}
                     </span>
                     <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-[#161E2D] border border-[#232F3E] text-slate-300 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                       {contest.pill}
                     </span>
                   </div>

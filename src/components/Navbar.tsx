@@ -123,10 +123,10 @@ export const Navbar: React.FC = () => {
         className={cn(
           "max-w-[1380px] w-full mx-auto pointer-events-auto border relative transition-[background-color,border-color,box-shadow,border-radius] duration-200 transform-gpu",
           mobileMenuOpen
-            ? "rounded-[28px] bg-[#131921] shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-[#232F3E] py-3 px-5"
+            ? "rounded-2xl bg-[#131921] shadow-xl border-[#232F3E] py-3 px-5"
             : scrolled
-              ? "rounded-full bg-[#131921]/92 backdrop-blur-xl border-[#232F3E] shadow-[0_10px_35px_rgba(0,0,0,0.5)] py-2 px-4 sm:px-6"
-              : "rounded-full bg-[#131921]/80 backdrop-blur-lg border-[#232F3E] shadow-[0_4px_25px_rgba(0,0,0,0.4)] py-2 px-4 sm:px-6"
+              ? "rounded-full bg-[#131921] border-[#232F3E] shadow-lg py-2 px-4 sm:px-6"
+              : "rounded-full bg-[#131921]/95 border-[#232F3E] shadow-sm py-2 px-4 sm:px-6"
         )}
       >
         <div className="flex items-center justify-between gap-3 sm:gap-4">
@@ -141,14 +141,12 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 group shrink-0"
           >
             <div className="flex items-center gap-2">
-              <div className="h-9 w-9 rounded-xl bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-sm relative">
+              <div className="h-9 w-9 rounded-xl bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center transition-transform duration-200 shadow-sm relative">
                 <img
                   src="/risu-logo.png"
                   alt="RISU Logo"
                   className="h-full w-full object-contain"
                 />
-                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FF9900] rounded-full animate-ping pointer-events-none opacity-75" />
-                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#FF9900] rounded-full" />
               </div>
               <div className="h-6 w-px bg-[#232F3E]" />
               <img
@@ -201,7 +199,11 @@ export const Navbar: React.FC = () => {
                         damping: 32,
                         mass: 0.5,
                       }}
-                      className="absolute inset-0 bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#FF9900] rounded-full shadow-[0_2px_14px_rgba(255,153,0,0.4)] -z-10"
+                      className="absolute inset-0 rounded-full -z-10"
+                      style={{
+                        backgroundColor: 'var(--theme-accent, #AD5CFF)',
+                        boxShadow: '0 2px 14px var(--theme-accent-glow, rgba(140,82,255,0.4))',
+                      }}
                     />
                   )}
 
@@ -222,7 +224,11 @@ export const Navbar: React.FC = () => {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact', 'contact')}
-              className="hidden sm:flex group cursor-pointer bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] text-[#0B0F17] font-black text-xs px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(255,153,0,0.35)] hover:shadow-[0_6px_22px_rgba(255,153,0,0.5)] hover:-translate-y-0.5 items-center gap-1.5 shrink-0"
+              className="hidden sm:flex group cursor-pointer text-[#0B0F17] font-black text-xs px-4 sm:px-5 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 items-center gap-1.5 shrink-0"
+              style={{
+                backgroundColor: 'var(--theme-accent, #AD5CFF)',
+                boxShadow: '0 4px 16px var(--theme-accent-glow, rgba(140,82,255,0.35))',
+              }}
             >
               <span>GET IN TOUCH</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -260,15 +266,18 @@ export const Navbar: React.FC = () => {
                     className={cn(
                       "px-3 py-2.5 rounded-xl transition-all duration-150 flex items-center gap-2 cursor-pointer select-none active:scale-[0.97]",
                       activeItem === link.id
-                        ? "bg-[#FF9900] text-[#0B0F17] font-black shadow-md"
-                        : "text-slate-200 active:bg-[#FF9900]/15 hover:text-[#FF9900] hover:bg-[#FF9900]/10"
+                        ? "text-[#0B0F17] font-black shadow-md"
+                        : "text-slate-200 hover:text-white"
                     )}
+                    style={{
+                      backgroundColor: activeItem === link.id ? 'var(--theme-accent, #AD5CFF)' : undefined,
+                    }}
                   >
                     <link.icon
-                      className={cn(
-                        "w-4 h-4 shrink-0",
-                        activeItem === link.id ? "text-[#0B0F17]" : "text-[#FF9900]"
-                      )}
+                      className="w-4 h-4 shrink-0"
+                      style={{
+                        color: activeItem === link.id ? '#0B0F17' : 'var(--theme-accent, #AD5CFF)',
+                      }}
                     />
                     <span className="truncate">{link.name}</span>
                   </a>
@@ -278,7 +287,11 @@ export const Navbar: React.FC = () => {
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact', 'contact')}
-                  className="w-full bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] text-[#0B0F17] font-black text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg shadow-[#FF9900]/25 hover:brightness-110 active:scale-[0.98] transition-all cursor-pointer"
+                  className="w-full text-[#0B0F17] font-black text-xs py-3 rounded-full flex items-center justify-center gap-1.5 shadow-lg active:scale-[0.98] transition-all cursor-pointer"
+                  style={{
+                    backgroundColor: 'var(--theme-accent, #AD5CFF)',
+                    boxShadow: '0 4px 16px var(--theme-accent-glow, rgba(140,82,255,0.35))',
+                  }}
                 >
                   <span>GET IN TOUCH</span>
                   <ArrowUpRight className="w-4 h-4" />

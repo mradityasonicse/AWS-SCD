@@ -6,20 +6,23 @@ import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/co
 export const Venue: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden px-4 sm:px-6" id="venue">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#FF9900]/06 rounded-full blur-[170px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header with [ 05 ] Index */}
         <ScrollReveal>
           <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
-              <span className="text-[#FF9900] font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0">
+              <span
+                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              >
                 [ 05 ]
               </span>
               <div>
-                <p className="text-[#FF9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
-                  <span className="w-6 h-[1px] bg-[#FF9900]" />
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
+                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                >
+                  <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                   Event Campus
                 </p>
                 <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
@@ -105,7 +108,7 @@ export const Venue: React.FC = () => {
                 href={EVENT_DETAILS.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FF9900] hover:bg-[#FFAC33] active:bg-[#E68A00] text-[#0B0F17] transition-all font-black text-sm w-full sm:w-fit shadow-md hover:shadow-[0_8px_25px_rgba(255,153,0,0.35)] cursor-pointer active:scale-95"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FF9900] hover:bg-[#FFAC33] active:bg-[#E68A00] text-[#0B0F17] transition-all font-bold text-sm w-full sm:w-fit shadow-md cursor-pointer active:scale-95"
               >
                 <span>Open in Google Maps</span>
                 <ExternalLink className="w-4 h-4 text-[#0B0F17]" />
@@ -141,11 +144,8 @@ export const Venue: React.FC = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                   {/* Floating Coordinates & Campus Location Drop Pin Badge */}
-                  <div className="absolute top-4 left-4 pointer-events-none bg-[#131921]/95 backdrop-blur-md px-3.5 py-2 rounded-xl border border-[#232F3E] text-xs font-mono text-slate-200 shadow-xl flex items-center gap-2.5 z-10">
-                    <span className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9900] opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF9900]" />
-                    </span>
+                  <div className="absolute top-4 left-4 pointer-events-none bg-[#131921] px-3.5 py-2 rounded-xl border border-[#232F3E] text-xs font-mono text-slate-200 shadow-xl flex items-center gap-2.5 z-10">
+                    <span className="w-2 h-2 rounded-full bg-[#FF9900]" />
                     <div>
                       <div className="font-bold text-white flex items-center gap-1.5">
                         <span>📍 Rungta International Skills University</span>
@@ -157,8 +157,8 @@ export const Venue: React.FC = () => {
                   </div>
 
                   {/* Satellite Mode HUD Tag */}
-                  <div className="absolute bottom-4 right-4 pointer-events-none bg-[#0B0F17]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#232F3E] text-[10px] font-mono text-emerald-400 flex items-center gap-2 z-10">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <div className="absolute bottom-4 right-4 pointer-events-none bg-[#0B0F17] px-3 py-1.5 rounded-lg border border-[#232F3E] text-[10px] font-mono text-emerald-400 flex items-center gap-2 z-10">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                     <span>SATELLITE HIGH-RES · PINNED</span>
                   </div>
                 </div>

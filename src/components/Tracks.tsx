@@ -21,20 +21,23 @@ export const Tracks: React.FC = () => {
 
   return (
     <section className="py-24 relative overflow-hidden px-4 sm:px-6" id="tracks">
-      {/* Background glow */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-[#00A4E4]/05 rounded-full blur-[160px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header with [ 02 ] Index */}
         <ScrollReveal>
           <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
-              <span className="text-[#FF9900] font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0">
+              <span
+                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              >
                 [ 02 ]
               </span>
               <div>
-                <p className="text-[#FF9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
-                  <span className="w-6 h-[1px] bg-[#FF9900]" />
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
+                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                >
+                  <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                   Learning Tracks
                 </p>
                 <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
@@ -55,15 +58,18 @@ export const Tracks: React.FC = () => {
               <SpotlightCard className="h-full p-7 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5">
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono font-black text-3xl text-[#FF9900] group-hover:scale-105 transition-transform leading-none">
+                    <span
+                      className="font-mono font-black text-3xl group-hover:scale-105 transition-transform leading-none"
+                      style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                    >
                       {track.num}
                     </span>
-                    <div className="p-2.5 rounded-xl bg-[#161E2D] border border-[#232F3E] group-hover:border-[#FF9900]/30 transition-colors group-hover:scale-110">
+                    <div className="p-2.5 rounded-xl bg-[#161E2D] border border-[#232F3E] transition-colors group-hover:scale-110">
                       {getIcon(track.icon)}
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#FF9900] transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-3 transition-colors">
                     {track.title}
                   </h3>
                   <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -75,7 +81,7 @@ export const Tracks: React.FC = () => {
                   {track.tags.map((tag, tIdx) => (
                     <span
                       key={tIdx}
-                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#161E2D] text-slate-300 border border-[#232F3E] group-hover:border-[#FF9900]/20 transition-colors"
+                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#161E2D] text-slate-300 border border-[#232F3E] transition-colors"
                     >
                       {tag}
                     </span>

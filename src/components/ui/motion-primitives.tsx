@@ -121,8 +121,8 @@ export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement>
 export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = '',
-  spotlightColor = 'rgba(255, 153, 0, 0.12)',
-  borderColor = 'rgba(255, 153, 0, 0.35)',
+  spotlightColor = 'var(--theme-accent-glow, rgba(173, 92, 255, 0.15))',
+  borderColor = 'var(--theme-accent, #AD5CFF)',
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -148,14 +148,14 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        'relative rounded-2xl sm:rounded-3xl border border-[#232F3E] bg-[#131921] overflow-hidden transition-all duration-300 hover:border-[#FF9900]/40 group',
+        'relative rounded-xl sm:rounded-2xl border border-[#232F3E] bg-[#131921] overflow-hidden transition-all duration-300 hover:border-[#37475A] group',
         className
       )}
       {...props}
     >
       {/* Dynamic Cursor Spotlight Radial Overlay */}
       <div
-        className="pointer-events-none absolute -inset-px transition-opacity duration-300 rounded-2xl sm:rounded-3xl"
+        className="pointer-events-none absolute -inset-px transition-opacity duration-300 rounded-xl sm:rounded-2xl"
         style={{
           opacity,
           background: `radial-gradient(420px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 70%)`,

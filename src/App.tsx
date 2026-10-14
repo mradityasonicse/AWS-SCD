@@ -1,5 +1,6 @@
 import React from 'react';
-import { CosmicBackground } from './components/CosmicBackground';
+import { ThemeProvider } from './context/ThemeContext';
+import { ArchitecturalGridBackground } from './components/ArchitecturalGridBackground';
 import { Ticker } from './components/Ticker';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -27,15 +28,22 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0B0F17] text-[#F8FAFC] selection:bg-[#FF9900] selection:text-[#0B0F17] font-sans antialiased overflow-x-clip">
-      {/* Top Breaking News Ticker */}
-      <Ticker />
+    <ThemeProvider>
+      <div
+        className="relative min-h-screen text-[#F8FAFC] font-sans antialiased overflow-x-clip transition-colors duration-300"
+        style={{
+          backgroundColor: 'var(--theme-bg, #111622)',
+          color: 'var(--theme-text, #F8FAFC)',
+        }}
+      >
+        {/* Top Breaking News Ticker */}
+        <Ticker />
 
-      {/* Real-time Dynamic Cosmic Particles & Nebulae */}
-      <CosmicBackground />
+        {/* Precision Architectural Grid Background (Zero AI Slop) */}
+        <ArchitecturalGridBackground />
 
-      {/* Floating Island Navigation Bar */}
-      <Navbar />
+        {/* Floating Island Navigation Bar with Theme Switcher */}
+        <Navbar />
 
       {/* Main Summit Experience Hierarchy */}
       <main className="relative z-10 flex flex-col">
@@ -82,6 +90,7 @@ export const App: React.FC = () => {
       {/* Comprehensive Brand Footer */}
       <Footer />
     </div>
+    </ThemeProvider>
   );
 };
 

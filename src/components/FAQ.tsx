@@ -13,19 +13,22 @@ export const FAQ: React.FC = () => {
 
   return (
     <section id="faq" className="relative py-28 px-4 sm:px-6 max-w-4xl mx-auto text-[#F8FAFC]">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#FF9900]/06 rounded-full blur-[170px] pointer-events-none" />
-
       {/* Section Header with [ 09 ] Index */}
       <ScrollReveal>
         <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-4 sm:gap-6">
-            <span className="text-[#FF9900] font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0">
+            <span
+              className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
+              style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+            >
               [ 09 ]
             </span>
             <div>
-              <p className="text-[#FF9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
-                <span className="w-6 h-[1px] bg-[#FF9900]" />
+              <p
+                className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              >
+                <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                 Frequently Asked Questions
               </p>
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
@@ -46,11 +49,14 @@ export const FAQ: React.FC = () => {
           return (
             <ScrollReveal key={index} delay={index * 0.04}>
               <div
-                className={`rounded-2xl border transition-all duration-300 backdrop-blur-md overflow-hidden ${
+                className={`rounded-xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? 'border-[#FF9900]/60 bg-[#161E2D] shadow-[0_10px_30px_rgba(255,153,0,0.12)]'
-                    : 'border-[#232F3E] bg-[#131921] hover:border-[#FF9900]/40 hover:bg-[#161E2D] shadow-sm'
+                    ? 'bg-[#161E2D] shadow-md'
+                    : 'border-[#232F3E] bg-[#131921] hover:bg-[#161E2D] shadow-sm'
                 }`}
+                style={{
+                  borderColor: isOpen ? 'var(--theme-accent, #AD5CFF)' : undefined,
+                }}
               >
                 <button
                   type="button"
@@ -58,7 +64,10 @@ export const FAQ: React.FC = () => {
                   className="w-full flex items-center justify-between p-5 sm:p-6 text-left cursor-pointer gap-4 select-none"
                 >
                   <span className="text-base sm:text-lg font-bold text-white flex items-center gap-3">
-                    <span className="text-[#FF9900] font-mono text-xs sm:text-sm font-bold">
+                    <span
+                      className="font-mono text-xs sm:text-sm font-bold"
+                      style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                    >
                       {String(index + 1).padStart(2, '0')}.
                     </span>
                     {faq.question}
@@ -66,11 +75,12 @@ export const FAQ: React.FC = () => {
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center border shrink-0 transition-colors ${
-                      isOpen
-                        ? 'bg-[#FF9900]/15 border-[#FF9900]/40 text-[#FF9900]'
-                        : 'bg-[#161E2D] border-[#232F3E] text-slate-400'
-                    }`}
+                    className="w-8 h-8 rounded-full flex items-center justify-center border shrink-0 transition-colors"
+                    style={{
+                      backgroundColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)' : '#161E2D',
+                      borderColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)' : '#232F3E',
+                      color: isOpen ? 'var(--theme-accent, #AD5CFF)' : '#94A3B8',
+                    }}
                   >
                     <ChevronDown className="w-4 h-4" />
                   </motion.div>

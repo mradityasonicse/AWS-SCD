@@ -26,6 +26,21 @@
     --text-secondary: #94A3B8;       /* Legible Slate Text */
     --text-muted: #64748B;           /* Subdued Helper Text */
 
+    /* AWS Student Builder Group Theme Tokens (from reference image) */
+    --theme-accent: #AD5CFF;              /* Electric Violet - Primary Theme */
+    --theme-accent-hover: #BC73FF;
+    --theme-accent-rgb: 173, 92, 255;
+    --theme-accent-glow: rgba(173, 92, 255, 0.25);
+    --theme-bg: #111622;                  /* Architectural Slate Navy */
+    --theme-surface: #161B26;
+    --theme-surface-card: #131822;
+    --theme-surface-elevated: #1C2333;
+    --theme-border: #232F3E;
+    --theme-border-strong: #37475A;
+    --theme-grid: rgba(255, 255, 255, 0.08);
+    --theme-text: #FFFFFF;
+    --theme-text-muted: #94A3B8;
+
     /* Amazon Semantic Tokens Mapping */
     --amz-nav-dark: #131921;
     --amz-nav-secondary: #232F3E;
@@ -34,8 +49,8 @@
     --amz-buy: #FF9900;
     --amz-buy-hover: #FFAC33;
     --amz-border: #232F3E;
-    --bg-dark: #0B0F17;
-    --bg-card: #131921;
+    --bg-dark: #111622;
+    --bg-card: #131822;
     --bg-card-hover: #161E2D;
   }
 
@@ -110,8 +125,8 @@
   color: #0B0F17;
   border: 1px solid #FFAC33;
   border-radius: 9999px;
-  font-weight: 800;
-  box-shadow: 0 4px 16px rgba(255, 153, 0, 0.35);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease;
 }
 
@@ -119,7 +134,7 @@
   background-color: #FFAC33;
   border-color: #FFB84D;
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(255, 153, 0, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
 .amz-btn-buy:active {
@@ -130,12 +145,12 @@
 /* AWS Card Hover Elevation */
 .amz-card-hover {
   border-color: #232F3E;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .amz-card-hover:hover {
-  border-color: #FF9900;
-  box-shadow: 0 14px 32px rgba(255, 153, 0, 0.15);
+  border-color: #37475A;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 /* Animations */
@@ -211,6 +226,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .animate-ticker,
   .animate-marquee,
   .animate-aurora-a,

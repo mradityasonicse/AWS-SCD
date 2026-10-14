@@ -30,38 +30,20 @@ const SplitFlapCard: React.FC<SplitFlapCardProps> = ({ value, label, isSeconds =
     <div className="flex flex-col items-center">
       {/* Unit Chassis / Frame */}
       <div className="relative group">
-        {/* Ambient bottom reflection glow */}
-        <div
-          className={`absolute -inset-1 rounded-2xl blur-lg opacity-40 transition-opacity duration-500 pointer-events-none ${
-            isSeconds
-              ? 'bg-gradient-to-b from-[#FF9900]/30 to-[#EC7211]/20 group-hover:opacity-75'
-              : 'bg-gradient-to-b from-[#00A4E4]/15 to-[#FF9900]/10 group-hover:opacity-60'
-          }`}
-        />
-
         {/* Dual Flip Digit Housing */}
-        <div className="relative flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 bg-[#090D14]/95 border border-[#232F3E] rounded-xl sm:rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.08)]">
+        <div className="relative flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 bg-[#090D14] border border-[#232F3E] rounded-xl sm:rounded-2xl">
           {/* Digit 1 (Tens) */}
           <SingleDigitTile digit={tens} isSeconds={isSeconds} />
 
           {/* Digit 2 (Ones) */}
           <SingleDigitTile digit={ones} isSeconds={isSeconds} />
-
-          {/* Corner mechanical rivets */}
-          <div className="absolute top-1 left-1 w-1 h-1 rounded-full bg-slate-600/50" />
-          <div className="absolute top-1 right-1 w-1 h-1 rounded-full bg-slate-600/50" />
-          <div className="absolute bottom-1 left-1 w-1 h-1 rounded-full bg-slate-600/50" />
-          <div className="absolute bottom-1 right-1 w-1 h-1 rounded-full bg-slate-600/50" />
         </div>
       </div>
 
       {/* Unit Label Pill */}
       <div className="mt-2.5 flex items-center gap-1.5">
         {isSeconds && (
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9900] opacity-75" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF9900]" />
-          </span>
+          <span className="inline-flex rounded-full h-1.5 w-1.5 bg-[#FF9900]" />
         )}
         <span
           className={`text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.18em] transition-colors ${
@@ -115,10 +97,8 @@ const SingleDigitTile: React.FC<SingleDigitTileProps> = ({ digit, isSeconds = fa
           style={{ transformStyle: 'preserve-3d' }}
         >
           <span
-            className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl tracking-tighter tabular-nums leading-none ${
-              isSeconds
-                ? 'bg-gradient-to-b from-[#FFB84D] via-[#FF9900] to-[#E67E00] bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(255,153,0,0.5)]'
-                : 'text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]'
+            className={`text-2xl xs:text-3xl sm:text-4xl md:text-5xl tracking-tighter tabular-nums leading-none font-bold ${
+              isSeconds ? 'text-[#FF9900]' : 'text-white'
             }`}
           >
             {digit}
@@ -315,41 +295,32 @@ export const CountdownTimer: React.FC = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto mb-10 select-none">
-      {/* Outer Glow Halo & Shimmer Edge Frame */}
-      <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-[#FF9900]/40 via-[#232F3E]/70 to-[#00A4E4]/30 shadow-[0_25px_65px_-15px_rgba(0,0,0,0.85),0_0_50px_-10px_rgba(255,153,0,0.18)]">
-        {/* Interior Obsidian Carbon Chassis */}
-        <div className="relative rounded-[23px] bg-[#0C1019]/95 backdrop-blur-2xl p-4 sm:p-7 md:p-8 overflow-hidden">
-          {/* Subtle Ambient Radial Backlight */}
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#FF9900]/15 blur-[90px] rounded-full pointer-events-none" />
-          <div className="absolute -bottom-24 right-1/4 w-80 h-40 bg-[#00A4E4]/12 blur-[90px] rounded-full pointer-events-none" />
+      {/* Technical Countdown Chassis */}
+      <div className="relative rounded-2xl bg-[#0F141D] border border-[#232F3E] p-4 sm:p-7 md:p-8 shadow-xl">
+        {/* Top Telemetry Strip */}
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-[#1E293B]">
+          {/* Left: Live Status Beacon */}
+          <div className="flex items-center gap-2.5">
+            <span className="inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            <span className="font-mono text-[11px] sm:text-xs font-bold tracking-wider text-slate-300 uppercase flex items-center gap-1.5">
+              <span style={{ color: 'var(--theme-accent, #AD5CFF)' }}>LIVE TELEMETRY</span>
+              <span className="text-slate-600">/</span>
+              <span>COUNTDOWN TO SUMMIT</span>
+            </span>
+          </div>
 
-          {/* Top Telemetry Strip */}
-          <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-[#1E293B]">
-            {/* Left: Live Status Beacon */}
-            <div className="flex items-center gap-2.5">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-[0_0_10px_#10B981]" />
-              </span>
-              <span className="font-mono text-[11px] sm:text-xs font-bold tracking-wider text-slate-300 uppercase flex items-center gap-1.5">
-                <span className="text-[#FF9900]">LIVE TELEMETRY</span>
-                <span className="text-slate-600">/</span>
-                <span>COUNTDOWN TO SUMMIT</span>
-              </span>
-            </div>
-
-            {/* Right: Sound FX & Date Stamp Pill */}
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setSoundEnabled((prev) => !prev)}
-                title={soundEnabled ? 'Mute mechanical tick' : 'Enable mechanical audio feedback'}
-                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold transition-all border ${
-                  soundEnabled
-                    ? 'bg-[#FF9900]/15 text-[#FF9900] border-[#FF9900]/40 shadow-[0_0_12px_rgba(255,153,0,0.2)]'
-                    : 'bg-[#131921] text-slate-400 border-[#232F3E] hover:text-white'
-                }`}
-              >
+          {/* Right: Sound FX & Date Stamp Pill */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setSoundEnabled((prev) => !prev)}
+              title={soundEnabled ? 'Mute mechanical tick' : 'Enable mechanical audio feedback'}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold transition-all border ${
+                soundEnabled
+                  ? 'bg-[#FF9900]/15 text-[#FF9900] border-[#FF9900]/40'
+                  : 'bg-[#131921] text-slate-400 border-[#232F3E] hover:text-white'
+              }`}
+            >
                 {soundEnabled ? (
                   <>
                     <Volume2 className="w-3.5 h-3.5 text-[#FF9900]" />
@@ -411,7 +382,7 @@ export const CountdownTimer: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setCalendarOpen((prev) => !prev)}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FF9900] to-[#FFAC33] hover:from-[#FFAC33] hover:to-[#FFB84D] active:scale-95 text-[#0B0F17] font-black text-xs shadow-[0_4px_16px_rgba(255,153,0,0.3)] transition-all cursor-pointer"
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF9900] hover:bg-[#FFAC33] active:scale-95 text-[#0B0F17] font-bold text-xs shadow-sm transition-all cursor-pointer"
                   aria-expanded={calendarOpen}
                   aria-controls={dropdownId}
                 >
@@ -476,7 +447,6 @@ export const CountdownTimer: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
 
       {/* Copy Toast Notification */}
       <AnimatePresence>

@@ -9,9 +9,6 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="relative border-t border-[#232F3E] bg-[#0B0F17] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
-      {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-10 bg-[#FF9900]/12 blur-3xl pointer-events-none" />
-
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#232F3E]">
           {/* Brand Info */}
@@ -30,7 +27,10 @@ export const Footer: React.FC = () => {
               <h3 className="text-lg font-black text-white">
                 AWS Student Community Day Bhilai 2026
               </h3>
-              <p className="text-xs font-semibold text-[#FF9900] mt-0.5">
+              <p
+                className="text-xs font-semibold mt-0.5"
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              >
                 Hosted at {EVENT_DETAILS.institution} (RISU)
               </p>
             </div>

@@ -40,7 +40,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Lead Organiser",
     initials: "US",
     code: "ORG-01",
-    accentColor: "#FF9900", // AWS Signature Amber
+    accentColor: "#AD5CFF", // Electric Violet
     tagline: "Leading Central India's premier student cloud summit, speaker curation & flagship direction.",
     bio: "AWS Student Builder Group Leader at RISU. Spearheading the inaugural SCD Central India gathering, connecting student builders with AWS DevRel leadership.",
     linkedin: "https://www.linkedin.com/in/uddyan-sahu/",
@@ -54,7 +54,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Technical Lead",
     initials: "GG",
     code: "ORG-02",
-    accentColor: "#38BDF8", // Cloud Blue
+    accentColor: "#BE7BFF", // Bright Violet
     tagline: "Architecting hands-on workshops, cloud labs & live hackathon infrastructure.",
     bio: "AWS community enthusiast focusing on serverless workloads and container architectures. Directs technical logistics, coding arena & live demos.",
     linkedin: "https://www.linkedin.com/in/gunjanghangare",
@@ -68,7 +68,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Operations Lead",
     initials: "CS",
     code: "ORG-03",
-    accentColor: "#EC4899", // Operations Rose
+    accentColor: "#C084FC", // Soft Orchid
     tagline: "Orchestrating stage logistics, hospitality, delegate check-in & welcome kits.",
     bio: "Directing on-ground event operations, venue management at RISU, volunteer brigades, and delegate experience for 500+ builders.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
@@ -96,11 +96,25 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Community Lead",
     initials: "AV",
     code: "ORG-05",
-    accentColor: "#10B981", // Community Emerald
+    accentColor: "#9333EA", // Royal Violet
     tagline: "Uniting 500+ student builders across 15+ universities in Central India.",
     bio: "Fostering university partnerships, campus ambassador programs, and regional student developer chapters across Chhattisgarh.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
     scope: ["Campus Outreach", "15+ Colleges", "Builder Network"],
+  },
+  {
+    id: "mentors",
+    name: "Prof. RISU Mentors",
+    role: "Academic Patrons · Advisory",
+    title: "Faculty Advisory Board, RISU",
+    badge: "Faculty Mentors",
+    initials: "RM",
+    code: "ORG-06",
+    accentColor: "#AD5CFF", // Electric Violet
+    tagline: "Academic patronage, institutional support & mentor guidance from Rungta International Skills University.",
+    bio: "Guiding student leaders, coordinating university infrastructure, and fostering academic excellence in cloud education.",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    scope: ["Academic Patronage", "Institutional Ops", "Curriculum Link"],
   },
 ];
 
@@ -159,7 +173,7 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
         <div
           className={`relative w-20 h-20 rounded-2xl flex items-center justify-center font-black text-2xl transition-all duration-300 ${
             isActive
-              ? "bg-[#0B0F15] text-white shadow-[0_0_25px_rgba(255,153,0,0.25)] border-2"
+              ? "bg-[#0B0F15] text-white shadow-md border-2"
               : "bg-white/5 text-slate-300 border border-white/10"
           }`}
           style={{
@@ -264,20 +278,13 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
       ref={stageRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative w-full max-w-5xl mx-auto rounded-[28px] sm:rounded-[36px] bg-[#131921] border border-[#232F3E] shadow-2xl p-4 xs:p-6 sm:p-10 overflow-hidden flex flex-col items-center select-none backdrop-blur-2xl ${className}`}
+      className={`relative w-full max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-[#131921] border border-[#232F3E] shadow-xl p-4 xs:p-6 sm:p-10 overflow-hidden flex flex-col items-center select-none ${className}`}
       style={{ perspective: "1200px" }}
     >
-      {/* Top Frame Ambient Glow Line */}
-      <div className="absolute top-0 left-12 right-12 h-[1px] bg-gradient-to-r from-transparent via-[#FF9900]/40 to-transparent pointer-events-none" />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#FF9900]/10 rounded-full blur-3xl pointer-events-none" />
-
       {/* Studio Frame Clean Top Bar */}
       <div className="w-full flex items-center justify-between pb-4 sm:pb-6 border-b border-[#232F3E] mb-2 relative z-10">
         <div className="flex items-center gap-2 sm:gap-2.5">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9900] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF9900]"></span>
-          </span>
+          <span className="w-2 h-2 rounded-full bg-[#AD5CFF]" />
           <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-slate-400 truncate">
             AWS SBG Leadership
           </span>
@@ -287,7 +294,14 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
           <span className="text-xs font-mono text-slate-500">
             [ 0{activeIndex + 1} / 0{members.length} ]
           </span>
-          <span className="text-[10px] sm:text-[11px] font-mono text-[#FF9900] bg-[#FF9900]/10 border border-[#FF9900]/30 px-2 sm:px-2.5 py-0.5 rounded-full font-bold">
+          <span
+            className="text-[10px] sm:text-[11px] font-mono px-2 sm:px-2.5 py-0.5 rounded-full font-bold"
+            style={{
+              color: "#AD5CFF",
+              backgroundColor: "rgba(173, 92, 255, 0.12)",
+              border: "1px solid rgba(173, 92, 255, 0.3)",
+            }}
+          >
             SCD 2026
           </span>
         </div>
@@ -350,10 +364,10 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                   setActiveIndex(index);
                 }
               }}
-              className={`absolute top-4 sm:top-6 w-[265px] xs:w-[285px] sm:w-[315px] h-[395px] xs:h-[415px] sm:h-[425px] rounded-[26px] sm:rounded-[30px] p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-colors duration-300 ease-out ${
+              className={`absolute top-4 sm:top-6 w-[265px] xs:w-[285px] sm:w-[315px] h-[395px] xs:h-[415px] sm:h-[425px] rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-colors duration-300 ease-out ${
                 isActive
-                  ? "bg-[#161E2D] text-white shadow-[0_30px_70px_-15px_rgba(255,153,0,0.25)] border-2 border-[#FF9900]"
-                  : "bg-[#101622] text-slate-300 shadow-md border border-[#232F3E] hover:border-slate-700"
+                  ? "bg-[#161E2D] text-white shadow-xl border-2 border-[#AD5CFF]"
+                  : "bg-[#101622] text-slate-300 shadow-sm border border-[#232F3E] hover:border-slate-700"
               }`}
             >
               {/* Card Top Row: Badge + Direct LinkedIn Connect */}
@@ -361,7 +375,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                 <span
                   className={`text-[11px] font-mono uppercase tracking-widest font-semibold px-3 py-1 rounded-full transition-colors duration-300 ${
                     isActive
-                      ? "bg-[#FF9900]/10 text-[#FF9900] border border-[#FF9900]/20"
+                      ? "bg-[#AD5CFF]/15 text-[#AD5CFF] border border-[#AD5CFF]/30"
                       : "bg-[#161E2D] text-slate-400 border border-[#232F3E]"
                   }`}
                 >
@@ -380,7 +394,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                       exit={{ opacity: 0, y: 4, scale: 0.92 }}
                       transition={{ type: "spring", stiffness: 300, damping: 22 }}
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FF9900] hover:bg-[#FFAC33] active:scale-95 text-[#0B0F17] text-xs font-black shadow-[0_2px_12px_rgba(255,153,0,0.35)] transition-all cursor-pointer font-sans"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#AD5CFF] hover:bg-[#BE7BFF] active:scale-95 text-[#0A0D14] text-xs font-bold shadow-sm transition-all cursor-pointer font-sans"
                     >
                       <LinkedInIcon className="w-3.5 h-3.5 fill-current" />
                       <span>Connect</span>
@@ -410,7 +424,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                   </h4>
                   <span
                     className={`text-[11px] font-mono transition-colors duration-300 ${
-                      isActive ? "text-slate-400" : "text-slate-500"
+                      isActive ? "text-[#AD5CFF] font-bold" : "text-slate-500"
                     }`}
                   >
                     {member.code}
@@ -422,7 +436,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                     fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
                   }}
                   className={`text-xs font-bold transition-colors duration-300 ${
-                    isActive ? "text-[#FF9900] mb-2" : "text-slate-400 mb-0 truncate"
+                    isActive ? "text-[#AD5CFF] mb-2" : "text-slate-400 mb-0 truncate"
                   }`}
                 >
                   {member.role}
@@ -443,9 +457,9 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
               {/* Subtle Active Accent Lightbar */}
               {isActive && (
                 <div
-                  className="absolute bottom-0 left-8 right-8 h-[2px] rounded-full opacity-70"
+                  className="absolute bottom-0 left-8 right-8 h-[2px] rounded-full opacity-80"
                   style={{
-                    background: `linear-gradient(90deg, transparent, ${member.accentColor || '#FF9900'}, transparent)`,
+                    background: `linear-gradient(90deg, transparent, ${member.accentColor || '#AD5CFF'}, transparent)`,
                   }}
                 />
               )}
@@ -461,14 +475,14 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
           <button
             type="button"
             onClick={handlePrev}
-            className="w-10 h-10 rounded-full bg-[#161E2D] hover:bg-[#232F3E] active:scale-95 text-slate-300 border border-[#232F3E] shadow-sm flex items-center justify-center transition-all cursor-pointer"
+            className="w-10 h-10 rounded-full bg-[#161E2D] hover:bg-[#232F3E] hover:text-[#AD5CFF] active:scale-95 text-slate-300 border border-[#232F3E] shadow-sm flex items-center justify-center transition-all cursor-pointer"
             aria-label="Previous card"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
           {/* Segmented Dot Indicators */}
-          <div className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#161E2D] border border-[#232F3E] backdrop-blur-md">
+          <div className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#161E2D] border border-[#232F3E]">
             {members.map((_, i) => (
               <button
                 key={i}
@@ -476,7 +490,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                 onClick={() => setActiveIndex(i)}
                 className={`transition-all duration-300 rounded-full cursor-pointer ${
                   i === activeIndex
-                    ? "w-6 h-2 bg-[#FF9900]"
+                    ? "w-6 h-2 bg-[#AD5CFF] shadow-[0_0_8px_rgba(173,92,255,0.4)]"
                     : "w-2 h-2 bg-[#232F3E] hover:bg-slate-600"
                 }`}
                 aria-label={`Go to card ${i + 1}`}
@@ -488,7 +502,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
           <button
             type="button"
             onClick={handleNext}
-            className="w-10 h-10 rounded-full bg-[#161E2D] hover:bg-[#232F3E] active:scale-95 text-slate-300 border border-[#232F3E] shadow-sm flex items-center justify-center transition-all cursor-pointer"
+            className="w-10 h-10 rounded-full bg-[#161E2D] hover:bg-[#232F3E] hover:text-[#AD5CFF] active:scale-95 text-slate-300 border border-[#232F3E] shadow-sm flex items-center justify-center transition-all cursor-pointer"
             aria-label="Next card"
           >
             <ChevronRight className="w-5 h-5" />

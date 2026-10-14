@@ -36,19 +36,22 @@ export const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="relative py-28 px-4 sm:px-6 max-w-7xl mx-auto text-[#F8FAFC]">
-      {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#FF9900]/06 rounded-full blur-[190px] pointer-events-none" />
-
       {/* Section Header with [ 10 ] Index */}
       <ScrollReveal>
         <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-4 sm:gap-6">
-            <span className="text-[#FF9900] font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0">
+            <span
+              className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
+              style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+            >
               [ 10 ]
             </span>
             <div>
-              <p className="text-[#FF9900] text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
-                <span className="w-6 h-[1px] bg-[#FF9900]" />
+              <p
+                className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              >
+                <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                 Get In Touch
               </p>
               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.12]">
@@ -242,7 +245,7 @@ export const ContactSection: React.FC = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#FF9900] via-[#FFAC33] to-[#EC7211] hover:brightness-110 text-xs font-black uppercase tracking-wider text-[#0B0F17] shadow-lg shadow-[#FF9900]/25 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer disabled:opacity-50"
+                      className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#FF9900] hover:bg-[#FFAC33] active:bg-[#E68A00] text-xs font-bold uppercase tracking-wider text-[#0B0F17] shadow-sm transition-all cursor-pointer disabled:opacity-50 active:scale-[0.99]"
                     >
                       <Send className="w-4 h-4" />
                       <span>{isSubmitting ? 'Sending Message...' : 'Send Message to RISU SBG Desk'}</span>
@@ -251,7 +254,7 @@ export const ContactSection: React.FC = () => {
                 </form>
               ) : (
                 <div className="py-12 text-center space-y-4">
-                  <CheckCircle2 className="w-16 h-16 text-[#FF9900] mx-auto animate-bounce" />
+                  <CheckCircle2 className="w-14 h-14 text-emerald-400 mx-auto" />
                   <h3 className="text-2xl font-black text-white">Message Dispatched!</h3>
                   <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
                     Thank you, {formData.name}. Your inquiry has been sent to the AWS Student Builder Group team at Rungta International Skills University (RISU). We will respond to {formData.email} shortly.

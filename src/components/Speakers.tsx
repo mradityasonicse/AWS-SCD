@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { SPEAKERS, type Speaker } from '../data/eventData';
-import { ArrowUpRight, Building2, BookOpen, Sparkles, ArrowRight } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { ArrowUpRight, Building2, BookOpen, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { cn } from '@/lib/utils';
 
 const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3.5" }) => (
@@ -22,35 +22,43 @@ export const Speakers: React.FC = () => {
     offset: ['start start', 'end end'],
   });
 
-  // Calculate dynamic horizontal travel distance
-  useEffect(() => {
-    const calculateDistance = () => {
-      if (trackRef.current) {
-        const trackWidth = trackRef.current.scrollWidth;
-        const windowWidth = window.innerWidth;
-        // Travel distance so the last card finishes comfortably inside the viewport with right padding
-        const distance = Math.max(0, trackWidth - windowWidth + (windowWidth < 640 ? 40 : 96));
-        setScrollDistance(distance);
-      }
-    };
+  // God-level smooth kinetic spring physics (eliminates mouse wheel stepping jitter)
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 85,
+    damping: 24,
+    mass: 0.5,
+    restDelta: 0.0001,
+  });
 
+  // Calculate dynamic horizontal travel distance
+  const calculateDistance = useCallback(() => {
+    if (trackRef.current) {
+      const trackWidth = trackRef.current.scrollWidth;
+      const windowWidth = window.innerWidth;
+      // Travel distance so the last card finishes comfortably inside the viewport with right padding
+      const distance = Math.max(0, trackWidth - windowWidth + (windowWidth < 640 ? 48 : 120));
+      setScrollDistance(distance);
+    }
+  }, []);
+
+  useEffect(() => {
     calculateDistance();
     const t1 = setTimeout(calculateDistance, 100);
-    const t2 = setTimeout(calculateDistance, 500);
+    const t2 = setTimeout(calculateDistance, 400);
     window.addEventListener('resize', calculateDistance);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
       window.removeEventListener('resize', calculateDistance);
     };
-  }, []);
+  }, [calculateDistance]);
 
-  // Map vertical progress [0, 1] to horizontal translation [0, -scrollDistance]
-  const x = useTransform(scrollYProgress, (progress) => -progress * scrollDistance);
+  // Map silky spring progress to horizontal translation
+  const x = useTransform(smoothProgress, (progress) => -progress * scrollDistance);
 
   // Track active speaker card indicator in real-time
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', (latest) => {
+    const unsubscribe = smoothProgress.on('change', (latest) => {
       const idx = Math.min(
         SPEAKERS.length,
         Math.max(1, Math.round(latest * (SPEAKERS.length - 1)) + 1)
@@ -58,26 +66,44 @@ export const Speakers: React.FC = () => {
       setActiveCardIndex(idx);
     });
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [smoothProgress]);
+
+  // Smooth programmatic jump to a speaker card
+  const handleScrollToSpeaker = (targetIndex: number) => {
+    if (!containerRef.current) return;
+    const boundedIndex = Math.max(0, Math.min(SPEAKERS.length - 1, targetIndex));
+    const containerTop = containerRef.current.offsetTop;
+    const totalScrollable = containerRef.current.offsetHeight - window.innerHeight;
+    const targetY = containerTop + (boundedIndex / (SPEAKERS.length - 1)) * totalScrollable;
+    window.scrollTo({
+      top: targetY,
+      behavior: 'smooth',
+    });
+  };
+
+  const handlePrev = () => handleScrollToSpeaker(activeCardIndex - 2);
+  const handleNext = () => handleScrollToSpeaker(activeCardIndex);
 
   return (
     <section ref={containerRef} className="relative h-[320vh] sm:h-[380vh]" id="speakers">
       {/* Sticky Full-Viewport Showcase Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between pt-24 sm:pt-28 pb-6 sm:pb-8 z-20">
-        {/* Ambient Atmosphere */}
-        <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#FF9900]/06 rounded-full blur-[180px] pointer-events-none" />
-        <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-[#00A4E4]/05 rounded-full blur-[160px] pointer-events-none" />
-
         {/* Top Header Bar */}
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 relative z-10 shrink-0">
           <div className="border-b border-[#232F3E] pb-4 sm:pb-5 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
             <div className="flex items-baseline gap-3 sm:gap-5">
-              <span className="text-[#FF9900] font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0">
+              <span
+                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              >
                 [ 03 ]
               </span>
               <div>
-                <p className="text-[#FF9900] text-xs font-bold uppercase tracking-[0.2em] mb-1.5 flex items-center gap-2">
-                  <span className="w-5 h-[1px] bg-[#FF9900]" />
+                <p
+                  className="text-xs font-bold uppercase tracking-[0.2em] mb-1.5 flex items-center gap-2"
+                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                >
+                  <span className="w-5 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                   Summit Speakers
                 </p>
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
@@ -86,23 +112,56 @@ export const Speakers: React.FC = () => {
               </div>
             </div>
 
-            {/* Live Scroll Counter & Progress Bar */}
-            <div className="flex items-center gap-4 self-end md:self-auto">
+            {/* Live Scroll Counter, Quick Nav & Progress Bar */}
+            <div className="flex items-center gap-3 sm:gap-4 self-end md:self-auto">
+              {/* Prev / Next Smooth Jump Controls */}
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  disabled={activeCardIndex <= 1}
+                  className="w-8 h-8 rounded-full border border-[#232F3E] bg-[#161E2D] hover:bg-[#1E293B] text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all active:scale-95 cursor-pointer"
+                  title="Previous speaker"
+                  aria-label="Previous speaker"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  disabled={activeCardIndex >= SPEAKERS.length}
+                  className="w-8 h-8 rounded-full border border-[#232F3E] bg-[#161E2D] hover:bg-[#1E293B] text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all active:scale-95 cursor-pointer"
+                  title="Next speaker"
+                  aria-label="Next speaker"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+
               <div className="flex flex-col items-end gap-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap">
+                  <span className="text-[11px] font-mono font-bold text-slate-400 uppercase tracking-wider hidden xs:flex items-center gap-1.5 whitespace-nowrap">
                     <span>Scroll to explore</span>
-                    <ArrowRight className="w-3 h-3 text-[#FF9900] animate-pulse" />
                   </span>
-                  <span className="font-mono text-xs font-black text-[#FF9900] bg-[#FF9900]/10 border border-[#FF9900]/30 px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                  <span
+                    className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap border"
+                    style={{
+                      color: 'var(--theme-accent, #AD5CFF)',
+                      backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 12%, transparent)',
+                      borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 30%, transparent)',
+                    }}
+                  >
                     [ 0{activeCardIndex} / 0{SPEAKERS.length} ]
                   </span>
                 </div>
                 {/* Horizontal Progress Track */}
-                <div className="w-36 sm:w-48 h-1 bg-[#161E2D] rounded-full overflow-hidden border border-[#232F3E]">
+                <div className="w-32 xs:w-40 sm:w-48 h-1 bg-[#161E2D] rounded-full overflow-hidden border border-[#232F3E]">
                   <motion.div
-                    className="h-full bg-[#FF9900] origin-left"
-                    style={{ scaleX: scrollYProgress }}
+                    className="h-full origin-left"
+                    style={{
+                      scaleX: smoothProgress,
+                      backgroundColor: 'var(--theme-accent, #AD5CFF)',
+                    }}
                   />
                 </div>
               </div>
@@ -110,7 +169,7 @@ export const Speakers: React.FC = () => {
           </div>
         </div>
 
-        {/* Horizontal Moving Cards Track */}
+        {/* Horizontal Moving Cards Track with Spring Physics */}
         <div className="relative w-full flex-1 flex items-center overflow-visible z-10 my-auto">
           <motion.div
             ref={trackRef}
@@ -121,53 +180,59 @@ export const Speakers: React.FC = () => {
               const isKeynote = speaker.category === 'keynote';
 
               return (
-                <div
+                <motion.div
                   key={speaker.id}
+                  whileHover={{ y: -6 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 22 }}
                   className={cn(
-                    "shrink-0 w-[84vw] xs:w-[350px] sm:w-[420px] md:w-[460px] lg:w-[480px] rounded-3xl p-5 sm:p-7 border relative overflow-hidden backdrop-blur-xl bg-[#131921]/95 transition-all duration-300 flex flex-col justify-between group shadow-2xl",
+                    "shrink-0 w-[84vw] xs:w-[350px] sm:w-[420px] md:w-[460px] lg:w-[480px] rounded-2xl p-5 sm:p-7 border relative overflow-hidden bg-[#131921] transition-colors duration-200 flex flex-col justify-between group shadow-xl will-change-transform",
                     isKeynote
-                      ? "border-2 border-[#FF9900]/50 shadow-[0_20px_50px_rgba(255,153,0,0.14)]"
-                      : "border border-[#232F3E] hover:border-[#38BDF8]/40"
+                      ? "border-2 shadow-2xl"
+                      : "border border-[#232F3E] hover:border-slate-500"
                   )}
+                  style={{
+                    borderColor: isKeynote ? 'var(--theme-accent, #AD5CFF)' : undefined,
+                  }}
                 >
-                  {/* Subtle Ambient Card Gradient */}
-                  <div
-                    className={cn(
-                      "absolute -top-20 -right-20 w-60 h-60 rounded-full blur-[90px] pointer-events-none",
-                      isKeynote ? "bg-[#FF9900]/12" : "bg-[#00A4E4]/08"
-                    )}
-                  />
-
                   {/* Top Badges */}
                   <div className="relative z-10">
                     <div className="flex items-center justify-between gap-2 mb-4">
-                      <span className="font-mono text-xs font-black text-[#FF9900] bg-[#FF9900]/10 border border-[#FF9900]/30 px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0">
+                      <span
+                        className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0 border"
+                        style={{
+                          color: isKeynote ? 'var(--theme-accent, #AD5CFF)' : '#94A3B8',
+                          backgroundColor: isKeynote
+                            ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 10%, transparent)'
+                            : '#161E2D',
+                          borderColor: isKeynote
+                            ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 30%, transparent)'
+                            : '#232F3E',
+                        }}
+                      >
                         [ 0{index + 1} / 0{SPEAKERS.length} ]
                       </span>
 
-                      <span
-                        className={cn(
-                          "text-[10px] font-mono font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0",
-                          isKeynote
-                            ? "bg-[#FF9900]/15 text-[#FF9900] border border-[#FF9900]/30"
-                            : "bg-[#161E2D] text-slate-300 border border-[#232F3E]"
-                        )}
-                      >
-                        {isKeynote ? (
-                          <>
-                            <Sparkles className="w-3 h-3 text-[#FF9900]" />
-                            <span>Keynote Leader</span>
-                          </>
-                        ) : (
-                          <>
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                            <span>Technical Session</span>
-                          </>
-                        )}
-                      </span>
+                      {isKeynote ? (
+                        <span
+                          className="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0 border"
+                          style={{
+                            color: 'var(--theme-accent, #AD5CFF)',
+                            backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 14%, transparent)',
+                            borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 35%, transparent)',
+                          }}
+                        >
+                          <Sparkles className="w-3 h-3" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
+                          <span>Keynote Leader</span>
+                        </span>
+                      ) : (
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full flex items-center gap-1.5 whitespace-nowrap shrink-0 bg-[#161E2D] text-slate-300 border border-[#232F3E]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                          <span>Technical Session</span>
+                        </span>
+                      )}
 
                       <span className="text-xs font-mono text-slate-400 flex items-center gap-1 shrink-0 truncate max-w-[130px]">
-                        <Building2 className="w-3.5 h-3.5 text-[#FF9900] shrink-0" />
+                        <Building2 className="w-3.5 h-3.5 shrink-0" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
                         <span className="truncate">{speaker.company}</span>
                       </span>
                     </div>
@@ -186,7 +251,10 @@ export const Speakers: React.FC = () => {
                         <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight truncate mb-1">
                           {speaker.name}
                         </h3>
-                        <p className="text-xs sm:text-sm font-bold text-[#FF9900] leading-snug line-clamp-1 mb-1">
+                        <p
+                          className="text-xs sm:text-sm font-bold leading-snug line-clamp-1 mb-1"
+                          style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                        >
                           {speaker.current_designation}
                         </p>
                         <p className="text-[11px] font-mono text-slate-400 uppercase tracking-wide">
@@ -197,8 +265,11 @@ export const Speakers: React.FC = () => {
 
                     {/* Session Topic Box */}
                     {speaker.topic && (
-                      <div className="p-3.5 sm:p-4 rounded-2xl bg-[#161E2D] border border-[#232F3E] mb-3 sm:mb-4 shadow-sm">
-                        <div className="flex items-center gap-1.5 text-[#FF9900] text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
+                      <div className="p-3.5 sm:p-4 rounded-xl bg-[#161E2D] border border-[#232F3E] mb-3 sm:mb-4 shadow-sm transition-colors group-hover:border-[#37475A]">
+                        <div
+                          className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider mb-1"
+                          style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                        >
                           <BookOpen className="w-3 h-3" />
                           <span>Session Topic</span>
                         </div>
@@ -219,29 +290,38 @@ export const Speakers: React.FC = () => {
                   {/* Card Footer: Action Links */}
                   <div className="relative z-10 pt-3 border-t border-[#232F3E] flex items-center justify-between gap-3">
                     {speaker.linkedin ? (
-                      <a
+                      <motion.a
                         href={speaker.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-[#FF9900] hover:bg-[#FFAC33] active:bg-[#E68A00] text-[#0B0F17] font-black text-xs tracking-wide shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer font-sans"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.96 }}
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full font-bold text-xs tracking-wide shadow-sm transition-all cursor-pointer font-sans select-none"
+                        style={{
+                          backgroundColor: 'var(--theme-accent, #AD5CFF)',
+                          color: '#0B0F17',
+                        }}
                       >
                         <LinkedInIcon className="w-3.5 h-3.5 fill-current" />
                         <span>Connect on LinkedIn</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </a>
+                        <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                      </motion.a>
                     ) : (
                       <span className="text-xs font-mono text-slate-500">AWS Community</span>
                     )}
 
                     <a
                       href="#agenda"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-[#FF9900] transition-colors"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+                      style={{
+                        '--hover-accent': 'var(--theme-accent, #AD5CFF)'
+                      } as React.CSSProperties}
                     >
                       <span>Agenda</span>
                       <ArrowUpRight className="w-3 h-3" />
                     </a>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </motion.div>
@@ -249,9 +329,11 @@ export const Speakers: React.FC = () => {
 
         {/* Bottom Helper Bar */}
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 relative z-10 shrink-0">
-          <div className="flex items-center justify-between text-slate-500 font-mono text-[11px] pt-3 border-t border-[#232F3E]/60">
+          <div className="flex items-center justify-between text-slate-400 font-mono text-[11px] pt-3 border-t border-[#232F3E]">
             <span>AWS DEVREL · AMAZON LEADERSHIP · CLOUD BUILDERS</span>
-            <span className="text-[#FF9900] font-bold">7 SPEAKERS ANNOUNCED</span>
+            <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="font-bold">
+              7 SPEAKERS ANNOUNCED
+            </span>
           </div>
         </div>
       </div>
