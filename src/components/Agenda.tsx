@@ -19,10 +19,10 @@ export const Agenda: React.FC = () => {
 
   // Agenda High-Level Chapters (Matches Screenshot 2 layout)
   const agendaChapters = [
-    { num: '1', title: 'Keynote & AWS DevRel Leadership Address', cat: 'Keynote', color: '#FF9900' },
-    { num: '2', title: 'Generative AI Clinic: Amazon Bedrock & Claude', cat: 'Tech', color: 'var(--theme-accent, #AD5CFF)' },
-    { num: '3', title: 'Cloud Architecture, Serverless & Security', cat: 'Tech', color: '#42B4FF' },
-    { num: '4', title: 'Hands-on Jam, Live Kahoot Arena & Networking', cat: 'Networking', color: '#00E582' },
+    { num: '1', title: 'Inauguration, Felicitation & Welcome Address', cat: 'Ceremony', color: '#00E582' },
+    { num: '2', title: 'Keynote & Technical Speaker Sessions', cat: 'Tech', color: 'var(--theme-accent, #AD5CFF)' },
+    { num: '3', title: 'One-Hour Lunch & Refreshment Break', cat: 'Networking', color: '#42B4FF' },
+    { num: '4', title: 'Q&A, Closing Ceremony & Swag Distribution', cat: 'Fun', color: '#FF9900' },
   ];
 
   return (
@@ -232,10 +232,10 @@ export const Agenda: React.FC = () => {
                         <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-2.5 sm:mb-3">
                           <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
                             <span
-                              className="font-mono font-bold text-lg sm:text-xl"
+                              className="font-mono font-bold text-base sm:text-xl tracking-tight"
                               style={{ color: sessionColor }}
                             >
-                              {item.time} {item.ampm}
+                              {item.time.includes('AM') || item.time.includes('PM') ? item.time : `${item.time} ${item.ampm}`}
                             </span>
                             <span
                               className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border"

@@ -262,7 +262,7 @@ export const CountdownTimer: React.FC = () => {
   // Google Calendar URL
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     'AWS Student Community Day 2026 · Central India'
-  )}&dates=20261021T023000Z/20261021T120000Z&details=${encodeURIComponent(
+  )}&dates=20261021T033000Z/20261021T103000Z&details=${encodeURIComponent(
     'AWS Student Community Day 2026 (RISU Bhilai Edition).\nKeynotes by Praful Bagai & Jessica Gilmore, Amazon Bedrock GenAI workshops, project showcases, and 500+ student builders.\nVenue: Rungta International Skills University (RISU), Bhilai.\nWebsite: https://aws-scd-risu.vercel.app'
   )}&location=${encodeURIComponent(
     'Rungta International Skills University, Bhilai, Chhattisgarh, India'
@@ -279,8 +279,8 @@ export const CountdownTimer: React.FC = () => {
       'BEGIN:VEVENT',
       'UID:aws-scd-risu-2026-10-21@awssbg.org',
       'DTSTAMP:20261013T000000Z',
-      'DTSTART:20261021T023000Z',
-      'DTEND:20261021T120000Z',
+      'DTSTART:20261021T033000Z',
+      'DTEND:20261021T103000Z',
       'SUMMARY:AWS Student Community Day 2026 · Central India',
       'DESCRIPTION:Flagship student AWS conference in Central India at Rungta International Skills University (RISU), Bhilai. Keynotes from AWS DevRel leadership and Amazon leaders, hands-on GenAI clinics, and 550+ builders.',
       'LOCATION:Rungta International Skills University (RISU), Bhilai, Chhattisgarh 490024',
@@ -416,7 +416,7 @@ export const CountdownTimer: React.FC = () => {
               <div className="flex items-center gap-2 text-slate-300">
                 <Calendar className="w-4 h-4 shrink-0" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
                 <span className="font-medium">
-                  <strong className="text-white">Wednesday, 21 October 2026</strong> · 08:00 AM IST
+                  <strong className="text-white">Wednesday, 21 October 2026</strong> · 09:00 AM IST
                 </span>
                 <span className="hidden md:inline text-slate-600">|</span>
                 <span className="hidden md:flex items-center gap-1 text-slate-400">
