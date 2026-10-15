@@ -167,10 +167,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
         className={cn(
           "max-w-[1380px] w-full mx-auto pointer-events-auto border relative transition-[background-color,border-color,box-shadow,border-radius] duration-200 transform-gpu",
           mobileMenuOpen
-            ? "rounded-2xl bg-[#131921] shadow-xl border-[#232F3E] py-3 px-5"
+            ? "rounded-2xl bg-[var(--theme-surface,#1E1E1E)] shadow-xl border-[var(--theme-border,#3E3E3E)] py-3 px-5"
             : scrolled
-              ? "rounded-full bg-[#131921] border-[#232F3E] shadow-lg py-2 px-4 sm:px-6"
-              : "rounded-full bg-[#131921]/95 border-[#232F3E] shadow-sm py-2 px-4 sm:px-6"
+              ? "rounded-full bg-[var(--theme-surface,#1E1E1E)]/95 border-[var(--theme-border,#3E3E3E)] shadow-lg py-2 px-4 sm:px-6"
+              : "rounded-full bg-[var(--theme-surface,#1E1E1E)]/90 border-[var(--theme-border,#3E3E3E)] shadow-sm py-2 px-4 sm:px-6"
         )}
       >
         <div className="flex items-center justify-between gap-3 sm:gap-4">
@@ -185,14 +185,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             className="flex items-center gap-3 group shrink-0"
           >
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-[#161E2D] p-1 sm:p-1.5 border border-[#232F3E] flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#AD5CFF]/60 group-hover:shadow-[0_0_12px_rgba(173,92,255,0.3)]">
+              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-[var(--theme-surface-elevated,#303030)] p-1 sm:p-1.5 border border-[var(--theme-border,#3E3E3E)] flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#AD5CFF]/60 group-hover:shadow-[0_0_12px_rgba(173,92,255,0.3)]">
                 <img
                   src="/main-logo.svg"
                   alt="Brand Logo"
                   className="h-full w-full object-contain drop-shadow-[0_0_6px_rgba(173,92,255,0.4)]"
                 />
               </div>
-              <div className="h-5 sm:h-6 w-px bg-[#232F3E]" />
+              <div className="h-5 sm:h-6 w-px bg-[var(--theme-border,#3E3E3E)]" />
               <img
                 src="/AWS.png"
                 alt="AWS Logo"
@@ -211,7 +211,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
 
           {/* Liquid Glass Navigation Dock (Inspired by Dribbble Reference with Theme Applied) */}
           <nav
-            className="hidden lg:flex items-center justify-center gap-0.5 bg-[#0D121C]/95 border border-[#232F3E] rounded-full p-1 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
+            className="hidden lg:flex items-center justify-center gap-0.5 bg-[#161616]/95 border border-[var(--theme-border,#3E3E3E)] rounded-full p-1 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
             aria-label="Primary navigation"
             onMouseLeave={() => setHoveredItem(null)}
           >
@@ -353,7 +353,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 text-slate-300 hover:text-white hover:bg-[#161E2D] active:scale-95 rounded-full transition-all cursor-pointer border border-[#232F3E] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+              className="lg:hidden p-2.5 text-slate-300 hover:text-white hover:bg-[var(--theme-surface-elevated,#303030)] active:scale-95 rounded-full transition-all cursor-pointer border border-[var(--theme-border,#3E3E3E)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-nav-drawer"
@@ -372,7 +372,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               animate={{ opacity: 1, height: 'auto', y: 0 }}
               exit={{ opacity: 0, height: 0, y: -6 }}
               transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden mt-3 pt-3 border-t border-[#232F3E] max-h-[calc(100vh-130px)] overflow-y-auto no-scrollbar"
+              className="lg:hidden mt-3 pt-3 border-t border-[var(--theme-border,#3E3E3E)] max-h-[calc(100vh-130px)] overflow-y-auto no-scrollbar"
             >
               <div className="grid grid-cols-2 xs:grid-cols-3 gap-2 text-xs font-semibold py-2">
                 {NAV_LINKS.map((link) => (
@@ -390,7 +390,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                     style={{
                       background:
                         activeItem === link.id
-                          ? "linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(var(--theme-accent-rgb, 173, 92, 255), 0.16) 40%, rgba(13, 18, 28, 0.95) 100%)"
+                          ? "linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(var(--theme-accent-rgb, 173, 92, 255), 0.16) 40%, rgba(30, 30, 30, 0.95) 100%)"
                           : undefined,
                       border: activeItem === link.id ? "1px solid rgba(255, 255, 255, 0.35)" : "1px solid transparent",
                       boxShadow:

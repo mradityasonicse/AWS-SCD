@@ -12,7 +12,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
     <section id="sponsors" className="relative py-28 px-4 sm:px-6 max-w-7xl mx-auto text-white">
       {/* Section Header with [ 07 ] Index */}
       <ScrollReveal>
-        <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        <div className="border-b border-[var(--theme-border,#3E3E3E)] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-4 sm:gap-6">
             <span
               className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
@@ -55,14 +55,14 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               <SpotlightCard className="w-full h-full p-8 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 shadow-md">
                 <div className="mb-4">
                   <span
-                    className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full text-[#0B0F17]"
+                    className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full text-[#1E1E1E]"
                     style={{ backgroundColor: badgeBg }}
                   >
                     {sponsor.category}
                   </span>
                 </div>
 
-                <div className="h-28 w-full rounded-2xl bg-[#161E2D] border border-[#232F3E] flex items-center justify-center my-2 p-3">
+                <div className="h-28 w-full rounded-2xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] flex items-center justify-center my-2 p-3">
                   <img
                     src={sponsor.logo}
                     alt={sponsor.name}
@@ -87,7 +87,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
 
       {/* Sponsor Invitation Card */}
       <ScrollReveal delay={0.15}>
-        <SpotlightCard className="p-8 sm:p-12 relative overflow-hidden text-center max-w-3xl mx-auto shadow-xl border-[#232F3E]">
+        <SpotlightCard className="p-8 sm:p-12 relative overflow-hidden text-center max-w-3xl mx-auto shadow-xl border-[var(--theme-border,#3E3E3E)]">
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-12 h-12 rounded-xl bg-[#FF9900]/10 border border-[#FF9900]/30 flex items-center justify-center mb-5 text-[#FF9900]">
               <HeartHandshake className="w-6 h-6" />

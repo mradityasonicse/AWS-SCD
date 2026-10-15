@@ -5,14 +5,14 @@ export const Ticker: React.FC = () => {
     <div
       role="region"
       aria-label="Summit announcements"
-      className="z-[110] bg-[#131921] border-b border-[#232F3E] flex items-center h-9 fixed top-0 left-0 right-0 overflow-hidden text-xs select-none"
+      className="z-[110] bg-[var(--theme-surface,#1E1E1E)] border-b border-[var(--theme-border,#3E3E3E)] flex items-center h-9 fixed top-0 left-0 right-0 overflow-hidden text-xs select-none"
     >
-      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-[#131921] via-transparent to-[#131921]" />
+      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-[var(--theme-surface,#1E1E1E)] via-transparent to-[var(--theme-surface,#1E1E1E)]" />
       
       <div className="animate-ticker flex items-center gap-6 whitespace-nowrap pl-full">
         <span className="flex items-center gap-2 text-slate-300 font-medium tracking-wider uppercase text-[11px]">
-          <span className="bg-[#FF9900] text-[#0B0F17] font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
-            <span className="w-1.5 h-1.5 bg-[#0B0F17] rounded-full" />
+          <span className="bg-[#FF9900] text-[#1E1E1E] font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
+            <span className="w-1.5 h-1.5 bg-[#1E1E1E] rounded-full" />
             SUMMIT 2026
           </span>
           AWS STUDENT COMMUNITY DAY
@@ -42,8 +42,8 @@ export const Ticker: React.FC = () => {
 
         {/* Duplicate loop sequence for seamless loop */}
         <span className="flex items-center gap-2 text-slate-300 font-medium tracking-wider uppercase text-[11px]">
-          <span className="bg-[#FF9900] text-[#0B0F17] font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
-            <span className="w-1.5 h-1.5 bg-[#0B0F17] rounded-full" />
+          <span className="bg-[#FF9900] text-[#1E1E1E] font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
+            <span className="w-1.5 h-1.5 bg-[#1E1E1E] rounded-full" />
             SUMMIT 2026
           </span>
           AWS STUDENT COMMUNITY DAY

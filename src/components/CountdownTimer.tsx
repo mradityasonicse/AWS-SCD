@@ -316,9 +316,9 @@ export const CountdownTimer: React.FC = () => {
   return (
     <div className="w-full max-w-4xl mx-auto mb-6 sm:mb-8 select-none">
       {/* Technical Countdown Chassis */}
-      <div className="relative rounded-2xl bg-[#0F141D] border border-[#232F3E] p-4 sm:p-7 md:p-8 shadow-xl">
+      <div className="relative rounded-2xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] p-4 sm:p-7 md:p-8 shadow-xl">
         {/* Top Telemetry Strip */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-[#1E293B]">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-[var(--theme-border,#3E3E3E)]">
           {/* Left: Live Status Beacon */}
           <div className="flex items-center gap-2.5">
             <span className="inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -344,9 +344,9 @@ export const CountdownTimer: React.FC = () => {
                       borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)',
                     }
                   : {
-                      backgroundColor: '#131921',
+                      backgroundColor: 'var(--theme-surface-elevated, #303030)',
                       color: '#94A3B8',
-                      borderColor: '#232F3E',
+                      borderColor: 'var(--theme-border, #3E3E3E)',
                     }
               }
             >
@@ -410,7 +410,7 @@ export const CountdownTimer: React.FC = () => {
           </div>
 
           {/* Telemetry Progress Bar towards 21 October */}
-          <div className="relative z-10 mt-6 sm:mt-7 pt-4 sm:pt-5 border-t border-[#1E293B]/70">
+          <div className="relative z-10 mt-6 sm:mt-7 pt-4 sm:pt-5 border-t border-[var(--theme-border,#3E3E3E)]">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs">
               {/* Event Schedule Info */}
               <div className="flex items-center gap-2 text-slate-300">
@@ -452,9 +452,9 @@ export const CountdownTimer: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 6, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 sm:right-0 bottom-full sm:bottom-auto sm:top-full mt-2 mb-2 sm:mb-0 w-64 bg-[#111723] border border-[#232F3E] rounded-2xl p-2 shadow-[0_16px_40px_rgba(0,0,0,0.9)] z-50 text-left"
+                      className="absolute right-0 sm:right-0 bottom-full sm:bottom-auto sm:top-full mt-2 mb-2 sm:mb-0 w-64 bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] rounded-2xl p-2 shadow-[0_16px_40px_rgba(0,0,0,0.9)] z-50 text-left"
                     >
-                      <div className="px-3 py-1.5 border-b border-[#1E293B] mb-1">
+                      <div className="px-3 py-1.5 border-b border-[var(--theme-border,#3E3E3E)] mb-1">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
                           Reserve The Date
                         </span>
@@ -467,7 +467,7 @@ export const CountdownTimer: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => setCalendarOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white hover:bg-[#1A2332] transition-colors"
+                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white hover:bg-[var(--theme-surface-elevated,#303030)] transition-colors"
                       >
                         <Calendar className="w-4 h-4 text-[#FF9900]" />
                         <span>Google Calendar</span>
@@ -477,7 +477,7 @@ export const CountdownTimer: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleDownloadIcs}
-                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white hover:bg-[#1A2332] transition-colors text-left cursor-pointer"
+                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white hover:bg-[var(--theme-surface-elevated,#303030)] transition-colors text-left cursor-pointer"
                       >
                         <Download className="w-4 h-4 text-[#42B4FF]" />
                         <span>Apple / Outlook (.ics)</span>
@@ -487,7 +487,7 @@ export const CountdownTimer: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleCopyInvite}
-                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white hover:bg-[#1A2332] transition-colors text-left cursor-pointer"
+                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white hover:bg-[var(--theme-surface-elevated,#303030)] transition-colors text-left cursor-pointer"
                       >
                         <Share2 className="w-4 h-4 text-[#FFD814]" />
                         <span>Copy Event Invite</span>
@@ -507,7 +507,7 @@ export const CountdownTimer: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-[#161E2D] border border-[#FF9900] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-2"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-[var(--theme-surface-elevated,#303030)] border border-[#FF9900] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-2"
           >
             <Check className="w-4 h-4 text-[#FF9900]" />
             <span>Event invite &amp; date copied to clipboard!</span>

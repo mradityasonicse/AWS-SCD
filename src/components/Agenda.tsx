@@ -61,7 +61,7 @@ export const Agenda: React.FC = () => {
         {/* SIGNATURE AWS BUILDER AGENDA SHOWCASE BOARD (Modeled from Screenshot 2) */}
         {/* ==================================================================== */}
         <ScrollReveal delay={0.1}>
-          <div className="mb-14 relative rounded-2xl sm:rounded-3xl border border-[#232F3E] bg-[#111622] overflow-hidden shadow-2xl">
+          <div className="mb-14 relative rounded-2xl sm:rounded-3xl border border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-surface,#1E1E1E)] overflow-hidden shadow-2xl">
             {/* Architectural Grid Backdrop Layer */}
             <div
               className="absolute inset-0 pointer-events-none opacity-40 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]"
@@ -211,7 +211,7 @@ export const Agenda: React.FC = () => {
                     <>
                       {/* Timeline Pin Dot */}
                       <div
-                        className="absolute -left-[31px] sm:-left-[47px] top-6 w-3.5 h-3.5 rounded-full border-2 border-[#111622] transition-transform duration-200 group-hover:scale-125"
+                        className="absolute -left-[31px] sm:-left-[47px] top-6 w-3.5 h-3.5 rounded-full border-2 border-[var(--theme-bg,#262626)] transition-transform duration-200 group-hover:scale-125"
                         style={{
                           backgroundColor: sessionColor,
                           boxShadow: `0 0 10px ${sessionColor}50`,
@@ -221,7 +221,7 @@ export const Agenda: React.FC = () => {
                       <SpotlightCard
                         spotlightColor={`${sessionColor}25`}
                         borderColor={`${sessionColor}35`}
-                        className="p-5 sm:p-7 transition-all duration-200 hover:translate-x-1 shadow-md bg-[#131922] border-[#232F3E] relative overflow-hidden"
+                        className="p-5 sm:p-7 transition-all duration-200 hover:translate-x-1 shadow-md bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] relative overflow-hidden"
                       >
                         {/* Top subtle highlight */}
                         <div

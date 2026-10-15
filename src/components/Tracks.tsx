@@ -24,7 +24,7 @@ export const Tracks: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header with [ 02 ] Index */}
         <ScrollReveal>
-          <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          <div className="border-b border-[var(--theme-border,#3E3E3E)] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
               <span
                 className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
@@ -67,7 +67,7 @@ export const Tracks: React.FC = () => {
                 <SpotlightCard
                   spotlightColor={cfg.glow}
                   borderColor={cfg.color + '40'}
-                  className="h-full p-7 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5 bg-[#131922] border-[#232F3E] group"
+                  className="h-full p-7 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5 bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
@@ -78,7 +78,7 @@ export const Tracks: React.FC = () => {
                         {track.num}
                       </span>
                       <div
-                        className="p-2.5 rounded-xl bg-[#161E2D] border transition-all group-hover:scale-110"
+                        className="p-2.5 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border transition-all group-hover:scale-110"
                         style={{ borderColor: cfg.color + '40' }}
                       >
                         {getIcon(track.icon)}
@@ -93,11 +93,11 @@ export const Tracks: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-[#232F3E] flex flex-wrap gap-1.5">
+                  <div className="pt-4 border-t border-[var(--theme-border,#3E3E3E)] flex flex-wrap gap-1.5">
                     {track.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#161E2D] text-slate-300 border border-[#232F3E] group-hover:border-slate-500 transition-colors"
+                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-[var(--theme-surface-elevated,#303030)] text-slate-300 border border-[var(--theme-border,#3E3E3E)] group-hover:border-slate-500 transition-colors"
                       >
                         {tag}
                       </span>

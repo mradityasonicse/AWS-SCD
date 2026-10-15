@@ -36,17 +36,17 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative border-t border-[#232F3E] bg-[#0B0F17] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
+    <footer className="relative border-t border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-bg,#262626)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#232F3E]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--theme-border,#3E3E3E)]">
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img src="/AWS.png" alt="AWS" className="h-8 w-auto object-contain" />
-              <div className="h-6 w-[1px] bg-[#232F3E]" />
+              <div className="h-6 w-[1px] bg-[var(--theme-border,#3E3E3E)]" />
               <img src="/AWS_SBG.png" alt="AWS SBG" className="h-7 w-auto object-contain" />
-              <div className="h-6 w-[1px] bg-[#232F3E]" />
-              <div className="h-8 w-8 rounded-lg bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center shadow-sm">
+              <div className="h-6 w-[1px] bg-[var(--theme-border,#3E3E3E)]" />
+              <div className="h-8 w-8 rounded-lg bg-[var(--theme-surface-elevated,#303030)] p-1 border border-[var(--theme-border,#3E3E3E)] flex items-center justify-center shadow-sm">
                 <img src="/main-logo.svg" alt="Brand Logo" className="h-full w-full object-contain drop-shadow-[0_0_6px_rgba(173,92,255,0.4)]" />
               </div>
             </div>
@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 href={`mailto:${EVENT_DETAILS.contactEmail}`}
-                className="p-2 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
+                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
                   </a>
                 </li>
               ))}
-              <li className="pt-2 border-t border-[#232F3E]/60 mt-1">
+              <li className="pt-2 border-t border-[var(--theme-border,#3E3E3E)]/60 mt-1">
                 <a
                   href={`mailto:${EVENT_DETAILS.contactEmail}`}
                   className="inline-flex items-center gap-1.5 text-slate-400 hover:text-[#FF9900] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FF9900] rounded px-1 -mx-1"
@@ -145,9 +145,9 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-black uppercase tracking-widest text-white">
               Academic Host Partner
             </h4>
-            <div className="rounded-2xl border border-[#232F3E] bg-[#131921] p-4 space-y-2">
+            <div className="rounded-2xl border border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-surface,#1E1E1E)] p-4 space-y-2">
               <div className="flex items-center gap-2.5">
-                <div className="h-7 w-7 rounded-lg bg-[#161E2D] p-1 border border-[#232F3E] flex items-center justify-center shrink-0">
+                <div className="h-7 w-7 rounded-lg bg-[var(--theme-surface-elevated,#303030)] p-1 border border-[var(--theme-border,#3E3E3E)] flex items-center justify-center shrink-0">
                   <img src="/main-logo.svg" alt="Academic Host" className="h-full w-full object-contain drop-shadow-[0_0_4px_rgba(173,92,255,0.4)]" />
                 </div>
                 <span className="text-xs font-bold text-white">
@@ -177,7 +177,7 @@ export const Footer: React.FC = () => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-[#161E2D] border border-[#232F3E] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/50 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
+            className="p-2.5 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[#FF9900] hover:border-[#FF9900]/50 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />

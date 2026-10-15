@@ -13,7 +13,7 @@ const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3
 const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
   return (
     <div
-      className="relative rounded-2xl bg-[#111622] border border-[#232F3E] p-5 flex flex-col justify-between hover:border-slate-500 transition-all duration-300 group hover:-translate-y-1 shadow-lg overflow-hidden"
+      className="relative rounded-2xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] p-5 flex flex-col justify-between hover:border-slate-500 transition-all duration-300 group hover:-translate-y-1 shadow-lg overflow-hidden"
       style={{
         boxShadow: `0 8px 24px rgba(0, 0, 0, 0.4)`,
       }}
@@ -47,7 +47,7 @@ const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
           className="relative w-14 h-14 rounded-xl flex items-center justify-center font-bold text-xl overflow-hidden shrink-0 border-2"
           style={{
             borderColor: member.accentColor,
-            backgroundColor: '#0B0F15',
+            backgroundColor: 'var(--theme-surface-elevated, #303030)',
             boxShadow: `0 0 12px ${member.accentColor}25`,
           }}
         >
@@ -101,7 +101,7 @@ const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
         {member.scope.map((tag) => (
           <span
             key={tag}
-            className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#161E2D] text-slate-300 border border-[#232F3E]"
+            className="text-[9px] font-mono px-2 py-0.5 rounded bg-[var(--theme-surface-elevated,#303030)] text-slate-300 border border-[var(--theme-border,#3E3E3E)]"
           >
             {tag}
           </span>
@@ -109,7 +109,7 @@ const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
       </div>
 
       {/* Bottom Bar: Verified + Connect Link */}
-      <div className="flex items-center justify-between pt-3 border-t border-[#232F3E] relative z-10">
+      <div className="flex items-center justify-between pt-3 border-t border-[var(--theme-border,#3E3E3E)] relative z-10">
         <span className="inline-flex items-center gap-1 text-[9px] font-mono text-emerald-400">
           <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
           VERIFIED BUILDER
@@ -119,7 +119,7 @@ const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
           href={member.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full text-slate-200 hover:text-white bg-[#161E2D] hover:bg-[#232F3E] border border-[#232F3E] transition-all cursor-pointer"
+          className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full text-slate-200 hover:text-white bg-[var(--theme-surface-elevated,#303030)] hover:bg-[var(--theme-surface-card-hover,#2E2E2E)] border border-[var(--theme-border,#3E3E3E)] transition-all cursor-pointer"
         >
           <LinkedInIcon className="w-3 h-3 fill-current" />
           <span>Profile</span>
@@ -138,7 +138,7 @@ export const Team: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header with [ 08 ] Index & View Toggle */}
         <ScrollReveal>
-          <div className="border-b border-[#232F3E] pb-6 mb-10 sm:mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          <div className="border-b border-[var(--theme-border,#3E3E3E)] pb-6 mb-10 sm:mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
               <span
                 className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
@@ -166,7 +166,7 @@ export const Team: React.FC = () => {
               </p>
 
               {/* View Mode Toggle: 3D Deck vs Responsive Grid */}
-              <div className="inline-flex items-center p-1 rounded-xl bg-[#131921] border border-[#232F3E] shrink-0 self-start sm:self-auto">
+              <div className="inline-flex items-center p-1 rounded-xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] shrink-0 self-start sm:self-auto">
                 <button
                   type="button"
                   onClick={() => setViewMode('deck')}

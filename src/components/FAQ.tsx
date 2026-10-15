@@ -15,7 +15,7 @@ export const FAQ: React.FC = () => {
     <section id="faq" className="relative py-28 px-4 sm:px-6 max-w-4xl mx-auto text-[#F8FAFC]">
       {/* Section Header with [ 09 ] Index */}
       <ScrollReveal>
-        <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        <div className="border-b border-[var(--theme-border,#3E3E3E)] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-4 sm:gap-6">
             <span
               className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
@@ -51,8 +51,8 @@ export const FAQ: React.FC = () => {
               <div
                 className={`rounded-xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? 'bg-[#161E2D] shadow-md'
-                    : 'border-[#232F3E] bg-[#131921] hover:bg-[#161E2D] shadow-sm'
+                    ? 'bg-[var(--theme-surface-elevated,#303030)] shadow-md'
+                    : 'border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-surface,#1E1E1E)] hover:bg-[var(--theme-surface-elevated,#303030)] shadow-sm'
                 }`}
                 style={{
                   borderColor: isOpen ? 'var(--theme-accent, #AD5CFF)' : undefined,
@@ -77,8 +77,8 @@ export const FAQ: React.FC = () => {
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                     className="w-8 h-8 rounded-full flex items-center justify-center border shrink-0 transition-colors"
                     style={{
-                      backgroundColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)' : '#161E2D',
-                      borderColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)' : '#232F3E',
+                      backgroundColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)' : 'var(--theme-surface-elevated, #303030)',
+                      borderColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)' : 'var(--theme-border, #3E3E3E)',
                       color: isOpen ? 'var(--theme-accent, #AD5CFF)' : '#94A3B8',
                     }}
                   >
@@ -95,7 +95,7 @@ export const FAQ: React.FC = () => {
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-6 sm:px-6 text-sm text-slate-300 leading-relaxed border-t border-[#232F3E]/60 pt-4">
+                      <div className="px-5 pb-6 sm:px-6 text-sm text-slate-300 leading-relaxed border-t border-[var(--theme-border,#3E3E3E)]/60 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>

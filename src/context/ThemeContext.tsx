@@ -66,15 +66,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     // Apply background & surface variables
     if (bgMode === 'dark') {
-      root.style.setProperty('--theme-bg', '#111622');
-      root.style.setProperty('--theme-surface', '#161B26');
-      root.style.setProperty('--theme-surface-card', '#131822');
-      root.style.setProperty('--theme-surface-elevated', '#1C2333');
-      root.style.setProperty('--theme-border', '#232F3E');
-      root.style.setProperty('--theme-border-strong', '#37475A');
-      root.style.setProperty('--theme-grid', 'rgba(255, 255, 255, 0.08)');
+      root.style.setProperty('--theme-bg', '#262626');
+      root.style.setProperty('--theme-surface', '#1E1E1E');
+      root.style.setProperty('--theme-surface-card', '#1E1E1E');
+      root.style.setProperty('--theme-surface-elevated', '#303030');
+      root.style.setProperty('--theme-border', '#3E3E3E');
+      root.style.setProperty('--theme-border-strong', '#525252');
+      root.style.setProperty('--theme-grid', 'rgba(255, 255, 255, 0.07)');
       root.style.setProperty('--theme-text', '#FFFFFF');
-      root.style.setProperty('--theme-text-muted', '#94A3B8');
+      root.style.setProperty('--theme-text-muted', '#A3A3A3');
       root.classList.remove('light');
       root.classList.add('dark');
     } else {

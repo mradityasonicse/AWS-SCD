@@ -28,7 +28,7 @@ export const About: React.FC = () => {
               >
                 WHAT IS SCD
               </span>
-              <div className="h-px flex-1 bg-gradient-to-r from-[#232F3E] via-[#1E293B] to-transparent min-w-[20px]" />
+              <div className="h-px flex-1 bg-gradient-to-r from-[var(--theme-border,#3E3E3E)] via-[var(--theme-border,#3E3E3E)]/50 to-transparent min-w-[20px]" />
               <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-mono tracking-widest text-slate-400 uppercase shrink-0">
                 <span
                   className="w-1.5 h-1.5 rounded-full"
@@ -39,7 +39,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* Main Title Row with Vertical Balance */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-[#232F3E]">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-[var(--theme-border,#3E3E3E)]">
               <div className="max-w-3xl overflow-visible pb-1">
                 <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-none">
                   One day to level up as a builder.
@@ -82,7 +82,7 @@ export const About: React.FC = () => {
                   <StaggerItem key={pillar.num}>
                     <SpotlightCard
                       borderColor={pColor + '40'}
-                      className="p-5 sm:p-6 transition-all duration-300 flex items-start gap-5 hover:translate-x-1 shadow-md bg-[#131922] border-[#232F3E]"
+                      className="p-5 sm:p-6 transition-all duration-300 flex items-start gap-5 hover:translate-x-1 shadow-md bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)]"
                     >
                       <span
                         className="font-mono font-black text-2xl sm:text-3xl leading-none shrink-0 pt-1 transition-transform group-hover:scale-105"

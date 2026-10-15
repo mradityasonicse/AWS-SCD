@@ -22,7 +22,7 @@ export const Venue: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header with [ 05 ] Index */}
         <ScrollReveal>
-          <div className="border-b border-[#232F3E] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          <div className="border-b border-[var(--theme-border,#3E3E3E)] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
               <span
                 className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
@@ -141,8 +141,8 @@ export const Venue: React.FC = () => {
           {/* Right Map & Campus Preview (7 cols) */}
           <div className="lg:col-span-7">
             <ScrollReveal delay={0.15}>
-              <div className="rounded-3xl bg-[#131921] border border-[#232F3E] shadow-2xl overflow-hidden flex flex-col">
-                <div className="p-3.5 sm:p-4 bg-[#161E2D] border-b border-[#232F3E] flex flex-wrap items-center justify-between gap-3">
+              <div className="rounded-3xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] shadow-2xl overflow-hidden flex flex-col">
+                <div className="p-3.5 sm:p-4 bg-[var(--theme-surface-elevated,#303030)] border-b border-[var(--theme-border,#3E3E3E)] flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-400" />
                     <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-400" />
@@ -153,14 +153,14 @@ export const Venue: React.FC = () => {
                   </div>
 
                   {/* Dark Mode Switcher: Dark Satellite vs Dark Blueprint */}
-                  <div className="flex items-center gap-1.5 bg-[#101622] p-1 rounded-xl border border-[#232F3E]">
+                  <div className="flex items-center gap-1.5 bg-[var(--theme-surface,#1E1E1E)] p-1 rounded-xl border border-[var(--theme-border,#3E3E3E)]">
                     <button
                       type="button"
                       onClick={() => setMapMode('satellite')}
                       className={cn(
                         "px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 select-none",
                         mapMode === 'satellite'
-                          ? "bg-[#1E293B] text-white shadow-sm border border-[#334155]"
+                          ? "bg-[var(--theme-surface-elevated,#303030)] text-white shadow-sm border border-[var(--theme-border,#3E3E3E)]"
                           : "text-slate-400 hover:text-slate-200"
                       )}
                     >
@@ -173,7 +173,7 @@ export const Venue: React.FC = () => {
                       className={cn(
                         "px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 select-none",
                         mapMode === 'blueprint'
-                          ? "bg-[#1E293B] text-white shadow-sm border border-[#334155]"
+                          ? "bg-[var(--theme-surface-elevated,#303030)] text-white shadow-sm border border-[var(--theme-border,#3E3E3E)]"
                           : "text-slate-400 hover:text-slate-200"
                       )}
                     >
@@ -183,7 +183,7 @@ export const Venue: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[#0B0F17] overflow-hidden group">
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-[var(--theme-surface,#1E1E1E)] overflow-hidden group">
                   <iframe
                     title="Rungta International Skills University - Campus Map"
                     src={mapUrl}
@@ -197,11 +197,11 @@ export const Venue: React.FC = () => {
                   />
 
                   {/* Dark Theme Ambient Inset Vignette (Blends map edges seamlessly with container) */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B0F17]/85 via-transparent to-[#0B0F17]/40" />
-                  <div className="pointer-events-none absolute inset-0 [box-shadow:inset_0_0_50px_rgba(11,15,23,0.7)]" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--theme-surface,#1E1E1E)]/85 via-transparent to-[var(--theme-surface,#1E1E1E)]/40" />
+                  <div className="pointer-events-none absolute inset-0 [box-shadow:inset_0_0_50px_rgba(30,30,30,0.7)]" />
 
                   {/* Floating Coordinates & Campus Location Drop Pin Badge (Mobile-Safe Clipping) */}
-                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 pointer-events-none bg-[#131921]/95 backdrop-blur-md px-3 py-2 rounded-xl border border-[#232F3E] text-xs font-mono text-slate-200 shadow-xl flex items-center gap-2.5 z-10 max-w-[calc(100%-1.5rem)] sm:max-w-md">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 pointer-events-none bg-[var(--theme-surface,#1E1E1E)]/95 backdrop-blur-md px-3 py-2 rounded-xl border border-[var(--theme-border,#3E3E3E)] text-xs font-mono text-slate-200 shadow-xl flex items-center gap-2.5 z-10 max-w-[calc(100%-1.5rem)] sm:max-w-md">
                     <span
                       className="w-2 h-2 rounded-full shrink-0 animate-pulse"
                       style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
@@ -217,7 +217,7 @@ export const Venue: React.FC = () => {
                   </div>
 
                   {/* Satellite Mode HUD Tag */}
-                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 pointer-events-none bg-[#0B0F17]/95 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-[#232F3E] text-[9.5px] sm:text-[10px] font-mono text-emerald-400 flex items-center gap-1.5 z-10 shadow-lg">
+                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 pointer-events-none bg-[var(--theme-surface,#1E1E1E)]/95 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-[var(--theme-border,#3E3E3E)] text-[9.5px] sm:text-[10px] font-mono text-emerald-400 flex items-center gap-1.5 z-10 shadow-lg">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     <span>{mapMode === 'satellite' ? 'DARK SATELLITE HUD' : 'DARK BLUEPRINT'}</span>
                   </div>

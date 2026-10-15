@@ -195,10 +195,10 @@ export const Speakers: React.FC = () => {
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 350, damping: 22 }}
                   className={cn(
-                    "shrink-0 w-[84vw] xs:w-[350px] sm:w-[420px] md:w-[460px] lg:w-[480px] rounded-2xl p-5 sm:p-7 border relative overflow-hidden bg-[#131921] transition-all duration-300 flex flex-col justify-between group shadow-xl will-change-transform",
+                    "shrink-0 w-[84vw] xs:w-[350px] sm:w-[420px] md:w-[460px] lg:w-[480px] rounded-2xl p-5 sm:p-7 border relative overflow-hidden bg-[var(--theme-surface,#1E1E1E)] transition-all duration-300 flex flex-col justify-between group shadow-xl will-change-transform",
                     isKeynote
                       ? "border-2 shadow-2xl"
-                      : "border border-[#232F3E] hover:border-slate-400"
+                      : "border border-[var(--theme-border,#3E3E3E)] hover:border-slate-400"
                   )}
                   style={{
                     borderColor: isKeynote ? spkColor : undefined,
@@ -258,7 +258,7 @@ export const Speakers: React.FC = () => {
 
                     {/* Speaker Header: Image + Name + Designation */}
                     <div className="flex items-center gap-4 sm:gap-5 mb-4">
-                      <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[#232F3E] bg-[#161E2D] shrink-0 shadow-lg group-hover:scale-105 transition-transform duration-500">
+                      <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-surface-elevated,#303030)] shrink-0 shadow-lg group-hover:scale-105 transition-transform duration-500">
                         <img
                           src={speaker.image}
                           alt={speaker.name}
@@ -284,7 +284,7 @@ export const Speakers: React.FC = () => {
 
                     {/* Session Topic Box */}
                     {speaker.topic && (
-                      <div className="p-3.5 sm:p-4 rounded-xl bg-[#161E2D] border border-[#232F3E] mb-3 sm:mb-4 shadow-sm transition-colors group-hover:border-[#37475A]">
+                      <div className="p-3.5 sm:p-4 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] mb-3 sm:mb-4 shadow-sm transition-colors group-hover:border-slate-500">
                         <div
                           className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider mb-1"
                           style={{ color: spkColor }}
@@ -307,7 +307,7 @@ export const Speakers: React.FC = () => {
                   </div>
 
                   {/* Card Footer: Action Links */}
-                  <div className="relative z-10 pt-3 border-t border-[#232F3E] flex items-center justify-between gap-3">
+                  <div className="relative z-10 pt-3 border-t border-[var(--theme-border,#3E3E3E)] flex items-center justify-between gap-3">
                     {speaker.linkedin ? (
                       <motion.a
                         href={speaker.linkedin}

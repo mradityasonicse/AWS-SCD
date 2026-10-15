@@ -162,7 +162,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
   return (
     <div
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden transition-colors duration-300"
-      style={{ backgroundColor: 'var(--theme-bg, #111622)' }}
+      style={{ backgroundColor: 'var(--theme-bg, #262626)' }}
     >
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
     </div>

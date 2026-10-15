@@ -73,9 +73,9 @@ export const LogoMarquee: React.FC = () => {
   const marqueeLogos = [...logos, ...logos];
 
   return (
-    <section className="relative bg-[#111622] border-y border-[#232F3E] overflow-hidden py-6">
+    <section className="relative bg-[var(--theme-bg,#262626)] border-y border-[#3E3E3E] overflow-hidden py-6">
       {/* Editorial Bold Phrase Marquee */}
-      <div className="overflow-hidden whitespace-nowrap mb-6 border-b border-[#232F3E] pb-4">
+      <div className="overflow-hidden whitespace-nowrap mb-6 border-b border-[#3E3E3E] pb-4">
         <div className="animate-marquee flex items-center gap-10 font-heading font-normal text-3xl sm:text-5xl uppercase tracking-wide will-change-transform">
           {[1, 2, 3].map((set) => (
             <span key={set} className="flex items-center gap-8">
@@ -96,8 +96,8 @@ export const LogoMarquee: React.FC = () => {
       </div>
 
       {/* Side gradient feather masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[#111622] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#111622] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[#262626] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#262626] to-transparent z-10 pointer-events-none" />
 
       {/* Brand Logos Stream */}
       <div className="flex w-full overflow-hidden">
@@ -105,7 +105,7 @@ export const LogoMarquee: React.FC = () => {
           {marqueeLogos.map((item, idx) => (
             <div
               key={`${item.name}-${idx}`}
-              className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-[#131922] border border-[#232F3E] hover:border-slate-400 shadow-md transition-all duration-300 group shrink-0 relative overflow-hidden"
+              className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] hover:border-slate-400 shadow-md transition-all duration-300 group shrink-0 relative overflow-hidden"
             >
               {/* Top accent highlight on card */}
               <div
@@ -113,7 +113,7 @@ export const LogoMarquee: React.FC = () => {
                 style={{ backgroundColor: item.color }}
               />
 
-              <div className="h-9 w-9 rounded-xl bg-[#161E2D] border border-[#232F3E] flex items-center justify-center p-1.5 shrink-0 group-hover:scale-105 transition-transform">
+              <div className="h-9 w-9 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] flex items-center justify-center p-1.5 shrink-0 group-hover:scale-105 transition-transform">
                 <img
                   src={item.src}
                   alt={item.name}

@@ -4,7 +4,7 @@ import { StaggerContainer, StaggerItem, AnimatedCounter } from '@/components/ui/
 
 export const ImpactStats: React.FC = () => {
   return (
-    <section className="py-12 border-y border-[#232F3E] bg-[#101622] relative">
+    <section className="py-12 border-y border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-surface,#1E1E1E)] relative">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 items-center">
           {EVENT_STATS.map((stat, idx) => {
@@ -19,7 +19,7 @@ export const ImpactStats: React.FC = () => {
             return (
               <StaggerItem
                 key={idx}
-                className="flex flex-col items-center text-center relative group p-4 rounded-xl border border-transparent hover:border-[#232F3E] transition-colors duration-200"
+                className="flex flex-col items-center text-center relative group p-4 rounded-xl border border-transparent hover:border-[var(--theme-border,#3E3E3E)] transition-colors duration-200"
               >
                 <span
                   className="text-4xl sm:text-6xl md:text-7xl font-normal font-heading tracking-tight leading-none"
