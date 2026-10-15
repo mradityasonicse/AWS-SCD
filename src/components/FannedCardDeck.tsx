@@ -6,6 +6,10 @@ import {
   ArrowUpRight,
   ShieldCheck,
   Sparkles,
+  Play,
+  Pause,
+  FileText,
+  Compass,
 } from "lucide-react";
 
 // ============================================================================
@@ -153,18 +157,27 @@ interface BuilderBadgeProps {
 const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive }) => {
   return (
     <div
-      className={`relative w-full aspect-[4/3] rounded-[24px] p-5 flex flex-col justify-between overflow-hidden transition-all duration-300 ${
-        isActive
-          ? "bg-gradient-to-br from-[#1F2937] via-[#141C24] to-[#0B0F14] border border-white/15 shadow-inner"
-          : "bg-gradient-to-br from-[#161F2A] to-[#0D131A] border border-white/10"
-      }`}
+      className="relative w-full rounded-xl sm:rounded-2xl p-3 sm:p-4 flex flex-col justify-between overflow-hidden"
+      style={{
+        height: isActive ? "145px" : "130px",
+        background: isActive
+          ? "linear-gradient(135deg, rgba(26, 34, 46, 0.95) 0%, rgba(15, 21, 29, 0.95) 100%)"
+          : "linear-gradient(135deg, rgba(18, 24, 34, 0.8) 0%, rgba(12, 16, 23, 0.9) 100%)",
+        border: isActive
+          ? `1px solid ${member.accentColor}50`
+          : "1px solid rgba(255, 255, 255, 0.07)",
+        boxShadow: isActive
+          ? `inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 8px 20px ${member.accentColor}18`
+          : "none",
+      }}
     >
       {/* Background Watermark Crest */}
-      <div className="absolute -right-4 -bottom-4 w-32 h-32 opacity-[0.08] pointer-events-none select-none">
+      <div className="absolute -right-2 -bottom-2 w-24 h-24 opacity-[0.06] pointer-events-none select-none">
         <img
           src="/AWS_SBG.png"
           alt="AWS SBG"
           className="w-full h-full object-contain filter grayscale invert"
+          loading="lazy"
         />
       </div>
 
@@ -173,13 +186,22 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
         <div className="flex items-center gap-1.5">
           <span
             className="w-2 h-2 rounded-full"
-            style={{ backgroundColor: member.accentColor }}
+            style={{
+              backgroundColor: member.accentColor,
+              boxShadow: isActive ? `0 0 6px ${member.accentColor}` : "none",
+            }}
           />
           <span className="text-[10px] font-mono tracking-widest text-slate-400 font-semibold uppercase">
             AWS SBG RISU
           </span>
         </div>
-        <span className="text-[10px] font-mono text-slate-500 font-bold">
+        <span
+          className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded"
+          style={{
+            color: isActive ? member.accentColor : "#94A3B8",
+            backgroundColor: isActive ? `${member.accentColor}18` : "rgba(255,255,255,0.04)",
+          }}
+        >
           {member.code}
         </span>
       </div>
@@ -187,13 +209,12 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
       {/* Central Portrait or Monogram Crest */}
       <div className="flex items-center justify-center my-auto z-10">
         <div
-          className={`relative w-20 h-20 rounded-2xl flex items-center justify-center font-black text-2xl overflow-hidden transition-all duration-300 ${
-            isActive
-              ? "bg-[#0B0F15] text-white shadow-md border-2"
-              : "bg-white/5 text-slate-300 border border-white/10"
-          }`}
+          className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center font-black text-xl sm:text-2xl overflow-hidden shadow-inner"
           style={{
-            borderColor: isActive ? member.accentColor : "rgba(255,255,255,0.12)",
+            backgroundColor: isActive ? "#0B0F15" : "rgba(255, 255, 255, 0.04)",
+            color: isActive ? "#FFFFFF" : "#CBD5E1",
+            border: `2px solid ${isActive ? member.accentColor : "rgba(255,255,255,0.12)"}`,
+            boxShadow: isActive ? `0 0 14px ${member.accentColor}35` : "none",
           }}
         >
           {member.image ? (
@@ -201,11 +222,13 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
               src={member.image}
               alt={member.name}
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           ) : (
             <span
               style={{
                 fontFamily: "'Space Grotesk', -apple-system, sans-serif",
+                color: isActive ? member.accentColor : "#E2E8F0",
               }}
             >
               {member.initials}
@@ -215,28 +238,97 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
           {/* Active status pulse pip */}
           {isActive && (
             <span
-              className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-[#141C24] flex items-center justify-center z-20"
+              className="absolute -top-1 -right-1 w-3 h-3 rounded-full border-2 border-[#141C24] flex items-center justify-center z-20"
               style={{ backgroundColor: member.accentColor }}
             >
-              <Sparkles className="w-2 h-2 text-black" />
+              <Sparkles className="w-1.5 h-1.5 text-black" />
             </span>
           )}
         </div>
       </div>
 
       {/* Bottom Credential Bar */}
-      <div className="flex items-center justify-between z-10 pt-2 border-t border-white/5">
-        <span className="text-[9px] font-mono uppercase tracking-wider text-slate-400">
+      <div className="flex items-center justify-between z-10 pt-1.5 border-t border-white/5">
+        <span className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-slate-400">
           CENTRAL INDIA 2026
         </span>
-        <span className="inline-flex items-center gap-1 text-[9px] font-mono text-emerald-400">
-          <ShieldCheck className="w-3 h-3" />
-          VERIFIED
+        <span className="inline-flex items-center gap-1 text-[8px] sm:text-[9px] font-mono text-emerald-400 font-semibold">
+          <ShieldCheck className="w-2.5 h-2.5 text-emerald-400 shrink-0" />
+          VERIFIED BUILDER
         </span>
       </div>
     </div>
   );
 };
+
+// ============================================================================
+// Adaptive Responsive Geometry Config
+// ============================================================================
+
+interface GeometryConfig {
+  cardWidth: number;
+  cardHeight: number;
+  spread: number;
+  rotFactor: number;
+  yFactor: number;
+  maxVisibleOffset: number;
+}
+
+function calculateGeometry(width: number): GeometryConfig {
+  if (width < 420) {
+    // Narrow Mobile (iPhone SE 375px, 360px Android)
+    const cardWidth = Math.min(Math.floor(width - 48), 280);
+    return {
+      cardWidth,
+      cardHeight: 440,
+      spread: 24,
+      rotFactor: 2.0,
+      yFactor: 5,
+      maxVisibleOffset: 1, // Only 1 adjacent card visible on compact mobile
+    };
+  } else if (width < 640) {
+    // Standard Mobile (iPhone 14/15 390px, Galaxy 412px)
+    const cardWidth = Math.min(Math.floor(width - 56), 295);
+    return {
+      cardWidth,
+      cardHeight: 450,
+      spread: 32,
+      rotFactor: 2.5,
+      yFactor: 6,
+      maxVisibleOffset: 1, // Clean, no horizontal overflow
+    };
+  } else if (width < 840) {
+    // Phablets & Small Tablets (768px iPad in portrait)
+    return {
+      cardWidth: 300,
+      cardHeight: 460,
+      spread: 58,
+      rotFactor: 3.8,
+      yFactor: 8,
+      maxVisibleOffset: 2, // 2 cards visible each side
+    };
+  } else if (width < 1080) {
+    // Tablets / Small Laptops
+    return {
+      cardWidth: 315,
+      cardHeight: 470,
+      spread: 85,
+      rotFactor: 4.8,
+      yFactor: 10,
+      maxVisibleOffset: 3,
+    };
+  } else {
+    // Desktop & Widescreen
+    return {
+      cardWidth: 325,
+      cardHeight: 475,
+      spread: 110,
+      rotFactor: 5.5,
+      yFactor: 12,
+      maxVisibleOffset: 3,
+    };
+  }
+}
 
 // ============================================================================
 // Main Master Component: Interactive Fanned Card Deck Carousel
@@ -252,39 +344,73 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
   className = "",
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [activeTab, setActiveTab] = useState<"overview" | "bio">("overview");
+  const [containerWidth, setContainerWidth] = useState<number>(1000);
+
   const count = members.length;
   const stageRef = useRef<HTMLDivElement>(null);
+  const wheelLockRef = useRef<boolean>(false);
+  const touchStartXRef = useRef<number | null>(null);
+  const touchStartYRef = useRef<number | null>(null);
+  const isSwipingHorizontalRef = useRef<boolean | null>(null);
 
+  // ResizeObserver for dynamic container-relative responsiveness
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640);
+    const stage = stageRef.current;
+    if (!stage) return;
+
+    const updateWidth = () => {
+      const width = stage.getBoundingClientRect().width || window.innerWidth;
+      setContainerWidth(width);
     };
-    checkMobile();
-    window.addEventListener("resize", checkMobile, { passive: true });
-    return () => window.removeEventListener("resize", checkMobile);
+
+    updateWidth();
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateWidth();
+    });
+
+    resizeObserver.observe(stage);
+    window.addEventListener("resize", updateWidth, { passive: true });
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateWidth);
+    };
   }, []);
+
+  const geo = calculateGeometry(containerWidth);
 
   // Navigation handlers
   const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % count);
+    setActiveTab("overview");
   }, [count]);
 
   const handlePrev = useCallback(() => {
     setActiveIndex((prev) => (prev - 1 + count) % count);
+    setActiveTab("overview");
   }, [count]);
 
   // Subtle auto-rotation when user is not actively interacting
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || !isAutoPlaying) return;
     const interval = setInterval(handleNext, 6000);
     return () => clearInterval(interval);
-  }, [isHovered, handleNext]);
+  }, [isHovered, isAutoPlaying, handleNext]);
 
   // Keyboard navigation (← and →)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        document.activeElement?.tagName === "INPUT" ||
+        document.activeElement?.tagName === "TEXTAREA"
+      ) {
+        return;
+      }
+
       if (e.key === "ArrowLeft") {
         e.preventDefault();
         handlePrev();
@@ -297,33 +423,135 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleNext, handlePrev]);
 
+  // Buttery Trackpad / Mouse Wheel Horizontal Flick Handler
+  const handleWheel = (e: React.WheelEvent) => {
+    if (Math.abs(e.deltaX) > 25 && !wheelLockRef.current) {
+      wheelLockRef.current = true;
+      if (e.deltaX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+      setTimeout(() => {
+        wheelLockRef.current = false;
+      }, 400);
+    }
+  };
+
+  // Full-Stage Touch Event Listeners for 120Hz Mobile Gesture Handling
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+    touchStartYRef.current = e.touches[0].clientY;
+    isSwipingHorizontalRef.current = null;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null || touchStartYRef.current === null) return;
+
+    const diffX = e.touches[0].clientX - touchStartXRef.current;
+    const diffY = e.touches[0].clientY - touchStartYRef.current;
+
+    if (isSwipingHorizontalRef.current === null) {
+      if (Math.abs(diffX) > 8 || Math.abs(diffY) > 8) {
+        isSwipingHorizontalRef.current = Math.abs(diffX) > Math.abs(diffY);
+      }
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartXRef.current === null) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const diffX = endX - touchStartXRef.current;
+
+    if (isSwipingHorizontalRef.current && Math.abs(diffX) > 35) {
+      if (diffX < 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+
+    touchStartXRef.current = null;
+    touchStartYRef.current = null;
+    isSwipingHorizontalRef.current = null;
+  };
+
+  const activeOrganizer = members[activeIndex];
+
   return (
     <div
       ref={stageRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative w-full max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-[#131921] border border-[#232F3E] shadow-xl p-4 xs:p-6 sm:p-10 overflow-hidden flex flex-col items-center select-none ${className}`}
-      style={{ perspective: "1200px" }}
+      onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className={`relative w-full max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-[#111622] border border-[#232F3E] shadow-2xl p-4 sm:p-8 md:p-10 overflow-hidden flex flex-col items-center select-none ${className}`}
+      style={{
+        perspective: "1200px",
+        touchAction: "pan-y",
+      }}
     >
+      {/* Background Ambient Glow matching active leader */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[450px] rounded-full opacity-15 blur-[90px] sm:blur-[130px] pointer-events-none transition-colors duration-700"
+        style={{
+          backgroundColor: activeOrganizer.accentColor,
+        }}
+      />
+
       {/* Studio Frame Clean Top Bar */}
       <div className="w-full flex items-center justify-between pb-4 sm:pb-6 border-b border-[#232F3E] mb-2 relative z-10">
-        <div className="flex items-center gap-2 sm:gap-2.5">
-          <span className="w-2 h-2 rounded-full bg-[#AD5CFF]" />
-          <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-slate-400 truncate">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span
+            className="w-2.5 h-2.5 rounded-full transition-colors duration-500 shadow-sm"
+            style={{
+              backgroundColor: activeOrganizer.accentColor,
+              boxShadow: `0 0 10px ${activeOrganizer.accentColor}`,
+            }}
+          />
+          <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-slate-300 truncate">
             AWS SBG Leadership
+          </span>
+          <span className="hidden sm:inline-block text-slate-600 font-mono text-xs">
+            /
+          </span>
+          <span
+            className="hidden sm:inline-block text-[11px] font-mono font-semibold transition-colors duration-300"
+            style={{ color: activeOrganizer.accentColor }}
+          >
+            {activeOrganizer.name}
           </span>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="text-xs font-mono text-slate-500">
-            [ 0{activeIndex + 1} / 0{members.length} ]
+          {/* Autoplay Play/Pause Toggle */}
+          <button
+            type="button"
+            onClick={() => setIsAutoPlaying((prev) => !prev)}
+            className="p-1.5 rounded-lg bg-[#161E2D] hover:bg-[#232F3E] text-slate-400 hover:text-white transition-colors cursor-pointer border border-[#232F3E]"
+            title={isAutoPlaying ? "Pause auto-rotation" : "Resume auto-rotation"}
+            aria-label={isAutoPlaying ? "Pause auto-rotation" : "Resume auto-rotation"}
+          >
+            {isAutoPlaying ? (
+              <Pause className="w-3.5 h-3.5" />
+            ) : (
+              <Play className="w-3.5 h-3.5" />
+            )}
+          </button>
+
+          <span className="text-xs font-mono text-slate-400">
+            [ 0{activeIndex + 1} / 0{count} ]
           </span>
+
           <span
-            className="text-[10px] sm:text-[11px] font-mono px-2 sm:px-2.5 py-0.5 rounded-full font-bold"
+            className="text-[10px] sm:text-[11px] font-mono px-2 sm:px-2.5 py-0.5 rounded-full font-bold transition-colors duration-500"
             style={{
-              color: "#AD5CFF",
-              backgroundColor: "rgba(173, 92, 255, 0.12)",
-              border: "1px solid rgba(173, 92, 255, 0.3)",
+              color: activeOrganizer.accentColor,
+              backgroundColor: `${activeOrganizer.accentColor}18`,
+              border: `1px solid ${activeOrganizer.accentColor}35`,
             }}
           >
             SCD 2026
@@ -333,8 +561,11 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
 
       {/* Deck Stage Frame with 3D Space */}
       <div
-        className="relative w-full h-[450px] xs:h-[470px] sm:h-[490px] flex items-center justify-center overflow-x-clip max-w-full"
-        style={{ transformStyle: "preserve-3d" }}
+        className="relative w-full flex items-center justify-center overflow-x-clip max-w-full"
+        style={{
+          height: `${geo.cardHeight + 30}px`,
+          transformStyle: "preserve-3d",
+        }}
       >
         {members.map((member, index) => {
           // Symmetrical Parabolic Fan Wrapping
@@ -343,17 +574,23 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
           while (offset > half) offset -= count;
           while (offset < -half) offset += count;
 
+          const absOffset = Math.abs(offset);
           const isActive = offset === 0;
 
-          // Parabolic geometry calculations adapted for mobile vs desktop
-          const spread = isMobile ? 38 : 115;
-          const rotFactor = isMobile ? 3.5 : 6.5;
-          const x = offset * spread;
-          const y = Math.pow(Math.abs(offset), 1.6) * (isMobile ? 10 : 14);
-          const rotate = offset * rotFactor;
-          const scale = isActive ? 1.0 : Math.max(0.85, 1 - Math.abs(offset) * 0.05);
-          const zIndex = 50 - Math.abs(offset) * 10;
-          const opacity = isActive ? 1 : Math.max(0.4, 0.9 - Math.abs(offset) * 0.22);
+          // Hide cards beyond max visible depth to prevent any overflow or clipping
+          if (absOffset > geo.maxVisibleOffset) {
+            return null;
+          }
+
+          // Parabolic geometry calculations adapted dynamically for current width
+          const x = offset * geo.spread;
+          const y = Math.pow(absOffset, 1.4) * (geo.yFactor * 0.6);
+          const rotate = offset * geo.rotFactor;
+          const scale = isActive ? 1.0 : Math.max(0.85, 1 - absOffset * 0.06);
+          const zIndex = 50 - absOffset * 10;
+          const opacity = isActive
+            ? 1
+            : Math.max(0.2, 0.9 - absOffset * 0.32);
 
           return (
             <motion.div
@@ -361,7 +598,16 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
               data-card-index={index}
               style={{
                 zIndex,
+                width: `${geo.cardWidth}px`,
+                height: `${geo.cardHeight}px`,
                 transformOrigin: "center 85%",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+                touchAction: "pan-y",
+                border: isActive ? `2px solid ${member.accentColor}` : undefined,
+                boxShadow: isActive
+                  ? `0 0 24px ${member.accentColor}25, 0 16px 32px rgba(0,0,0,0.4)`
+                  : undefined,
               }}
               animate={{
                 x,
@@ -372,36 +618,42 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
               }}
               transition={{
                 type: "spring",
-                stiffness: 280,
-                damping: 26,
+                stiffness: 260,
+                damping: 28,
                 mass: 0.8,
               }}
               drag={isActive ? "x" : false}
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.25}
+              dragElastic={0.2}
               onDragEnd={(_, info) => {
-                if (info.offset.x < -35) handleNext();
-                else if (info.offset.x > 35) handlePrev();
+                if (info.offset.x < -30) handleNext();
+                else if (info.offset.x > 30) handlePrev();
               }}
               onClick={() => {
                 if (!isActive) {
                   setActiveIndex(index);
+                  setActiveTab("overview");
                 }
               }}
-              className={`absolute top-4 sm:top-6 w-[265px] xs:w-[285px] sm:w-[315px] h-[395px] xs:h-[415px] sm:h-[425px] rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-between cursor-pointer transition-colors duration-300 ease-out ${
+              className={`absolute top-4 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer overflow-hidden ${
                 isActive
-                  ? "bg-[#161E2D] text-white shadow-xl border-2 border-[#AD5CFF]"
-                  : "bg-[#101622] text-slate-300 shadow-sm border border-[#232F3E] hover:border-slate-700"
+                  ? "bg-[#161E2D] text-white shadow-2xl"
+                  : "bg-[#0E141E] text-slate-300 shadow-md border border-[#232F3E]/80 hover:border-slate-600"
               }`}
             >
               {/* Card Top Row: Badge + Direct LinkedIn Connect */}
               <div className="flex items-center justify-between gap-2 relative z-10">
                 <span
-                  className={`text-[11px] font-mono uppercase tracking-widest font-semibold px-3 py-1 rounded-full transition-colors duration-300 ${
-                    isActive
-                      ? "bg-[#AD5CFF]/15 text-[#AD5CFF] border border-[#AD5CFF]/30"
-                      : "bg-[#161E2D] text-slate-400 border border-[#232F3E]"
-                  }`}
+                  className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold px-2.5 sm:px-3 py-1 rounded-full"
+                  style={{
+                    backgroundColor: isActive
+                      ? `${member.accentColor}20`
+                      : "#161E2D",
+                    color: isActive ? member.accentColor : "#94A3B8",
+                    border: `1px solid ${
+                      isActive ? `${member.accentColor}45` : "#232F3E"
+                    }`,
+                  }}
                 >
                   {member.badge}
                 </span>
@@ -413,12 +665,15 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      initial={{ opacity: 0, y: 6, scale: 0.9 }}
+                      initial={{ opacity: 0, y: 4, scale: 0.92 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 4, scale: 0.92 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                      exit={{ opacity: 0, y: 3, scale: 0.95 }}
+                      transition={{ duration: 0.18 }}
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#AD5CFF] hover:bg-[#BE7BFF] active:scale-95 text-[#0A0D14] text-xs font-bold shadow-sm transition-all cursor-pointer font-sans"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[#0A0D14] text-xs font-bold shadow-md cursor-pointer font-sans transition-transform active:scale-95"
+                      style={{
+                        backgroundColor: member.accentColor,
+                      }}
                     >
                       <LinkedInIcon className="w-3.5 h-3.5 fill-current" />
                       <span>Connect</span>
@@ -429,61 +684,117 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
               </div>
 
               {/* Centerpiece: Verified AWS Builder Identity Badge */}
-              <div className="my-auto py-2">
+              <div className="my-auto py-1">
                 <BuilderBadgeCenterpiece member={member} isActive={isActive} />
               </div>
 
-              {/* Card Bottom Meta */}
-              <div className="pt-2">
-                <div className="flex items-baseline justify-between mb-1">
-                  <h4
+              {/* Card Bottom Meta (Active card gets full credentials & details, background cards stay sleek & minimal) */}
+              {isActive ? (
+                <div className="pt-2 z-10 flex flex-col justify-end overflow-hidden">
+                  <div className="flex items-baseline justify-between mb-0.5">
+                    <h4
+                      style={{
+                        fontFamily: "'Space Grotesk', -apple-system, sans-serif",
+                      }}
+                      className="text-base sm:text-lg font-black tracking-tight text-white"
+                    >
+                      {member.name}
+                    </h4>
+                    <span
+                      className="text-[10px] font-mono shrink-0 ml-2 font-bold"
+                      style={{ color: member.accentColor }}
+                    >
+                      {member.code}
+                    </span>
+                  </div>
+
+                  <p
                     style={{
-                      fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif",
+                      fontFamily: "'Space Grotesk', -apple-system, sans-serif",
+                      color: member.accentColor,
                     }}
-                    className={`font-black tracking-tight transition-colors duration-300 ${
-                      isActive ? "text-xl text-white" : "text-base text-slate-300"
-                    }`}
+                    className="text-xs font-semibold mb-1"
                   >
+                    {member.role}
+                  </p>
+
+                  <div className="mt-1">
+                    {/* View Switcher: Mission vs Bio */}
+                    <div className="flex items-center gap-1.5 mb-1.5">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveTab("overview");
+                        }}
+                        className={`text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded cursor-pointer transition-colors flex items-center gap-1 ${
+                          activeTab === "overview"
+                            ? "bg-white/15 text-white font-bold"
+                            : "text-slate-400 hover:text-slate-200 bg-white/5"
+                        }`}
+                      >
+                        <Compass className="w-2.5 h-2.5" />
+                        Mission
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveTab("bio");
+                        }}
+                        className={`text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded cursor-pointer transition-colors flex items-center gap-1 ${
+                          activeTab === "bio"
+                            ? "bg-white/15 text-white font-bold"
+                            : "text-slate-400 hover:text-slate-200 bg-white/5"
+                        }`}
+                      >
+                        <FileText className="w-2.5 h-2.5" />
+                        Bio
+                      </button>
+                    </div>
+
+                    {activeTab === "overview" ? (
+                      <div>
+                        <p className="text-[11px] leading-snug text-slate-300 line-clamp-2 mb-2 font-sans">
+                          {member.tagline}
+                        </p>
+                        {/* Scope Pills */}
+                        <div className="flex flex-wrap gap-1">
+                          {member.scope.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-[9px] font-mono px-2 py-0.5 rounded bg-black/50 text-slate-300 border border-white/10"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <p className="text-[11px] leading-snug text-slate-300 line-clamp-3 font-sans">
+                        {member.bio}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                /* Subtle, minimalist label on background cards to eliminate clutter */
+                <div className="pt-2 z-10 flex items-center justify-between opacity-40">
+                  <span className="text-[10px] font-mono text-slate-300 truncate font-semibold uppercase tracking-wider">
                     {member.name}
-                  </h4>
-                  <span
-                    className={`text-[11px] font-mono transition-colors duration-300 ${
-                      isActive ? "text-[#AD5CFF] font-bold" : "text-slate-500"
-                    }`}
-                  >
+                  </span>
+                  <span className="text-[9px] font-mono text-slate-400">
                     {member.code}
                   </span>
                 </div>
-
-                <p
-                  style={{
-                    fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif",
-                  }}
-                  className={`text-xs font-bold transition-colors duration-300 ${
-                    isActive ? "text-[#AD5CFF] mb-2" : "text-slate-400 mb-0 truncate"
-                  }`}
-                >
-                  {member.role}
-                </p>
-
-                {isActive && (
-                  <p
-                    style={{
-                      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-                    }}
-                    className="text-xs leading-relaxed line-clamp-2 text-slate-300 transition-colors duration-300"
-                  >
-                    {member.tagline}
-                  </p>
-                )}
-              </div>
+              )}
 
               {/* Subtle Active Accent Lightbar */}
               {isActive && (
                 <div
-                  className="absolute bottom-0 left-8 right-8 h-[2px] rounded-full opacity-80"
+                  className="absolute bottom-0 left-6 right-6 h-[2px] rounded-full opacity-90"
                   style={{
-                    background: `linear-gradient(90deg, transparent, ${member.accentColor || '#AD5CFF'}, transparent)`,
+                    background: `linear-gradient(90deg, transparent, ${member.accentColor}, transparent)`,
                   }}
                 />
               )}
@@ -493,13 +804,13 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
       </div>
 
       {/* Bottom Interactive Controls */}
-      <div className="mt-4 flex flex-col items-center justify-center gap-3 z-20">
-        <div className="flex items-center gap-2">
+      <div className="mt-4 sm:mt-6 flex flex-col items-center justify-center gap-3 z-20 w-full max-w-sm">
+        <div className="flex items-center gap-3">
           {/* Previous Card Button */}
           <button
             type="button"
             onClick={handlePrev}
-            className="w-10 h-10 rounded-full bg-[#161E2D] hover:bg-[#232F3E] hover:text-[#AD5CFF] active:scale-95 text-slate-300 border border-[#232F3E] shadow-sm flex items-center justify-center transition-all cursor-pointer"
+            className="w-10 h-10 rounded-full bg-[#161E2D] hover:bg-[#232F3E] text-slate-300 hover:text-white active:scale-95 border border-[#232F3E] shadow-sm flex items-center justify-center transition-transform cursor-pointer"
             aria-label="Previous card"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -507,17 +818,24 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
 
           {/* Segmented Dot Indicators */}
           <div className="flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#161E2D] border border-[#232F3E]">
-            {members.map((_, i) => (
+            {members.map((member, i) => (
               <button
-                key={i}
+                key={member.id}
                 type="button"
-                onClick={() => setActiveIndex(i)}
-                className={`transition-all duration-300 rounded-full cursor-pointer ${
-                  i === activeIndex
-                    ? "w-6 h-2 bg-[#AD5CFF] shadow-[0_0_8px_rgba(173,92,255,0.4)]"
-                    : "w-2 h-2 bg-[#232F3E] hover:bg-slate-600"
-                }`}
-                aria-label={`Go to card ${i + 1}`}
+                onClick={() => {
+                  setActiveIndex(i);
+                  setActiveTab("overview");
+                }}
+                className="transition-all duration-300 rounded-full cursor-pointer"
+                style={{
+                  width: i === activeIndex ? "24px" : "8px",
+                  height: "8px",
+                  backgroundColor:
+                    i === activeIndex ? member.accentColor : "#232F3E",
+                  boxShadow:
+                    i === activeIndex ? `0 0 8px ${member.accentColor}80` : "none",
+                }}
+                aria-label={`Go to ${member.name}'s card`}
               />
             ))}
           </div>
@@ -526,12 +844,18 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
           <button
             type="button"
             onClick={handleNext}
-            className="w-10 h-10 rounded-full bg-[#161E2D] hover:bg-[#232F3E] hover:text-[#AD5CFF] active:scale-95 text-slate-300 border border-[#232F3E] shadow-sm flex items-center justify-center transition-all cursor-pointer"
+            className="w-10 h-10 rounded-full bg-[#161E2D] hover:bg-[#232F3E] text-slate-300 hover:text-white active:scale-95 border border-[#232F3E] shadow-sm flex items-center justify-center transition-transform cursor-pointer"
             aria-label="Next card"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
+
+        {/* Gestures Helper hint on touch & desktop */}
+        <p className="text-[10px] sm:text-[11px] font-mono text-slate-500 uppercase tracking-widest flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-slate-600" />
+          <span>Swipe or use arrow keys · Tap any card to focus</span>
+        </p>
       </div>
     </div>
   );
