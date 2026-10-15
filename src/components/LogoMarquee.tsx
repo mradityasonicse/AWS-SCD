@@ -36,12 +36,12 @@ export const LogoMarquee: React.FC = () => {
       border: 'rgba(66, 180, 255, 0.35)',
     },
     {
-      name: 'Meetio',
-      src: '/meetio.png',
+      name: 'Meetup',
+      src: '/meetup.png',
       badge: 'Community Partner',
-      color: '#00E582',
-      bg: 'rgba(0, 229, 130, 0.12)',
-      border: 'rgba(0, 229, 130, 0.35)',
+      color: '#F64060',
+      bg: 'rgba(246, 64, 96, 0.12)',
+      border: 'rgba(246, 64, 96, 0.35)',
     },
     {
       name: 'Amazon Bedrock',

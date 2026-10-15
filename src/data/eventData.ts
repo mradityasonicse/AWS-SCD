@@ -33,7 +33,7 @@ export interface FAQItem {
 export interface Sponsor {
   name: string;
   logo: string;
-  category: 'Title' | 'Technology' | 'Academic Host' | 'Community';
+  category: 'Title' | 'Technology' | 'Academic Host' | 'Community' | 'Community Platform' | string;
   description?: string;
 }
 
@@ -229,7 +229,7 @@ export const SPEAKERS: Speaker[] = [
   {
     id: 7,
     name: "Aishwary Gathe",
-    company: "Meetio",
+    company: "Meetup",
     category: "speaker",
     current_designation: "DevRel Engineer",
     topic: "Building Resilient Event Platforms on AWS Serverless",
@@ -364,7 +364,7 @@ export const AGENDA: AgendaItem[] = [
     type: "Technical Session",
     typeColor: "#42B4FF",
     duration: "30 min",
-    subtitle: "DevRel at Meetio on event-driven architectures & real-world reliability.",
+    subtitle: "DevRel at Meetup on event-driven architectures & real-world reliability.",
     dotColor: "#42B4FF",
     category: "Tech"
   },
@@ -464,9 +464,9 @@ export const SPONSORS: Sponsor[] = [
     description: "The world's most comprehensive and broadly adopted cloud platform."
   },
   {
-    name: "Meetio",
-    logo: "/meetio.png",
-    category: "Technology",
+    name: "Meetup",
+    logo: "/meetup.png",
+    category: "Community Platform",
     description: "Official developer community and digital event platform partner."
   },
   {
