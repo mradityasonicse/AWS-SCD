@@ -21,7 +21,7 @@ export const FAQ: React.FC = () => {
               className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
               style={{ color: 'var(--theme-accent, #AD5CFF)' }}
             >
-              [ 09 ]
+              [ 08 ]
             </span>
             <div>
               <p

@@ -18,7 +18,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
               style={{ color: 'var(--theme-accent, #AD5CFF)' }}
             >
-              [ 07 ]
+              [ 06 ]
             </span>
             <div>
               <p

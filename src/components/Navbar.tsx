@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Menu, X, ArrowUpRight, Info, Layers, Users, Calendar, MapPin, Trophy, HeartHandshake, HelpCircle } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Info, Layers, Users, Calendar, MapPin, HeartHandshake, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { EVENT_DETAILS } from '../data/eventData';
 import { cn } from '@/lib/utils';
@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { id: 'speakers', name: 'Speakers', href: '#speakers', icon: Users },
   { id: 'agenda', name: 'Agenda', href: '#agenda', icon: Calendar },
   { id: 'venue', name: 'Venue', href: '#venue', icon: MapPin },
-  { id: 'contests', name: 'Contests', href: '#contests', icon: Trophy },
   { id: 'team', name: 'Team', href: '#team', icon: HeartHandshake },
   { id: 'faq', name: 'FAQ', href: '#faq', icon: HelpCircle },
 ] as const;

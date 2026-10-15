@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
     { name: 'Speakers & Keynotes', href: '#speakers' },
     { name: 'Session Timetable', href: '#agenda' },
     { name: 'Campus Venue & Transit', href: '#venue' },
-    { name: 'Kahoot Quiz & Prizes', href: '#contests' },
+    { name: 'Ecosystem & Sponsors', href: '#sponsors' },
     { name: 'Core Organizing Team', href: '#team' },
     { name: 'Frequently Asked Questions', href: '#faq' },
   ];

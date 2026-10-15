@@ -11,7 +11,6 @@ import { Tracks } from './components/Tracks';
 import { Speakers } from './components/Speakers';
 import { Agenda } from './components/Agenda';
 import { Venue } from './components/Venue';
-import { Contests } from './components/Contests';
 import { Sponsors } from './components/Sponsors';
 import { Team } from './components/Team';
 import { FAQ } from './components/FAQ';
@@ -78,16 +77,13 @@ export const App: React.FC = () => {
         {/* [ 05 ] Venue Spotlight & RISU Transit Guide */}
         <Venue />
 
-        {/* [ 06 ] Live Kahoot Trivia & Hardware Prizes */}
-        <Contests />
-
-        {/* [ 07 ] Ecosystem Partners & Academic Host */}
+        {/* [ 06 ] Ecosystem Partners & Academic Host */}
         <Sponsors onOpenContact={handleOpenContact} />
 
-        {/* [ 08 ] Core Organizing Team */}
+        {/* [ 07 ] Core Organizing Team */}
         <Team />
 
-        {/* [ 09 ] Frequently Asked Questions */}
+        {/* [ 08 ] Frequently Asked Questions */}
         <FAQ />
       </main>
 

@@ -144,7 +144,7 @@ export const Team: React.FC = () => {
                 className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
                 style={{ color: 'var(--theme-accent, #AD5CFF)' }}
               >
-                [ 08 ]
+                [ 07 ]
               </span>
               <div>
                 <p
