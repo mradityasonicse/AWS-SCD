@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, HeartHandshake } from 'lucide-react';
-import { SPONSORS, COMMUNITY_PARTNERS } from '../data/eventData';
+import { SPONSORS } from '../data/eventData';
 import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
 
 interface SponsorsProps {
@@ -84,36 +84,6 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
         })}
       </StaggerContainer>
 
-      {/* Community Partners Strip */}
-      <div className="mb-20">
-        <ScrollReveal>
-          <div className="text-center mb-10">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#FF9900] bg-[#FF9900]/10 border border-[#FF9900]/30 px-3.5 py-1 rounded-full">
-              Community Partners
-            </span>
-          </div>
-        </ScrollReveal>
-
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" staggerDelay={0.08}>
-          {COMMUNITY_PARTNERS.map((partner) => (
-            <StaggerItem key={partner.name}>
-              <SpotlightCard className="p-6 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1">
-                <div className="h-16 w-16 rounded-xl bg-[#161E2D] border border-[#232F3E] flex items-center justify-center mb-4 p-2">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-h-10 max-w-10 object-contain"
-                  />
-                </div>
-                <h4 className="font-bold text-white text-sm mb-1">{partner.name}</h4>
-                <span className="text-[10px] font-mono text-[#FF9900] uppercase">
-                  {partner.category}
-                </span>
-              </SpotlightCard>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
 
       {/* Sponsor Invitation Card */}
       <ScrollReveal delay={0.15}>

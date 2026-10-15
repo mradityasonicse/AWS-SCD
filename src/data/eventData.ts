@@ -483,12 +483,6 @@ export const SPONSORS: Sponsor[] = [
   }
 ];
 
-export const COMMUNITY_PARTNERS = [
-  { name: "AWS SBG Amity", logo: "/AWS_SBG.png", category: "Community" },
-  { name: "AWS SBG SSIPMT", logo: "/AWS_SBG.png", category: "Community" },
-  { name: "AWS Cloud Club Central India", logo: "/AWS.png", category: "Community" },
-  { name: "RISU Student Tech Council", logo: "/main-logo.svg", category: "Host Community" },
-];
 
 export const ORGANIZERS: TeamMember[] = [
   {
