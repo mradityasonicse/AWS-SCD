@@ -62,11 +62,6 @@ export const About: React.FC = () => {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.15}>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                No fluff. No filler talks. Just real keynotes from engineers who build at hyperscale, hands-on architectural clinics on Amazon Bedrock, panel discussions on breaking into global tech, and an authentic community network that continues long after the event concludes.
-              </p>
-            </ScrollReveal>
 
             {/* Three Pillars with Staggered SpotlightCards */}
             <StaggerContainer className="flex flex-col gap-4 mt-4" staggerDelay={0.1}>

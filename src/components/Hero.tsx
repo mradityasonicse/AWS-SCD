@@ -90,19 +90,16 @@ export const Hero: React.FC<HeroProps> = () => {
           </div>
         </motion.div>
 
-        {/* Narrative Subheading & Description */}
+        {/* Narrative Subheading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mx-auto text-center mb-6 sm:mb-8 px-2 sm:px-0"
         >
-          <h2 className="poster-subheading text-white mb-3 text-balance">
+          <h2 className="poster-subheading text-white text-balance">
             The Premier Student Cloud &amp; AI Summit in Central India.
           </h2>
-          <p className="poster-description text-slate-300 max-w-2xl mx-auto text-balance font-normal">
-            One day. One stage. Keynotes from <strong className="text-white font-semibold">AWS DevRel leadership</strong> and <strong className="text-white font-semibold">Amazon leaders</strong>, hands-on GenAI clinics with Amazon Bedrock, and <strong className="text-white font-semibold">500+ builders</strong> charting tomorrow's cloud computing future.
-          </p>
         </motion.div>
 
         {/* Quick Facts Strip (IBM Plex Mono Date / Venue) */}
