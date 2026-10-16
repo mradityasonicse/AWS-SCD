@@ -1,6 +1,5 @@
 import React from 'react';
-import { PILLARS, WHY_ATTEND } from '../data/eventData';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { PILLARS } from '../data/eventData';
 import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
 
 export const About: React.FC = () => {
@@ -52,101 +51,54 @@ export const About: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Grid: Left Narrative & Pillars | Right Why Attend Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            <ScrollReveal delay={0.1}>
-              <p className="text-white text-lg sm:text-2xl font-semibold leading-relaxed">
-                Student Community Day 2026 brings together <strong className="text-[#FF9900]">550+ students</strong>, AWS Community leaders, AWS DevRel leadership, and the next wave of cloud architects for one full day of high-signal learning at <strong className="text-slate-100">Rungta International Skills University</strong>.
-              </p>
-            </ScrollReveal>
+        {/* Lead Narrative */}
+        <ScrollReveal delay={0.1}>
+          <p className="text-white text-lg sm:text-2xl font-semibold leading-relaxed max-w-4xl mb-12">
+            Student Community Day 2026 brings together <strong className="text-[#FF9900]">550+ students</strong>, AWS Community leaders, AWS DevRel leadership, and the next wave of cloud architects for one full day of high-signal learning at <strong className="text-slate-100">Rungta International Skills University</strong>.
+          </p>
+        </ScrollReveal>
 
+        {/* Three Pillars in 3-Column Responsive Grid */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
+          {PILLARS.map((pillar, pIdx) => {
+            const pillarColors = [
+              '#42B4FF', // Cloud Blue (Learn)
+              'var(--theme-accent, #AD5CFF)', // Electric Purple (Connect)
+              '#00E582', // Cyber Green (Belong)
+            ];
+            const pColor = pillarColors[pIdx % pillarColors.length];
 
-            {/* Three Pillars with Staggered SpotlightCards */}
-            <StaggerContainer className="flex flex-col gap-4 mt-4" staggerDelay={0.1}>
-              {PILLARS.map((pillar, pIdx) => {
-                const pillarColors = [
-                  '#42B4FF', // Cloud Blue (Learn)
-                  'var(--theme-accent, #AD5CFF)', // Electric Purple (Connect)
-                  '#00E582', // Cyber Green (Belong)
-                ];
-                const pColor = pillarColors[pIdx % pillarColors.length];
-
-                return (
-                  <StaggerItem key={pillar.num}>
-                    <SpotlightCard
-                      borderColor={pColor + '40'}
-                      className="p-5 sm:p-6 transition-all duration-300 flex items-start gap-5 hover:translate-x-1 shadow-md bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)]"
-                    >
+            return (
+              <StaggerItem key={pillar.num}>
+                <SpotlightCard
+                  borderColor={pColor + '40'}
+                  className="p-7 sm:p-8 h-full transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-md bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)]"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
                       <span
-                        className="font-mono font-black text-2xl sm:text-3xl leading-none shrink-0 pt-1 transition-transform group-hover:scale-105"
+                        className="font-mono font-black text-3xl sm:text-4xl leading-none pt-1"
                         style={{ color: pColor }}
                       >
                         {pillar.num}
                       </span>
-                      <div>
-                        <h3 className="text-white font-bold text-lg mb-1 transition-colors flex items-center gap-2">
-                          <span>{pillar.title}</span>
-                          <span
-                            className="w-1.5 h-1.5 rounded-full inline-block"
-                            style={{ backgroundColor: pColor }}
-                          />
-                        </h3>
-                        <p className="text-slate-400 text-sm leading-relaxed">
-                          {pillar.desc}
-                        </p>
-                      </div>
-                    </SpotlightCard>
-                  </StaggerItem>
-                );
-              })}
-            </StaggerContainer>
-          </div>
-
-          {/* Right Column: Why Attend Card (5 cols) */}
-          <div className="lg:col-span-5 relative">
-            <ScrollReveal delay={0.2}>
-              <SpotlightCard className="p-7 sm:p-9 shadow-2xl relative overflow-hidden border-[#232F3E]">
-                <div className="relative z-10">
-                  <span
-                    className="text-xs font-mono font-extrabold tracking-widest uppercase block mb-3"
-                    style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-                  >
-                    WHY ATTEND
-                  </span>
-
-                  <h3 className="text-xl sm:text-2xl font-black text-white mb-6">
-                    What every attendee walks away with:
-                  </h3>
-
-                  <ul className="flex flex-col gap-4 mb-8">
-                    {WHY_ATTEND.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
-                        <CheckCircle2
-                          className="w-4 h-4 shrink-0 mt-0.5"
-                          style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-                        />
-                        <div>
-                          <strong className="text-white font-bold block">{item.title}</strong>
-                          <span className="text-slate-400 text-xs">{item.desc}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href="#team"
-                    className="w-full jitter-btn-base jitter-btn-register cursor-pointer text-sm py-3.5 flex items-center justify-center gap-2 group"
-                  >
-                    <span>Connect With Student Desk</span>
-                    <ArrowUpRight className="w-4 h-4 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
-                </div>
-              </SpotlightCard>
-            </ScrollReveal>
-          </div>
-        </div>
+                      <span
+                        className="w-2 h-2 rounded-full inline-block"
+                        style={{ backgroundColor: pColor }}
+                      />
+                    </div>
+                    <h3 className="text-white font-bold text-xl mb-2 transition-colors">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-slate-400 text-sm leading-relaxed font-sans">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                </SpotlightCard>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
       </div>
     </section>
   );
