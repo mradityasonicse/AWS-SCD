@@ -126,20 +126,26 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState<number>(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--spotlight-x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--spotlight-y', `${e.clientY - rect.top}px`);
   };
 
-  const handleMouseEnter = () => setOpacity(1);
-  const handleMouseLeave = () => setOpacity(0);
+  const handleMouseEnter = () => {
+    if (cardRef.current) {
+      cardRef.current.style.setProperty('--spotlight-opacity', '1');
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (cardRef.current) {
+      cardRef.current.style.setProperty('--spotlight-opacity', '0');
+    }
+  };
 
   return (
     <div
@@ -154,6 +160,10 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       style={{
         backgroundColor: 'var(--theme-surface-card, #131921)',
         borderColor: 'var(--theme-border, #232F3E)',
+        ['--spotlight-opacity' as any]: '0',
+        ['--spotlight-x' as any]: '-1000px',
+        ['--spotlight-y' as any]: '-1000px',
+        transform: 'translateZ(0)',
         ...props.style,
       }}
       {...props}
@@ -162,16 +172,16 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       <div
         className="pointer-events-none absolute -inset-px transition-opacity duration-300 rounded-xl sm:rounded-2xl"
         style={{
-          opacity,
-          background: `radial-gradient(420px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 70%)`,
+          opacity: 'var(--spotlight-opacity, 0)',
+          background: `radial-gradient(420px circle at var(--spotlight-x, -1000px) var(--spotlight-y, -1000px), ${spotlightColor}, transparent 70%)`,
         }}
       />
       {/* Highlight Border Glint */}
       <div
         className="pointer-events-none absolute -inset-px transition-opacity duration-300 rounded-2xl sm:rounded-3xl"
         style={{
-          opacity,
-          background: `radial-gradient(280px circle at ${position.x}px ${position.y}px, ${borderColor}, transparent 60%)`,
+          opacity: 'var(--spotlight-opacity, 0)',
+          background: `radial-gradient(280px circle at var(--spotlight-x, -1000px) var(--spotlight-y, -1000px), ${borderColor}, transparent 60%)`,
           maskImage: 'linear-gradient(black, black) content-box, linear-gradient(black, black)',
           WebkitMaskImage: 'linear-gradient(black, black) content-box, linear-gradient(black, black)',
           maskComposite: 'exclude',

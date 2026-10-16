@@ -112,16 +112,32 @@ export const StackingCardItem = ({
   const top = topPosition ?? `calc(90px + ${index * 13}px)`;
 
   return (
-    <div className={cn("sticky", className)} style={{ top }} {...props}>
+    <div
+      className={cn("sticky", className)}
+      style={{
+        top,
+        transform: "translateZ(0)",
+      }}
+      {...props}
+    >
       <motion.div
         className="origin-top relative w-full h-full"
-        style={{ scale }}
+        style={{
+          scale,
+          willChange: "transform",
+          transform: "translateZ(0)",
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
+        }}
       >
         {children}
         {/* Subtle Darkening Overlay as subsequent cards stack over this card */}
         <motion.div
           className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-black pointer-events-none z-30"
-          style={{ opacity: overlayOpacity }}
+          style={{
+            opacity: overlayOpacity,
+            willChange: "opacity",
+          }}
         />
       </motion.div>
     </div>
