@@ -195,15 +195,6 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
             AWS SBG RISU
           </span>
         </div>
-        <span
-          className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded"
-          style={{
-            color: isActive ? member.accentColor : "#94A3B8",
-            backgroundColor: isActive ? `${member.accentColor}18` : "rgba(255,255,255,0.04)",
-          }}
-        >
-          {member.code}
-        </span>
       </div>
 
       {/* Central Portrait or Monogram Crest */}

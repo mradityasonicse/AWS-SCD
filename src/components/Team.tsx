@@ -37,9 +37,6 @@ const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
         >
           {member.badge}
         </span>
-        <span className="text-[10px] font-mono text-slate-500 font-bold">
-          {member.code}
-        </span>
       </div>
 
       {/* Center Avatar / Monogram */}

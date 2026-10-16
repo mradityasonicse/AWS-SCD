@@ -28,12 +28,12 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
         <span className="text-[11px] font-mono text-slate-400 uppercase tracking-widest mr-2 hidden sm:inline">
           Fast Jump:
         </span>
-        {members.map((member, idx) => (
+        {members.map((member) => (
           <button
             key={member.id}
             type="button"
             onClick={() => handleJumpToCard(member.id)}
-            className="px-2.5 py-1 rounded-full text-[11px] font-mono border transition-all duration-200 hover:scale-105 cursor-pointer bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-white"
+            className="px-3 py-1 rounded-full text-[11px] font-mono border transition-all duration-200 hover:scale-105 cursor-pointer bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-white"
             style={{
               borderColor: `${member.accentColor}40`,
             }}
@@ -42,7 +42,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
               className="w-1.5 h-1.5 rounded-full inline-block mr-1.5"
               style={{ backgroundColor: member.accentColor }}
             />
-            <span>0{idx + 1} {member.name.split(' ')[0]}</span>
+            <span>{member.name}</span>
           </button>
         ))}
       </div>
@@ -88,21 +88,11 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                 <div className="flex items-center justify-between pb-4 sm:pb-5 border-b border-[var(--theme-border,#3E3E3E)] mb-6 relative z-10">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <span
-                      className="text-xs font-mono font-black px-2.5 py-0.5 rounded"
-                      style={{
-                        backgroundColor: `${member.accentColor}20`,
-                        color: member.accentColor,
-                        border: `1px solid ${member.accentColor}40`,
-                      }}
-                    >
-                      {member.code}
-                    </span>
-                    <span
                       className="text-[11px] sm:text-xs font-mono uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full"
                       style={{
-                        backgroundColor: 'var(--theme-surface-elevated, #303030)',
-                        color: '#E2E8F0',
-                        border: '1px solid var(--theme-border, #3E3E3E)',
+                        backgroundColor: `${member.accentColor}18`,
+                        color: member.accentColor,
+                        border: `1px solid ${member.accentColor}35`,
                       }}
                     >
                       {member.badge}
