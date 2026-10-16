@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FannedCardDeck, ORGANIZER_TEAM, type TeamOrganizer } from './FannedCardDeck';
+import { ORGANIZER_TEAM, type TeamOrganizer } from './FannedCardDeck';
+import { TeamStackingCards } from './TeamStackingCards';
 import { ScrollReveal } from '@/components/ui/motion-primitives';
 import { motion, AnimatePresence } from 'motion/react';
 import { Layers, LayoutGrid, ArrowUpRight, ShieldCheck } from 'lucide-react';
@@ -131,12 +132,12 @@ const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
 };
 
 export const Team: React.FC = () => {
-  const [viewMode, setViewMode] = useState<'deck' | 'grid'>('deck');
+  const [viewMode, setViewMode] = useState<'stack' | 'grid'>('stack');
 
   return (
-    <section className="py-20 sm:py-24 relative overflow-hidden px-4 sm:px-6" id="team">
+    <section className="py-20 sm:py-24 relative overflow-visible px-4 sm:px-6" id="team">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header with [ 08 ] Index & View Toggle */}
+        {/* Section Header with [ 07 ] Index & View Toggle */}
         <ScrollReveal>
           <div className="border-b border-[var(--theme-border,#3E3E3E)] pb-6 mb-10 sm:mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
@@ -152,7 +153,7 @@ export const Team: React.FC = () => {
                   style={{ color: 'var(--theme-accent, #AD5CFF)' }}
                 >
                   <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
-                  Core Team
+                  Core Leadership
                 </p>
                 <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none">
                   The crew behind the summit.
@@ -165,20 +166,20 @@ export const Team: React.FC = () => {
                 AWS SBG LEADERSHIP · VOLUNTEERS · FACULTY
               </p>
 
-              {/* View Mode Toggle: 3D Deck vs Responsive Grid */}
-              <div className="inline-flex items-center p-1 rounded-xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] shrink-0 self-start sm:self-auto">
+              {/* View Mode Toggle: Stacking Cards vs Responsive Grid */}
+              <div className="inline-flex items-center p-1 rounded-xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] shrink-0 self-start sm:self-auto shadow-sm">
                 <button
                   type="button"
-                  onClick={() => setViewMode('deck')}
+                  onClick={() => setViewMode('stack')}
                   className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all cursor-pointer ${
-                    viewMode === 'deck'
+                    viewMode === 'stack'
                       ? 'bg-[#AD5CFF] text-[#0A0D14] shadow-sm font-bold'
                       : 'text-slate-400 hover:text-white'
                   }`}
-                  aria-label="Switch to 3D Deck view"
+                  aria-label="Switch to Stacking Cards view"
                 >
                   <Layers className="w-3.5 h-3.5" />
-                  <span>3D Deck</span>
+                  <span>Stacking Cards</span>
                 </button>
                 <button
                   type="button"
@@ -199,35 +200,33 @@ export const Team: React.FC = () => {
         </ScrollReveal>
 
         {/* Featured View Switcher */}
-        <ScrollReveal delay={0.1}>
-          <AnimatePresence mode="wait">
-            {viewMode === 'deck' ? (
-              <motion.div
-                key="deck-view"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.25 }}
-                className="overflow-x-clip max-w-full"
-              >
-                <FannedCardDeck />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="grid-view"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.25 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
-              >
-                {ORGANIZER_TEAM.map((member) => (
-                  <TeamGridCard key={member.id} member={member} />
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </ScrollReveal>
+        <AnimatePresence mode="wait">
+          {viewMode === 'stack' ? (
+            <motion.div
+              key="stack-view"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+              className="w-full"
+            >
+              <TeamStackingCards members={ORGANIZER_TEAM} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="grid-view"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+            >
+              {ORGANIZER_TEAM.map((member) => (
+                <TeamGridCard key={member.id} member={member} />
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

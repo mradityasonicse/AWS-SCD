@@ -1,5 +1,4 @@
-// author: Khoa Phan <https://www.pldkhoa.dev>
-
+// author: Khoa Phan <https://www.pldkhoa.dev> - Enhanced for 60FPS fluid physics
 "use client";
 
 import {
@@ -13,6 +12,7 @@ import {
   motion,
   useScroll,
   useTransform,
+  useSpring,
   type MotionValue,
   type UseScrollOptions,
 } from "motion/react";
@@ -24,6 +24,7 @@ interface StackingCardsProps
   scrollOptions?: UseScrollOptions;
   scaleMultiplier?: number;
   totalCards: number;
+  smoothPhysics?: boolean;
 }
 
 interface StackingCardItemProps
@@ -32,65 +33,10 @@ interface StackingCardItemProps
   topPosition?: string;
 }
 
-export default function StackingCards({
-  children,
-  className,
-  scrollOptions,
-  scaleMultiplier,
-  totalCards,
-  ...props
-}: StackingCardsProps) {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"],
-    ...scrollOptions,
-    target: targetRef,
-  });
-
-  return (
-    <StackingCardsContext.Provider
-      value={{ progress: scrollYProgress, scaleMultiplier, totalCards }}
-    >
-      <div className={cn(className)} ref={targetRef} {...props}>
-        {children}
-      </div>
-    </StackingCardsContext.Provider>
-  );
-}
-
-const StackingCardItem = ({
-  index,
-  topPosition,
-  className,
-  children,
-  ...props
-}: StackingCardItemProps) => {
-  const {
-    progress,
-    scaleMultiplier,
-    totalCards = 0,
-  } = useStackingCardsContext(); // Get from Context
-  const scaleTo = 1 - (totalCards - index) * (scaleMultiplier ?? 0.03);
-  const rangeScale = [index * (1 / totalCards), 1];
-  const scale = useTransform(progress, rangeScale, [1, scaleTo]);
-  const top = topPosition ?? `${5 + index * 3}%`;
-
-  return (
-    <div className={cn("h-full sticky top-0", className)} {...props}>
-      <motion.div
-        className={"origin-top relative h-full"}
-        style={{ top, scale }}
-      >
-        {children}
-      </motion.div>
-    </div>
-  );
-};
-
 const StackingCardsContext = createContext<{
   progress: MotionValue<number>;
-  scaleMultiplier?: number;
-  totalCards?: number;
+  scaleMultiplier: number;
+  totalCards: number;
 } | null>(null);
 
 export const useStackingCardsContext = () => {
@@ -100,4 +46,84 @@ export const useStackingCardsContext = () => {
   return context;
 };
 
-export { StackingCardItem };
+export default function StackingCards({
+  children,
+  className,
+  scrollOptions,
+  scaleMultiplier = 0.035,
+  totalCards,
+  smoothPhysics = true,
+  ...props
+}: StackingCardsProps) {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    offset: ["start start", "end end"],
+    ...scrollOptions,
+    target: targetRef,
+  });
+
+  // Silky 60FPS spring damping eliminates mouse-wheel stepping jitter
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 95,
+    damping: 26,
+    mass: 0.5,
+    restDelta: 0.0001,
+  });
+
+  const activeProgress = smoothPhysics ? smoothProgress : scrollYProgress;
+
+  return (
+    <StackingCardsContext.Provider
+      value={{ progress: activeProgress, scaleMultiplier, totalCards }}
+    >
+      <div className={cn("relative", className)} ref={targetRef} {...props}>
+        {children}
+      </div>
+    </StackingCardsContext.Provider>
+  );
+}
+
+export const StackingCardItem = ({
+  index,
+  topPosition,
+  className,
+  children,
+  ...props
+}: StackingCardItemProps) => {
+  const {
+    progress,
+    scaleMultiplier,
+    totalCards = 1,
+  } = useStackingCardsContext();
+
+  const scaleTo = 1 - (totalCards - index - 1) * scaleMultiplier;
+  const startRatio = index / totalCards;
+  const endRatio = 1;
+  const rangeScale = [startRatio, endRatio];
+
+  const scale = useTransform(progress, rangeScale, [1, Math.max(0.84, scaleTo)]);
+  const overlayOpacity = useTransform(
+    progress,
+    rangeScale,
+    [0, Math.min(0.42, (totalCards - index - 1) * 0.07)]
+  );
+
+  // Responsive sticky top offset keeping visible tabs neatly fanned
+  const top = topPosition ?? `calc(90px + ${index * 13}px)`;
+
+  return (
+    <div className={cn("sticky", className)} style={{ top }} {...props}>
+      <motion.div
+        className="origin-top relative w-full h-full"
+        style={{ scale }}
+      >
+        {children}
+        {/* Subtle Darkening Overlay as subsequent cards stack over this card */}
+        <motion.div
+          className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-black pointer-events-none z-30"
+          style={{ opacity: overlayOpacity }}
+        />
+      </motion.div>
+    </div>
+  );
+};
