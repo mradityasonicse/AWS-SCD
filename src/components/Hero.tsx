@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, MapPin, Calendar, Users, Sparkles, Ticket } from 'lucide-react';
+import { ArrowRight, MapPin, Calendar, Users, Gift, Ticket } from 'lucide-react';
 import { motion } from 'motion/react';
 import confetti from 'canvas-confetti';
 import { CountdownTimer } from './CountdownTimer';
@@ -137,7 +137,7 @@ export const Hero: React.FC<HeroProps> = () => {
           <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#3E3E3E)]" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
-            <Sparkles className="w-4 h-4 text-[#FF9900] shrink-0" />
+            <Gift className="w-4 h-4 text-[#FFD814] shrink-0" />
             <div className="text-left">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Builder Perks</span>
               <span className="poster-date-venue text-white font-bold">Swag Kits &amp; Badges</span>
