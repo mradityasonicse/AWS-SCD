@@ -14,7 +14,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    college: 'Rungta International Skills University (RISU)',
+    college: 'Rungta International Skills University',
     year: '3rd Year',
     track: 'Generative AI',
   });
@@ -87,7 +87,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                     {submitted ? 'Your Event Pass' : 'Easy Student Registration'}
                   </h3>
                   <span className="font-mono text-[10px] text-slate-400 uppercase tracking-widest block mt-0.5">
-                    AWS SCD 2026 · RISU BHILAI
+                    AWS SCD 2026 · RUNGTA INTERNATIONAL SKILLS UNIVERSITY, BHILAI
                   </span>
                 </div>
               </div>
@@ -237,7 +237,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       </div>
                       <div>
                         <span className="text-[10px] text-slate-500 block uppercase">Venue</span>
-                        <span className="text-white font-bold">RISU Auditorium</span>
+                        <span className="text-white font-bold">Rungta International Skills University Auditorium</span>
                       </div>
                     </div>
 
@@ -276,7 +276,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       <span>Save Pass</span>
                     </button>
                     <a
-                      href={`https://wa.me/?text=I%20just%20claimed%20my%20free%20builder%20pass%20for%20AWS%20Student%20Community%20Day%202026%20at%20RISU%20Bhilai!%20Pass%20ID:%20${ticketId}`}
+                      href={`https://wa.me/?text=I%20just%20claimed%20my%20free%20builder%20pass%20for%20AWS%20Student%20Community%20Day%202026%20at%20Rungta%20International%20Skills%20University%20Bhilai!%20Pass%20ID:%20${ticketId}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="py-3 px-4 jitter-btn-base jitter-btn-dark text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"

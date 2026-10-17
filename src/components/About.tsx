@@ -33,7 +33,7 @@ export const About: React.FC = () => {
                   className="w-1.5 h-1.5 rounded-full"
                   style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
                 />
-                HOSTED AT RISU · BHILAI
+                HOSTED AT RUNGTA INTERNATIONAL SKILLS UNIVERSITY · BHILAI
               </span>
             </div>
 

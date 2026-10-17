@@ -39,7 +39,7 @@ export const Venue: React.FC = () => {
                   Event Campus
                 </p>
                 <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
-                  Hosted at RISU Bhilai.
+                  Hosted at Rungta International Skills University, Bhilai.
                 </h2>
               </div>
             </div>
@@ -81,7 +81,7 @@ export const Venue: React.FC = () => {
                 <span className="font-mono text-xs sm:text-sm">{EVENT_DETAILS.venueAddress}</span>
               </p>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
-                Rungta International Skills University (RISU) is Central India's premier skill-first technology university. Equipped with a state-of-the-art 600-seat central auditorium, high-capacity gigabit Wi-Fi, and modern cloud laboratories.
+                Rungta International Skills University is Central India's premier skill-first technology university. Equipped with a state-of-the-art 600-seat central auditorium, high-capacity gigabit Wi-Fi, and modern cloud laboratories.
               </p>
             </ScrollReveal>
 
@@ -158,7 +158,7 @@ export const Venue: React.FC = () => {
                     <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-400" />
                     <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-400" />
                     <span className="text-[11px] sm:text-xs font-mono text-slate-400 ml-1 truncate">
-                      campus-radar · RISU Bhilai
+                      campus-radar · Rungta International Skills University, Bhilai
                     </span>
                   </div>
 
@@ -219,7 +219,7 @@ export const Venue: React.FC = () => {
                     />
                     <div className="min-w-0">
                       <div className="font-bold text-white flex items-center gap-1.5 truncate">
-                        <span>📍 RISU Bhilai Campus</span>
+                        <span>📍 Rungta International Skills University Campus</span>
                       </div>
                       <div className="text-[10px] text-slate-400 truncate">
                         21.2350° N, 81.3462° E · Kohka-Kurud Road

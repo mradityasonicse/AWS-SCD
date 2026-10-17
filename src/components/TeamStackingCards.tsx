@@ -103,7 +103,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: member.accentColor }} />
                     <span className="text-[10px] sm:text-xs font-mono text-slate-400 uppercase tracking-widest hidden xs:inline">
-                      AWS SBG RISU
+                      AWS SBG RUNGTA INTERNATIONAL SKILLS UNIVERSITY
                     </span>
                     <span className="text-xs font-mono font-bold text-slate-300 ml-2">
                       [ 0{index + 1} / 0{members.length} ]
@@ -228,7 +228,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                     <div className="pt-4 border-t border-[var(--theme-border,#3E3E3E)] flex items-center justify-between text-[10px] font-mono text-slate-400">
                       <span className="flex items-center gap-1">
                         <MapPin className="w-3 h-3 text-[#AD5CFF] shrink-0" />
-                        <span>RISU Bhilai · Central India</span>
+                        <span>Rungta International Skills University, Bhilai · Central India</span>
                       </span>
                       <span className="text-slate-500 hidden sm:inline">
                         21 October 2026

@@ -79,7 +79,7 @@ export const App: React.FC = () => {
         {/* [ 04 ] Timetable & Filterable Agenda */}
         <Agenda />
 
-        {/* [ 05 ] Venue Spotlight & RISU Transit Guide */}
+        {/* [ 05 ] Venue Spotlight & Rungta International Skills University Transit Guide */}
         <Venue />
 
         {/* [ 06 ] Ecosystem Partners & Academic Host */}

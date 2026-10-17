@@ -82,9 +82,9 @@ export const Hero: React.FC<HeroProps> = () => {
           />
           <span className="flex items-center gap-1.5 font-mono">
             <strong className="hidden sm:inline">RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong>
-            <strong className="sm:hidden">RISU BHILAI</strong>
+            <strong className="sm:hidden">RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong>
             <span className="text-slate-400">·</span>
-            <span>HOSTED BY AWS SBG RISU</span>
+            <span>HOSTED BY AWS SBG RUNGTA INTERNATIONAL SKILLS UNIVERSITY</span>
           </span>
         </motion.div>
 
@@ -155,7 +155,7 @@ export const Hero: React.FC<HeroProps> = () => {
             <MapPin className="w-4 h-4 text-[#00E582] shrink-0" />
             <div className="text-left">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Host Campus</span>
-              <span className="poster-date-venue text-white font-bold">RISU, Bhilai</span>
+              <span className="poster-date-venue text-white font-bold">Rungta International Skills University, Bhilai</span>
             </div>
           </div>
           <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#3E3E3E)]" />
@@ -212,7 +212,7 @@ export const Hero: React.FC<HeroProps> = () => {
             <MapPin
               className="w-4 h-4 group-hover:scale-105 transition-transform shrink-0 stroke-[2] text-[#AD5CFF]"
             />
-            <span className="tracking-wide">RISU Venue</span>
+            <span className="tracking-wide">Campus Venue</span>
           </a>
         </motion.div>
 

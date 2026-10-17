@@ -36,7 +36,7 @@ export const MobileRegisterBar: React.FC<MobileRegisterBarProps> = () => {
               </span>
             </div>
             <p className="text-[10.5px] font-mono text-slate-400 truncate mt-0.5">
-              21 Oct · RISU Campus Bhilai
+              21 Oct · Rungta International Skills University, Bhilai
             </p>
           </div>
         </div>

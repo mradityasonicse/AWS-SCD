@@ -24,7 +24,7 @@ export const Ticker: React.FC = () => {
         </span>
         <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          HOSTED BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>AWS SBG RISU</strong> · RUNGTA INTERNATIONAL SKILLS UNIVERSITY, BHILAI
+          HOSTED BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>AWS SBG RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong> · BHILAI
         </span>
         <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
@@ -33,7 +33,7 @@ export const Ticker: React.FC = () => {
         <span className="text-[#42B4FF] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
           <span className="bg-[#42B4FF]/15 text-[#42B4FF] border border-[#42B4FF]/30 px-2.5 py-0.5 rounded-full text-[9.5px] font-bold">OCTOBER 21, 2026</span>
-          FLAGSHIP CLOUD CONFERENCE AT RISU CAMPUS
+          FLAGSHIP CLOUD CONFERENCE AT RUNGTA INTERNATIONAL SKILLS UNIVERSITY CAMPUS
         </span>
         <span className="text-[#00E582] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
@@ -60,7 +60,7 @@ export const Ticker: React.FC = () => {
         </span>
         <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          HOSTED BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>AWS SBG RISU</strong> · RUNGTA INTERNATIONAL SKILLS UNIVERSITY, BHILAI
+          HOSTED BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>AWS SBG RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong> · BHILAI
         </span>
         <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
@@ -69,7 +69,7 @@ export const Ticker: React.FC = () => {
         <span className="text-[#42B4FF] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
           <span className="bg-[#42B4FF]/15 text-[#42B4FF] border border-[#42B4FF]/30 px-2.5 py-0.5 rounded-full text-[9.5px] font-bold">OCTOBER 21, 2026</span>
-          FLAGSHIP CLOUD CONFERENCE AT RISU CAMPUS
+          FLAGSHIP CLOUD CONFERENCE AT RUNGTA INTERNATIONAL SKILLS UNIVERSITY CAMPUS
         </span>
         <span className="text-[#00E582] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">

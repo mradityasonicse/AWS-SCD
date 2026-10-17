@@ -149,7 +149,7 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-xs sm:text-sm text-slate-300 font-medium mt-1.5 mb-7 max-w-md"
             >
-              Rungta International Skills University (RISU) · Bhilai, Chhattisgarh
+              Rungta International Skills University · Bhilai, Chhattisgarh
             </motion.p>
 
             {/* Animated Loading Bar */}

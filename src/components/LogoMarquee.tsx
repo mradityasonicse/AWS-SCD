@@ -29,7 +29,7 @@ export const LogoMarquee: React.FC = () => {
       border: 'rgba(173, 92, 255, 0.35)',
     },
     {
-      name: 'RISU Bhilai',
+      name: 'Rungta International Skills University',
       src: '/rungta-logo.png',
       badge: 'Academic Host',
       color: '#C92026',
@@ -61,7 +61,7 @@ export const LogoMarquee: React.FC = () => {
       border: 'rgba(173, 92, 255, 0.35)',
     },
     {
-      name: 'RISU Innovation Cell',
+      name: 'Rungta International Skills University Innovation Cell',
       src: '/rungta-logo.png',
       badge: 'Tech Incubator',
       color: '#C92026',
@@ -105,7 +105,7 @@ export const LogoMarquee: React.FC = () => {
         <div className="animate-marquee flex items-center gap-6 sm:gap-8 py-2 will-change-transform">
           {marqueeLogos.map((item, idx) => {
             const isMeetup = item.name === 'Meetup';
-            const isRungta = item.name === 'RISU Bhilai' || item.name === 'RISU Innovation Cell';
+            const isRungta = item.name.includes('Rungta');
             return (
               <div
                 key={`${item.name}-${idx}`}

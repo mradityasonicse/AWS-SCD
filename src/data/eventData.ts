@@ -66,17 +66,17 @@ export interface PrizeItem {
 
 export const EVENT_DETAILS = {
   name: "AWS Student Community Day 2026 · Central India",
-  shortName: "AWS SCD RISU 2026",
+  shortName: "AWS SCD 2026 · Rungta International Skills University",
   tagline: "One day. One stage. The ultimate student-driven AWS cloud gathering in Central India.",
   edition: "Central India Edition • Bhilai",
   date: "October 21, 2026",
   isoDate: "2026-10-21T09:00:00+05:30",
   time: "9:00 AM - 4:00 PM IST",
-  host: "AWS Student Builder Group (SBG) RISU",
+  host: "AWS Student Builder Group (SBG) Rungta International Skills University",
   institution: "Rungta International Skills University",
-  institutionAcronym: "RISU",
+  institutionAcronym: "Rungta International Skills University",
   city: "Bhilai, Chhattisgarh, India",
-  venueName: "Rungta International Skills University (RISU) Campus",
+  venueName: "Rungta International Skills University Campus",
   venueAddress: "Rungta Knowledge City, Kohka-Kurud Road, Bhilai, Chhattisgarh 490024",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=21.2350,81.3462+(Rungta+International+Skills+University+Bhilai)",
   contactEmail: "aws.sbg.risu@gmail.com",
@@ -120,7 +120,7 @@ export const WHY_ATTEND = [
   { title: "Amazon Global Education Address", desc: "Special address by Jessica Gilmore, EdD (Amazon)" },
   { title: "Free Meals + Official AWS Swag Kit", desc: "Breakfast, lavish buffet lunch, custom t-shirt, stickers & lanyard" },
   { title: "AWS Live Kahoot Quiz on Stage", desc: "Compete in live cloud trivia and win Amazon Echo Dots & smart electronics" },
-  { title: "Official Verified Certificate", desc: "AWS SBG & RISU co-branded verified completion certificate" },
+  { title: "Official Verified Certificate", desc: "AWS SBG & Rungta International Skills University co-branded verified completion certificate" },
   { title: "All-Attendee Group Photo & Networking", desc: "Direct 1-on-1 networking with speakers, organizers and tech partners" }
 ];
 
@@ -450,7 +450,7 @@ export const ORGANIZERS: TeamMember[] = [
   {
     id: 1,
     name: "Uddyan Sahu",
-    title: "AWS SBG Leader, RISU",
+    title: "AWS SBG Leader, Rungta International Skills University",
     role: "Team Lead · Lead Organiser",
     image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/in/uddyan-sahu/",
@@ -490,8 +490,8 @@ export const ORGANIZERS: TeamMember[] = [
   },
   {
     id: 6,
-    name: "Prof. RISU Mentors",
-    title: "Faculty Advisory Board, RISU",
+    name: "Faculty Mentors, Rungta International Skills University",
+    title: "Faculty Advisory Board, Rungta International Skills University",
     role: "Academic Patrons",
     image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
@@ -500,7 +500,7 @@ export const ORGANIZERS: TeamMember[] = [
 
 export const FAQS: FAQItem[] = [
   {
-    question: "Who can attend AWS Student Community Day RISU 2026?",
+    question: "Who can attend AWS Student Community Day 2026 at Rungta International Skills University?",
     answer: "The event is open to all university students, polytechnic diploma candidates, engineering and BCA/MCA/B.Sc students, tech enthusiasts, and early-career developers who are eager to explore cloud computing, AI, and DevOps."
   },
   {
@@ -509,7 +509,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Is there any restriction on college, branch or graduation year?",
-    answer: "Zero restrictions. Students from Rungta International Skills University (RISU) as well as any college across Chhattisgarh and India can participate. All academic branches and batches are warmly welcome."
+    answer: "Zero restrictions. Students from Rungta International Skills University as well as any college across Chhattisgarh and India can participate. All academic branches and batches are warmly welcome."
   },
   {
     question: "What should I bring on the day of the event?",
@@ -517,11 +517,11 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Will food, swags, and certificates be provided?",
-    answer: "Yes! The summit includes full breakfast, lavish buffet lunch, high tea, an official AWS Student Swag Kit, and a verified Certificate of Participation co-signed by AWS SBG & RISU."
+    answer: "Yes! The summit includes full breakfast, lavish buffet lunch, high tea, an official AWS Student Swag Kit, and a verified Certificate of Participation co-signed by AWS SBG & Rungta International Skills University."
   },
   {
-    question: "How do I reach Rungta International Skills University (RISU), Bhilai?",
-    answer: "RISU is conveniently situated in Bhilai, Chhattisgarh. It is only 8 km from Bhilai Power House Railway Station (BPH) and 12 km from Durg Junction Railway Station (DURG). Autos, cabs, and campus transit are easily accessible."
+    question: "How do I reach Rungta International Skills University, Bhilai?",
+    answer: "Rungta International Skills University is conveniently situated in Bhilai, Chhattisgarh. It is only 8 km from Bhilai Power House Railway Station (BPH) and 12 km from Durg Junction Railway Station (DURG). Autos, cabs, and campus transit are easily accessible."
   },
   {
     question: "How does the live AWS Kahoot Quiz work?",

@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
                 className="text-xs font-semibold mt-0.5"
                 style={{ color: 'var(--theme-accent, #AD5CFF)' }}
               >
-                Hosted at {EVENT_DETAILS.institution} (RISU)
+                Hosted at {EVENT_DETAILS.institution}
               </p>
             </div>
 
@@ -158,11 +158,11 @@ export const Footer: React.FC = () => {
         {/* Bottom Legal & Credits (Poster Small Footer Scale: Inter Medium 16-20px responsive) */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 poster-small-footer text-slate-400">
           <p>
-            © 2026 AWS Student Builder Group RISU. All rights reserved.
+            © 2026 AWS Student Builder Group, Rungta International Skills University. All rights reserved.
           </p>
 
           <p className="max-w-md text-center sm:text-right text-slate-400 leading-snug">
-            AWS Student Community Day is an independent student conference hosted by the AWS SBG at Rungta International Skills University (RISU) and is not run by Amazon Web Services, Inc.
+            AWS Student Community Day is an independent student conference hosted by the AWS SBG at Rungta International Skills University and is not run by Amazon Web Services, Inc.
           </p>
 
           <button

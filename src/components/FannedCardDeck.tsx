@@ -33,7 +33,7 @@ export interface TeamOrganizer {
 }
 
 // ============================================================================
-// Verified AWS SCD RISU Core Student Leadership Team Data
+// Verified AWS SCD Rungta International Skills University Core Student Leadership Team Data
 // ============================================================================
 
 export const ORGANIZER_TEAM: TeamOrganizer[] = [
@@ -41,13 +41,13 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     id: "uddyan",
     name: "Uddyan Sahu",
     role: "Team Lead · Lead Organiser",
-    title: "AWS SBG Leader, RISU",
+    title: "AWS SBG Leader, Rungta International Skills University",
     badge: "Lead Organiser",
     initials: "US",
     code: "ORG-01",
     accentColor: "#AD5CFF", // Electric Purple
     tagline: "Leading Central India's premier student cloud summit, speaker curation & flagship direction.",
-    bio: "AWS Student Builder Group Leader at RISU. Spearheading the inaugural SCD Central India gathering, connecting student builders with AWS DevRel leadership.",
+    bio: "AWS Student Builder Group Leader at Rungta International Skills University. Spearheading the inaugural SCD Central India gathering, connecting student builders with AWS DevRel leadership.",
     linkedin: "https://www.linkedin.com/in/uddyan-sahu/",
     scope: ["Summit Direction", "DevRel Liaison", "Keynote Stage"],
   },
@@ -76,7 +76,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#AD5CFF", // Electric Purple
     image: "/aditya_soni.jpg",
     tagline: "Architecting cloud infrastructure, developer pipelines & high-concurrency summit systems.",
-    bio: "Co-Technical Lead at AWS SCD RISU. Engineering production cloud workflows, interactive developer platforms, and technical arena infra for 500+ builders.",
+    bio: "Co-Technical Lead at AWS SCD Rungta International Skills University. Engineering production cloud workflows, interactive developer platforms, and technical arena infra for 500+ builders.",
     linkedin: "https://www.linkedin.com/in/aditya-soni-cse/",
     scope: ["Cloud Infra", "DevOps Pipelines", "Technical Arena"],
   },
@@ -90,7 +90,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     code: "ORG-04",
     accentColor: "#42B4FF", // Cloud Blue
     tagline: "Orchestrating stage logistics, hospitality, delegate check-in & welcome kits.",
-    bio: "Directing on-ground event operations, venue management at RISU, volunteer brigades, and delegate experience for 500+ builders.",
+    bio: "Directing on-ground event operations, venue management at Rungta International Skills University, volunteer brigades, and delegate experience for 500+ builders.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
     scope: ["Campus Hospitality", "Welcome Kits", "Registration Desk"],
   },
@@ -124,9 +124,9 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
   },
   {
     id: "mentors",
-    name: "Prof. RISU Mentors",
+    name: "Faculty Mentors, Rungta International Skills University",
     role: "Academic Patrons · Advisory",
-    title: "Faculty Advisory Board, RISU",
+    title: "Faculty Advisory Board, Rungta International Skills University",
     badge: "Faculty Mentors",
     initials: "RM",
     code: "ORG-07",
@@ -192,7 +192,7 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
             }}
           />
           <span className="text-[10px] font-mono tracking-widest text-slate-400 font-semibold uppercase">
-            AWS SBG RISU
+            AWS SBG RUNGTA INTERNATIONAL SKILLS UNIVERSITY
           </span>
         </div>
       </div>
