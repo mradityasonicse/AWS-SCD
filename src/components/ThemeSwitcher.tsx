@@ -117,7 +117,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                   <button
                     type="button"
                     onClick={() => setBgMode('dark')}
-                    className={`relative w-9 h-9 rounded-full bg-[#262626] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
+                    className={`relative w-9 h-9 rounded-full bg-[#121212] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
                       bgMode === 'dark'
                         ? 'border-white ring-2 ring-white/30 scale-105'
                         : 'border-[#3E3E3E] hover:border-slate-400'
@@ -142,7 +142,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                     aria-label="Select light background"
                     aria-pressed={bgMode === 'light'}
                   >
-                    {bgMode === 'light' && <Check className="w-3.5 h-3.5 text-[#262626] stroke-[3]" />}
+                    {bgMode === 'light' && <Check className="w-3.5 h-3.5 text-[#121212] stroke-[3]" />}
                   </button>
                 </div>
               </div>

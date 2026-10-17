@@ -211,7 +211,7 @@ export const Agenda: React.FC = () => {
                     <>
                       {/* Timeline Pin Dot */}
                       <div
-                        className="absolute -left-[31px] sm:-left-[47px] top-6 w-3.5 h-3.5 rounded-full border-2 border-[var(--theme-bg,#262626)] transition-transform duration-200 group-hover:scale-125"
+                        className="absolute -left-[31px] sm:-left-[47px] top-6 w-3.5 h-3.5 rounded-full border-2 border-[var(--theme-bg,#121212)] transition-transform duration-200 group-hover:scale-125"
                         style={{
                           backgroundColor: sessionColor,
                           boxShadow: `0 0 10px ${sessionColor}50`,

@@ -74,9 +74,9 @@ export const LogoMarquee: React.FC = () => {
   const marqueeLogos = [...logos, ...logos];
 
   return (
-    <section className="relative bg-[var(--theme-bg,#262626)] border-y border-[#3E3E3E] overflow-hidden py-6">
+    <section className="relative bg-[var(--theme-bg,#121212)] border-y border-[#2E2E2E] overflow-hidden py-6">
       {/* Editorial Bold Phrase Marquee */}
-      <div className="overflow-hidden whitespace-nowrap mb-6 border-b border-[#3E3E3E] pb-4">
+      <div className="overflow-hidden whitespace-nowrap mb-6 border-b border-[#2E2E2E] pb-4">
         <div className="animate-marquee flex items-center gap-10 font-heading font-normal text-3xl sm:text-5xl uppercase tracking-wide will-change-transform">
           {[1, 2, 3].map((set) => (
             <span key={set} className="flex items-center gap-8">
@@ -97,8 +97,8 @@ export const LogoMarquee: React.FC = () => {
       </div>
 
       {/* Side gradient feather masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[#262626] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#262626] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[#121212] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[#121212] to-transparent z-10 pointer-events-none" />
 
       {/* Brand Logos Stream */}
       <div className="flex w-full overflow-hidden">

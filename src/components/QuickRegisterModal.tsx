@@ -116,7 +116,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       placeholder="e.g. Alex Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-[var(--theme-bg,#262626)] border border-[var(--theme-border,#3E3E3E)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
+                      className="w-full bg-[var(--theme-bg,#121212)] border border-[var(--theme-border,#3E3E3E)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
                     />
                   </div>
 
@@ -130,7 +130,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       placeholder="student@rungta.ac.in"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[var(--theme-bg,#262626)] border border-[var(--theme-border,#3E3E3E)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
+                      className="w-full bg-[var(--theme-bg,#121212)] border border-[var(--theme-border,#3E3E3E)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
                     />
                   </div>
 
@@ -143,7 +143,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                         type="text"
                         value={formData.college}
                         onChange={(e) => setFormData({ ...formData, college: e.target.value })}
-                        className="w-full bg-[var(--theme-bg,#262626)] border border-[var(--theme-border,#3E3E3E)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none font-sans"
+                        className="w-full bg-[var(--theme-bg,#121212)] border border-[var(--theme-border,#3E3E3E)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none font-sans"
                       />
                     </div>
                     <div>
@@ -153,7 +153,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       <select
                         value={formData.year}
                         onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                        className="w-full bg-[var(--theme-bg,#262626)] border border-[var(--theme-border,#3E3E3E)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none font-sans"
+                        className="w-full bg-[var(--theme-bg,#121212)] border border-[var(--theme-border,#3E3E3E)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none font-sans"
                       >
                         <option value="1st Year">1st Year</option>
                         <option value="2nd Year">2nd Year</option>
@@ -177,7 +177,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                           className={`p-2.5 rounded-xl border text-left font-mono transition-all cursor-pointer ${
                             formData.track === track
                               ? 'border-[var(--theme-accent,#AD5CFF)] bg-[var(--theme-accent,#AD5CFF)]/15 text-white font-bold'
-                              : 'border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-bg,#262626)] text-slate-400 hover:text-white'
+                              : 'border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-bg,#121212)] text-slate-400 hover:text-white'
                           }`}
                         >
                           {track}
@@ -203,7 +203,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                 <div className="space-y-5">
                   {/* Digital Pass Preview */}
                   <div
-                    className="p-5 rounded-2xl border relative overflow-hidden bg-gradient-to-b from-[var(--theme-surface-elevated,#303030)] to-[var(--theme-bg,#262626)] shadow-2xl"
+                    className="p-5 rounded-2xl border relative overflow-hidden bg-gradient-to-b from-[var(--theme-surface-elevated,#303030)] to-[var(--theme-bg,#121212)] shadow-2xl"
                     style={{ borderColor: 'var(--theme-accent, #AD5CFF)' }}
                   >
                     <div className="flex items-center justify-between pb-3 border-b border-[var(--theme-border,#3E3E3E)]">

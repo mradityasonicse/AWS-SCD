@@ -38,7 +38,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
 
       const isDark = bgMode === 'dark';
       // Fill background
-      offscreenCtx.fillStyle = isDark ? '#262626' : '#1A1A1A';
+      offscreenCtx.fillStyle = isDark ? '#121212' : '#FFFFFF';
       offscreenCtx.fillRect(0, 0, width, height);
 
       const gridColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.07)';
@@ -225,7 +225,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
     <div
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
       style={{
-        backgroundColor: 'var(--theme-bg, #262626)',
+        backgroundColor: 'var(--theme-bg, #121212)',
         transform: 'translateZ(0)',
         willChange: 'transform',
       }}

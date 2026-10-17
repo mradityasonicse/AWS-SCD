@@ -30,7 +30,7 @@ export const App: React.FC = () => {
       <div
         className="relative min-h-screen text-[#F8FAFC] font-sans antialiased overflow-x-clip transition-colors duration-300 pb-16 sm:pb-0"
         style={{
-          backgroundColor: 'var(--theme-bg, #262626)',
+          backgroundColor: 'var(--theme-bg, #121212)',
           color: 'var(--theme-text, #F8FAFC)',
         }}
       >

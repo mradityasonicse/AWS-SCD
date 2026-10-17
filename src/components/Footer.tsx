@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative border-t border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-bg,#262626)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
+    <footer className="relative border-t border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-bg,#121212)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--theme-border,#3E3E3E)]">
           {/* Brand Info */}

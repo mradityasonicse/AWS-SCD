@@ -280,8 +280,8 @@ export const Speakers: React.FC = () => {
         {/* 100% Smooth Hardware-Accelerated Continuous Infinite Auto-Slider */}
         <div className="relative w-full overflow-hidden">
           {/* Side Gradient Masks for Seamless Edge Fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-20 bg-gradient-to-r from-[var(--theme-bg,#262626)] to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-20 bg-gradient-to-l from-[var(--theme-bg,#262626)] to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-20 bg-gradient-to-r from-[var(--theme-bg,#121212)] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-20 bg-gradient-to-l from-[var(--theme-bg,#121212)] to-transparent z-20 pointer-events-none" />
 
           {/* Interactive Sliding Track Container */}
           <div
