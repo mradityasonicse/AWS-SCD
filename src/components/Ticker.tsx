@@ -18,6 +18,11 @@ export const Ticker: React.FC = () => {
           AWS STUDENT COMMUNITY DAY
         </span>
         <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
+        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-white/5 border border-[var(--theme-accent,#AD5CFF)]/40 px-2.5 py-0.5 rounded-full">
+          <img src="/namaste-transparent.png" alt="Namaste" className="w-3.5 h-3.5 object-contain" />
+          <span style={{ color: 'var(--theme-accent, #AD5CFF)' }}>NAMASTE</span> · CENTRAL INDIA WELCOMES YOU
+        </span>
+        <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
           HOSTED BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>AWS SBG RISU</strong> · RUNGTA INTERNATIONAL SKILLS UNIVERSITY, BHILAI
         </span>
@@ -47,6 +52,11 @@ export const Ticker: React.FC = () => {
             SUMMIT 2026
           </span>
           AWS STUDENT COMMUNITY DAY
+        </span>
+        <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
+        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-white/5 border border-[var(--theme-accent,#AD5CFF)]/40 px-2.5 py-0.5 rounded-full">
+          <img src="/namaste-transparent.png" alt="Namaste" className="w-3.5 h-3.5 object-contain" />
+          <span style={{ color: 'var(--theme-accent, #AD5CFF)' }}>NAMASTE</span> · CENTRAL INDIA WELCOMES YOU
         </span>
         <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">

@@ -17,6 +17,7 @@ import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
 import { QuickRegisterModal } from './components/QuickRegisterModal';
 import { MobileRegisterBar } from './components/MobileRegisterBar';
+import { NamasteSplashScreen } from './components/NamasteSplashScreen';
 
 export const App: React.FC = () => {
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
@@ -35,6 +36,9 @@ export const App: React.FC = () => {
           color: 'var(--theme-text, #F8FAFC)',
         }}
       >
+        {/* Cultural Namaste Welcome Splash Screen (Intro on page start) */}
+        <NamasteSplashScreen />
+
         {/* Skip to Main Content for Accessibility */}
         <a
           href="#main-content"
