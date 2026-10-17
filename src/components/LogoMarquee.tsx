@@ -30,11 +30,11 @@ export const LogoMarquee: React.FC = () => {
     },
     {
       name: 'RISU Bhilai',
-      src: '/main-logo.svg',
+      src: '/rungta-university-logo.jpg',
       badge: 'Academic Host',
-      color: '#42B4FF',
-      bg: 'rgba(66, 180, 255, 0.12)',
-      border: 'rgba(66, 180, 255, 0.35)',
+      color: '#C92026',
+      bg: 'rgba(201, 32, 38, 0.12)',
+      border: 'rgba(201, 32, 38, 0.35)',
     },
     {
       name: 'Meetup',
@@ -62,11 +62,11 @@ export const LogoMarquee: React.FC = () => {
     },
     {
       name: 'RISU Innovation Cell',
-      src: '/main-logo.svg',
+      src: '/rungta-university-logo.jpg',
       badge: 'Tech Incubator',
-      color: '#42B4FF',
-      bg: 'rgba(66, 180, 255, 0.12)',
-      border: 'rgba(66, 180, 255, 0.35)',
+      color: '#C92026',
+      bg: 'rgba(201, 32, 38, 0.12)',
+      border: 'rgba(201, 32, 38, 0.35)',
     },
   ];
 
@@ -105,12 +105,13 @@ export const LogoMarquee: React.FC = () => {
         <div className="animate-marquee flex items-center gap-6 sm:gap-8 py-2 will-change-transform">
           {marqueeLogos.map((item, idx) => {
             const isMeetup = item.name === 'Meetup';
+            const isRungta = item.name === 'RISU Bhilai' || item.name === 'RISU Innovation Cell';
             return (
               <div
                 key={`${item.name}-${idx}`}
                 className={cn(
                   "flex items-center gap-3.5 px-4 py-2.5 rounded-2xl border shadow-md transition-all duration-300 group shrink-0 relative overflow-hidden",
-                  isMeetup
+                  isMeetup || isRungta
                     ? "bg-black border-slate-700 hover:border-slate-500 shadow-xl"
                     : "bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] hover:border-slate-400"
                 )}
@@ -123,16 +124,21 @@ export const LogoMarquee: React.FC = () => {
 
                 <div
                   className={cn(
-                    "h-9 w-9 rounded-xl border flex items-center justify-center p-1 shrink-0 group-hover:scale-105 transition-transform",
-                    isMeetup
-                      ? "bg-white border-white shadow-md"
-                      : "bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
+                    "h-9 rounded-xl border flex items-center justify-center p-1 shrink-0 group-hover:scale-105 transition-transform",
+                    isRungta
+                      ? "min-w-[46px] bg-white border-white shadow-md px-1.5"
+                      : isMeetup
+                      ? "w-9 bg-white border-white shadow-md"
+                      : "w-9 bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
                   )}
                 >
                   <img
                     src={item.src}
                     alt={item.name}
-                    className="max-h-6 max-w-7 object-contain opacity-100"
+                    className={cn(
+                      "object-contain opacity-100",
+                      isRungta ? "max-h-7 max-w-[42px]" : "max-h-6 max-w-7"
+                    )}
                   />
                 </div>
 

@@ -44,11 +44,13 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
       <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 justify-items-center" staggerDelay={0.08}>
         {SPONSORS.map((sponsor, idx) => {
           const isMeetup = sponsor.name === 'Meetup';
+          const isRungta = sponsor.name === 'Rungta International Skills University';
+          const isWhiteCard = isMeetup || isRungta;
           const badgeColors = [
             '#FF9900', // Title Sponsor (AWS Smile Orange)
-            'var(--theme-accent, #AD5CFF)', // Host University (Electric Purple)
-            '#42B4FF', // Cloud Blue
-            '#00E582', // Cyber Green
+            '#F64060', // Meetup
+            'var(--theme-accent, #AD5CFF)', // Academic Host (Rungta)
+            '#42B4FF', // Cloud Blue (AWS SBG)
           ];
           const badgeBg = isMeetup ? '#F64060' : badgeColors[idx % badgeColors.length];
 
@@ -57,14 +59,14 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               <SpotlightCard
                 className={cn(
                   "w-full h-full p-8 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 shadow-md",
-                  isMeetup && "bg-black/95 border-[#2E2E2E] shadow-2xl"
+                  isWhiteCard && "bg-black/95 border-[#2E2E2E] shadow-2xl"
                 )}
               >
                 <div className="mb-4">
                   <span
                     className={cn(
                       "inline-block text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full",
-                      isMeetup ? "text-white" : "text-[#1E1E1E]"
+                      isWhiteCard ? "text-white" : "text-[#1E1E1E]"
                     )}
                     style={{ backgroundColor: badgeBg }}
                   >
@@ -72,21 +74,27 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
                   </span>
                 </div>
 
-                {/* Logo Container: White behind Meetup logo with black on the surrounding sides */}
+                {/* Logo Container: White behind Meetup and Rungta logos with black on the surrounding sides */}
                 <div
                   className={cn(
                     "h-28 w-full rounded-2xl border flex items-center justify-center my-2 p-3 transition-colors",
-                    isMeetup
+                    isWhiteCard
                       ? "bg-black border-[#2E2E2E]"
                       : "bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
                   )}
                 >
-                  {isMeetup ? (
-                    <div className="bg-white rounded-xl px-5 py-2.5 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  {isWhiteCard ? (
+                    <div className={cn(
+                      "bg-white rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105 overflow-hidden",
+                      isRungta ? "h-[86px] w-[184px]" : "px-5 py-2.5"
+                    )}>
                       <img
                         src={sponsor.logo}
                         alt={sponsor.name}
-                        className="max-h-14 max-w-[120px] object-contain drop-shadow-sm"
+                        className={cn(
+                          "object-contain drop-shadow-sm",
+                          isRungta ? "scale-[1.5] max-h-full max-w-full" : "max-h-14 max-w-[120px]"
+                        )}
                       />
                     </div>
                   ) : (

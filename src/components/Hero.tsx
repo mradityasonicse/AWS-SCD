@@ -52,11 +52,13 @@ export const Hero: React.FC<HeroProps> = () => {
             color: 'var(--theme-accent, #AD5CFF)',
           }}
         >
-          <img
-            src="/main-logo.svg"
-            alt="Main Logo"
-            className="w-4 h-4 sm:w-5 sm:h-5 object-contain rounded-lg bg-[#161E2D] p-0.5 border border-[#232F3E] shrink-0 drop-shadow-[0_0_6px_rgba(173,92,255,0.4)]"
-          />
+          <div className="h-5 sm:h-5.5 rounded bg-white px-1.5 py-0.5 border border-white/50 flex items-center justify-center shrink-0 shadow-sm">
+            <img
+              src="/rungta-university-logo.jpg"
+              alt="Rungta International Skills University"
+              className="h-full w-auto object-contain"
+            />
+          </div>
           <span
             className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shrink-0"
             style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}

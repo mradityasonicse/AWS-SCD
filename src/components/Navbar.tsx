@@ -185,11 +185,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             className="flex items-center gap-3 group shrink-0"
           >
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-[var(--theme-surface-elevated,#303030)] p-1 sm:p-1.5 border border-[var(--theme-border,#3E3E3E)] flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#AD5CFF]/60 group-hover:shadow-[0_0_12px_rgba(173,92,255,0.3)]">
+              <div className="h-8 sm:h-9 rounded-xl bg-white px-2 py-1 border border-white/40 flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#AD5CFF]/60 group-hover:shadow-[0_0_12px_rgba(173,92,255,0.3)]">
                 <img
-                  src="/main-logo.svg"
-                  alt="Brand Logo"
-                  className="h-full w-full object-contain drop-shadow-[0_0_6px_rgba(173,92,255,0.4)]"
+                  src="/rungta-university-logo.jpg"
+                  alt="Rungta International Skills University"
+                  className="h-full w-auto object-contain"
                 />
               </div>
               <div className="h-5 sm:h-6 w-px bg-[var(--theme-border,#3E3E3E)]" />
