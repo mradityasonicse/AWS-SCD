@@ -41,14 +41,12 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--theme-border,#383336)]">
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
-              <img src="/AWS.png" alt="AWS" className="h-8 w-auto object-contain" />
-              <div className="h-6 w-[1px] bg-[var(--theme-border,#383336)]" />
-              <img src="/AWS_SBG.png" alt="AWS SBG" className="h-7 w-auto object-contain" />
-              <div className="h-6 w-[1px] bg-[var(--theme-border,#383336)]" />
-              <div className="h-8 w-8 rounded-lg bg-white p-1 border border-white/40 flex items-center justify-center shadow-sm">
-                <img src="/rungta-logo.png" alt="Rungta International Skills University" className="h-full w-full object-contain" />
-              </div>
+            <div className="flex items-center">
+              <img
+                src="/aws-x-rungta-collab.png"
+                alt="AWS x Rungta International Skills University"
+                className="h-10 sm:h-12 w-auto object-contain drop-shadow"
+              />
             </div>
 
             <div>

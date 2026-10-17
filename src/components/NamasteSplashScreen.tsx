@@ -107,17 +107,25 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
               }}
             />
 
-            {/* Namaste Graphic */}
+            {/* Futuristic Tech Core Graphic */}
             <motion.div
-              initial={{ opacity: 0, y: 30, scale: 0.88 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="relative mb-6"
+              initial={{ opacity: 0, y: 25, scale: 0.88 }}
+              animate={{
+                opacity: 1,
+                y: [0, -6, 0],
+                scale: 1,
+              }}
+              transition={{
+                opacity: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
+                scale: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
+                y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+              }}
+              className="relative mb-5 flex items-center justify-center"
             >
               <img
-                src="/namaste-transparent.png"
-                alt="Namaste Greeting"
-                className="w-56 sm:w-72 md:w-80 h-auto object-contain drop-shadow-[0_12px_45px_rgba(173,92,255,0.55)] transition-transform duration-300 hover:scale-[1.02]"
+                src="/tech-cloud-core.png"
+                alt="AWS Cloud & AI Technology Core"
+                className="w-56 sm:w-68 md:w-76 max-h-[300px] h-auto object-contain drop-shadow-[0_10px_40px_rgba(173,92,255,0.45)] transition-transform duration-300 hover:scale-[1.03]"
               />
             </motion.div>
 

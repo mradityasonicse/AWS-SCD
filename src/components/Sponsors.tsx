@@ -1,8 +1,7 @@
 import React from 'react';
 import { Mail, HeartHandshake } from 'lucide-react';
 import { SPONSORS } from '../data/eventData';
-import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
-import { cn } from '@/lib/utils';
+import { ScrollReveal, SpotlightCard } from '@/components/ui/motion-primitives';
 
 interface SponsorsProps {
   onOpenContact: () => void;
@@ -40,85 +39,68 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
         </div>
       </ScrollReveal>
 
-      {/* Primary Key Sponsors Grid */}
-      <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 justify-items-center" staggerDelay={0.08}>
-        {SPONSORS.map((sponsor, idx) => {
-          const isMeetup = sponsor.name === 'Meetup';
-          const isRungta = sponsor.name === 'Rungta International Skills University';
-          const isWhiteCard = isMeetup || isRungta;
-          const badgeColors = [
-            '#FF9900', // Title Sponsor (AWS Smile Orange)
-            '#F64060', // Meetup
-            'var(--theme-accent, #AD5CFF)', // Academic Host (Rungta)
-            '#42B4FF', // Cloud Blue (AWS SBG)
-          ];
-          const badgeBg = isMeetup ? '#F64060' : badgeColors[idx % badgeColors.length];
+      {/* Primary Key Title Sponsor Showcase (Centered) */}
+      <ScrollReveal>
+        <div className="flex justify-center mb-20 px-2">
+          {SPONSORS.map((sponsor) => (
+            <div key={sponsor.name} className="relative group w-full max-w-xl">
+              {/* Warm Ambient Glow behind Card */}
+              <div
+                className="absolute -inset-1.5 rounded-3xl opacity-25 group-hover:opacity-50 blur-2xl transition-all duration-500 pointer-events-none"
+                style={{
+                  background:
+                    'radial-gradient(circle, rgba(255, 153, 0, 0.45) 0%, rgba(173, 92, 255, 0.25) 55%, transparent 75%)',
+                }}
+              />
 
-          return (
-            <StaggerItem key={sponsor.name} className="w-full">
               <SpotlightCard
-                className={cn(
-                  "w-full h-full p-8 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 shadow-md",
-                  isWhiteCard && "bg-black/95 border-[#2E2E2E] shadow-2xl"
-                )}
+                className="relative w-full p-8 sm:p-12 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 bg-black/95 border border-[#2E2E2E] group-hover:border-[#FF9900]/40 shadow-2xl rounded-3xl"
               >
-                <div className="mb-4">
-                  <span
-                    className={cn(
-                      "inline-block text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full",
-                      isWhiteCard ? "text-white" : "text-[#252324]"
-                    )}
-                    style={{ backgroundColor: badgeBg }}
-                  >
-                    {sponsor.category}
+                {/* Category Badge */}
+                <div className="mb-6">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-widest px-4 py-1.5 rounded-full bg-[#FF9900] text-[#161415] shadow-[0_0_18px_rgba(255,153,0,0.4)]">
+                    <span>✦</span>
+                    <span>TITLE SPONSOR</span>
                   </span>
                 </div>
 
-                {/* Logo Container: White behind Meetup and Rungta logos with black on the surrounding sides */}
+                {/* Logo Showcase Container */}
                 <div
-                  className={cn(
-                    "h-28 w-full rounded-2xl border flex items-center justify-center my-2 p-3 transition-colors",
-                    isWhiteCard
-                      ? "bg-black border-[#2E2E2E]"
-                      : "bg-[var(--theme-surface-elevated,#2E2A2C)] border-[var(--theme-border,#383336)]"
-                  )}
+                  className="h-36 sm:h-44 w-full rounded-2xl border border-[#2E2E2E] bg-black/90 flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:border-[#FF9900]/30 group-hover:bg-black shadow-inner relative overflow-hidden my-2"
                 >
-                  {isWhiteCard ? (
-                    <div className={cn(
-                      "bg-white rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105",
-                      isRungta ? "h-20 w-20 p-2" : "px-5 py-2.5"
-                    )}>
-                      <img
-                        src={sponsor.logo}
-                        alt={sponsor.name}
-                        className={cn(
-                          "object-contain drop-shadow-sm",
-                          isRungta ? "h-full w-full" : "max-h-14 max-w-[120px]"
-                        )}
-                      />
-                    </div>
-                  ) : (
-                    <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      className="max-h-16 max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
-                    />
-                  )}
+                  <div
+                    className="absolute inset-0 opacity-20 pointer-events-none"
+                    style={{
+                      background:
+                        'radial-gradient(circle at 50% 40%, rgba(255, 153, 0, 0.5) 0%, transparent 70%)',
+                    }}
+                  />
+
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    className="h-14 sm:h-16 max-w-[200px] object-contain drop-shadow-[0_4px_18px_rgba(255,153,0,0.35)] transition-transform duration-300 group-hover:scale-105 z-10"
+                  />
+
+                  <span className="text-xs font-mono tracking-widest font-bold text-[#FF9900] uppercase px-3 py-1 rounded-full bg-[#FF9900]/10 border border-[#FF9900]/25 mt-4 z-10">
+                    {sponsor.collabName || 'AWS CLOUD · TITLE'}
+                  </span>
                 </div>
 
-                <div className="mt-4">
-                  <h4 className="font-bold text-white text-base mb-1">
+                {/* Sponsor Description */}
+                <div className="mt-6">
+                  <h3 className="font-heading text-3xl sm:text-4xl font-normal text-white uppercase tracking-wide mb-2.5">
                     {sponsor.name}
-                  </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans max-w-md mx-auto">
                     {sponsor.description}
                   </p>
                 </div>
               </SpotlightCard>
-            </StaggerItem>
-          );
-        })}
-      </StaggerContainer>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
 
 
       {/* Sponsor Invitation Card */}

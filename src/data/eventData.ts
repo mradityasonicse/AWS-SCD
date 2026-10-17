@@ -33,6 +33,7 @@ export interface FAQItem {
 export interface Sponsor {
   name: string;
   logo: string;
+  collabName?: string;
   category: 'Title' | 'Technology' | 'Academic Host' | 'Community' | 'Community Platform' | string;
   description?: string;
 }
@@ -422,26 +423,9 @@ export const SPONSORS: Sponsor[] = [
   {
     name: "Amazon Web Services",
     logo: "/AWS.png",
+    collabName: "AWS Cloud · Title",
     category: "Title",
     description: "The world's most comprehensive and broadly adopted cloud platform."
-  },
-  {
-    name: "Meetup",
-    logo: "/meetup.png",
-    category: "Community Platform",
-    description: "Official developer community and digital event platform partner."
-  },
-  {
-    name: "Rungta International Skills University",
-    logo: "/rungta-logo.png",
-    category: "Academic Host",
-    description: "Skill-first university empowering the next generation of cloud architects."
-  },
-  {
-    name: "AWS Student Builder Groups",
-    logo: "/AWS_SBG.png",
-    category: "Community",
-    description: "Global builder clubs fostering peer cloud learning and development."
   }
 ];
 
