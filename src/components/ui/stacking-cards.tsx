@@ -62,15 +62,17 @@ export default function StackingCards({
     target: targetRef,
   });
 
-  // Silky 60FPS spring damping eliminates mouse-wheel stepping jitter
+  // Silky 60FPS spring damping (tuned for instant response without lag or overshoot)
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 95,
-    damping: 26,
-    mass: 0.5,
-    restDelta: 0.0001,
+    stiffness: 140,
+    damping: 28,
+    mass: 0.12,
+    restDelta: 0.0005,
   });
 
-  const activeProgress = smoothPhysics ? smoothProgress : scrollYProgress;
+  // Detect touch screens to bypass spring latency on mobile
+  const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  const activeProgress = (smoothPhysics && !isTouch) ? smoothProgress : scrollYProgress;
 
   return (
     <StackingCardsContext.Provider
@@ -116,18 +118,14 @@ export const StackingCardItem = ({
       className={cn("sticky", className)}
       style={{
         top,
-        transform: "translateZ(0)",
       }}
       {...props}
     >
       <motion.div
-        className="origin-top relative w-full h-full"
+        className="origin-top relative w-full h-full transform-gpu"
         style={{
           scale,
           willChange: "transform",
-          transform: "translateZ(0)",
-          backfaceVisibility: "hidden",
-          WebkitBackfaceVisibility: "hidden",
         }}
       >
         {children}

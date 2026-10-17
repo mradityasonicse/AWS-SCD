@@ -17,7 +17,8 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
   const handleJumpToCard = (id: string) => {
     const el = document.getElementById(`card-${id}`);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const topOffset = el.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: topOffset, behavior: 'smooth' });
     }
   };
 
@@ -33,7 +34,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
             key={member.id}
             type="button"
             onClick={() => handleJumpToCard(member.id)}
-            className="px-3 py-1 rounded-full text-[11px] font-mono border transition-all duration-200 hover:scale-105 cursor-pointer bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-white"
+            className="px-3 py-1 rounded-full text-[11px] font-mono border transition-[transform,background-color,border-color,color] duration-200 ease-out hover:scale-105 active:scale-95 cursor-pointer bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-white transform-gpu"
             style={{
               borderColor: `${member.accentColor}40`,
             }}
@@ -62,7 +63,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
               className="w-full max-w-4xl mx-auto"
             >
               <div
-                className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 overflow-hidden bg-[var(--theme-surface,#1E1E1E)] border-2 transition-all duration-300 group shadow-2xl"
+                className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 overflow-hidden bg-[var(--theme-surface,#1E1E1E)] border-2 transition-[border-color,box-shadow,background-color] duration-300 ease-out group shadow-2xl transform-gpu"
                 style={{
                   borderColor: member.accentColor,
                   boxShadow: `0 0 24px ${member.accentColor}22, 0 20px 40px -15px rgba(0, 0, 0, 0.7)`,

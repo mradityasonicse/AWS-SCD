@@ -110,14 +110,14 @@ const SingleDigitTile: React.FC<SingleDigitTileProps> = ({ digit }) => {
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={digit}
-          initial={{ rotateX: 90, opacity: 0.8, filter: 'brightness(0.95)' }}
-          animate={{ rotateX: 0, opacity: 1, filter: 'brightness(1)' }}
-          exit={{ rotateX: -90, opacity: 0.8, filter: 'brightness(0.85)' }}
+          initial={{ rotateX: 90, opacity: 0.8 }}
+          animate={{ rotateX: 0, opacity: 1 }}
+          exit={{ rotateX: -90, opacity: 0.8 }}
           transition={{
-            duration: 0.38,
+            duration: 0.35,
             ease: [0.25, 1, 0.5, 1],
           }}
-          className="w-full h-full flex items-center justify-center select-none"
+          className="w-full h-full flex items-center justify-center select-none transform-gpu will-change-transform"
           style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}
         >
           <span className="text-white font-black font-sans select-none tracking-tight leading-none text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">

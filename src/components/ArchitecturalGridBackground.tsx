@@ -97,14 +97,15 @@ export const ArchitecturalGridBackground: React.FC = () => {
     let currentY = -1000;
     let isMouseActive = false;
     let isScrolling = false;
-    let scrollTimeoutId: NodeJS.Timeout | null = null;
+    let scrollTimeoutId: number | null = null;
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     const drawFrame = () => {
       // Fast single-blit from cached static grid
       ctx.drawImage(offscreenCanvas, 0, 0, width, height);
 
-      // Interactive Cell Illumination near cursor (only if active)
-      if (isMouseActive && currentX > 0 && currentY > 0 && !isScrolling) {
+      // Interactive Cell Illumination near cursor (only on desktop mouse active)
+      if (!isTouchDevice && isMouseActive && currentX > 0 && currentY > 0 && !isScrolling) {
         const accentRgb = currentColorConfig.rgb;
         const hoverCol = Math.floor(currentX / CELL_SIZE);
         const hoverRow = Math.floor(currentY / CELL_SIZE);
@@ -140,7 +141,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
     };
 
     const animateLoop = () => {
-      if (prefersReducedMotion) return;
+      if (prefersReducedMotion || isTouchDevice) return;
 
       const dx = mouseX - currentX;
       const dy = mouseY - currentY;
@@ -161,12 +162,13 @@ export const ArchitecturalGridBackground: React.FC = () => {
     };
 
     const triggerAnimation = () => {
-      if (animationFrameId === null && !prefersReducedMotion && !isScrolling) {
+      if (!isTouchDevice && animationFrameId === null && !prefersReducedMotion && !isScrolling) {
         animationFrameId = requestAnimationFrame(animateLoop);
       }
     };
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (isTouchDevice) return;
       mouseX = e.clientX;
       mouseY = e.clientY;
       isMouseActive = true;
@@ -174,6 +176,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
     };
 
     const handleMouseLeave = () => {
+      if (isTouchDevice) return;
       mouseX = -1000;
       mouseY = -1000;
       isMouseActive = false;
@@ -186,9 +189,10 @@ export const ArchitecturalGridBackground: React.FC = () => {
 
     // Pause canvas illumination on scroll so the GPU has 100% bandwidth for scrolling
     const handleScroll = () => {
+      if (isTouchDevice) return;
       isScrolling = true;
-      if (scrollTimeoutId) clearTimeout(scrollTimeoutId);
-      scrollTimeoutId = setTimeout(() => {
+      if (scrollTimeoutId !== null) window.clearTimeout(scrollTimeoutId);
+      scrollTimeoutId = window.setTimeout(() => {
         isScrolling = false;
         triggerAnimation();
       }, 120);
@@ -199,16 +203,20 @@ export const ArchitecturalGridBackground: React.FC = () => {
     };
 
     window.addEventListener('resize', handleResize, { passive: true });
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('mouseleave', handleMouseLeave);
+    if (!isTouchDevice) {
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      document.addEventListener('mouseleave', handleMouseLeave);
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      if (scrollTimeoutId) clearTimeout(scrollTimeoutId);
+      if (!isTouchDevice) {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('scroll', handleScroll);
+        document.removeEventListener('mouseleave', handleMouseLeave);
+      }
+      if (scrollTimeoutId !== null) window.clearTimeout(scrollTimeoutId);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, [currentColorConfig, bgMode]);

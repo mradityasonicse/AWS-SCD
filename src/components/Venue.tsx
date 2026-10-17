@@ -187,9 +187,10 @@ export const Venue: React.FC = () => {
                   <iframe
                     title="Rungta International Skills University - Campus Map"
                     src={mapUrl}
-                    className="w-full h-full border-0 transition-all duration-500 scale-105"
+                    className="w-full h-full border-0 transition-all duration-300 scale-105 transform-gpu"
                     style={{
                       filter: mapFilter,
+                      transform: 'translateZ(0)',
                     }}
                     loading="lazy"
                     allowFullScreen

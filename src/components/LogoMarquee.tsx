@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 export const LogoMarquee: React.FC = () => {
   const phraseWords = [
@@ -102,24 +103,38 @@ export const LogoMarquee: React.FC = () => {
       {/* Brand Logos Stream */}
       <div className="flex w-full overflow-hidden">
         <div className="animate-marquee flex items-center gap-6 sm:gap-8 py-2 will-change-transform">
-          {marqueeLogos.map((item, idx) => (
-            <div
-              key={`${item.name}-${idx}`}
-              className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] hover:border-slate-400 shadow-md transition-all duration-300 group shrink-0 relative overflow-hidden"
-            >
-              {/* Top accent highlight on card */}
+          {marqueeLogos.map((item, idx) => {
+            const isMeetup = item.name === 'Meetup';
+            return (
               <div
-                className="absolute top-0 left-0 right-0 h-[2px] opacity-80 group-hover:opacity-100 transition-opacity"
-                style={{ backgroundColor: item.color }}
-              />
-
-              <div className="h-9 w-9 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] flex items-center justify-center p-1.5 shrink-0 group-hover:scale-105 transition-transform">
-                <img
-                  src={item.src}
-                  alt={item.name}
-                  className="max-h-6 max-w-7 object-contain opacity-95 group-hover:opacity-100 transition-opacity"
+                key={`${item.name}-${idx}`}
+                className={cn(
+                  "flex items-center gap-3.5 px-4 py-2.5 rounded-2xl border shadow-md transition-all duration-300 group shrink-0 relative overflow-hidden",
+                  isMeetup
+                    ? "bg-black border-slate-700 hover:border-slate-500 shadow-xl"
+                    : "bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] hover:border-slate-400"
+                )}
+              >
+                {/* Top accent highlight on card */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-[2px] opacity-80 group-hover:opacity-100 transition-opacity"
+                  style={{ backgroundColor: item.color }}
                 />
-              </div>
+
+                <div
+                  className={cn(
+                    "h-9 w-9 rounded-xl border flex items-center justify-center p-1 shrink-0 group-hover:scale-105 transition-transform",
+                    isMeetup
+                      ? "bg-white border-white shadow-md"
+                      : "bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
+                  )}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.name}
+                    className="max-h-6 max-w-7 object-contain opacity-100"
+                  />
+                </div>
 
               <div className="flex flex-col text-left min-w-0">
                 <span className="text-xs font-bold text-white group-hover:text-white transition-colors truncate">
@@ -138,7 +153,8 @@ export const LogoMarquee: React.FC = () => {
                 </span>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </section>

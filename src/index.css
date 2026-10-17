@@ -92,10 +92,9 @@
     scroll-margin-top: 112px;
   }
 
-  /* 120FPS Zero-Lag: Offscreen sections skip unnecessary layout/paint cycles until approached */
-  #about, #tracks, #agenda, #venue, #sponsors, #faq {
-    content-visibility: auto;
-    contain-intrinsic-size: 800px;
+  /* Smooth GPU-Accelerated Hardware Composite on all mobile & desktop viewports */
+  main, section, header, footer {
+    transform: translateZ(0);
   }
 
   body {
@@ -225,6 +224,29 @@
   animation-play-state: paused;
 }
 
+@keyframes speakersSlideTrack {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-speakers-slide {
+  display: flex;
+  width: max-content;
+  animation: speakersSlideTrack 45s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.animate-speakers-slide.is-paused,
+.animate-speakers-slide:hover,
+.animate-speakers-slide:active {
+  animation-play-state: paused !important;
+}
+
 @keyframes auroraA {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(70px, 40px) scale(1.15); }
@@ -266,6 +288,7 @@
   }
   .animate-ticker,
   .animate-marquee,
+  .animate-speakers-slide,
   .animate-aurora-a,
   .animate-aurora-b,
   .animate-aurora-c,

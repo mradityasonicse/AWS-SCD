@@ -128,6 +128,9 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window !== 'undefined' && window.matchMedia && !window.matchMedia('(hover: hover)').matches) {
+      return;
+    }
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
@@ -136,6 +139,9 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   };
 
   const handleMouseEnter = () => {
+    if (typeof window !== 'undefined' && window.matchMedia && !window.matchMedia('(hover: hover)').matches) {
+      return;
+    }
     if (cardRef.current) {
       cardRef.current.style.setProperty('--spotlight-opacity', '1');
     }

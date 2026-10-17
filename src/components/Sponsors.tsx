@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, HeartHandshake } from 'lucide-react';
 import { SPONSORS } from '../data/eventData';
 import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
+import { cn } from '@/lib/utils';
 
 interface SponsorsProps {
   onOpenContact: () => void;
@@ -42,32 +43,59 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
       {/* Primary Key Sponsors Grid */}
       <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 justify-items-center" staggerDelay={0.08}>
         {SPONSORS.map((sponsor, idx) => {
+          const isMeetup = sponsor.name === 'Meetup';
           const badgeColors = [
             '#FF9900', // Title Sponsor (AWS Smile Orange)
             'var(--theme-accent, #AD5CFF)', // Host University (Electric Purple)
             '#42B4FF', // Cloud Blue
             '#00E582', // Cyber Green
           ];
-          const badgeBg = badgeColors[idx % badgeColors.length];
+          const badgeBg = isMeetup ? '#F64060' : badgeColors[idx % badgeColors.length];
 
           return (
             <StaggerItem key={sponsor.name} className="w-full">
-              <SpotlightCard className="w-full h-full p-8 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 shadow-md">
+              <SpotlightCard
+                className={cn(
+                  "w-full h-full p-8 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 shadow-md",
+                  isMeetup && "bg-black/95 border-[#2E2E2E] shadow-2xl"
+                )}
+              >
                 <div className="mb-4">
                   <span
-                    className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full text-[#1E1E1E]"
+                    className={cn(
+                      "inline-block text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full",
+                      isMeetup ? "text-white" : "text-[#1E1E1E]"
+                    )}
                     style={{ backgroundColor: badgeBg }}
                   >
                     {sponsor.category}
                   </span>
                 </div>
 
-                <div className="h-28 w-full rounded-2xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] flex items-center justify-center my-2 p-3">
-                  <img
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    className="max-h-16 max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
-                  />
+                {/* Logo Container: White behind Meetup logo with black on the surrounding sides */}
+                <div
+                  className={cn(
+                    "h-28 w-full rounded-2xl border flex items-center justify-center my-2 p-3 transition-colors",
+                    isMeetup
+                      ? "bg-black border-[#2E2E2E]"
+                      : "bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
+                  )}
+                >
+                  {isMeetup ? (
+                    <div className="bg-white rounded-xl px-5 py-2.5 flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className="max-h-14 max-w-[120px] object-contain drop-shadow-sm"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      className="max-h-16 max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
+                    />
+                  )}
                 </div>
 
                 <div className="mt-4">
