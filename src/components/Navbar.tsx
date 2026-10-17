@@ -48,38 +48,53 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     };
   }, [mobileMenuOpen]);
 
-  // Zero-lag off-thread Scroll Spy using IntersectionObserver (eliminates layout thrashing)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveItem(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: '-90px 0px -55% 0px',
-        threshold: 0.05,
-      }
-    );
-
-    NAV_LINKS.forEach((link) => {
-      const el = document.getElementById(link.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  // RAF-throttled scroll state updater (only triggers re-render when boolean value actually flips)
+  // Ultra-smooth RAF-throttled Scroll Spy & header state updater
+  // Correctly handles scrolling in both directions and guarantees the first item ('about') is active when scrolling back up
   useEffect(() => {
     let rafId: number | null = null;
+
     const handleScroll = () => {
       if (rafId !== null) return;
       rafId = window.requestAnimationFrame(() => {
-        const isScrolled = window.scrollY > 20;
+        const scrollPos = window.scrollY;
+
+        // Toggle header glass styling
+        const isScrolled = scrollPos > 20;
         setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+
+        // When scrolling back towards the top of the page (Hero, Countdown, Marquee, or top of About)
+        // Always reset active item to the FIRST item ('about')
+        const aboutEl = document.getElementById('about');
+        const aboutTop = aboutEl ? aboutEl.getBoundingClientRect().top : 400;
+
+        if (scrollPos < 250 || aboutTop > 140) {
+          setActiveItem('about');
+          rafId = null;
+          return;
+        }
+
+        // When user reaches near the bottom of the page, activate the last nav item ('faq')
+        if (window.innerHeight + scrollPos >= document.documentElement.scrollHeight - 80) {
+          setActiveItem(NAV_LINKS[NAV_LINKS.length - 1].id);
+          rafId = null;
+          return;
+        }
+
+        // Active section detection: find the latest section whose top has reached or passed the header offset
+        const headerOffset = 150;
+        let currentActive = 'about';
+
+        for (let i = 0; i < NAV_LINKS.length; i++) {
+          const el = document.getElementById(NAV_LINKS[i].id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= headerOffset) {
+              currentActive = NAV_LINKS[i].id;
+            }
+          }
+        }
+
+        setActiveItem((prev) => (prev !== currentActive ? currentActive : prev));
         rafId = null;
       });
     };
@@ -179,6 +194,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             href="#"
             onClick={(e) => {
               e.preventDefault();
+              setActiveItem('about');
               window.scrollTo({ top: 0, behavior: 'smooth' });
               window.history.pushState(null, '', '/');
             }}
