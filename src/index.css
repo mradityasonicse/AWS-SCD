@@ -233,14 +233,19 @@
   }
 }
 
+.speakers-slider-track,
 .animate-speakers-slide {
   display: flex;
   width: max-content;
-  animation: speakersSlideTrack 45s linear infinite;
+  animation: speakersSlideTrack 36s linear infinite;
   will-change: transform;
   transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
+.speakers-slider-track.is-paused,
+.speakers-slider-track:hover,
 .animate-speakers-slide.is-paused,
 .animate-speakers-slide:hover,
 .animate-speakers-slide:active {
