@@ -433,7 +433,7 @@ export const SPONSORS: Sponsor[] = [
   },
   {
     name: "Rungta International Skills University",
-    logo: "/rungta-university-logo.jpg",
+    logo: "/rungta-logo.png",
     category: "Academic Host",
     description: "Skill-first university empowering the next generation of cloud architects."
   },

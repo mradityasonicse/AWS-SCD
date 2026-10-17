@@ -46,8 +46,8 @@ export const Footer: React.FC = () => {
               <div className="h-6 w-[1px] bg-[var(--theme-border,#3E3E3E)]" />
               <img src="/AWS_SBG.png" alt="AWS SBG" className="h-7 w-auto object-contain" />
               <div className="h-6 w-[1px] bg-[var(--theme-border,#3E3E3E)]" />
-              <div className="h-8 rounded-lg bg-white px-2 py-1 border border-white/40 flex items-center justify-center shadow-sm">
-                <img src="/rungta-university-logo.jpg" alt="Rungta International Skills University" className="h-full w-auto object-contain" />
+              <div className="h-8 w-8 rounded-lg bg-white p-1 border border-white/40 flex items-center justify-center shadow-sm">
+                <img src="/rungta-logo.png" alt="Rungta International Skills University" className="h-full w-full object-contain" />
               </div>
             </div>
 
@@ -138,8 +138,8 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="rounded-2xl border border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-surface,#1E1E1E)] p-4 space-y-2">
               <div className="flex items-center gap-2.5">
-                <div className="h-8 rounded-lg bg-white px-2 py-1 border border-white/40 flex items-center justify-center shrink-0 shadow-sm">
-                  <img src="/rungta-university-logo.jpg" alt="Rungta International Skills University" className="h-full w-auto object-contain" />
+                <div className="h-8 w-8 rounded-lg bg-white p-1 border border-white/40 flex items-center justify-center shrink-0 shadow-sm">
+                  <img src="/rungta-logo.png" alt="Rungta International Skills University" className="h-full w-full object-contain" />
                 </div>
                 <span className="text-xs font-bold text-white">
                   Rungta International Skills University

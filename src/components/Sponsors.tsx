@@ -85,15 +85,15 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
                 >
                   {isWhiteCard ? (
                     <div className={cn(
-                      "bg-white rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105 overflow-hidden",
-                      isRungta ? "h-[86px] w-[184px]" : "px-5 py-2.5"
+                      "bg-white rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105",
+                      isRungta ? "h-20 w-20 p-2" : "px-5 py-2.5"
                     )}>
                       <img
                         src={sponsor.logo}
                         alt={sponsor.name}
                         className={cn(
                           "object-contain drop-shadow-sm",
-                          isRungta ? "scale-[1.5] max-h-full max-w-full" : "max-h-14 max-w-[120px]"
+                          isRungta ? "h-full w-full" : "max-h-14 max-w-[120px]"
                         )}
                       />
                     </div>

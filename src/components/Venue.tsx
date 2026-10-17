@@ -60,11 +60,11 @@ export const Venue: React.FC = () => {
               >
                 ACADEMIC HOST INSTITUTION
               </span>
-              <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-xl bg-white border border-white/40 mb-3 shadow-md w-fit">
+              <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white border border-white/40 mb-3 shadow-md w-fit">
                 <img
-                  src="/rungta-university-logo.jpg"
+                  src="/rungta-logo.png"
                   alt="Rungta International Skills University"
-                  className="h-7 w-auto object-contain"
+                  className="h-7 w-7 object-contain"
                 />
                 <span className="text-[11px] font-bold text-slate-900 tracking-wider font-mono uppercase">
                   Official Campus Host

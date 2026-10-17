@@ -30,7 +30,7 @@ export const LogoMarquee: React.FC = () => {
     },
     {
       name: 'RISU Bhilai',
-      src: '/rungta-university-logo.jpg',
+      src: '/rungta-logo.png',
       badge: 'Academic Host',
       color: '#C92026',
       bg: 'rgba(201, 32, 38, 0.12)',
@@ -62,7 +62,7 @@ export const LogoMarquee: React.FC = () => {
     },
     {
       name: 'RISU Innovation Cell',
-      src: '/rungta-university-logo.jpg',
+      src: '/rungta-logo.png',
       badge: 'Tech Incubator',
       color: '#C92026',
       bg: 'rgba(201, 32, 38, 0.12)',
@@ -124,21 +124,16 @@ export const LogoMarquee: React.FC = () => {
 
                 <div
                   className={cn(
-                    "h-9 rounded-xl border flex items-center justify-center p-1 shrink-0 group-hover:scale-105 transition-transform",
-                    isRungta
-                      ? "min-w-[46px] bg-white border-white shadow-md px-1.5"
-                      : isMeetup
-                      ? "w-9 bg-white border-white shadow-md"
-                      : "w-9 bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
+                    "h-9 w-9 rounded-xl border flex items-center justify-center p-1 shrink-0 group-hover:scale-105 transition-transform",
+                    isMeetup || isRungta
+                      ? "bg-white border-white shadow-md"
+                      : "bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
                   )}
                 >
                   <img
                     src={item.src}
                     alt={item.name}
-                    className={cn(
-                      "object-contain opacity-100",
-                      isRungta ? "max-h-7 max-w-[42px]" : "max-h-6 max-w-7"
-                    )}
+                    className="max-h-6 max-w-7 object-contain opacity-100"
                   />
                 </div>
 

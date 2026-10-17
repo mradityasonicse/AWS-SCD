@@ -52,11 +52,11 @@ export const Hero: React.FC<HeroProps> = () => {
             color: 'var(--theme-accent, #AD5CFF)',
           }}
         >
-          <div className="h-5 sm:h-5.5 rounded bg-white px-1.5 py-0.5 border border-white/50 flex items-center justify-center shrink-0 shadow-sm">
+          <div className="h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full bg-white p-0.5 border border-white/50 flex items-center justify-center shrink-0 shadow-sm">
             <img
-              src="/rungta-university-logo.jpg"
+              src="/rungta-logo.png"
               alt="Rungta International Skills University"
-              className="h-full w-auto object-contain"
+              className="h-full w-full object-contain"
             />
           </div>
           <span
