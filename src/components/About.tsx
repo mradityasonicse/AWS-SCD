@@ -27,7 +27,7 @@ export const About: React.FC = () => {
               >
                 WHAT IS SCD
               </span>
-              <div className="h-px flex-1 bg-gradient-to-r from-[var(--theme-border,#3E3E3E)] via-[var(--theme-border,#3E3E3E)]/50 to-transparent min-w-[20px]" />
+              <div className="h-px flex-1 bg-gradient-to-r from-[var(--theme-border,#383336)] via-[var(--theme-border,#383336)]/50 to-transparent min-w-[20px]" />
               <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-mono tracking-widest text-slate-400 uppercase shrink-0">
                 <span
                   className="w-1.5 h-1.5 rounded-full"
@@ -38,7 +38,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* Main Title Row with Vertical Balance */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-[var(--theme-border,#3E3E3E)]">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-[var(--theme-border,#383336)]">
               <div className="max-w-3xl overflow-visible pb-1">
                 <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-none">
                   One day to level up as a builder.
@@ -72,7 +72,7 @@ export const About: React.FC = () => {
               <StaggerItem key={pillar.num}>
                 <SpotlightCard
                   borderColor={pColor + '40'}
-                  className="p-7 sm:p-8 h-full transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-md bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)]"
+                  className="p-7 sm:p-8 h-full transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-md bg-[var(--theme-surface,#252324)] border-[var(--theme-border,#383336)]"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">

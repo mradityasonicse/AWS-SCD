@@ -39,12 +39,12 @@
     /* Primary Accent Default & Supporting Tokens */
     --secondary: #AD5CFF;            /* Default Primary Electric Purple */
     --tertiary: #FFD814;             /* Amazon Accent Yellow */
-    --bg-global: #121212;            /* Glossy Jet Black (#121212) */
-    --surface: #1A1A1A;              /* Sleek Elevated Dark Card Surface */
-    --surface-card: #1A1A1A;         /* Elevated Card Surface */
-    --surface-card-hover: #262626;   /* Interactive Card Hover */
-    --border-color: #2E2E2E;         /* Harmonized Neutral Border */
-    --border-strong: #3E3E3E;        /* Strong Border Divider */
+    --bg-global: #110011;            /* Deep High-Gloss Black (#110011) */
+    --surface: #252324;              /* Glossy Black Surface (#252324) */
+    --surface-card: #252324;         /* Glossy Black Card Surface */
+    --surface-card-hover: #2E2A2C;   /* Glossy Card Hover */
+    --border-color: #383336;         /* Glossy Dark Border */
+    --border-strong: #484145;        /* Strong Border Divider */
     --text-primary: #FFFFFF;         /* Crisp White Text */
     --text-secondary: #94A3B8;       /* Legible Slate Text */
     --text-muted: #A3A3A3;           /* Subdued Helper Text */
@@ -54,27 +54,27 @@
     --theme-accent-hover: #BC73FF;
     --theme-accent-rgb: 173, 92, 255;
     --theme-accent-glow: rgba(173, 92, 255, 0.35);
-    --theme-bg: #121212;                  /* Glossy Jet Black (#121212) */
-    --theme-surface: #1A1A1A;
-    --theme-surface-card: #1A1A1A;
-    --theme-surface-elevated: #242424;
-    --theme-border: #2E2E2E;
-    --theme-border-strong: #3E3E3E;
+    --theme-bg: #110011;                  /* Deep High-Gloss Black (#110011) */
+    --theme-surface: #252324;             /* Glossy Black (#252324) */
+    --theme-surface-card: #252324;
+    --theme-surface-elevated: #2E2A2C;
+    --theme-border: #383336;
+    --theme-border-strong: #484145;
     --theme-grid: rgba(255, 255, 255, 0.05);
     --theme-text: #FFFFFF;
     --theme-text-muted: #A3A3A3;
 
     /* Amazon Semantic Tokens Mapping */
-    --amz-nav-dark: #1A1A1A;
-    --amz-nav-secondary: #2E2E2E;
+    --amz-nav-dark: #252324;
+    --amz-nav-secondary: #383336;
     --amz-accent: #FF9900;
     --amz-search: #FEBD69;
     --amz-buy: #FF9900;
     --amz-buy-hover: #FFAC33;
-    --amz-border: #2E2E2E;
-    --bg-dark: #121212;
-    --bg-card: #1A1A1A;
-    --bg-card-hover: #262626;
+    --amz-border: #383336;
+    --bg-dark: #110011;
+    --bg-card: #252324;
+    --bg-card-hover: #2E2A2C;
   }
 
   * {
@@ -92,7 +92,7 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     overflow-x: clip;
-    background-color: var(--theme-bg, #121212);
+    background-color: var(--theme-bg, #110011);
     color-scheme: dark;
   }
 
@@ -106,7 +106,7 @@
   }
 
   body {
-    background-color: var(--theme-bg, #121212);
+    background-color: var(--theme-bg, #110011);
     background-image: 
       radial-gradient(ellipse 90% 60% at 50% 0%, rgba(25, 25, 112, 0.45) 0%, transparent 70%),
       radial-gradient(circle at 85% 40%, rgba(25, 25, 112, 0.25) 0%, transparent 60%);

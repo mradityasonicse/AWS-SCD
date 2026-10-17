@@ -36,16 +36,16 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative border-t border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-bg,#121212)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
+    <footer className="relative border-t border-[var(--theme-border,#383336)] bg-[var(--theme-bg,#110011)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--theme-border,#3E3E3E)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--theme-border,#383336)]">
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img src="/AWS.png" alt="AWS" className="h-8 w-auto object-contain" />
-              <div className="h-6 w-[1px] bg-[var(--theme-border,#3E3E3E)]" />
+              <div className="h-6 w-[1px] bg-[var(--theme-border,#383336)]" />
               <img src="/AWS_SBG.png" alt="AWS SBG" className="h-7 w-auto object-contain" />
-              <div className="h-6 w-[1px] bg-[var(--theme-border,#3E3E3E)]" />
+              <div className="h-6 w-[1px] bg-[var(--theme-border,#383336)]" />
               <div className="h-8 w-8 rounded-lg bg-white p-1 border border-white/40 flex items-center justify-center shadow-sm">
                 <img src="/rungta-logo.png" alt="Rungta International Skills University" className="h-full w-full object-contain" />
               </div>
@@ -136,7 +136,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-black uppercase tracking-widest text-white">
               Academic Host Partner
             </h4>
-            <div className="rounded-2xl border border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-surface,#1E1E1E)] p-4 space-y-2">
+            <div className="rounded-2xl border border-[var(--theme-border,#383336)] bg-[var(--theme-surface,#252324)] p-4 space-y-2">
               <div className="flex items-center gap-2.5">
                 <div className="h-8 w-8 rounded-lg bg-white p-1 border border-white/40 flex items-center justify-center shrink-0 shadow-sm">
                   <img src="/rungta-logo.png" alt="Rungta International Skills University" className="h-full w-full object-contain" />
@@ -168,7 +168,7 @@ export const Footer: React.FC = () => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/50 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+            className="p-2.5 rounded-xl bg-[var(--theme-surface-elevated,#2E2A2C)] border border-[var(--theme-border,#383336)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/50 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />

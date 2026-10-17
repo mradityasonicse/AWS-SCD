@@ -5,9 +5,9 @@ export const Ticker: React.FC = () => {
     <div
       role="region"
       aria-label="Summit announcements"
-      className="z-[110] bg-[var(--theme-surface,#1E1E1E)] border-b border-[var(--theme-border,#3E3E3E)] flex items-center h-9 fixed top-0 left-0 right-0 overflow-hidden text-xs select-none"
+      className="z-[110] bg-[var(--theme-surface,#252324)] border-b border-[var(--theme-border,#383336)] flex items-center h-9 fixed top-0 left-0 right-0 overflow-hidden text-xs select-none"
     >
-      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-[var(--theme-surface,#1E1E1E)] via-transparent to-[var(--theme-surface,#1E1E1E)]" />
+      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-[var(--theme-surface,#252324)] via-transparent to-[var(--theme-surface,#252324)]" />
       
       <div className="animate-ticker flex items-center gap-6 whitespace-nowrap pl-full">
         <span className="flex items-center gap-2 text-slate-300 font-medium tracking-wider uppercase text-[11px]">

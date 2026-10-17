@@ -13,7 +13,7 @@ export const MobileRegisterBar: React.FC<MobileRegisterBarProps> = () => {
       initial={{ y: 80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[var(--theme-bg,#121212)]/95 backdrop-blur-xl border-t border-[var(--theme-border,#3E3E3E)] px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-8px_30px_rgba(0,0,0,0.7)]"
+      className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[var(--theme-bg,#110011)]/95 backdrop-blur-xl border-t border-[var(--theme-border,#383336)] px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-8px_30px_rgba(0,0,0,0.7)]"
     >
       <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
         <div className="flex items-center gap-2.5 min-w-0">

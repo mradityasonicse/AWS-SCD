@@ -182,10 +182,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
         className={cn(
           "max-w-[1380px] w-full mx-auto pointer-events-auto border relative transition-[background-color,border-color,box-shadow,border-radius] duration-200 transform-gpu",
           mobileMenuOpen
-            ? "rounded-2xl bg-[var(--theme-surface,#1E1E1E)] shadow-xl border-[var(--theme-border,#3E3E3E)] py-3 px-5"
+            ? "rounded-2xl bg-[var(--theme-surface,#252324)] shadow-xl border-[var(--theme-border,#383336)] py-3 px-5"
             : scrolled
-              ? "rounded-full bg-[var(--theme-surface,#1E1E1E)]/95 border-[var(--theme-border,#3E3E3E)] shadow-lg py-2 px-4 sm:px-6"
-              : "rounded-full bg-[var(--theme-surface,#1E1E1E)]/90 border-[var(--theme-border,#3E3E3E)] shadow-sm py-2 px-4 sm:px-6"
+              ? "rounded-full bg-[var(--theme-surface,#252324)]/95 border-[var(--theme-border,#383336)] shadow-lg py-2 px-4 sm:px-6"
+              : "rounded-full bg-[var(--theme-surface,#252324)]/90 border-[var(--theme-border,#383336)] shadow-sm py-2 px-4 sm:px-6"
         )}
       >
         <div className="flex items-center justify-between gap-3 sm:gap-4">
@@ -208,7 +208,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                   className="h-full w-full object-contain"
                 />
               </div>
-              <div className="h-5 sm:h-6 w-px bg-[var(--theme-border,#3E3E3E)]" />
+              <div className="h-5 sm:h-6 w-px bg-[var(--theme-border,#383336)]" />
               <img
                 src="/AWS.png"
                 alt="AWS Logo"
@@ -369,7 +369,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 text-slate-300 hover:text-white hover:bg-[var(--theme-surface-elevated,#303030)] active:scale-95 rounded-full transition-all cursor-pointer border border-[var(--theme-border,#3E3E3E)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+              className="lg:hidden p-2.5 text-slate-300 hover:text-white hover:bg-[var(--theme-surface-elevated,#2E2A2C)] active:scale-95 rounded-full transition-all cursor-pointer border border-[var(--theme-border,#383336)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-nav-drawer"
@@ -388,7 +388,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               animate={{ opacity: 1, height: 'auto', y: 0 }}
               exit={{ opacity: 0, height: 0, y: -6 }}
               transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden mt-3 pt-3 border-t border-[var(--theme-border,#3E3E3E)] max-h-[calc(100vh-130px)] overflow-y-auto no-scrollbar"
+              className="lg:hidden mt-3 pt-3 border-t border-[var(--theme-border,#383336)] max-h-[calc(100vh-130px)] overflow-y-auto no-scrollbar"
             >
               <div className="grid grid-cols-2 xs:grid-cols-3 gap-2 text-xs font-semibold py-2">
                 {NAV_LINKS.map((link) => (
@@ -406,7 +406,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                     style={{
                       background:
                         activeItem === link.id
-                          ? "linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(var(--theme-accent-rgb, 173, 92, 255), 0.16) 40%, rgba(30, 30, 30, 0.95) 100%)"
+                          ? "linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(var(--theme-accent-rgb, 173, 92, 255), 0.16) 40%, rgba(37, 35, 36, 0.95) 100%)"
                           : undefined,
                       border: activeItem === link.id ? "1px solid rgba(255, 255, 255, 0.35)" : "1px solid transparent",
                       boxShadow:

@@ -31,8 +31,8 @@ export const App: React.FC = () => {
       <div
         className="relative min-h-screen text-[#F8FAFC] font-sans antialiased overflow-x-clip transition-colors duration-300 pb-16 sm:pb-0"
         style={{
-          backgroundColor: 'var(--theme-bg, #121212)',
-          backgroundImage: 'radial-gradient(ellipse 90% 60% at 50% -10%, rgba(25, 25, 112, 0.5) 0%, transparent 70%)',
+          backgroundColor: 'var(--theme-bg, #110011)',
+          backgroundImage: 'radial-gradient(ellipse 90% 60% at 50% -10%, rgba(25, 25, 112, 0.45) 0%, transparent 75%)',
           color: 'var(--theme-text, #F8FAFC)',
         }}
       >

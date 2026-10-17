@@ -66,7 +66,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
                   <span
                     className={cn(
                       "inline-block text-[11px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full",
-                      isWhiteCard ? "text-white" : "text-[#1E1E1E]"
+                      isWhiteCard ? "text-white" : "text-[#252324]"
                     )}
                     style={{ backgroundColor: badgeBg }}
                   >
@@ -80,7 +80,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
                     "h-28 w-full rounded-2xl border flex items-center justify-center my-2 p-3 transition-colors",
                     isWhiteCard
                       ? "bg-black border-[#2E2E2E]"
-                      : "bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
+                      : "bg-[var(--theme-surface-elevated,#2E2A2C)] border-[var(--theme-border,#383336)]"
                   )}
                 >
                   {isWhiteCard ? (

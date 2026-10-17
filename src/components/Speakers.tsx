@@ -38,10 +38,10 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, total, color 
   return (
     <div
       className={cn(
-        'shrink-0 w-[84vw] max-w-[340px] sm:max-w-none sm:w-[390px] md:w-[420px] rounded-2xl p-4 sm:p-6 border relative overflow-hidden bg-[var(--theme-surface,#1E1E1E)] transition-[transform,border-color,box-shadow] duration-300 ease-out flex flex-col justify-between group shadow-xl hover:-translate-y-1.5 transform-gpu select-none'
+        'shrink-0 w-[84vw] max-w-[340px] sm:max-w-none sm:w-[390px] md:w-[420px] rounded-2xl p-4 sm:p-6 border relative overflow-hidden bg-[var(--theme-surface,#252324)] transition-[transform,border-color,box-shadow] duration-300 ease-out flex flex-col justify-between group shadow-xl hover:-translate-y-1.5 transform-gpu select-none'
       )}
       style={{
-        borderColor: isKeynote ? color : 'var(--theme-border, #3E3E3E)',
+        borderColor: isKeynote ? color : 'var(--theme-border, #383336)',
         boxShadow: isKeynote
           ? `0 12px 32px -8px ${color}33, 0 4px 12px rgba(0, 0, 0, 0.4)`
           : '0 8px 24px rgba(0, 0, 0, 0.35)',
@@ -110,7 +110,7 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, total, color 
         {/* Speaker Header: Image + Name + Designation */}
         <div className="flex items-center gap-3.5 sm:gap-4 mb-3.5">
           <div
-            className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl overflow-hidden border-2 bg-[var(--theme-surface-elevated,#303030)] shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300"
+            className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl overflow-hidden border-2 bg-[var(--theme-surface-elevated,#2E2A2C)] shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300"
             style={{
               borderColor: color,
               boxShadow: `0 0 16px ${color}30`,
@@ -280,8 +280,8 @@ export const Speakers: React.FC = () => {
         {/* 100% Smooth Hardware-Accelerated Continuous Infinite Auto-Slider */}
         <div className="relative w-full overflow-hidden">
           {/* Side Gradient Masks for Seamless Edge Fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-20 bg-gradient-to-r from-[var(--theme-bg,#121212)] to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-20 bg-gradient-to-l from-[var(--theme-bg,#121212)] to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-20 bg-gradient-to-r from-[var(--theme-bg,#110011)] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-20 bg-gradient-to-l from-[var(--theme-bg,#110011)] to-transparent z-20 pointer-events-none" />
 
           {/* Interactive Sliding Track Container */}
           <div

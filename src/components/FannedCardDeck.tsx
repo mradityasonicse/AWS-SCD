@@ -202,7 +202,7 @@ const BuilderBadgeCenterpiece: React.FC<BuilderBadgeProps> = ({ member, isActive
         <div
           className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center font-black text-xl sm:text-2xl overflow-hidden shadow-inner"
           style={{
-            backgroundColor: isActive ? "var(--theme-surface-elevated, #303030)" : "rgba(255, 255, 255, 0.04)",
+            backgroundColor: isActive ? "var(--theme-surface-elevated, #2E2A2C)" : "rgba(255, 255, 255, 0.04)",
             color: isActive ? "#FFFFFF" : "#CBD5E1",
             border: `2px solid ${isActive ? member.accentColor : "rgba(255,255,255,0.12)"}`,
             boxShadow: isActive ? `0 0 14px ${member.accentColor}35` : "none",
@@ -479,7 +479,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className={`relative w-full max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] shadow-2xl p-4 sm:p-8 md:p-10 overflow-hidden flex flex-col items-center select-none ${className}`}
+      className={`relative w-full max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] shadow-2xl p-4 sm:p-8 md:p-10 overflow-hidden flex flex-col items-center select-none ${className}`}
       style={{
         perspective: "1200px",
         touchAction: "pan-y",
@@ -628,8 +628,8 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
               }}
               className={`absolute top-4 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer overflow-hidden ${
                 isActive
-                  ? "bg-[var(--theme-surface,#1E1E1E)] text-white shadow-2xl"
-                  : "bg-[var(--theme-surface-card,#1E1E1E)] text-slate-300 shadow-md border border-[var(--theme-border,#3E3E3E)]/80 hover:border-slate-500"
+                  ? "bg-[var(--theme-surface,#252324)] text-white shadow-2xl"
+                  : "bg-[var(--theme-surface-card,#252324)] text-slate-300 shadow-md border border-[var(--theme-border,#383336)]/80 hover:border-slate-500"
               }`}
             >
               {/* Card Top Row: Badge + Direct LinkedIn Connect */}

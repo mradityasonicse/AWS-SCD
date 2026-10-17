@@ -51,8 +51,8 @@ export const FAQ: React.FC = () => {
               <div
                 className={`rounded-xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? 'bg-[var(--theme-surface-elevated,#303030)] shadow-md'
-                    : 'border-[var(--theme-border,#3E3E3E)] bg-[var(--theme-surface,#1E1E1E)] hover:bg-[var(--theme-surface-elevated,#303030)] shadow-sm'
+                    ? 'bg-[var(--theme-surface-elevated,#2E2A2C)] shadow-md'
+                    : 'border-[var(--theme-border,#383336)] bg-[var(--theme-surface,#252324)] hover:bg-[var(--theme-surface-elevated,#2E2A2C)] shadow-sm'
                 }`}
                 style={{
                   borderColor: isOpen ? 'var(--theme-accent, #AD5CFF)' : undefined,
@@ -77,8 +77,8 @@ export const FAQ: React.FC = () => {
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                     className="w-8 h-8 rounded-full flex items-center justify-center border shrink-0 transition-colors"
                     style={{
-                      backgroundColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)' : 'var(--theme-surface-elevated, #303030)',
-                      borderColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)' : 'var(--theme-border, #3E3E3E)',
+                      backgroundColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)' : 'var(--theme-surface-elevated, #2E2A2C)',
+                      borderColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)' : 'var(--theme-border, #383336)',
                       color: isOpen ? 'var(--theme-accent, #AD5CFF)' : '#94A3B8',
                     }}
                   >
@@ -95,7 +95,7 @@ export const FAQ: React.FC = () => {
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-6 sm:px-6 text-sm text-slate-300 leading-relaxed border-t border-[var(--theme-border,#3E3E3E)]/60 pt-4">
+                      <div className="px-5 pb-6 sm:px-6 text-sm text-slate-300 leading-relaxed border-t border-[var(--theme-border,#383336)]/60 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>

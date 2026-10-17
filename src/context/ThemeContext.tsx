@@ -70,12 +70,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     // Apply background & surface variables
     if (bgMode === 'dark') {
-      root.style.setProperty('--theme-bg', '#121212');
-      root.style.setProperty('--theme-surface', '#1A1A1A');
-      root.style.setProperty('--theme-surface-card', '#1A1A1A');
-      root.style.setProperty('--theme-surface-elevated', '#242424');
-      root.style.setProperty('--theme-border', '#2E2E2E');
-      root.style.setProperty('--theme-border-strong', '#3E3E3E');
+      root.style.setProperty('--theme-bg', '#110011');
+      root.style.setProperty('--theme-surface', '#252324');
+      root.style.setProperty('--theme-surface-card', '#252324');
+      root.style.setProperty('--theme-surface-elevated', '#2E2A2C');
+      root.style.setProperty('--theme-border', '#383336');
+      root.style.setProperty('--theme-border-strong', '#484145');
       root.style.setProperty('--theme-grid', 'rgba(255, 255, 255, 0.05)');
       root.style.setProperty('--theme-text', '#FFFFFF');
       root.style.setProperty('--theme-text-muted', '#A3A3A3');

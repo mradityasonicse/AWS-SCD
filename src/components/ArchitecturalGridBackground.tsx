@@ -38,8 +38,8 @@ export const ArchitecturalGridBackground: React.FC = () => {
 
       const isDark = bgMode === 'dark';
       if (isDark) {
-        // Base deep glossy black #121212
-        offscreenCtx.fillStyle = '#121212';
+        // Base deep glossy black #110011
+        offscreenCtx.fillStyle = '#110011';
         offscreenCtx.fillRect(0, 0, width, height);
 
         // Midnight Blue (#191970) Atmospheric Gradient in Background
@@ -49,7 +49,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
         );
         midnightWash.addColorStop(0, 'rgba(25, 25, 112, 0.65)'); // #191970
         midnightWash.addColorStop(0.5, 'rgba(25, 25, 112, 0.28)');
-        midnightWash.addColorStop(1, 'rgba(18, 18, 18, 0)');
+        midnightWash.addColorStop(1, 'rgba(17, 0, 17, 0)');
         offscreenCtx.fillStyle = midnightWash;
         offscreenCtx.fillRect(0, 0, width, height);
 
@@ -59,7 +59,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
           width * 0.85, height * 0.55, Math.max(width, height) * 0.65
         );
         secondaryWash.addColorStop(0, 'rgba(25, 25, 112, 0.45)');
-        secondaryWash.addColorStop(1, 'rgba(18, 18, 18, 0)');
+        secondaryWash.addColorStop(1, 'rgba(17, 0, 17, 0)');
         offscreenCtx.fillStyle = secondaryWash;
         offscreenCtx.fillRect(0, 0, width, height);
       } else {
@@ -251,7 +251,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
     <div
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
       style={{
-        backgroundColor: 'var(--theme-bg, #121212)',
+        backgroundColor: 'var(--theme-bg, #110011)',
         transform: 'translateZ(0)',
         willChange: 'transform',
       }}

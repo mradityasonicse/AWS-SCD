@@ -34,7 +34,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
             key={member.id}
             type="button"
             onClick={() => handleJumpToCard(member.id)}
-            className="px-3 py-1 rounded-full text-[11px] font-mono border transition-[transform,background-color,border-color,color] duration-200 ease-out hover:scale-105 active:scale-95 cursor-pointer bg-[var(--theme-surface,#1E1E1E)] border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-white transform-gpu"
+            className="px-3 py-1 rounded-full text-[11px] font-mono border transition-[transform,background-color,border-color,color] duration-200 ease-out hover:scale-105 active:scale-95 cursor-pointer bg-[var(--theme-surface,#252324)] border-[var(--theme-border,#383336)] text-slate-300 hover:text-white transform-gpu"
             style={{
               borderColor: `${member.accentColor}40`,
             }}
@@ -63,7 +63,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
               className="w-full max-w-4xl mx-auto"
             >
               <div
-                className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 overflow-hidden bg-[var(--theme-surface,#1E1E1E)] border-2 transition-[border-color,box-shadow,background-color] duration-300 ease-out group shadow-2xl transform-gpu"
+                className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 overflow-hidden bg-[var(--theme-surface,#252324)] border-2 transition-[border-color,box-shadow,background-color] duration-300 ease-out group shadow-2xl transform-gpu"
                 style={{
                   borderColor: member.accentColor,
                   boxShadow: `0 0 24px ${member.accentColor}22, 0 20px 40px -15px rgba(0, 0, 0, 0.7)`,
@@ -86,7 +86,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                 </div>
 
                 {/* Top Tab Bar of the Stacking Pass */}
-                <div className="flex items-center justify-between pb-4 sm:pb-5 border-b border-[var(--theme-border,#3E3E3E)] mb-6 relative z-10">
+                <div className="flex items-center justify-between pb-4 sm:pb-5 border-b border-[var(--theme-border,#383336)] mb-6 relative z-10">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <span
                       className="text-[11px] sm:text-xs font-mono uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full"
@@ -118,7 +118,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                     <div className="relative">
                       {/* Avatar container */}
                       <div
-                        className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-2xl overflow-hidden border-2 flex items-center justify-center shadow-lg relative bg-[var(--theme-surface-elevated,#303030)]"
+                        className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-2xl overflow-hidden border-2 flex items-center justify-center shadow-lg relative bg-[var(--theme-surface-elevated,#2E2A2C)]"
                         style={{
                           borderColor: member.accentColor,
                           boxShadow: `0 0 18px ${member.accentColor}30`,
@@ -145,7 +145,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
 
                         {/* Top spark pip */}
                         <span
-                          className="absolute -top-1 -right-1 w-4 h-4 rounded-full border-2 border-[var(--theme-surface,#1E1E1E)] flex items-center justify-center z-20"
+                          className="absolute -top-1 -right-1 w-4 h-4 rounded-full border-2 border-[var(--theme-surface,#252324)] flex items-center justify-center z-20"
                           style={{ backgroundColor: member.accentColor }}
                         >
                           <Sparkles className="w-2 h-2 text-black" />
@@ -182,7 +182,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl jitter-btn-base jitter-btn-dark text-xs font-bold text-white border border-[var(--theme-border,#3E3E3E)] hover:border-slate-400 transition-all cursor-pointer shadow-sm group/btn"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl jitter-btn-base jitter-btn-dark text-xs font-bold text-white border border-[var(--theme-border,#383336)] hover:border-slate-400 transition-all cursor-pointer shadow-sm group/btn"
                     >
                       <LinkedInIcon className="w-3.5 h-3.5 fill-current text-[#42B4FF]" />
                       <span>Connect On LinkedIn</span>
@@ -216,7 +216,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                         {member.scope.map((tag) => (
                           <span
                             key={tag}
-                            className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[var(--theme-surface-elevated,#303030)] text-slate-200 border border-[var(--theme-border,#3E3E3E)] hover:border-slate-500 transition-colors"
+                            className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-[var(--theme-surface-elevated,#2E2A2C)] text-slate-200 border border-[var(--theme-border,#383336)] hover:border-slate-500 transition-colors"
                           >
                             {tag}
                           </span>
@@ -225,7 +225,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                     </div>
 
                     {/* Hardware Telemetry Bottom Bar */}
-                    <div className="pt-4 border-t border-[var(--theme-border,#3E3E3E)] flex items-center justify-between text-[10px] font-mono text-slate-400">
+                    <div className="pt-4 border-t border-[var(--theme-border,#383336)] flex items-center justify-between text-[10px] font-mono text-slate-400">
                       <span className="flex items-center gap-1">
                         <MapPin className="w-3 h-3 text-[#AD5CFF] shrink-0" />
                         <span>Rungta International Skills University, Bhilai · Central India</span>

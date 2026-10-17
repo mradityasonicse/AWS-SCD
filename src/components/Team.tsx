@@ -14,7 +14,7 @@ const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3
 const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
   return (
     <div
-      className="relative rounded-2xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] p-5 flex flex-col justify-between hover:border-slate-500 transition-[transform,border-color,box-shadow] duration-300 ease-out group hover:-translate-y-1.5 shadow-lg overflow-hidden transform-gpu"
+      className="relative rounded-2xl bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] p-5 flex flex-col justify-between hover:border-slate-500 transition-[transform,border-color,box-shadow] duration-300 ease-out group hover:-translate-y-1.5 shadow-lg overflow-hidden transform-gpu"
       style={{
         boxShadow: `0 8px 24px rgba(0, 0, 0, 0.4)`,
       }}
@@ -45,7 +45,7 @@ const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
           className="relative w-14 h-14 rounded-xl flex items-center justify-center font-bold text-xl overflow-hidden shrink-0 border-2"
           style={{
             borderColor: member.accentColor,
-            backgroundColor: 'var(--theme-surface-elevated, #303030)',
+            backgroundColor: 'var(--theme-surface-elevated, #2E2A2C)',
             boxShadow: `0 0 12px ${member.accentColor}25`,
           }}
         >
@@ -164,7 +164,7 @@ export const Team: React.FC = () => {
               </p>
 
               {/* View Mode Toggle: Stacking Cards vs Responsive Grid */}
-              <div className="inline-flex items-center p-1 rounded-xl bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] shrink-0 self-start sm:self-auto shadow-sm">
+              <div className="inline-flex items-center p-1 rounded-xl bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] shrink-0 self-start sm:self-auto shadow-sm">
                 <button
                   type="button"
                   onClick={() => setViewMode('stack')}

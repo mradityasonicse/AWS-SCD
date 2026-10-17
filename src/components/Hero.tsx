@@ -131,7 +131,7 @@ export const Hero: React.FC<HeroProps> = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-[var(--theme-surface,#1E1E1E)] border border-[var(--theme-border,#3E3E3E)] rounded-xl p-2 sm:p-2.5 mb-6 sm:mb-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-5 shadow-sm w-full sm:w-auto"
+          className="bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] rounded-xl p-2 sm:p-2.5 mb-6 sm:mb-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-5 shadow-sm w-full sm:w-auto"
         >
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
             <Calendar className="w-4 h-4 text-[#42B4FF] shrink-0" />
@@ -140,7 +140,7 @@ export const Hero: React.FC<HeroProps> = () => {
               <span className="poster-date-venue text-white font-bold">21 Oct 2026</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#3E3E3E)]" />
+          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#383336)]" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
             <Users className="w-4 h-4 shrink-0" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
@@ -149,7 +149,7 @@ export const Hero: React.FC<HeroProps> = () => {
               <span className="poster-date-venue text-white font-bold">550+ Builders</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#3E3E3E)]" />
+          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#383336)]" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
             <MapPin className="w-4 h-4 text-[#00E582] shrink-0" />
@@ -158,7 +158,7 @@ export const Hero: React.FC<HeroProps> = () => {
               <span className="poster-date-venue text-white font-bold">Rungta International Skills University, Bhilai</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#3E3E3E)]" />
+          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#383336)]" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
             <Gift className="w-4 h-4 text-[#FFD814] shrink-0" />
