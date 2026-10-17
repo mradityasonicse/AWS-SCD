@@ -37,9 +37,35 @@ export const ArchitecturalGridBackground: React.FC = () => {
       offscreenCtx.scale(dpr, dpr);
 
       const isDark = bgMode === 'dark';
-      // Fill background
-      offscreenCtx.fillStyle = isDark ? '#121212' : '#FFFFFF';
-      offscreenCtx.fillRect(0, 0, width, height);
+      if (isDark) {
+        // Base deep glossy black #121212
+        offscreenCtx.fillStyle = '#121212';
+        offscreenCtx.fillRect(0, 0, width, height);
+
+        // Midnight Blue (#191970) Atmospheric Gradient in Background
+        const midnightWash = offscreenCtx.createRadialGradient(
+          width * 0.5, 0, 0,
+          width * 0.5, 0, Math.max(width, height) * 0.9
+        );
+        midnightWash.addColorStop(0, 'rgba(25, 25, 112, 0.65)'); // #191970
+        midnightWash.addColorStop(0.5, 'rgba(25, 25, 112, 0.28)');
+        midnightWash.addColorStop(1, 'rgba(18, 18, 18, 0)');
+        offscreenCtx.fillStyle = midnightWash;
+        offscreenCtx.fillRect(0, 0, width, height);
+
+        // Lower right secondary Midnight Blue (#191970) ambient depth
+        const secondaryWash = offscreenCtx.createRadialGradient(
+          width * 0.85, height * 0.55, 0,
+          width * 0.85, height * 0.55, Math.max(width, height) * 0.65
+        );
+        secondaryWash.addColorStop(0, 'rgba(25, 25, 112, 0.45)');
+        secondaryWash.addColorStop(1, 'rgba(18, 18, 18, 0)');
+        offscreenCtx.fillStyle = secondaryWash;
+        offscreenCtx.fillRect(0, 0, width, height);
+      } else {
+        offscreenCtx.fillStyle = '#FFFFFF';
+        offscreenCtx.fillRect(0, 0, width, height);
+      }
 
       const gridColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.07)';
       const crosshairColor = isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.18)';
@@ -231,6 +257,23 @@ export const ArchitecturalGridBackground: React.FC = () => {
       }}
     >
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+      {/* Midnight Blue (#191970) Atmospheric Aurora Overlays */}
+      {bgMode === 'dark' && (
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div
+            className="absolute -top-32 left-1/2 -translate-x-1/2 w-[92vw] max-w-[1250px] h-[650px] rounded-full blur-[140px] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(25, 25, 112, 0.55) 0%, rgba(25, 25, 112, 0.2) 50%, transparent 75%)' }}
+          />
+          <div
+            className="absolute top-1/3 -right-24 w-[650px] h-[650px] rounded-full blur-[150px] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(25, 25, 112, 0.4) 0%, transparent 70%)' }}
+          />
+          <div
+            className="absolute -bottom-32 left-10 w-[700px] h-[700px] rounded-full blur-[160px] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(25, 25, 112, 0.35) 0%, transparent 70%)' }}
+          />
+        </div>
+      )}
     </div>
   );
 };

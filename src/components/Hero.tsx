@@ -32,6 +32,11 @@ export const Hero: React.FC<HeroProps> = () => {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Subtle architectural grid lines */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:48px_48px] opacity-40" />
+        {/* Midnight Blue (#191970) Cosmic Atmospheric Glow */}
+        <div 
+          className="absolute -top-24 left-1/2 -translate-x-1/2 w-[88vw] max-w-[1150px] h-[550px] rounded-full blur-[140px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(25, 25, 112, 0.5) 0%, rgba(25, 25, 112, 0.2) 50%, transparent 75%)' }}
+        />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center w-full">
