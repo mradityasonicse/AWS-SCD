@@ -11,12 +11,16 @@
 
 @layer base {
   :root {
-    /* AWS Dark Design System Palette */
-    --primary: #FF9900;              /* AWS Signature Smile Orange (Kept strictly intact) */
-    --primary-hover: #FFAC33;        /* Warm amber hover */
-    --primary-active: #E68A00;       /* Deep active orange */
+    /* Primary AWS Student Builder Group Brand Palette */
+    --primary: #AD5CFF;              /* Electric Purple (#AD5CFF) Primary */
+    --primary-hover: #BC73FF;        /* Vibrant purple hover */
+    --primary-active: #9B3BEA;       /* Deep active purple */
+    --primary-rgb: 173, 92, 255;
+    --primary-glow: rgba(173, 92, 255, 0.35);
 
     /* Secondary Color Palette (Reference Image: Blue, Pink, Green, Orange, Purple) */
+    --secondary-purple: #AD5CFF;
+    --secondary-purple-rgb: 173, 92, 255;
     --secondary-blue: #42B4FF;
     --secondary-blue-rgb: 66, 180, 255;
     --secondary-pink: #FF57EA;
@@ -25,11 +29,9 @@
     --secondary-green-rgb: 0, 229, 130;
     --secondary-orange: #FF9900;
     --secondary-orange-rgb: 255, 153, 0;
-    --secondary-purple: #AD5CFF;
-    --secondary-purple-rgb: 173, 92, 255;
 
-    /* Secondary Accent Default & Supporting Tokens */
-    --secondary: #42B4FF;            /* Default secondary cloud blue */
+    /* Primary Accent Default & Supporting Tokens */
+    --secondary: #AD5CFF;            /* Default Primary Electric Purple */
     --tertiary: #FFD814;             /* Amazon Accent Yellow */
     --bg-global: #121212;            /* Glossy Jet Black (#121212) */
     --surface: #1A1A1A;              /* Sleek Elevated Dark Card Surface */

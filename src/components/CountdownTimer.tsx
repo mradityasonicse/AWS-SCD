@@ -507,9 +507,9 @@ export const CountdownTimer: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-[var(--theme-surface-elevated,#303030)] border border-[#FF9900] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-2"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-accent,#AD5CFF)] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-2"
           >
-            <Check className="w-4 h-4 text-[#FF9900]" />
+            <Check className="w-4 h-4 text-[var(--theme-accent,#AD5CFF)]" />
             <span>Event invite &amp; date copied to clipboard!</span>
           </motion.div>
         )}

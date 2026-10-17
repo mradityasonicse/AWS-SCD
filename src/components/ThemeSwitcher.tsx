@@ -151,7 +151,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
               <div className="mb-6">
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-xs font-bold text-slate-300 tracking-wide">
-                    Secondary color
+                    Primary brand accent
                   </label>
                   <span
                     className="text-[11px] font-mono font-bold uppercase tracking-wider"

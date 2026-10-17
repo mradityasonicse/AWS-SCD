@@ -201,7 +201,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             </div>
             <div className="flex flex-col">
               <span className="font-extrabold text-xs sm:text-sm md:text-base tracking-tight text-white flex items-center gap-1">
-                AWS SCD <span className="text-[#FF9900] font-serif italic text-xs sm:text-base">2026</span>
+                AWS SCD <span className="font-serif italic text-xs sm:text-base" style={{ color: 'var(--theme-accent, #AD5CFF)' }}>2026</span>
               </span>
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest font-mono hidden md:inline">
                 {EVENT_DETAILS.institutionAcronym} · Central India
@@ -358,7 +358,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-nav-drawer"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-[#FF9900]" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[var(--theme-accent,#AD5CFF)]" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>

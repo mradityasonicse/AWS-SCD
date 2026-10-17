@@ -58,7 +58,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const root = document.documentElement;
     const config = SECONDARY_COLORS[secondaryColor];
 
-    // Apply secondary accent variables
+    // Apply primary & accent variables
+    root.style.setProperty('--primary', config.hex);
+    root.style.setProperty('--primary-hover', config.hoverHex);
+    root.style.setProperty('--primary-rgb', config.rgb);
+    root.style.setProperty('--primary-glow', config.glow);
     root.style.setProperty('--theme-accent', config.hex);
     root.style.setProperty('--theme-accent-hover', config.hoverHex);
     root.style.setProperty('--theme-accent-rgb', config.rgb);

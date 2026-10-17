@@ -117,7 +117,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
       <ScrollReveal delay={0.15}>
         <SpotlightCard className="p-8 sm:p-12 relative overflow-hidden text-center max-w-3xl mx-auto shadow-xl border-[var(--theme-border,#3E3E3E)]">
           <div className="relative z-10 flex flex-col items-center">
-            <div className="w-12 h-12 rounded-xl bg-[#FF9900]/10 border border-[#FF9900]/30 flex items-center justify-center mb-5 text-[#FF9900]">
+            <div className="w-12 h-12 rounded-xl bg-[var(--theme-accent,#AD5CFF)]/10 border border-[var(--theme-accent,#AD5CFF)]/30 flex items-center justify-center mb-5 text-[var(--theme-accent,#AD5CFF)]">
               <HeartHandshake className="w-6 h-6" />
             </div>
 
@@ -130,7 +130,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
 
             <button
               onClick={onOpenContact}
-              className="jitter-btn-base jitter-btn-orange font-bold text-sm px-8 py-3.5 flex items-center gap-2 cursor-pointer"
+              className="jitter-btn-base jitter-btn-register font-bold text-sm px-8 py-3.5 flex items-center gap-2 cursor-pointer"
             >
               <Mail className="w-4 h-4 stroke-[2.5]" />
               <span>Request Sponsor Prospectus</span>

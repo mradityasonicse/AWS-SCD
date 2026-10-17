@@ -11,19 +11,19 @@ export const Ticker: React.FC = () => {
       
       <div className="animate-ticker flex items-center gap-6 whitespace-nowrap pl-full">
         <span className="flex items-center gap-2 text-slate-300 font-medium tracking-wider uppercase text-[11px]">
-          <span className="bg-[#FF9900] text-[#1E1E1E] font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
-            <span className="w-1.5 h-1.5 bg-[#1E1E1E] rounded-full" />
+          <span className="bg-[var(--theme-accent,#AD5CFF)] text-white font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
+            <span className="w-1.5 h-1.5 bg-white rounded-full" />
             SUMMIT 2026
           </span>
           AWS STUDENT COMMUNITY DAY
         </span>
-        <span className="text-[#FF9900] text-[10px]">✦</span>
+        <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
           HOSTED BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>AWS SBG RISU</strong> · RUNGTA INTERNATIONAL SKILLS UNIVERSITY, BHILAI
         </span>
         <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          KEYNOTES BY <strong className="text-[#FF9900]">PRAFUL BAGAI</strong> (HEAD OF DEVREL AWS) &amp; <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>JESSICA GILMORE</strong> (AMAZON)
+          KEYNOTES BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>PRAFUL BAGAI</strong> (HEAD OF DEVREL AWS) &amp; <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>JESSICA GILMORE</strong> (AMAZON)
         </span>
         <span className="text-[#42B4FF] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
@@ -38,23 +38,23 @@ export const Ticker: React.FC = () => {
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
           CENTRAL INDIA'S PREMIER STUDENT GATHERING · 500+ BUILDERS
         </span>
-        <span className="text-[#FF9900] text-[10px]">✦</span>
+        <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
 
         {/* Duplicate loop sequence for seamless loop */}
         <span className="flex items-center gap-2 text-slate-300 font-medium tracking-wider uppercase text-[11px]">
-          <span className="bg-[#FF9900] text-[#1E1E1E] font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
-            <span className="w-1.5 h-1.5 bg-[#1E1E1E] rounded-full" />
+          <span className="bg-[var(--theme-accent,#AD5CFF)] text-white font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
+            <span className="w-1.5 h-1.5 bg-white rounded-full" />
             SUMMIT 2026
           </span>
           AWS STUDENT COMMUNITY DAY
         </span>
-        <span className="text-[#FF9900] text-[10px]">✦</span>
+        <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
           HOSTED BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>AWS SBG RISU</strong> · RUNGTA INTERNATIONAL SKILLS UNIVERSITY, BHILAI
         </span>
         <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          KEYNOTES BY <strong className="text-[#FF9900]">PRAFUL BAGAI</strong> (HEAD OF DEVREL AWS) &amp; <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>JESSICA GILMORE</strong> (AMAZON)
+          KEYNOTES BY <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>PRAFUL BAGAI</strong> (HEAD OF DEVREL AWS) &amp; <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>JESSICA GILMORE</strong> (AMAZON)
         </span>
         <span className="text-[#42B4FF] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
