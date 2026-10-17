@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-hero: "Zing Rust", "Bebas Neue", Anton, sans-serif;
   --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -102,7 +104,7 @@
   body {
     background-color: var(--theme-bg, #121212);
     color: var(--theme-text, #F8FAFC);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-secondary, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
     letter-spacing: -0.01em;
     overflow-x: clip;
     -webkit-font-smoothing: antialiased;
@@ -110,9 +112,18 @@
     touch-action: manipulation;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Primary Headings: Space Grotesk */
+  h1, h2 {
+    font-family: var(--font-primary, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
     letter-spacing: -0.02em;
+    font-weight: 700;
+    color: var(--theme-text, #FFFFFF);
+  }
+
+  /* Secondary Headings, Subtitles, Card Titles: Inter */
+  h3, h4, h5, h6 {
+    font-family: var(--font-secondary, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+    letter-spacing: -0.015em;
     font-weight: 700;
     color: var(--theme-text, #FFFFFF);
   }
@@ -127,26 +138,36 @@
   scrollbar-width: none;
 }
 
-/* Typography Stack: Sora (Hero 800) + Space Grotesk (Headings 700) + Inter (Body 400-500) + IBM Plex Mono (500) */
+/* Typography Stack: Hero (Anton/Bebas) + Primary Display (Space Grotesk) + Second Font (Inter) + Technical (IBM Plex Mono) */
 .font-hero {
   font-family: var(--font-hero);
   font-weight: 800;
   letter-spacing: -0.025em;
 }
 
+.font-primary {
+  font-family: var(--font-primary, 'Space Grotesk', sans-serif);
+  letter-spacing: -0.02em;
+}
+
 .font-heading {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-primary, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
   letter-spacing: -0.02em;
   font-weight: 700;
 }
 
+.font-secondary {
+  font-family: var(--font-secondary, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  letter-spacing: -0.01em;
+}
+
 .font-display {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-primary, 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif);
   font-weight: 700;
 }
 
 .font-mono {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
   font-weight: 500;
 }
 
@@ -361,7 +382,7 @@ body,
 }
 
 .poster-secondary-headline {
-  font-family: var(--font-heading);
+  font-family: var(--font-secondary);
   font-weight: 700;
   font-size: clamp(1.1rem, 2.2vw, 2rem);
   line-height: 1.2;
@@ -370,22 +391,22 @@ body,
 }
 
 .poster-subheading {
-  font-family: var(--font-heading);
-  font-weight: 700;
+  font-family: var(--font-secondary);
+  font-weight: 600;
   font-size: clamp(1.25rem, 2.1vw, 2.25rem);
   line-height: 1.35;
   letter-spacing: -0.01em;
 }
 
 .poster-description {
-  font-family: var(--font-sans);
+  font-family: var(--font-secondary);
   font-weight: 400;
   font-size: clamp(1.05rem, 1.35vw, 1.5rem);
   line-height: 1.62;
 }
 
 .poster-cta-btn {
-  font-family: var(--font-sans);
+  font-family: var(--font-secondary);
   font-weight: 700;
   font-size: clamp(0.95rem, 1.15vw, 1.25rem);
 }

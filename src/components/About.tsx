@@ -54,7 +54,7 @@ export const About: React.FC = () => {
         {/* Lead Narrative */}
         <ScrollReveal delay={0.1}>
           <p className="text-white text-lg sm:text-2xl font-semibold leading-relaxed max-w-4xl mb-12">
-            Student Community Day 2026 brings together <strong className="text-[#FF9900]">550+ students</strong>, AWS Community leaders, AWS DevRel leadership, and the next wave of cloud architects for one full day of high-signal learning at <strong className="text-slate-100">Rungta International Skills University</strong>.
+            Student Community Day 2026 brings together <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>550+ students</strong>, AWS Community leaders, AWS DevRel leadership, and the next wave of cloud architects for one full day of high-signal learning at <strong className="text-slate-100">Rungta International Skills University</strong>.
           </p>
         </ScrollReveal>
 
