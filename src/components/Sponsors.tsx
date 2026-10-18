@@ -54,7 +54,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               />
 
               <SpotlightCard
-                className="relative w-full p-8 sm:p-12 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 bg-black/95 border border-[#2E2E2E] group-hover:border-[#FF9900]/40 shadow-2xl rounded-3xl"
+                className="relative w-full p-8 sm:p-12 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10 group-hover:border-[#FF9900]/40 shadow-2xl rounded-3xl"
               >
                 {/* Category Badge */}
                 <div className="mb-6">
@@ -66,7 +66,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
 
                 {/* Logo Showcase Container */}
                 <div
-                  className="h-36 sm:h-44 w-full rounded-2xl border border-[#2E2E2E] bg-black/90 flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:border-[#FF9900]/30 group-hover:bg-black shadow-inner relative overflow-hidden my-2"
+                  className="h-36 sm:h-44 w-full rounded-2xl border border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:border-[#FF9900]/30 shadow-inner relative overflow-hidden my-2"
                 >
                   <div
                     className="absolute inset-0 opacity-20 pointer-events-none"
@@ -105,7 +105,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
 
       {/* Sponsor Invitation Card */}
       <ScrollReveal delay={0.15}>
-        <SpotlightCard className="p-8 sm:p-12 relative overflow-hidden text-center max-w-3xl mx-auto shadow-xl border-[var(--theme-border,#3E3E3E)]">
+        <SpotlightCard className="p-8 sm:p-12 relative overflow-hidden text-center max-w-3xl mx-auto shadow-xl bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10">
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-12 h-12 rounded-xl bg-[var(--theme-accent,#AD5CFF)]/10 border border-[var(--theme-accent,#AD5CFF)]/30 flex items-center justify-center mb-5 text-[var(--theme-accent,#AD5CFF)]">
               <HeartHandshake className="w-6 h-6" />

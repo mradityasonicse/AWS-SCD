@@ -24,20 +24,24 @@
     --bg-global: #100B2E;            /* Deep Indigo (#100B2E) */
     --theme-bg: #100B2E;             /* Deep Indigo (#100B2E) */
     --bg-dark: #100B2E;
-    --surface: #17113A;              /* Deep Indigo Surface */
-    --surface-card: #17113A;
-    --surface-card-hover: #1E164A;   /* Indigo Surface Hover */
-    --theme-surface: #17113A;
-    --theme-surface-card: #17113A;
-    --theme-surface-elevated: #1E164A;
-    --border-color: #2D2364;         /* Cool Indigo Border */
-    --border-strong: #3D3082;
-    --theme-border: #2D2364;
-    --theme-border-strong: #3D3082;
+    --surface: rgba(255, 255, 255, 0.08);              /* Glass Surface */
+    --surface-card: rgba(255, 255, 255, 0.08);         /* Glass Card */
+    --surface-card-hover: rgba(255, 255, 255, 0.14);   /* Glass Surface Hover */
+    --theme-surface: rgba(255, 255, 255, 0.08);        /* Glass Surface */
+    --theme-surface-card: rgba(255, 255, 255, 0.08);   /* Glass Card */
+    --theme-surface-elevated: rgba(255, 255, 255, 0.12); /* Glass Elevated */
+    --border-color: rgba(255, 255, 255, 0.12);         /* Glass Border */
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --theme-border: rgba(255, 255, 255, 0.12);         /* Glass Border */
+    --theme-border-strong: rgba(255, 255, 255, 0.22);
     --theme-grid: rgba(255, 255, 255, 0.04);
     --text-primary: #F8FAFC;         /* Crisp White/Slate */
     --text-secondary: #CBD5E1;       /* Cool Gray */
     --text-muted: #94A3B8;           /* Subdued Cool Gray */
+
+    /* Glass Effect Tokens */
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-backdrop: blur(16px);
 
     /* AWS Student Builder Group Theme Tokens */
     --theme-accent: #A855F7;         /* Violet (#A855F7) */
@@ -51,9 +55,9 @@
     --amz-nav-dark: #17113A;
     --amz-nav-secondary: #2D2364;
     --amz-accent: #A855F7;
-    --amz-border: #2D2364;
-    --bg-card: #17113A;
-    --bg-card-hover: #1E164A;
+    --amz-border: rgba(255, 255, 255, 0.12);
+    --bg-card: rgba(255, 255, 255, 0.08);
+    --bg-card-hover: rgba(255, 255, 255, 0.14);
   }
 
   * {
@@ -177,14 +181,23 @@
   transform: translateY(0);
 }
 
+/* Glass Card Effect System */
+.glass-card,
+[data-glass="true"] {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 /* AWS Card Hover Elevation */
 .amz-card-hover {
-  border-color: #232F3E;
+  border-color: rgba(255, 255, 255, 0.12);
   transition: all 0.2s ease;
 }
 
 .amz-card-hover:hover {
-  border-color: #37475A;
+  border-color: rgba(255, 255, 255, 0.24);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 

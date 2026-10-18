@@ -63,8 +63,11 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
               className="w-full max-w-4xl mx-auto"
             >
               <div
-                className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 overflow-hidden bg-[var(--theme-surface,#252324)] border-2 transition-[border-color,box-shadow,background-color] duration-300 ease-out group shadow-2xl transform-gpu"
+                className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 overflow-hidden bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border-2 transition-[border-color,box-shadow,background-color] duration-300 ease-out group shadow-2xl transform-gpu"
                 style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
                   borderColor: member.accentColor,
                   boxShadow: `0 0 24px ${member.accentColor}22, 0 20px 40px -15px rgba(0, 0, 0, 0.7)`,
                 }}

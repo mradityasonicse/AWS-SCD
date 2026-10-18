@@ -49,13 +49,16 @@ export const FAQ: React.FC = () => {
           return (
             <ScrollReveal key={index} delay={index * 0.04}>
               <div
-                className={`rounded-xl border transition-all duration-300 overflow-hidden ${
+                className={`rounded-xl border transition-all duration-300 overflow-hidden backdrop-blur-[16px] ${
                   isOpen
-                    ? 'bg-[var(--theme-surface-elevated,#2E2A2C)] shadow-md'
-                    : 'border-[var(--theme-border,#383336)] bg-[var(--theme-surface,#252324)] hover:bg-[var(--theme-surface-elevated,#2E2A2C)] shadow-sm'
+                    ? 'bg-white/[0.14] shadow-md border-[var(--theme-accent,#AD5CFF)]'
+                    : 'border-white/10 bg-[rgba(255,255,255,0.08)] hover:bg-white/[0.12] shadow-sm'
                 }`}
                 style={{
-                  borderColor: isOpen ? 'var(--theme-accent, #AD5CFF)' : undefined,
+                  backgroundColor: isOpen ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  borderColor: isOpen ? 'var(--theme-accent, #AD5CFF)' : 'rgba(255, 255, 255, 0.12)',
                 }}
               >
                 <button

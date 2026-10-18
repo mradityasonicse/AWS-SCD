@@ -231,7 +231,7 @@ export const Agenda: React.FC = () => {
                       <SpotlightCard
                         spotlightColor={`${sessionColor}25`}
                         borderColor={`${sessionColor}35`}
-                        className="p-5 sm:p-7 transition-all duration-200 hover:translate-x-1 shadow-md bg-[var(--theme-surface,#252324)] border-[var(--theme-border,#383336)] relative overflow-hidden"
+                        className="p-5 sm:p-7 transition-all duration-200 hover:translate-x-1 shadow-md bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border-white/10 relative overflow-hidden"
                       >
                         {/* Top subtle highlight */}
                         <div

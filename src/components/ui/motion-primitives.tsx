@@ -160,12 +160,14 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        'relative rounded-xl sm:rounded-2xl border border-[#232F3E] bg-[#131921] overflow-hidden transition-all duration-300 hover:border-[#37475A] group',
+        'relative rounded-xl sm:rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 group backdrop-blur-[16px]',
         className
       )}
       style={{
-        backgroundColor: 'var(--theme-surface-card, #131921)',
-        borderColor: 'var(--theme-border, #232F3E)',
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderColor: 'var(--theme-border, rgba(255, 255, 255, 0.12))',
         ['--spotlight-opacity' as any]: '0',
         ['--spotlight-x' as any]: '-1000px',
         ['--spotlight-y' as any]: '-1000px',

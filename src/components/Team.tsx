@@ -14,8 +14,11 @@ const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3
 const TeamGridCard: React.FC<{ member: TeamOrganizer }> = ({ member }) => {
   return (
     <div
-      className="relative rounded-2xl bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] p-5 flex flex-col justify-between hover:border-slate-500 transition-[transform,border-color,box-shadow] duration-300 ease-out group hover:-translate-y-1.5 shadow-lg overflow-hidden transform-gpu"
+      className="relative rounded-2xl bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10 p-5 flex flex-col justify-between hover:border-white/30 transition-[transform,border-color,box-shadow] duration-300 ease-out group hover:-translate-y-1.5 shadow-lg overflow-hidden transform-gpu"
       style={{
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
         boxShadow: `0 8px 24px rgba(0, 0, 0, 0.4)`,
       }}
     >

@@ -38,10 +38,13 @@ const SpeakerCard: React.FC<SpeakerCardProps> = ({ speaker, index, total, color 
   return (
     <div
       className={cn(
-        'shrink-0 w-[84vw] max-w-[340px] sm:max-w-none sm:w-[390px] md:w-[420px] rounded-2xl p-4 sm:p-6 border relative overflow-hidden bg-[var(--theme-surface,#252324)] transition-[transform,border-color,box-shadow] duration-300 ease-out flex flex-col justify-between group shadow-xl hover:-translate-y-1.5 transform-gpu select-none'
+        'shrink-0 w-[84vw] max-w-[340px] sm:max-w-none sm:w-[390px] md:w-[420px] rounded-2xl p-4 sm:p-6 border relative overflow-hidden bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] transition-[transform,border-color,box-shadow] duration-300 ease-out flex flex-col justify-between group shadow-xl hover:-translate-y-1.5 transform-gpu select-none'
       )}
       style={{
-        borderColor: isKeynote ? color : 'var(--theme-border, #383336)',
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderColor: isKeynote ? color : 'rgba(255, 255, 255, 0.12)',
         boxShadow: isKeynote
           ? `0 12px 32px -8px ${color}33, 0 4px 12px rgba(0, 0, 0, 0.4)`
           : '0 8px 24px rgba(0, 0, 0, 0.35)',

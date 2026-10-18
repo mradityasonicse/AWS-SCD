@@ -130,8 +130,8 @@ export const Venue: React.FC = () => {
           {/* Right Map & Campus Preview (7 cols) */}
           <div className="lg:col-span-7">
             <ScrollReveal delay={0.15}>
-              <div className="rounded-3xl bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] shadow-2xl overflow-hidden flex flex-col">
-                <div className="p-3.5 sm:p-4 bg-[var(--theme-surface-elevated,#2E2A2C)] border-b border-[var(--theme-border,#383336)] flex flex-wrap items-center justify-between gap-3">
+              <div className="rounded-3xl bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10 shadow-2xl overflow-hidden flex flex-col">
+                <div className="p-3.5 sm:p-4 bg-white/5 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-400" />
                     <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-400" />
@@ -142,7 +142,7 @@ export const Venue: React.FC = () => {
                   </div>
 
                   {/* Dark Mode Switcher: Dark Satellite vs Dark Blueprint */}
-                  <div className="flex items-center gap-1.5 bg-[var(--theme-surface,#252324)] p-1 rounded-xl border border-[var(--theme-border,#383336)]">
+                  <div className="flex items-center gap-1.5 bg-white/5 p-1 rounded-xl border border-white/10">
                     <button
                       type="button"
                       onClick={() => setMapMode('satellite')}

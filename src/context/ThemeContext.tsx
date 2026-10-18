@@ -70,15 +70,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     // Apply background & surface variables
     if (bgMode === 'dark') {
-      root.style.setProperty('--theme-bg', '#110011');
-      root.style.setProperty('--theme-surface', '#252324');
-      root.style.setProperty('--theme-surface-card', '#252324');
-      root.style.setProperty('--theme-surface-elevated', '#2E2A2C');
-      root.style.setProperty('--theme-border', '#383336');
-      root.style.setProperty('--theme-border-strong', '#484145');
-      root.style.setProperty('--theme-grid', 'rgba(255, 255, 255, 0.05)');
-      root.style.setProperty('--theme-text', '#FFFFFF');
-      root.style.setProperty('--theme-text-muted', '#A3A3A3');
+      root.style.setProperty('--theme-bg', '#100B2E');
+      root.style.setProperty('--theme-surface', 'rgba(255, 255, 255, 0.08)');
+      root.style.setProperty('--theme-surface-card', 'rgba(255, 255, 255, 0.08)');
+      root.style.setProperty('--theme-surface-elevated', 'rgba(255, 255, 255, 0.12)');
+      root.style.setProperty('--theme-border', 'rgba(255, 255, 255, 0.12)');
+      root.style.setProperty('--theme-border-strong', 'rgba(255, 255, 255, 0.22)');
+      root.style.setProperty('--theme-grid', 'rgba(255, 255, 255, 0.04)');
+      root.style.setProperty('--theme-text', '#F8FAFC');
+      root.style.setProperty('--theme-text-muted', '#94A3B8');
       root.classList.remove('light');
       root.classList.add('dark');
     } else {

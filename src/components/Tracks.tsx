@@ -67,7 +67,7 @@ export const Tracks: React.FC = () => {
                 <SpotlightCard
                   spotlightColor={cfg.glow}
                   borderColor={cfg.color + '40'}
-                  className="h-full p-7 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5 bg-[var(--theme-surface,#252324)] border-[var(--theme-border,#383336)] group"
+                  className="h-full p-7 flex flex-col justify-between shadow-md transition-all duration-300 hover:-translate-y-1.5 bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border-white/10 group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
@@ -78,7 +78,7 @@ export const Tracks: React.FC = () => {
                         {track.num}
                       </span>
                       <div
-                        className="p-2.5 rounded-xl bg-[var(--theme-surface-elevated,#2E2A2C)] border transition-all group-hover:scale-110"
+                        className="p-2.5 rounded-xl bg-white/10 backdrop-blur-md border transition-all group-hover:scale-110"
                         style={{ borderColor: cfg.color + '40' }}
                       >
                         {getIcon(track.icon)}
@@ -93,11 +93,11 @@ export const Tracks: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-[var(--theme-border,#383336)] flex flex-wrap gap-1.5">
+                  <div className="pt-4 border-t border-white/10 flex flex-wrap gap-1.5">
                     {track.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-[var(--theme-surface-elevated,#2E2A2C)] text-slate-300 border border-[var(--theme-border,#383336)] group-hover:border-slate-500 transition-colors"
+                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-white/10 text-slate-300 border border-white/10 group-hover:border-slate-400 transition-colors"
                       >
                         {tag}
                       </span>

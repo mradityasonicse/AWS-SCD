@@ -72,7 +72,7 @@ export const About: React.FC = () => {
               <StaggerItem key={pillar.num}>
                 <SpotlightCard
                   borderColor={pColor + '40'}
-                  className="p-7 sm:p-8 h-full transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-md bg-[var(--theme-surface,#252324)] border-[var(--theme-border,#383336)]"
+                  className="p-7 sm:p-8 h-full transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-md bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border-white/10"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">

@@ -134,7 +134,7 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-black uppercase tracking-widest text-white">
               Academic Host Partner
             </h4>
-            <div className="rounded-2xl border border-[var(--theme-border,#383336)] bg-[var(--theme-surface,#252324)] p-4 space-y-2">
+            <div className="rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] p-4 space-y-2">
               <div className="flex items-center gap-2.5">
                 <div className="h-8 w-8 rounded-lg bg-white p-1 border border-white/40 flex items-center justify-center shrink-0 shadow-sm">
                   <img src="/rungta-logo.png" alt="Rungta International Skills University" className="h-full w-full object-contain" />
