@@ -20,46 +20,25 @@ export const Venue: React.FC = () => {
   return (
     <section className="py-24 relative overflow-hidden px-4 sm:px-6" id="venue">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header with [ 05 ] Index */}
-        <ScrollReveal>
-          <div className="border-b border-[var(--theme-border,#383336)] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
-            <div className="flex items-baseline gap-4 sm:gap-6">
-              <span
-                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
-                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-              >
-                [ 05 ]
-              </span>
-              <div>
-                <p
-                  className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
-                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-                >
-                  <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
-                  Event Campus
-                </p>
-                <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
-                  Hosted at Rungta International Skills University, Bhilai.
-                </h2>
-              </div>
-            </div>
-            <p className="text-slate-400 text-xs sm:text-sm max-w-sm font-mono uppercase tracking-wider">
-              RUNGTA KNOWLEDGE CITY · KOHKA-KURUD ROAD, BHILAI
-            </p>
-          </div>
-        </ScrollReveal>
-
         {/* Venue Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Details (5 cols) */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             <ScrollReveal delay={0.1}>
-              <span
-                className="text-xs font-mono font-bold uppercase tracking-wider block mb-1"
-                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-              >
-                ACADEMIC HOST INSTITUTION
-              </span>
+              <div className="flex items-center gap-3 mb-2">
+                <span
+                  className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-md border border-[var(--theme-accent,#AD5CFF)]/40 bg-[var(--theme-accent,#AD5CFF)]/10"
+                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                >
+                  [ 05 ] EVENT CAMPUS
+                </span>
+                <span
+                  className="text-xs font-mono font-bold uppercase tracking-wider block"
+                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                >
+                  ACADEMIC HOST INSTITUTION
+                </span>
+              </div>
               <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white border border-white/40 mb-3 shadow-md w-fit">
                 <img
                   src="/rungta-logo.png"
