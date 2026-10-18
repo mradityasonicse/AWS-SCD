@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef, useId, useCallback } from 'react';
-import { Calendar, Sparkles, Check, Download, Volume2, VolumeX, Share2, MapPin, ChevronDown } from 'lucide-react';
+import React, { useState, useEffect, useRef, useId } from 'react';
+import { Calendar, Check, Download, Share2, MapPin, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import confetti from 'canvas-confetti';
 import { EVENT_DETAILS } from '../data/eventData';
 
 interface TimeLeft {
@@ -142,49 +141,13 @@ export const CountdownTimer: React.FC = () => {
     isExpired: false,
   });
 
-  const [soundEnabled, setSoundEnabled] = useState(false);
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [copiedToast, setCopiedToast] = useState(false);
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const prevSecondsRef = useRef<number>(-1);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const dropdownId = useId();
 
   // Target event date: 21 October 2026, 08:00 AM IST
   const targetDateStr = EVENT_DETAILS.isoDate || '2026-10-21T08:00:00+05:30';
-
-  // Play synthesized crisp split-flap mechanical click tick
-  const playMechanicalTick = useCallback(() => {
-    if (!soundEnabled) return;
-    try {
-      if (!audioCtxRef.current) {
-        const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-        audioCtxRef.current = new AudioCtx();
-      }
-      if (audioCtxRef.current.state === 'suspended') {
-        audioCtxRef.current.resume();
-      }
-
-      const ctx = audioCtxRef.current;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(1400, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(320, ctx.currentTime + 0.035);
-
-      gain.gain.setValueAtTime(0.045, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.035);
-
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start();
-      osc.stop(ctx.currentTime + 0.04);
-    } catch {
-      // AudioContext not allowed or not supported; ignore gracefully
-    }
-  }, [soundEnabled]);
 
   useEffect(() => {
     const target = new Date(targetDateStr).getTime();
@@ -210,12 +173,6 @@ export const CountdownTimer: React.FC = () => {
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      // Play tick sound when seconds change
-      if (prevSecondsRef.current !== -1 && prevSecondsRef.current !== seconds) {
-        playMechanicalTick();
-      }
-      prevSecondsRef.current = seconds;
-
       setTimeLeft({
         days,
         hours,
@@ -229,7 +186,7 @@ export const CountdownTimer: React.FC = () => {
     calculateTime();
     const interval = setInterval(calculateTime, 1000);
     return () => clearInterval(interval);
-  }, [targetDateStr, playMechanicalTick]);
+  }, [targetDateStr]);
 
   // Close calendar dropdown when clicking outside
   useEffect(() => {
@@ -242,22 +199,6 @@ export const CountdownTimer: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Confetti celebration on badge click
-  const triggerCelebration = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (rect.left + rect.width / 2) / window.innerWidth;
-    const y = (rect.top + rect.height / 2) / window.innerHeight;
-
-    confetti({
-      particleCount: 65,
-      spread: 70,
-      origin: { x, y },
-      colors: ['#FF9900', '#42B4FF', '#FF57EA', '#00E582', '#AD5CFF', '#FFFFFF'],
-      ticks: 240,
-      gravity: 1.1,
-      scalar: 1,
-    });
-  };
 
   // Google Calendar URL
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
@@ -317,68 +258,6 @@ export const CountdownTimer: React.FC = () => {
     <div className="w-full max-w-4xl mx-auto mb-6 sm:mb-8 select-none">
       {/* Technical Countdown Chassis */}
       <div className="relative rounded-2xl bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] p-4 sm:p-7 md:p-8 shadow-xl">
-        {/* Top Telemetry Strip */}
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-[var(--theme-border,#383336)]">
-          {/* Left: Live Status Beacon */}
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            <span className="font-mono text-[11px] sm:text-xs font-bold tracking-wider text-slate-300 uppercase flex items-center gap-1.5">
-              <span style={{ color: 'var(--theme-accent, #AD5CFF)' }}>LIVE TELEMETRY</span>
-              <span className="text-slate-600">/</span>
-              <span>COUNTDOWN TO SUMMIT</span>
-            </span>
-          </div>
-
-          {/* Right: Sound FX & Date Stamp Pill */}
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setSoundEnabled((prev) => !prev)}
-              title={soundEnabled ? 'Mute mechanical tick' : 'Enable mechanical audio feedback'}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold transition-all border"
-              style={
-                soundEnabled
-                  ? {
-                      backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)',
-                      color: 'var(--theme-accent, #AD5CFF)',
-                      borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)',
-                    }
-                  : {
-                      backgroundColor: 'var(--theme-surface-elevated, #303030)',
-                      color: '#94A3B8',
-                      borderColor: 'var(--theme-border, #3E3E3E)',
-                    }
-              }
-            >
-              {soundEnabled ? (
-                <>
-                  <Volume2 className="w-3.5 h-3.5" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
-                  <span className="hidden xs:inline">AUDIO ON</span>
-                </>
-              ) : (
-                <>
-                  <VolumeX className="w-3.5 h-3.5 text-slate-500" />
-                  <span className="hidden xs:inline">AUDIO OFF</span>
-                </>
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={triggerCelebration}
-              title="Tap for builder burst"
-              className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold border transition-all hover:scale-105 active:scale-95 cursor-pointer"
-              style={{
-                backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 12%, transparent)',
-                color: 'var(--theme-accent, #AD5CFF)',
-                borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 30%, transparent)',
-              }}
-            >
-              <Sparkles className="w-3 h-3" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
-              <span className="hidden xs:inline">BURST</span>
-            </button>
-          </div>
-        </div>
 
         {/* Centerpiece: Mechanical Split-Flap Countdown Units with glowing colon separators */}
         <div className="relative z-10 flex items-start justify-center gap-1 xs:gap-1.5 sm:gap-3 md:gap-5 lg:gap-6 my-3 sm:my-5">
