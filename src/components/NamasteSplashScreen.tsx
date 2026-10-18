@@ -22,10 +22,10 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
     // Lock body scroll while splash screen is active
     document.body.style.overflow = 'hidden';
 
-    // Auto dismiss after 2.6s for a punchy, elegant introduction
+    // Auto dismiss after 3.4s for a complete, cinematic video introduction
     const timer = setTimeout(() => {
       handleDismiss();
-    }, 2600);
+    }, 3400);
 
     // Keyboard listener (Escape / Space / Enter skips splash immediately)
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -107,25 +107,21 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
               }}
             />
 
-            {/* Futuristic Tech Core Graphic */}
+            {/* Creation of Adam Digital ASCII Hands Video Animation */}
             <motion.div
-              initial={{ opacity: 0, y: 25, scale: 0.88 }}
-              animate={{
-                opacity: 1,
-                y: [0, -6, 0],
-                scale: 1,
-              }}
-              transition={{
-                opacity: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
-                scale: { duration: 0.75, ease: [0.16, 1, 0.3, 1] },
-                y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-              }}
-              className="relative mb-5 flex items-center justify-center"
+              initial={{ opacity: 0, y: 20, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="relative mb-6 flex items-center justify-center w-full max-w-[420px] sm:max-w-[480px] rounded-2xl overflow-hidden border border-[#A855F7]/30 bg-black/60 shadow-[0_0_50px_rgba(168,85,247,0.3)]"
             >
-              <img
-                src="/tech-cloud-core.png"
-                alt="AWS Cloud & AI Technology Core"
-                className="w-56 sm:w-68 md:w-76 max-h-[300px] h-auto object-contain drop-shadow-[0_10px_40px_rgba(173,92,255,0.45)] transition-transform duration-300 hover:scale-[1.03]"
+              <video
+                src="/intro-video.mp4"
+                autoPlay
+                muted
+                playsInline
+                loop
+                preload="auto"
+                className="w-full h-auto object-cover rounded-2xl"
               />
             </motion.div>
 
@@ -133,10 +129,10 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.2 rounded-full border border-[var(--theme-accent,#AD5CFF)]/35 bg-[var(--theme-accent,#AD5CFF)]/10 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[#AD5CFF] mb-3 shadow-[0_0_18px_rgba(173,92,255,0.3)] backdrop-blur-sm"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.2 rounded-full border border-[#A855F7]/35 bg-[#A855F7]/10 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[#A855F7] mb-3 shadow-[0_0_18px_rgba(168,85,247,0.25)] backdrop-blur-sm"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#AD5CFF]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#A855F7]" />
               <span>CENTRAL INDIA WELCOMES YOU</span>
             </motion.div>
 
@@ -144,17 +140,18 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
             <motion.h1
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight uppercase"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '0.02em' }}
             >
-              AWS STUDENT COMMUNITY DAY <span style={{ color: 'var(--theme-accent, #AD5CFF)' }}>2026</span>
+              AWS STUDENT COMMUNITY DAY <span style={{ color: '#A855F7' }}>2026</span>
             </motion.h1>
 
             {/* Sub-label */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               className="text-xs sm:text-sm text-slate-300 font-medium mt-1.5 mb-7 max-w-md"
             >
               Rungta International Skills University · Bhilai, Chhattisgarh
@@ -170,12 +167,12 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
               <motion.div
                 initial={{ width: '0%' }}
                 animate={{ width: '100%' }}
-                transition={{ duration: 2.2, ease: 'easeInOut' }}
+                transition={{ duration: 3.0, ease: 'easeInOut' }}
                 className="h-full rounded-full"
                 style={{
                   background:
-                    'linear-gradient(90deg, #AD5CFF 0%, #FF57EA 50%, #42B4FF 100%)',
-                  boxShadow: '0 0 12px rgba(173, 92, 255, 0.85)',
+                    'linear-gradient(90deg, #30206B 0%, #A855F7 60%, #C084FC 100%)',
+                  boxShadow: '0 0 12px rgba(168, 85, 247, 0.85)',
                 }}
               />
             </motion.div>
