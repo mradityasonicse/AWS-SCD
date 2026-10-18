@@ -1,18 +1,138 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Menu, X, ArrowUpRight, Info, Layers, Users, Calendar, MapPin, HeartHandshake, HelpCircle } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ChevronUp,
+  Search,
+  ArrowUpRight,
+  Layers,
+  Calendar,
+  Users,
+  MapPin,
+  Sparkles,
+  HelpCircle,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { EVENT_DETAILS } from '../data/eventData';
 import { cn } from '@/lib/utils';
 
-const NAV_LINKS = [
-  { id: 'about', name: 'About', href: '#about', icon: Info },
-  { id: 'tracks', name: 'Tracks', href: '#tracks', icon: Layers },
-  { id: 'speakers', name: 'Speakers', href: '#speakers', icon: Users },
-  { id: 'agenda', name: 'Agenda', href: '#agenda', icon: Calendar },
-  { id: 'venue', name: 'Venue', href: '#venue', icon: MapPin },
-  { id: 'team', name: 'Team', href: '#team', icon: HeartHandshake },
-  { id: 'faq', name: 'FAQ', href: '#faq', icon: HelpCircle },
-] as const;
+interface NavCategory {
+  id: string;
+  name: string;
+  hasDropdown: boolean;
+  leftPanel: {
+    title: string;
+    description: string;
+    ctaText: string;
+    ctaHref: string;
+  };
+  numberedLinks: Array<{
+    num: string;
+    title: string;
+    href: string;
+    tag?: string;
+  }>;
+  rightCard: {
+    image: string;
+    title: string;
+    ctaText: string;
+    ctaHref: string;
+  };
+}
+
+const NAV_CATEGORIES: NavCategory[] = [
+  {
+    id: 'tracks',
+    name: 'TRACKS',
+    hasDropdown: true,
+    leftPanel: {
+      title: 'FIND THE PERFECT TRACK FOR YOUR CLOUD JOURNEY',
+      description: 'Explore 4 high-impact learning tracks curated by AWS DevRel leadership, featuring GenAI on Bedrock, hyperscale serverless, and cloud career blueprints.',
+      ctaText: 'EXPLORE TRACKS',
+      ctaHref: '#tracks',
+    },
+    numberedLinks: [
+      { num: '01', title: 'GENERATIVE AI & AMAZON BEDROCK', href: '#tracks' },
+      { num: '02', title: 'HYPERSCALE SERVERLESS ARCHITECTURES', href: '#tracks' },
+      { num: '03', title: 'ENTERPRISE DEVSECOPS & AUTOMATION', href: '#tracks' },
+      { num: '04', title: 'STUDENT CLOUD BUILDER PATHWAYS', href: '#tracks' },
+      { num: '05', title: 'VIEW ALL LEARNING TRACKS', href: '#tracks' },
+    ],
+    rightCard: {
+      image: '/summit-stage-feature.jpg',
+      title: "DISCOVER WHAT 550+ BUILDERS ARE SHAPING",
+      ctaText: 'VIEW SESSIONS',
+      ctaHref: '#agenda',
+    },
+  },
+  {
+    id: 'sessions',
+    name: 'SESSIONS',
+    hasDropdown: true,
+    leftPanel: {
+      title: 'A FULL DAY OF LIVE TALKS & KEYNOTES',
+      description: "7 hours of technical sessions, architectural deep dives, Praful Bagai's DevRel address, and live stage Kahoot quizzes hosted at RISU Bhilai.",
+      ctaText: 'EXPLORE SCHEDULE',
+      ctaHref: '#agenda',
+    },
+    numberedLinks: [
+      { num: '01', title: '09:00 AM · REGISTRATION & BREAKFAST', href: '#agenda' },
+      { num: '02', title: '10:00 AM · AWS DEVREL KEYNOTE', href: '#agenda' },
+      { num: '03', title: '11:30 AM · GENAI TECHNICAL LAB', href: '#agenda' },
+      { num: '04', title: '01:00 PM · LUNCH & BUILDER EXPO', href: '#agenda' },
+      { num: '05', title: '03:30 PM · LIVE KAHOOT QUIZ & PRIZES', href: '#agenda' },
+    ],
+    rightCard: {
+      image: '/summit-stage-feature.jpg',
+      title: '12+ TECHNICAL SESSIONS & STAGE DEMOS',
+      ctaText: 'FULL TIMETABLE',
+      ctaHref: '#agenda',
+    },
+  },
+  {
+    id: 'about',
+    name: 'ABOUT US',
+    hasDropdown: true,
+    leftPanel: {
+      title: "CENTRAL INDIA'S FLAGSHIP AWS STUDENT SUMMIT",
+      description: 'Organized by AWS Student Builder Group at Rungta International Skills University, bringing together student builders, architects, and cloud leaders.',
+      ctaText: 'ABOUT SUMMIT',
+      ctaHref: '#about',
+    },
+    numberedLinks: [
+      { num: '01', title: 'SUMMIT MISSION & CAMPUS VISION', href: '#about' },
+      { num: '02', title: 'CAMPUS VENUE & TRAVEL GUIDE', href: '#venue' },
+      { num: '03', title: 'CORE STUDENT ORGANIZING TEAM', href: '#team' },
+      { num: '04', title: 'ECOSYSTEM SPONSORS & PARTNERS', href: '#sponsors' },
+      { num: '05', title: 'FREQUENTLY ASKED QUESTIONS', href: '#faq' },
+    ],
+    rightCard: {
+      image: '/summit-stage-feature.jpg',
+      title: 'RUNGTA KNOWLEDGE CITY · BHILAI CAMPUS',
+      ctaText: 'CAMPUS VENUE',
+      ctaHref: '#venue',
+    },
+  },
+  {
+    id: 'speakers',
+    name: 'SPEAKERS',
+    hasDropdown: false,
+    leftPanel: {
+      title: 'WORLD-CLASS CLOUD ARCHITECTS & HEROES',
+      description: 'Learn directly from industry leaders including Praful Bagai (Head of DevRel AWS) and Jessica Gilmore, EdD (Amazon).',
+      ctaText: 'VIEW SPEAKERS',
+      ctaHref: '#speakers',
+    },
+    numberedLinks: [],
+    rightCard: {
+      image: '/summit-stage-feature.jpg',
+      title: 'MEET THE SUMMIT KEYNOTE LEADERS',
+      ctaText: 'ALL SPEAKERS',
+      ctaHref: '#speakers',
+    },
+  },
+];
 
 export interface NavbarProps {
   onOpenRegister?: () => void;
@@ -20,131 +140,88 @@ export interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState('about');
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [mobileExpandedTab, setMobileExpandedTab] = useState<string | null>('tracks');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Close mobile drawer on Escape key press
+  // Focus search input when search modal opens
   useEffect(() => {
-    if (!mobileMenuOpen) return;
+    if (searchOpen) {
+      setTimeout(() => searchInputRef.current?.focus(), 100);
+    } else {
+      setSearchQuery('');
+    }
+  }, [searchOpen]);
+
+  // Handle scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 15);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Keyboard shortcut: Escape closes dropdown / search; Cmd/Ctrl+K opens search
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
+        setOpenDropdown(null);
+        setSearchOpen(false);
         setMobileMenuOpen(false);
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mobileMenuOpen]);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [mobileMenuOpen]);
-
-  // Ultra-smooth RAF-throttled Scroll Spy & header state updater
-  // Correctly handles scrolling in both directions and guarantees the first item ('about') is active when scrolling back up
-  useEffect(() => {
-    let rafId: number | null = null;
-
-    const handleScroll = () => {
-      if (rafId !== null) return;
-      rafId = window.requestAnimationFrame(() => {
-        const scrollPos = window.scrollY;
-
-        // Toggle header glass styling
-        const isScrolled = scrollPos > 20;
-        setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
-
-        // When scrolling back towards the top of the page (Hero, Countdown, Marquee, or top of About)
-        // Always reset active item to the FIRST item ('about')
-        const aboutEl = document.getElementById('about');
-        const aboutTop = aboutEl ? aboutEl.getBoundingClientRect().top : 400;
-
-        if (scrollPos < 250 || aboutTop > 140) {
-          setActiveItem('about');
-          rafId = null;
-          return;
-        }
-
-        // When user reaches near the bottom of the page, activate the last nav item ('faq')
-        if (window.innerHeight + scrollPos >= document.documentElement.scrollHeight - 80) {
-          setActiveItem(NAV_LINKS[NAV_LINKS.length - 1].id);
-          rafId = null;
-          return;
-        }
-
-        // Active section detection: find the latest section whose top has reached or passed the header offset
-        const headerOffset = 150;
-        let currentActive = 'about';
-
-        for (let i = 0; i < NAV_LINKS.length; i++) {
-          const el = document.getElementById(NAV_LINKS[i].id);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= headerOffset) {
-              currentActive = NAV_LINKS[i].id;
-            }
-          }
-        }
-
-        setActiveItem((prev) => (prev !== currentActive ? currentActive : prev));
-        rafId = null;
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => {
-      if (rafId !== null) window.cancelAnimationFrame(rafId);
-      window.removeEventListener('scroll', handleScroll);
-    };
   }, []);
 
-  // Smooth scroll click handler with header offset calculation and mobile touch resilience
-  const handleNavClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
-      e.preventDefault();
-      setActiveItem(id);
-      setMobileMenuOpen(false);
+  // Smooth scroll handler
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setOpenDropdown(null);
+    setMobileMenuOpen(false);
+    setSearchOpen(false);
 
-      const targetId = href.replace('#', '');
-      if (!targetId) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        window.history.pushState(null, '', '/');
-        return;
-      }
+    const targetId = href.replace('#', '');
+    if (!targetId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.pushState(null, '', '/');
+      return;
+    }
 
-      // Small delay allows mobile touch gesture release and drawer collapse to start
-      // so browser does not cancel smooth scroll due to gesture collision or layout change
-      setTimeout(() => {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          const yOffset = -90; // Height of ticker (36px) + floating nav (48px) + breathing room
-          const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
-
-          window.scrollTo({
-            top: Math.max(0, y),
-            behavior: 'smooth',
-          });
-
-          window.history.pushState(null, '', href);
-        }
-      }, 80);
-    },
-    []
-  );
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const yOffset = -90;
+      const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      window.history.pushState(null, '', href);
+    }
+  }, []);
 
   const handleRegisterClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setOpenDropdown(null);
     setMobileMenuOpen(false);
     if (EVENT_DETAILS.registrationUrl && EVENT_DETAILS.registrationUrl.startsWith('http')) {
-      // Direct navigation to official Meetup registration link
       return;
     }
     e.preventDefault();
@@ -159,56 +236,59 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     }
   };
 
-  return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className={cn(
-        "fixed top-9 left-0 right-0 z-[100] px-3 sm:px-6 py-2 transform-gpu will-change-transform",
-        mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
-      )}
-    >
-      {/* Mobile background backdrop dismiss */}
-      {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-xs z-[-1] lg:hidden pointer-events-auto cursor-pointer"
-          onClick={() => setMobileMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
+  const activeCategory = NAV_CATEGORIES.find((cat) => cat.id === openDropdown);
 
-      <div
+  // Search items database for search modal
+  const SEARCH_ITEMS = [
+    { title: 'Generative AI & Amazon Bedrock Track', category: 'Tracks', href: '#tracks', icon: Layers },
+    { title: 'Hyperscale Serverless Architectures Track', category: 'Tracks', href: '#tracks', icon: Layers },
+    { title: 'DevSecOps & Cloud Security Track', category: 'Tracks', href: '#tracks', icon: Layers },
+    { title: 'Praful Bagai (Head of DevRel AWS)', category: 'Speakers', href: '#speakers', icon: Users },
+    { title: 'Jessica Gilmore, EdD (Amazon)', category: 'Speakers', href: '#speakers', icon: Users },
+    { title: 'All Technical Sessions & Agenda', category: 'Agenda', href: '#agenda', icon: Calendar },
+    { title: 'Live Stage Kahoot Quiz & Prizes', category: 'Events', href: '#agenda', icon: Sparkles },
+    { title: 'Rungta International Skills University Campus Venue', category: 'Venue', href: '#venue', icon: MapPin },
+    { title: 'Ecosystem Sponsors & Tech Partners', category: 'Sponsors', href: '#sponsors', icon: Users },
+    { title: 'Frequently Asked Questions (FAQ)', category: 'Support', href: '#faq', icon: HelpCircle },
+  ];
+
+  const filteredSearchItems = searchQuery.trim()
+    ? SEARCH_ITEMS.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()) || item.category.toLowerCase().includes(searchQuery.toLowerCase()))
+    : SEARCH_ITEMS.slice(0, 6);
+
+  return (
+    <>
+      <header
+        ref={navRef}
         className={cn(
-          "max-w-[1380px] w-full mx-auto pointer-events-auto border relative transition-[background-color,border-color,box-shadow,border-radius] duration-200 transform-gpu",
-          mobileMenuOpen
-            ? "rounded-2xl bg-[var(--theme-surface,#252324)] shadow-xl border-[var(--theme-border,#383336)] py-3 px-5"
-            : scrolled
-              ? "rounded-full bg-[var(--theme-surface,#252324)]/95 border-[var(--theme-border,#383336)] shadow-lg py-2 px-4 sm:px-6"
-              : "rounded-full bg-[var(--theme-surface,#252324)]/90 border-[var(--theme-border,#383336)] shadow-sm py-2 px-4 sm:px-6"
+          "fixed top-9 left-0 right-0 z-[100] transition-[background-color,border-color,box-shadow] duration-200 select-none",
+          scrolled || openDropdown
+            ? "bg-[#100B2E]/95 backdrop-blur-md border-b border-[#2D2364] shadow-xl shadow-black/40"
+            : "bg-[#100B2E]/90 backdrop-blur-sm border-b border-[#2D2364]/70"
         )}
+        onMouseLeave={() => setOpenDropdown(null)}
       >
-        <div className="flex items-center justify-between gap-3 sm:gap-4">
-          {/* Brand logos */}
+        {/* Main Navbar Top Bar */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-4">
+          {/* Left: Brand Identity Logo */}
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              setActiveItem('about');
               window.scrollTo({ top: 0, behavior: 'smooth' });
               window.history.pushState(null, '', '/');
             }}
-            className="flex items-center gap-3 group shrink-0"
+            className="flex items-center gap-3 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A855F7] rounded-lg p-1 -m-1"
           >
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-white p-1 border border-white/40 flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#AD5CFF]/60 group-hover:shadow-[0_0_12px_rgba(173,92,255,0.3)]">
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-white p-1 border border-white/50 flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#A855F7] group-hover:shadow-[0_0_12px_rgba(168,85,247,0.4)]">
                 <img
                   src="/rungta-logo.png"
                   alt="Rungta International Skills University"
                   className="h-full w-full object-contain"
                 />
               </div>
-              <div className="h-5 sm:h-6 w-px bg-[var(--theme-border,#383336)]" />
+              <div className="h-5 sm:h-6 w-px bg-[#2D2364]" />
               <img
                 src="/AWS.png"
                 alt="AWS Logo"
@@ -216,233 +296,340 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-xs sm:text-sm md:text-base tracking-tight text-white flex items-center gap-1">
-                AWS SCD <span className="font-serif italic text-xs sm:text-base" style={{ color: 'var(--theme-accent, #AD5CFF)' }}>2026</span>
+              <span className="font-extrabold text-sm sm:text-base tracking-tight text-white flex items-center gap-1 leading-tight font-sans">
+                AWS SCD <span className="italic font-serif text-sm sm:text-base text-[#A855F7]">2026</span>
               </span>
-              <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest font-mono hidden md:inline">
-                {EVENT_DETAILS.institutionAcronym} · Central India
+              <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest font-mono hidden sm:inline leading-none mt-0.5">
+                Rungta International Skills University · Central India
               </span>
             </div>
           </a>
 
-          {/* Liquid Glass Navigation Dock (Inspired by Dribbble Reference with Theme Applied) */}
-          <nav
-            className="hidden lg:flex items-center justify-center gap-0.5 bg-[#161616]/95 border border-[var(--theme-border,#3E3E3E)] rounded-full p-1 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
-            aria-label="Primary navigation"
-            onMouseLeave={() => setHoveredItem(null)}
-          >
-            {NAV_LINKS.map((link) => {
-              const Icon = link.icon;
-              const isActive = activeItem === link.id;
-              const isHovered = hoveredItem === link.id;
+          {/* Center: Mega Menu Navigation Links (Reference Format) */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
+            {NAV_CATEGORIES.map((cat) => {
+              const isOpen = openDropdown === cat.id;
+
+              if (!cat.hasDropdown) {
+                return (
+                  <a
+                    key={cat.id}
+                    href={`#${cat.id}`}
+                    onClick={(e) => handleNavClick(e, `#${cat.id}`)}
+                    className="px-3.5 py-2 text-xs xl:text-[13px] font-bold uppercase tracking-wider text-slate-200 hover:text-white transition-colors cursor-pointer rounded-md hover:bg-white/[0.04]"
+                  >
+                    {cat.name}
+                  </a>
+                );
+              }
 
               return (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href, link.id)}
-                  onMouseEnter={() => setHoveredItem(link.id)}
-                  onFocus={() => setHoveredItem(link.id)}
-                  onBlur={() => setHoveredItem(null)}
-                  aria-current={isActive ? 'page' : undefined}
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setOpenDropdown(isOpen ? null : cat.id)}
+                  onMouseEnter={() => setOpenDropdown(cat.id)}
                   className={cn(
-                    "relative rounded-full cursor-pointer select-none flex flex-col items-center justify-center transition-[padding,min-width] duration-200 z-10 group h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D121C]",
-                    isActive
-                      ? "px-3.5 min-w-[70px]"
-                      : "px-2.5 min-w-[38px] hover:text-white"
+                    "flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-[13px] font-bold uppercase tracking-wider transition-colors cursor-pointer rounded-md select-none",
+                    isOpen
+                      ? "text-[#A855F7] bg-white/[0.06]"
+                      : "text-slate-200 hover:text-white hover:bg-white/[0.04]"
                   )}
+                  aria-expanded={isOpen}
                 >
-                  <span className="sr-only">{link.name}</span>
-                  {/* Floating Specular Liquid Glass Lens (Active State) */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="navbar-liquid-glass-lens"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 28,
-                        mass: 0.75,
-                      }}
-                      className="absolute -inset-y-1 inset-x-0 rounded-[20px] -z-10 overflow-hidden pointer-events-none"
-                      style={{
-                        background:
-                          "linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(var(--theme-accent-rgb, 173, 92, 255), 0.16) 42%, rgba(13, 18, 28, 0.9) 100%)",
-                        backdropFilter: "blur(20px)",
-                        border: "1px solid rgba(255, 255, 255, 0.32)",
-                        borderTop: "1.5px solid rgba(255, 255, 255, 0.85)",
-                        borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
-                        boxShadow:
-                          "inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.8), inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.6), 0 10px 24px -4px rgba(0, 0, 0, 0.75), 0 0 20px 2px var(--theme-accent-glow, rgba(173, 92, 255, 0.35))",
-                      }}
-                    >
-                      {/* Top Curved Specular Sheen (Optical Convex Caustic Reflection) */}
-                      <div className="absolute top-0 inset-x-1 h-[46%] rounded-t-[18px] bg-gradient-to-b from-white/45 via-white/10 to-transparent opacity-90 pointer-events-none" />
-
-                      {/* Bottom Rim Ambient Reflection */}
-                      <div
-                        className="absolute bottom-0 inset-x-2 h-[28%] rounded-b-[18px] pointer-events-none"
-                        style={{
-                          background:
-                            "linear-gradient(to top, rgba(255, 255, 255, 0.15), rgba(var(--theme-accent-rgb, 173, 92, 255), 0.25), transparent)",
-                        }}
-                      />
-                    </motion.div>
+                  <span>{cat.name}</span>
+                  {isOpen ? (
+                    <ChevronUp className="w-3.5 h-3.5 text-[#A855F7]" />
+                  ) : (
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
                   )}
-
-                  {/* High-speed subtle hover halo for inactive items */}
-                  {isHovered && !isActive && (
-                    <motion.div
-                      layoutId="navbar-hover-lens"
-                      transition={{ duration: 0.15 }}
-                      className="absolute inset-0 bg-white/[0.08] rounded-full -z-10"
-                    />
-                  )}
-
-                  {/* Hover Tooltip for inactive items */}
-                  <AnimatePresence>
-                    {isHovered && !isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 4, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 2, scale: 0.9 }}
-                        transition={{ duration: 0.15 }}
-                        className="absolute -top-9 px-2 py-0.5 rounded-full bg-[#131921] border border-[#232F3E] text-[10px] font-mono font-semibold text-slate-200 shadow-xl pointer-events-none whitespace-nowrap z-30"
-                        style={{
-                          boxShadow: "0 4px 12px rgba(0,0,0,0.6), 0 0 10px rgba(173,92,255,0.25)",
-                        }}
-                      >
-                        {link.name}
-                        <div className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-1.5 h-1.5 bg-[#131921] border-r border-b border-[#232F3E] rotate-45" />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Icon */}
-                  <Icon
-                    className={cn(
-                      "transition-all duration-200 shrink-0",
-                      isActive
-                        ? "w-4 h-4 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]"
-                        : isHovered
-                          ? "w-4 h-4 text-white -translate-y-0.5"
-                          : "w-4 h-4 text-slate-400 group-hover:text-slate-200"
-                    )}
-                  />
-
-                  {/* Animated Text Label (reveals under icon when active) */}
-                  <AnimatePresence mode="popLayout" initial={false}>
-                    {isActive && (
-                      <motion.span
-                        initial={{ opacity: 0, y: 4, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -3, scale: 0.85 }}
-                        transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-[9.5px] font-bold text-white tracking-wider uppercase leading-none mt-1 select-none whitespace-nowrap"
-                        style={{
-                          textShadow: "0 1px 2px rgba(0,0,0,0.9), 0 0 10px var(--theme-accent-glow, rgba(173,92,255,0.6))",
-                        }}
-                      >
-                        {link.name}
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                </a>
+                </button>
               );
             })}
           </nav>
 
-          {/* Action CTAs */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            {/* Desktop Register CTA */}
+          {/* Right: Action Button & Search */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Search Icon Trigger */}
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              className="p-2 sm:p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.08] transition-colors cursor-pointer border border-[#2D2364] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A855F7]"
+              aria-label="Search summit sessions, tracks, and speakers"
+              title="Search summit (Ctrl+K)"
+            >
+              <Search className="w-4 h-4" />
+            </button>
+
+            {/* Rectangular Contact / Register Button (Matching Reference Style) */}
             <a
               href={EVENT_DETAILS.registrationUrl || '#register'}
               target={EVENT_DETAILS.registrationUrl?.startsWith('http') ? '_blank' : undefined}
               rel={EVENT_DETAILS.registrationUrl?.startsWith('http') ? 'noopener noreferrer' : undefined}
               onClick={handleRegisterClick}
-              className="hidden sm:flex group cursor-pointer jitter-btn-base jitter-btn-register text-xs px-5 py-2.5 items-center gap-1.5 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded bg-[#E2E8F0] hover:bg-white text-[#0F172A] font-bold text-xs uppercase tracking-wider transition-all duration-150 cursor-pointer shadow-sm hover:shadow active:scale-[0.98]"
             >
               <span>REGISTER NOW</span>
-              <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </a>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger Toggle */}
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 text-slate-300 hover:text-white hover:bg-[var(--theme-surface-elevated,#2E2A2C)] active:scale-95 rounded-full transition-all cursor-pointer border border-[var(--theme-border,#383336)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
-              aria-label="Toggle menu"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="lg:hidden p-2 text-slate-300 hover:text-white hover:bg-white/[0.08] rounded-lg transition-colors cursor-pointer border border-[#2D2364]"
+              aria-label="Toggle navigation drawer"
               aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-nav-drawer"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-[var(--theme-accent,#AD5CFF)]" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[#A855F7]" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer with Smooth AnimatePresence */}
+        {/* ========================================================================= */}
+        {/* Desktop Mega Menu Dropdown Panel (Full-Width 3-Column Architectural Layout) */}
+        {/* ========================================================================= */}
         <AnimatePresence>
-          {mobileMenuOpen && (
+          {openDropdown && activeCategory && activeCategory.hasDropdown && (
             <motion.div
-              id="mobile-nav-drawer"
-              initial={{ opacity: 0, height: 0, y: -6 }}
-              animate={{ opacity: 1, height: 'auto', y: 0 }}
-              exit={{ opacity: 0, height: 0, y: -6 }}
-              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden mt-3 pt-3 border-t border-[var(--theme-border,#383336)] max-h-[calc(100vh-130px)] overflow-y-auto no-scrollbar"
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="hidden lg:block border-t border-[#2D2364] bg-[#140E3B] shadow-2xl shadow-black/80"
+              onMouseEnter={() => setOpenDropdown(activeCategory.id)}
             >
-              <div className="grid grid-cols-2 xs:grid-cols-3 gap-2 text-xs font-semibold py-2">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.id}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href, link.id)}
-                    aria-current={activeItem === link.id ? 'page' : undefined}
-                    className={cn(
-                      "px-3 py-2.5 rounded-xl transition-all duration-150 flex items-center gap-2 cursor-pointer select-none active:scale-[0.97] relative overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]",
-                      activeItem === link.id
-                        ? "text-white font-black shadow-lg"
-                        : "text-slate-300 hover:text-white hover:bg-white/[0.04]"
-                    )}
-                    style={{
-                      background:
-                        activeItem === link.id
-                          ? "linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(var(--theme-accent-rgb, 173, 92, 255), 0.16) 40%, rgba(37, 35, 36, 0.95) 100%)"
-                          : undefined,
-                      border: activeItem === link.id ? "1px solid rgba(255, 255, 255, 0.35)" : "1px solid transparent",
-                      boxShadow:
-                        activeItem === link.id
-                          ? "inset 0 1.5px 2px rgba(255,255,255,0.7), 0 4px 16px var(--theme-accent-glow, rgba(173,92,255,0.3))"
-                          : undefined,
-                    }}
-                  >
-                    <link.icon
-                      className="w-4 h-4 shrink-0 transition-colors"
-                      style={{
-                        color: activeItem === link.id ? '#FFFFFF' : 'var(--theme-accent, #AD5CFF)',
-                        filter: activeItem === link.id ? 'drop-shadow(0 0 6px rgba(255,255,255,0.6))' : undefined,
-                      }}
+              <div className="max-w-7xl mx-auto grid grid-cols-12 min-h-[300px]">
+                {/* Column 1: Editorial Headline & Overview (~32%) */}
+                <div className="col-span-4 p-8 flex flex-col justify-between border-r border-[#2D2364]">
+                  <div>
+                    <h3 className="text-xl xl:text-2xl font-bold uppercase tracking-tight text-white leading-tight font-sans">
+                      {activeCategory.leftPanel.title}
+                    </h3>
+                    <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed mt-4 max-w-sm">
+                      {activeCategory.leftPanel.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-6">
+                    <a
+                      href={activeCategory.leftPanel.ctaHref}
+                      onClick={(e) => handleNavClick(e, activeCategory.leftPanel.ctaHref)}
+                      className="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded transition-all cursor-pointer shadow-sm active:scale-95"
+                    >
+                      <span>{activeCategory.leftPanel.ctaText}</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Column 2: Numbered Menu Links (~42%) */}
+                <div className="col-span-4 p-8 flex flex-col justify-center border-r border-[#2D2364] space-y-3.5">
+                  {activeCategory.numberedLinks.map((item) => (
+                    <a
+                      key={item.num + item.title}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className="group flex items-center gap-3.5 py-1.5 cursor-pointer select-none"
+                    >
+                      <span className="font-mono text-xs font-bold text-[#A855F7] group-hover:text-white transition-colors w-6 shrink-0">
+                        {item.num}
+                      </span>
+                      <span className="text-xs xl:text-[13px] font-bold uppercase tracking-wider text-slate-200 group-hover:text-[#A855F7] group-hover:translate-x-1.5 transition-all">
+                        {item.title}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+
+                {/* Column 3: Visual Feature Card (~26%) */}
+                <div className="col-span-4 p-6 flex flex-col justify-center">
+                  <div className="relative rounded-xl overflow-hidden h-full min-h-[220px] flex flex-col justify-end p-6 border border-[#2D2364] group">
+                    {/* Background Image with Dark Gradient Overlay */}
+                    <img
+                      src={activeCategory.rightCard.image}
+                      alt={activeCategory.rightCard.title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="truncate">{link.name}</span>
-                  </a>
-                ))}
-              </div>
-              <div className="pt-3 flex flex-col gap-2.5">
-                <a
-                  href={EVENT_DETAILS.registrationUrl || '#register'}
-                  target={EVENT_DETAILS.registrationUrl?.startsWith('http') ? '_blank' : undefined}
-                  rel={EVENT_DETAILS.registrationUrl?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  onClick={handleRegisterClick}
-                  className="w-full jitter-btn-base jitter-btn-register text-xs py-3.5 flex items-center justify-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
-                >
-                  <span>REGISTER NOW</span>
-                  <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
-                </a>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#100B2E] via-[#100B2E]/65 to-black/30" />
+
+                    {/* Card Content */}
+                    <div className="relative z-10">
+                      <h4 className="text-base xl:text-lg font-black uppercase text-white tracking-wide leading-snug">
+                        {activeCategory.rightCard.title}
+                      </h4>
+                      <a
+                        href={activeCategory.rightCard.ctaHref}
+                        onClick={(e) => handleNavClick(e, activeCategory.rightCard.ctaHref)}
+                        className="mt-4 inline-flex items-center justify-center px-4 py-2 text-[11px] font-bold uppercase tracking-wider bg-white/90 hover:bg-white text-[#0F172A] rounded transition-all cursor-pointer shadow-md active:scale-95"
+                      >
+                        <span>{activeCategory.rightCard.ctaText}</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-    </motion.header>
+
+        {/* ========================================================================= */}
+        {/* Mobile Navigation Drawer (Collapsible Accordion matching Mega Menu format) */}
+        {/* ========================================================================= */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:hidden border-t border-[#2D2364] bg-[#140E3B] max-h-[calc(100vh-80px)] overflow-y-auto"
+            >
+              <div className="p-4 space-y-3">
+                {NAV_CATEGORIES.map((cat) => {
+                  if (!cat.hasDropdown) {
+                    return (
+                      <a
+                        key={cat.id}
+                        href={`#${cat.id}`}
+                        onClick={(e) => handleNavClick(e, `#${cat.id}`)}
+                        className="block px-3 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wider text-slate-200 hover:text-white hover:bg-white/[0.04]"
+                      >
+                        {cat.name}
+                      </a>
+                    );
+                  }
+
+                  const isExpanded = mobileExpandedTab === cat.id;
+
+                  return (
+                    <div key={cat.id} className="border border-[#2D2364] rounded-xl overflow-hidden bg-[#100B2E]/50">
+                      <button
+                        type="button"
+                        onClick={() => setMobileExpandedTab(isExpanded ? null : cat.id)}
+                        className="w-full flex items-center justify-between p-3.5 text-xs font-bold uppercase tracking-wider text-white"
+                      >
+                        <span className={cn(isExpanded ? "text-[#A855F7]" : "text-white")}>{cat.name}</span>
+                        {isExpanded ? <ChevronUp className="w-4 h-4 text-[#A855F7]" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
+                      </button>
+
+                      <AnimatePresence>
+                        {isExpanded && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="px-3.5 pb-4 pt-1 border-t border-[#2D2364]/50 space-y-2.5"
+                          >
+                            <p className="text-xs text-slate-300 leading-relaxed mb-3">
+                              {cat.leftPanel.description}
+                            </p>
+
+                            <div className="space-y-2">
+                              {cat.numberedLinks.map((link) => (
+                                <a
+                                  key={link.num + link.title}
+                                  href={link.href}
+                                  onClick={(e) => handleNavClick(e, link.href)}
+                                  className="flex items-center gap-3 py-1 text-xs text-slate-300 hover:text-white"
+                                >
+                                  <span className="font-mono font-bold text-[#A855F7]">{link.num}</span>
+                                  <span className="font-semibold">{link.title}</span>
+                                </a>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+
+                <div className="pt-2">
+                  <a
+                    href={EVENT_DETAILS.registrationUrl || '#register'}
+                    target={EVENT_DETAILS.registrationUrl?.startsWith('http') ? '_blank' : undefined}
+                    rel={EVENT_DETAILS.registrationUrl?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    onClick={handleRegisterClick}
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded bg-[#E2E8F0] hover:bg-white text-[#0F172A] font-bold text-xs uppercase tracking-wider shadow-sm"
+                  >
+                    <span>REGISTER NOW</span>
+                    <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* ========================================================================= */}
+      {/* Quick Search Jump Modal (Triggered by Search Icon or Ctrl+K) */}
+      {/* ========================================================================= */}
+      <AnimatePresence>
+        {searchOpen && (
+          <div className="fixed inset-0 z-[200] flex items-start justify-center pt-24 px-4 bg-black/70 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -10 }}
+              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full max-w-xl bg-[#140E3B] border border-[#2D2364] rounded-2xl shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Search Bar Input */}
+              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#2D2364]">
+                <Search className="w-4 h-4 text-[#A855F7] shrink-0" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search tracks, keynotes, sessions, campus venue..."
+                  className="w-full bg-transparent text-sm text-white placeholder-slate-400 focus:outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => setSearchOpen(false)}
+                  className="p-1 rounded text-slate-400 hover:text-white text-xs font-mono"
+                >
+                  ESC
+                </button>
+              </div>
+
+              {/* Filtered Search Results List */}
+              <div className="p-3 max-h-80 overflow-y-auto space-y-1">
+                {filteredSearchItems.map((item) => (
+                  <a
+                    key={item.title}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-white/[0.06] transition-colors group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-[#A855F7]/40 text-[#A855F7]">
+                        <item.icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white">
+                        {item.title}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 px-2 py-0.5 rounded bg-white/5 border border-white/5">
+                      {item.category}
+                    </span>
+                  </a>
+                ))}
+              </div>
+
+              {/* Bottom Shortcut Hint */}
+              <div className="px-4 py-2.5 bg-[#100B2E] border-t border-[#2D2364] flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <span>Navigate summit with instant jump</span>
+                <span>Press ESC to close</span>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
