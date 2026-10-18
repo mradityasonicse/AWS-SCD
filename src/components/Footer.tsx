@@ -159,9 +159,6 @@ export const Footer: React.FC = () => {
             © 2026 AWS Student Builder Group, Rungta International Skills University. All rights reserved.
           </p>
 
-          <p className="max-w-md text-center sm:text-right text-slate-400 leading-snug">
-            AWS Student Community Day is an independent student conference hosted by the AWS SBG at Rungta International Skills University and is not run by Amazon Web Services, Inc.
-          </p>
 
           <button
             type="button"
