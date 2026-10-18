@@ -40,53 +40,6 @@ export const Hero: React.FC<HeroProps> = () => {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center w-full">
-        {/* Auspicious Namaste Cultural Greeting at the Summit Summit Entrance */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-[var(--theme-accent,#AD5CFF)]/25 text-xs text-slate-300 mb-2.5 backdrop-blur-md shadow-[0_0_15px_rgba(173,92,255,0.15)] select-none hover:border-[var(--theme-accent,#AD5CFF)]/50 transition-colors"
-        >
-          <img
-            src="/namaste-transparent.png"
-            alt="Namaste"
-            className="w-4 h-4 object-contain drop-shadow-[0_0_6px_rgba(173,92,255,0.5)]"
-          />
-          <span className="font-mono text-[10.5px] uppercase tracking-widest text-[#AD5CFF] font-bold">
-            Namaste · Welcome to Central India
-          </span>
-        </motion.div>
-
-        {/* University Host Banner with Live Status */}
-        <motion.div
-          initial={{ opacity: 0, y: -20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-1.5 rounded-full border text-[10px] sm:text-xs font-semibold tracking-wide uppercase mb-4 sm:mb-6 max-w-full text-center"
-          style={{
-            backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 10%, transparent)',
-            borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 30%, transparent)',
-            color: 'var(--theme-accent, #AD5CFF)',
-          }}
-        >
-          <div className="h-5 w-5 sm:h-5.5 sm:w-5.5 rounded-full bg-white p-0.5 border border-white/50 flex items-center justify-center shrink-0 shadow-sm">
-            <img
-              src="/rungta-logo.png"
-              alt="Rungta International Skills University"
-              className="h-full w-full object-contain"
-            />
-          </div>
-          <span
-            className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shrink-0"
-            style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
-          />
-          <span className="flex items-center gap-1.5 font-mono">
-            <strong className="hidden sm:inline">RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong>
-            <strong className="sm:hidden">RUNGTA INTERNATIONAL SKILLS UNIVERSITY</strong>
-            <span className="text-slate-400">·</span>
-            <span>HOSTED BY AWS SBG RUNGTA INTERNATIONAL SKILLS UNIVERSITY</span>
-          </span>
-        </motion.div>
 
         {/* Grand Authoritative Summit Title (Poster Typography Scale) */}
         <motion.div
