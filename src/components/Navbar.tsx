@@ -104,8 +104,7 @@ const NAV_CATEGORIES: NavCategory[] = [
       { num: '01', title: 'SUMMIT MISSION & CAMPUS VISION', href: '#about' },
       { num: '02', title: 'CAMPUS VENUE & TRAVEL GUIDE', href: '#venue' },
       { num: '03', title: 'CORE STUDENT ORGANIZING TEAM', href: '#team' },
-      { num: '04', title: 'ECOSYSTEM SPONSORS & PARTNERS', href: '#sponsors' },
-      { num: '05', title: 'FREQUENTLY ASKED QUESTIONS', href: '#faq' },
+      { num: '04', title: 'FREQUENTLY ASKED QUESTIONS', href: '#faq' },
     ],
     rightCard: {
       image: '/summit-stage-feature.jpg',
@@ -248,7 +247,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     { title: 'All Technical Sessions & Agenda', category: 'Agenda', href: '#agenda', icon: Calendar },
     { title: 'Live Stage Kahoot Quiz & Prizes', category: 'Events', href: '#agenda', icon: Sparkles },
     { title: 'Rungta International Skills University Campus Venue', category: 'Venue', href: '#venue', icon: MapPin },
-    { title: 'Ecosystem Sponsors & Tech Partners', category: 'Sponsors', href: '#sponsors', icon: Users },
     { title: 'Frequently Asked Questions (FAQ)', category: 'Support', href: '#faq', icon: HelpCircle },
   ];
 

@@ -271,6 +271,32 @@
   animation-play-state: paused !important;
 }
 
+/* Sub-Crew Continuous Left-to-Right Animated Glider */
+@keyframes subCrewSlideLeftToRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.subcrew-slider-track {
+  display: flex;
+  width: max-content;
+  animation: subCrewSlideLeftToRight 38s linear infinite;
+  will-change: transform;
+  transform: translate3d(-50%, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.subcrew-slider-track.is-paused,
+.subcrew-slider-track:hover,
+.subcrew-slider-track:active {
+  animation-play-state: paused !important;
+}
+
 @keyframes auroraA {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(70px, 40px) scale(1.15); }

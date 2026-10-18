@@ -18,11 +18,15 @@ const LinkedInIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3
 const SPEAKER_COLORS = [
   'var(--theme-accent, #AD5CFF)', // 1: Jessica Gilmore (Purple)
   '#FF9900',                      // 2: Praful Bagai (AWS Orange)
-  '#42B4FF',                      // 3: Deepak Nishad (Cloud Blue)
-  '#FF57EA',                      // 4: Nikita Mourya (Neon Pink)
-  '#00E582',                      // 5: Varsha Verma (Cyber Green)
-  'var(--theme-accent, #AD5CFF)', // 6: Anmoldeep Singh (Electric Purple)
-  '#42B4FF',                      // 7: Aishwary Gathe (Cloud Blue)
+];
+
+// Exactly 2 announced speakers repeating in track for continuous aesthetic glide
+const FEATURED_SPEAKERS = SPEAKERS.slice(0, 2);
+const DISPLAY_SPEAKERS = [
+  ...FEATURED_SPEAKERS,
+  ...FEATURED_SPEAKERS,
+  ...FEATURED_SPEAKERS,
+  ...FEATURED_SPEAKERS,
 ];
 
 interface SpeakerCardProps {
@@ -303,26 +307,26 @@ export const Speakers: React.FC = () => {
             >
               {/* Track 1: First complete set of speakers */}
               <div className="flex gap-4 sm:gap-6 pr-4 sm:pr-6 shrink-0">
-                {SPEAKERS.map((speaker, idx) => (
+                {DISPLAY_SPEAKERS.map((speaker, idx) => (
                   <SpeakerCard
-                    key={`track1-${speaker.id}`}
+                    key={`track1-${speaker.id}-${idx}`}
                     speaker={speaker}
-                    index={idx}
-                    total={SPEAKERS.length}
-                    color={SPEAKER_COLORS[idx % SPEAKER_COLORS.length]}
+                    index={idx % 2}
+                    total={2}
+                    color={SPEAKER_COLORS[idx % 2]}
                   />
                 ))}
               </div>
 
               {/* Track 2: Identical twin set for seamless 100% gapless 0-to--50% infinite glide */}
               <div className="flex gap-4 sm:gap-6 pr-4 sm:pr-6 shrink-0" aria-hidden="true">
-                {SPEAKERS.map((speaker, idx) => (
+                {DISPLAY_SPEAKERS.map((speaker, idx) => (
                   <SpeakerCard
-                    key={`track2-${speaker.id}`}
+                    key={`track2-${speaker.id}-${idx}`}
                     speaker={speaker}
-                    index={idx}
-                    total={SPEAKERS.length}
-                    color={SPEAKER_COLORS[idx % SPEAKER_COLORS.length]}
+                    index={idx % 2}
+                    total={2}
+                    color={SPEAKER_COLORS[idx % 2]}
                   />
                 ))}
               </div>
@@ -334,7 +338,7 @@ export const Speakers: React.FC = () => {
         <div className="mt-8 sm:mt-12 pt-4 border-t border-[var(--theme-border,#3E3E3E)] flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 text-slate-400 font-mono text-xs">
           <span>AWS DEVREL · AMAZON LEADERSHIP · CLOUD BUILDERS</span>
           <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="font-bold">
-            7 SPEAKERS ANNOUNCED · MORE INCOMING
+            2 KEYNOTE SPEAKERS ANNOUNCED · MORE SESSIONS INCOMING
           </span>
         </div>
       </div>

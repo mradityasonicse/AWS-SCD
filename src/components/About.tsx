@@ -1,6 +1,5 @@
 import React from 'react';
-import { PILLARS } from '../data/eventData';
-import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/components/ui/motion-primitives';
+import { ScrollReveal } from '@/components/ui/motion-primitives';
 
 export const About: React.FC = () => {
   return (
@@ -58,47 +57,138 @@ export const About: React.FC = () => {
           </p>
         </ScrollReveal>
 
-        {/* Three Pillars in 3-Column Responsive Grid */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
-          {PILLARS.map((pillar, pIdx) => {
-            const pillarColors = [
-              '#42B4FF', // Cloud Blue (Learn)
-              'var(--theme-accent, #AD5CFF)', // Electric Purple (Connect)
-              '#00E582', // Cyber Green (Belong)
-            ];
-            const pColor = pillarColors[pIdx % pillarColors.length];
-
-            return (
-              <StaggerItem key={pillar.num}>
-                <SpotlightCard
-                  borderColor={pColor + '40'}
-                  className="p-7 sm:p-8 h-full transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-md bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border-white/10"
+        {/* Handcrafted Asymmetric 4-Part Bento Grid (Zero AI Slop) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {/* Card 01 - Keynotes & Deep Dives (Spans 2 Columns) */}
+          <div className="md:col-span-2 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--theme-accent,#AD5CFF)] to-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span
+                  className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border"
+                  style={{
+                    color: 'var(--theme-accent, #AD5CFF)',
+                    borderColor: 'rgba(173, 92, 255, 0.3)',
+                    backgroundColor: 'rgba(173, 92, 255, 0.08)',
+                  }}
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className="font-mono font-black text-3xl sm:text-4xl leading-none pt-1"
-                        style={{ color: pColor }}
-                      >
-                        {pillar.num}
-                      </span>
-                      <span
-                        className="w-2 h-2 rounded-full inline-block"
-                        style={{ backgroundColor: pColor }}
-                      />
-                    </div>
-                    <h3 className="text-white font-bold text-xl mb-2 transition-colors">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-slate-400 text-sm leading-relaxed font-sans">
-                      {pillar.desc}
-                    </p>
-                  </div>
-                </SpotlightCard>
-              </StaggerItem>
-            );
-          })}
-        </StaggerContainer>
+                  [ 01 / KEYNOTE STAGE ]
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">AWS DEVREL &amp; AMAZON</span>
+              </div>
+              <h3 className="text-white font-bold text-2xl sm:text-3xl mb-3 tracking-tight">
+                Learn Direct From AWS &amp; Amazon Leadership
+              </h3>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-6">
+                Deep-dive architectural sessions by <strong className="text-white">Praful Bagai</strong> (Head of DevRel, AWS India &amp; South Asia) and <strong className="text-white">Jessica Gilmore, EdD</strong> (Amazon). Gain firsthand insights on production Generative AI, distributed serverless scalability, and real cloud systems engineering.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+              {['Amazon Bedrock', 'Hyperscale Serverless', 'DevSecOps', 'Industry Roadmaps'].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Card 02 - Live Stage Arena (Spans 1 Column) */}
+          <div className="md:col-span-1 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#FF9900]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#FF9900] opacity-70 group-hover:opacity-100 transition-opacity" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border text-[#FF9900] border-[#FF9900]/30 bg-[#FF9900]/10">
+                  [ 02 / ARENA ]
+                </span>
+                <span className="text-[11px] font-mono text-amber-400">STAGE TRIVIA</span>
+              </div>
+              <h3 className="text-white font-bold text-xl sm:text-2xl mb-3 tracking-tight">
+                Kahoot Cloud Quiz &amp; Gadgets
+              </h3>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                Compete live in the central auditorium against 500+ builders in cloud architecture challenges. Win Amazon Echo Dots, smart devices, and official AWS gear.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+              {['Echo Dot Prizes', 'Auditorium Kahoot', 'Instant Swag'].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Card 03 - Mentorship & Networking (Spans 1 Column) */}
+          <div className="md:col-span-1 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#42B4FF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border text-[#42B4FF] border-[#42B4FF]/30 bg-[#42B4FF]/10">
+                  [ 03 / CONNECT ]
+                </span>
+                <span className="text-[11px] font-mono text-sky-400">MENTORSHIP</span>
+              </div>
+              <h3 className="text-white font-bold text-xl sm:text-2xl mb-3 tracking-tight">
+                1-on-1 Community Mentorship
+              </h3>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                Directly interact with AWS Community Builders, DevOps specialists, and hiring partners. Receive feedback on your projects and career trajectories.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+              {['AWS Builders', '15+ Universities', 'Portfolio Reviews'].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Card 04 - Community Cohort (Spans 2 Columns) */}
+          <div className="md:col-span-2 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#42B4FF] to-[var(--theme-accent,#AD5CFF)] opacity-70 group-hover:opacity-100 transition-opacity" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span
+                  className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border"
+                  style={{
+                    color: 'var(--theme-accent, #AD5CFF)',
+                    borderColor: 'rgba(173, 92, 255, 0.3)',
+                    backgroundColor: 'rgba(173, 92, 255, 0.08)',
+                  }}
+                >
+                  [ 04 / ECOSYSTEM ]
+                </span>
+                <span className="text-[11px] font-mono text-slate-400">RUNGTA CAMPUS · BHILAI</span>
+              </div>
+              <h3 className="text-white font-bold text-2xl sm:text-3xl mb-3 tracking-tight">
+                Belong to Central India's Premier Cloud Cohort
+              </h3>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-6">
+                Immerse yourself in a full day of high-signal cloud engineering at Rungta International Skills University. Includes verified AWS SBG digital certificates, commemorative developer badges, t-shirt swag packs, and lavish buffet lunch.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+              {['550+ Student Builders', 'Verified Certificates', 'Buffet Catering', 'Lifetime Alumni Access'].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

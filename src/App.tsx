@@ -11,7 +11,6 @@ import { Tracks } from './components/Tracks';
 import { Speakers } from './components/Speakers';
 import { Agenda } from './components/Agenda';
 import { Venue } from './components/Venue';
-import { Sponsors } from './components/Sponsors';
 import { Team } from './components/Team';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
@@ -21,10 +20,6 @@ import { NamasteSplashScreen } from './components/NamasteSplashScreen';
 
 export const App: React.FC = () => {
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
-
-  const handleOpenContact = () => {
-    window.location.href = 'mailto:aws.sbg.risu@gmail.com?subject=Sponsorship%20Inquiry%20-%20AWS%20Student%20Community%20Day%202026';
-  };
 
   return (
     <ThemeProvider>
@@ -82,13 +77,10 @@ export const App: React.FC = () => {
         {/* [ 05 ] Venue Spotlight & Rungta International Skills University Transit Guide */}
         <Venue />
 
-        {/* [ 06 ] Ecosystem Partners & Academic Host */}
-        <Sponsors onOpenContact={handleOpenContact} />
-
-        {/* [ 07 ] Core Organizing Team */}
+        {/* [ 06 ] Core Organizing Leadership & Sub Crew */}
         <Team />
 
-        {/* [ 08 ] Frequently Asked Questions */}
+        {/* [ 07 ] Frequently Asked Questions */}
         <FAQ />
       </main>
 

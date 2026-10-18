@@ -136,6 +136,62 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
     scope: ["Academic Patronage", "Institutional Ops", "Curriculum Link"],
   },
+  {
+    id: "aditya-mohan",
+    name: "Aditya Mohan",
+    role: "Technical Operations · Sub Crew",
+    title: "Cloud Systems & Arena Coordinator",
+    badge: "Sub Crew",
+    initials: "AM",
+    code: "CREW-01",
+    accentColor: "#42B4FF", // Cloud Blue
+    tagline: "Managing technical arena operations, cloud lab support & attendee assistance.",
+    bio: "Coordinating hands-on lab setups, speaker stage hardware, and delegate tech support at AWS SCD 2026.",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    scope: ["Lab Setup", "Arena Ops", "Tech Support"],
+  },
+  {
+    id: "yash-raj",
+    name: "Yash Raj Singh",
+    role: "Community & Hospitality · Sub Crew",
+    title: "Student Delegations Coordinator",
+    badge: "Sub Crew",
+    initials: "YS",
+    code: "CREW-02",
+    accentColor: "#00E582", // Cyber Green
+    tagline: "Coordinating student delegations, attendee hospitality & check-in flow.",
+    bio: "Welcoming 500+ builders, managing fast-track accreditation, and organizing student cohort hospitality.",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    scope: ["Delegations", "Hospitality", "Attendee Flow"],
+  },
+  {
+    id: "abhishek-yadav",
+    name: "Abhishek Kumar Yadav",
+    role: "Logistics & Stage Ops · Sub Crew",
+    title: "Event Logistics & Stage Runner",
+    badge: "Sub Crew",
+    initials: "AY",
+    code: "CREW-03",
+    accentColor: "#FF9900", // AWS Orange
+    tagline: "Driving stage transitions, live streaming logistics & AV coordination.",
+    bio: "Managing real-time stage AV sync, speaker microphone rotations, and auditorium logistics.",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    scope: ["Stage Ops", "AV Logistics", "Event Sync"],
+  },
+  {
+    id: "harsh-shandilya",
+    name: "Harsh Kumar Shandilya",
+    role: "Media & Social Outreach · Sub Crew",
+    title: "Media & Social Highlights Lead",
+    badge: "Sub Crew",
+    initials: "HS",
+    code: "CREW-04",
+    accentColor: "#FF57EA", // Neon Pink
+    tagline: "Capturing high-energy summit moments, social stories & community reels.",
+    bio: "Documenting live keynotes, attendee interviews, and community highlights across social platforms.",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    scope: ["Live Media", "Social Highlights", "Photo Ops"],
+  },
 ];
 
 // LinkedIn Brand Icon

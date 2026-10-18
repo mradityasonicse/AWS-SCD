@@ -4,11 +4,11 @@ import { cn } from '@/lib/utils';
 export const LogoMarquee: React.FC = () => {
   const phraseWords = [
     { text: 'BUILD', color: '#FFFFFF' },
-    { text: 'LEARN', color: '#42B4FF' },
+    { text: 'LEARN', color: '#F1F5F9' },
     { text: 'CONNECT', color: 'var(--theme-accent, #AD5CFF)' },
-    { text: 'SHIP', color: '#00E582' },
-    { text: 'SCALE', color: '#FF9900' },
-    { text: 'INNOVATE', color: '#FF57EA' },
+    { text: 'SHIP', color: '#FFFFFF' },
+    { text: 'SCALE', color: '#F1F5F9' },
+    { text: 'INNOVATE', color: 'var(--theme-accent, #AD5CFF)' },
   ];
 
   const logos = [
@@ -88,7 +88,7 @@ export const LogoMarquee: React.FC = () => {
                   >
                     {word.text}
                   </span>
-                  <span className="text-slate-600 font-mono text-lg">✦</span>
+                  <span className="text-white/25 font-mono text-lg">✦</span>
                 </React.Fragment>
               ))}
             </span>

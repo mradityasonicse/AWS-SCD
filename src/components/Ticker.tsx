@@ -5,11 +5,11 @@ export const Ticker: React.FC = () => {
     <div
       role="region"
       aria-label="Summit announcements"
-      className="z-[110] bg-[var(--theme-surface,#252324)] border-b border-[var(--theme-border,#383336)] flex items-center h-9 fixed top-0 left-0 right-0 overflow-hidden text-xs select-none"
+      className="z-[110] bg-[#0A0718] border-b border-[#2D2364] flex items-center h-9 fixed top-0 left-0 right-0 overflow-hidden text-xs select-none shadow-md"
     >
-      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-[var(--theme-surface,#252324)] via-transparent to-[var(--theme-surface,#252324)]" />
+      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-[#0A0718] via-transparent to-[#0A0718]" />
       
-      <div className="animate-ticker flex items-center gap-6 whitespace-nowrap pl-full">
+      <div className="animate-ticker flex items-center gap-6 whitespace-nowrap">
         <span className="flex items-center gap-2 text-slate-300 font-medium tracking-wider uppercase text-[11px]">
           <span className="bg-[var(--theme-accent,#AD5CFF)] text-white font-bold px-2 py-0.5 rounded text-[9.5px] flex items-center gap-1.5 shadow-sm">
             <span className="w-1.5 h-1.5 bg-white rounded-full" />
