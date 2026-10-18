@@ -57,9 +57,9 @@ export const About: React.FC = () => {
           </p>
         </ScrollReveal>
 
-        {/* Handcrafted Asymmetric 4-Part Bento Grid (Zero AI Slop) */}
+        {/* Handcrafted Asymmetric 4-Part Bento Grid — Chronological Summit Timeline */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Card 01 - Keynotes & Deep Dives (Spans 2 Columns) */}
+          {/* Card 01 - Keynotes & Deep Dives (Spans 2 Columns) — 10:40 AM */}
           <div className="md:col-span-2 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--theme-accent,#AD5CFF)] to-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
@@ -72,7 +72,7 @@ export const About: React.FC = () => {
                     backgroundColor: 'rgba(173, 92, 255, 0.08)',
                   }}
                 >
-                  [ 01 / KEYNOTE STAGE ]
+                  [ 01 / 10:40 AM · KEYNOTE STAGE ]
                 </span>
                 <span className="text-[11px] font-mono text-slate-400">AWS DEVREL &amp; AMAZON</span>
               </div>
@@ -95,42 +95,13 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 02 - Live Stage Arena (Spans 1 Column) */}
-          <div className="md:col-span-1 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#FF9900]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#FF9900] opacity-70 group-hover:opacity-100 transition-opacity" />
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border text-[#FF9900] border-[#FF9900]/30 bg-[#FF9900]/10">
-                  [ 02 / ARENA ]
-                </span>
-                <span className="text-[11px] font-mono text-amber-400">STAGE TRIVIA</span>
-              </div>
-              <h3 className="text-white font-bold text-xl sm:text-2xl mb-3 tracking-tight">
-                Kahoot Cloud Quiz &amp; Gadgets
-              </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Compete live in the central auditorium against 500+ builders in cloud architecture challenges. Win Amazon Echo Dots, smart devices, and official AWS gear.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
-              {['Echo Dot Prizes', 'Auditorium Kahoot', 'Instant Swag'].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Card 03 - Mentorship & Networking (Spans 1 Column) */}
+          {/* Card 02 - Mentorship & Networking (Spans 1 Column) — 11:30 AM */}
           <div className="md:col-span-1 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#42B4FF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border text-[#42B4FF] border-[#42B4FF]/30 bg-[#42B4FF]/10">
-                  [ 03 / CONNECT ]
+                  [ 02 / 11:30 AM · CONNECT ]
                 </span>
                 <span className="text-[11px] font-mono text-sky-400">MENTORSHIP</span>
               </div>
@@ -138,7 +109,7 @@ export const About: React.FC = () => {
                 1-on-1 Community Mentorship
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Directly interact with AWS Community Builders, DevOps specialists, and hiring partners. Receive feedback on your projects and career trajectories.
+                Directly interact with AWS Community Builders, DevOps specialists, and hiring partners during the networking lunch. Receive feedback on your projects and career trajectories.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
@@ -153,8 +124,8 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 04 - Community Cohort (Spans 2 Columns) */}
-          <div className="md:col-span-2 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+          {/* Card 03 - Community Cohort (Spans 1 Column) — 01:00 PM */}
+          <div className="md:col-span-1 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#42B4FF] to-[var(--theme-accent,#AD5CFF)] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -166,19 +137,48 @@ export const About: React.FC = () => {
                     backgroundColor: 'rgba(173, 92, 255, 0.08)',
                   }}
                 >
-                  [ 04 / ECOSYSTEM ]
+                  [ 03 / 01:00 PM · ECOSYSTEM ]
                 </span>
                 <span className="text-[11px] font-mono text-slate-400">RUNGTA CAMPUS · BHILAI</span>
               </div>
-              <h3 className="text-white font-bold text-2xl sm:text-3xl mb-3 tracking-tight">
+              <h3 className="text-white font-bold text-xl sm:text-2xl mb-3 tracking-tight">
                 Belong to Central India's Premier Cloud Cohort
               </h3>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-6">
-                Immerse yourself in a full day of high-signal cloud engineering at Rungta International Skills University. Includes verified AWS SBG digital certificates, commemorative developer badges, t-shirt swag packs, and lavish buffet lunch.
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                Immerse yourself in a full day of high-signal cloud engineering at Rungta International Skills University. Includes verified AWS SBG digital certificates, commemorative developer badges, and lavish buffet lunch.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
               {['550+ Student Builders', 'Verified Certificates', 'Buffet Catering', 'Lifetime Alumni Access'].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Card 04 - Live Stage Arena & Grand Finale (Spans 2 Columns) — 03:00 PM */}
+          <div className="md:col-span-2 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#FF9900]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#FF9900] opacity-70 group-hover:opacity-100 transition-opacity" />
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border text-[#FF9900] border-[#FF9900]/30 bg-[#FF9900]/10">
+                  [ 04 / 03:00 PM · LIVE ARENA ]
+                </span>
+                <span className="text-[11px] font-mono text-amber-400">STAGE TRIVIA &amp; SWAG</span>
+              </div>
+              <h3 className="text-white font-bold text-2xl sm:text-3xl mb-3 tracking-tight">
+                Kahoot Cloud Quiz &amp; Gadgets
+              </h3>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-6">
+                Compete live in the central auditorium against 500+ builders in cloud architecture challenges. Win Amazon Echo Dots, smart devices, and official AWS gear, followed by grand swag distribution.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+              {['Echo Dot Prizes', 'Auditorium Kahoot', 'Instant Swag', 'Swag Distribution'].map((tag) => (
                 <span
                   key={tag}
                   className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"

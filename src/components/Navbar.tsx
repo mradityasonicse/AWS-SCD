@@ -244,6 +244,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     { title: 'DevSecOps & Cloud Security Track', category: 'Tracks', href: '#tracks', icon: Layers },
     { title: 'Praful Bagai (Head of DevRel AWS)', category: 'Speakers', href: '#speakers', icon: Users },
     { title: 'Jessica Gilmore, EdD (Amazon)', category: 'Speakers', href: '#speakers', icon: Users },
+    { title: 'Harshit Singh (SDE-II, Amazon)', category: 'Speakers', href: '#speakers', icon: Users },
+    { title: 'Saptarshi De (SDE-II, AWS)', category: 'Speakers', href: '#speakers', icon: Users },
     { title: 'All Technical Sessions & Agenda', category: 'Agenda', href: '#agenda', icon: Calendar },
     { title: 'Live Stage Kahoot Quiz & Prizes', category: 'Events', href: '#agenda', icon: Sparkles },
     { title: 'Rungta International Skills University Campus Venue', category: 'Venue', href: '#venue', icon: MapPin },

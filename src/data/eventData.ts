@@ -9,6 +9,7 @@ export interface Speaker {
   bio?: string;
   linkedin?: string;
   twitter?: string;
+  poster?: string;
 }
 
 export interface AgendaItem {
@@ -185,6 +186,30 @@ export const SPEAKERS: Speaker[] = [
   },
   {
     id: 3,
+    name: "Harshit Singh",
+    company: "Amazon",
+    category: "speaker",
+    current_designation: "SDE-II , AMAZON",
+    topic: "Building High-Throughput Distributed Microservices at Amazon Scale",
+    image: "/speakers/harshit_singh.png",
+    poster: "/speakers/harshit_singh_poster.png",
+    bio: "Software Development Engineer II at Amazon, specializing in large-scale distributed architectures, low-latency microservices, and high-concurrency event pipelines.",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Harshit+Singh+Amazon"
+  },
+  {
+    id: 4,
+    name: "Saptarshi De",
+    company: "AWS",
+    category: "speaker",
+    current_designation: "SDE-II , AWS",
+    topic: "Architecting Next-Gen Cloud Infrastructure & Serverless Engineering on AWS",
+    image: "/speakers/saptarshi_de.png",
+    poster: "/speakers/saptarshi_de_poster.png",
+    bio: "Software Development Engineer II at Amazon Web Services (AWS), architecting foundational cloud infrastructure, scalable serverless platforms, and developer ecosystems.",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Saptarshi+De+AWS"
+  },
+  {
+    id: 5,
     name: "Deepak Nishad",
     company: "Snapmint",
     category: "speaker",
@@ -195,7 +220,7 @@ export const SPEAKERS: Speaker[] = [
     linkedin: "https://www.linkedin.com/in/deepak-nishad/"
   },
   {
-    id: 4,
+    id: 6,
     name: "Nikita Mourya",
     company: "AWS Community Builder",
     category: "speaker",
@@ -206,7 +231,7 @@ export const SPEAKERS: Speaker[] = [
     linkedin: "https://www.linkedin.com/in/nikita-mourya/"
   },
   {
-    id: 5,
+    id: 7,
     name: "Varsha Verma",
     company: "AWS Community Builder",
     category: "speaker",
@@ -217,7 +242,7 @@ export const SPEAKERS: Speaker[] = [
     linkedin: "https://www.linkedin.com/in/varsha-verma/"
   },
   {
-    id: 6,
+    id: 8,
     name: "Anmoldeep Singh Arora",
     company: "Accenture",
     category: "speaker",
@@ -228,7 +253,7 @@ export const SPEAKERS: Speaker[] = [
     linkedin: "https://www.linkedin.com/in/anmoldeep-singh-arora/"
   },
   {
-    id: 7,
+    id: 9,
     name: "Aishwary Gathe",
     company: "Meetup",
     category: "speaker",
@@ -288,79 +313,79 @@ export const AGENDA: AgendaItem[] = [
   {
     time: "10:40 – 11:30 AM",
     ampm: "AM",
-    title: "Speaker Session 1",
+    title: "Learn Direct From AWS & Amazon Leadership",
     speaker: "Praful Bagai & Jessica Gilmore, EdD",
-    type: "Technical Keynote",
-    typeColor: "#FF9900",
+    type: "Keynote Stage",
+    typeColor: "#AD5CFF",
     duration: "50 min",
-    subtitle: "Invite the first speaker and conduct the session.",
-    dotColor: "#FF9900",
-    category: "Tech"
+    subtitle: "Deep-dive architectural sessions on production Generative AI, Amazon Bedrock, and hyperscale serverless scalability.",
+    dotColor: "#AD5CFF",
+    category: "Keynote"
   },
   {
     time: "11:30 AM – 12:30 PM",
     ampm: "PM",
-    title: "Break",
-    type: "Lunch & Networking",
-    typeColor: "#00E582",
+    title: "1-on-1 Community Mentorship & Networking Lunch",
+    type: "Mentorship & Lunch",
+    typeColor: "#42B4FF",
     duration: "60 min",
-    subtitle: "One-hour lunch or refreshment break.",
-    dotColor: "#00E582",
+    subtitle: "Directly interact with AWS Community Builders, DevOps specialists, and hiring partners during the lavish buffet lunch.",
+    dotColor: "#42B4FF",
     category: "Networking"
   },
   {
     time: "12:30 – 12:40 PM",
     ampm: "PM",
-    title: "Introduction",
+    title: "Introduction & Afternoon Kickoff",
     type: "Session Intro",
     typeColor: "#42B4FF",
     duration: "10 min",
-    subtitle: "Reopen the event and introduce the next speaker.",
+    subtitle: "Reopen the stage and introduce afternoon technical masterclasses.",
     dotColor: "#42B4FF",
     category: "Keynote"
   },
   {
     time: "12:40 – 02:00 PM",
     ampm: "PM",
-    title: "Speaker Session 2",
-    speaker: "Nikita Mourya & Deepak Nishad",
-    type: "Technical Masterclass",
+    title: "Technical Masterclasses & High-Scale Cloud Architectures",
+    speaker: "Nikita Mourya, Deepak Nishad & Varsha Verma",
+    type: "Technical Deep Dives",
     typeColor: "#AD5CFF",
     duration: "80 min",
-    subtitle: "Invite the next speaker and conduct the session.",
+    subtitle: "Building blocks of AI agents with Amazon Bedrock, scaling to 90M users, and zero-trust cloud security.",
     dotColor: "#AD5CFF",
     category: "Tech"
   },
   {
     time: "02:00 – 02:30 PM",
     ampm: "PM",
-    title: "Q&A Session",
-    type: "Audience Interactive",
+    title: "Belong to Premier Cloud Cohort & Interactive Q&A",
+    type: "Cohort Q&A",
     typeColor: "#FF57EA",
     duration: "30 min",
-    subtitle: "Audience questions and interaction with the speakers.",
+    subtitle: "Direct audience questions with speakers, community builders, and career trajectory discussions.",
     dotColor: "#FF57EA",
     category: "Fun"
   },
   {
     time: "02:30 – 03:00 PM",
     ampm: "PM",
-    title: "Closing Ceremony",
+    title: "Closing Ceremony & Verified Accreditation",
     type: "Closing Ceremony",
     typeColor: "#00E582",
     duration: "30 min",
-    subtitle: "Vote of thanks, acknowledgements, and closing remarks.",
+    subtitle: "Vote of thanks, verified AWS SBG digital certificates announcement, and community celebration.",
     dotColor: "#00E582",
     category: "Ceremony"
   },
   {
     time: "03:00 – 04:00 PM",
     ampm: "PM",
-    title: "Swag Distribution",
-    type: "Swag & Wrap Up",
+    title: "Kahoot Cloud Quiz, Smart Gadgets & Swag Distribution",
+    type: "Live Stage Arena",
     typeColor: "#FF9900",
     duration: "60 min",
-    subtitle: "Distribute AWS goodies, interact with participants, and wrap up.",
+    subtitle: "Live auditorium Kahoot quiz for Amazon Echo Dots, smart devices, and official AWS commemorative swag kits.",
     dotColor: "#FF9900",
     category: "Fun"
   }
