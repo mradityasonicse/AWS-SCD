@@ -19,7 +19,7 @@ export const Hero: React.FC<HeroProps> = () => {
       particleCount: 50,
       spread: 60,
       origin: { x, y },
-      colors: ['#FF9900', '#42B4FF', '#FF57EA', '#00E582', '#AD5CFF'],
+      colors: ['#A855F7', '#C084FC', '#F8FAFC', '#30206B'],
       ticks: 200,
       gravity: 1.2,
       scalar: 0.9,
@@ -27,97 +27,105 @@ export const Hero: React.FC<HeroProps> = () => {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-40px)] pt-44 sm:pt-48 lg:pt-52 pb-12 sm:pb-16 flex flex-col justify-start items-center text-center overflow-hidden px-4">
-      {/* Architectural Grid Background (Zero AI Slop) */}
+    <section className="relative min-h-[calc(100vh-40px)] pt-44 sm:pt-48 lg:pt-52 pb-12 sm:pb-16 flex flex-col justify-start items-center text-center overflow-hidden px-4 bg-[#100B2E]">
+      {/* Background & Grid */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Subtle architectural grid lines */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:48px_48px] opacity-40" />
-        {/* Midnight Blue (#191970) Cosmic Atmospheric Glow */}
+        {/* Subtle grid with thin lines in #FFFFFF at 4% opacity */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
+        {/* Subtle understated radial gradient behind the headline */}
         <div 
-          className="absolute -top-24 left-1/2 -translate-x-1/2 w-[88vw] max-w-[1150px] h-[550px] rounded-full blur-[140px] pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(25, 25, 112, 0.5) 0%, rgba(25, 25, 112, 0.2) 50%, transparent 75%)' }}
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[900px] h-[480px] rounded-full blur-[110px] pointer-events-none opacity-75"
+          style={{ background: 'radial-gradient(ellipse at center, #30206B 0%, rgba(48, 32, 107, 0.45) 45%, transparent 70%)' }}
         />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center w-full">
 
-        {/* Grand Authoritative Summit Title (Poster Typography Scale) */}
+        {/* Main Summit Title in Barlow Condensed ExtraBold (800) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-4 sm:mb-6 select-none"
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-4 sm:mb-6 select-none w-full"
         >
-          <h1 className="poster-main-hook text-white">
-            <span className="block text-white">AWS STUDENT</span>
-            <span
-              className="block"
-              style={{
-                color: 'var(--theme-accent, #AD5CFF)',
-              }}
-            >
-              COMMUNITY DAY
-            </span>
+          <h1
+            className="poster-main-hook text-center select-none w-full"
+            style={{
+              fontFamily: "'Barlow Condensed', sans-serif",
+              fontWeight: 800,
+              lineHeight: 0.9,
+            }}
+          >
+            <span className="block text-[#F8FAFC]">AWS STUDENT</span>
+            <span className="block text-[#A855F7]">COMMUNITY DAY</span>
           </h1>
-          <div className="poster-secondary-headline flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-2 sm:mt-3 text-slate-300">
-            <span className="whitespace-nowrap" style={{ color: 'var(--theme-accent, #AD5CFF)' }}>[ 2026 ]</span>
+
+          {/* Edition line in Inter Bold (700), 20-24px, #CBD5E1 with [ 2026 ] in #A855F7 */}
+          <div
+            className="flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-3 gap-y-1 mt-3 sm:mt-4 text-[#CBD5E1] font-bold text-[20px] sm:text-[22px] md:text-[24px] tracking-wide uppercase"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            <span className="whitespace-nowrap text-[#A855F7]">[ 2026 ]</span>
             <span className="whitespace-nowrap">CENTRAL INDIA</span>
-            <span className="text-slate-600">·</span>
+            <span className="text-[#64748B]">·</span>
             <span className="whitespace-nowrap">BHILAI EDITION</span>
           </div>
         </motion.div>
 
-        {/* Narrative Subheading */}
+        {/* Description in Inter Medium (500), 18-20px, #F1F5F9 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl mx-auto text-center mb-6 sm:mb-8 px-2 sm:px-0"
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mx-auto text-center mb-6 sm:mb-8 px-4"
         >
-          <h2 className="poster-subheading text-white text-balance">
+          <p
+            className="text-[18px] sm:text-[20px] font-medium leading-relaxed text-[#F1F5F9]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
             The Premier Student Cloud &amp; AI Summit in Central India.
-          </h2>
+          </p>
         </motion.div>
 
-        {/* Quick Facts Strip (IBM Plex Mono Date / Venue) */}
+        {/* Quick Facts Strip (Indigo, Violet, White & Cool Gray Palette) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] rounded-xl p-2 sm:p-2.5 mb-6 sm:mb-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-5 shadow-sm w-full sm:w-auto"
+          transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="bg-[#17113A]/90 border border-[#2D2364] rounded-xl p-2 sm:p-2.5 mb-6 sm:mb-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-5 shadow-sm w-full sm:w-auto"
         >
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
-            <Calendar className="w-4 h-4 text-[#42B4FF] shrink-0" />
+            <Calendar className="w-4 h-4 text-[#A855F7] shrink-0" />
             <div className="text-left">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Date</span>
-              <span className="poster-date-venue text-white font-bold">21 Oct 2026</span>
+              <span className="poster-date-venue text-[#F8FAFC] font-bold">21 Oct 2026</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#383336)]" />
+          <div className="hidden sm:block w-px h-7 bg-[#2D2364]" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
-            <Users className="w-4 h-4 shrink-0" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
+            <Users className="w-4 h-4 text-[#A855F7] shrink-0" />
             <div className="text-left">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Audience</span>
-              <span className="poster-date-venue text-white font-bold">550+ Builders</span>
+              <span className="poster-date-venue text-[#F8FAFC] font-bold">550+ Builders</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#383336)]" />
+          <div className="hidden sm:block w-px h-7 bg-[#2D2364]" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
-            <MapPin className="w-4 h-4 text-[#00E582] shrink-0" />
+            <MapPin className="w-4 h-4 text-[#A855F7] shrink-0" />
             <div className="text-left">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Host Campus</span>
-              <span className="poster-date-venue text-white font-bold">Rungta International Skills University, Bhilai</span>
+              <span className="poster-date-venue text-[#F8FAFC] font-bold">Rungta International Skills University, Bhilai</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[var(--theme-border,#383336)]" />
+          <div className="hidden sm:block w-px h-7 bg-[#2D2364]" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
-            <Gift className="w-4 h-4 text-[#FFD814] shrink-0" />
+            <Gift className="w-4 h-4 text-[#A855F7] shrink-0" />
             <div className="text-left">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Builder Perks</span>
-              <span className="poster-date-venue text-white font-bold">Swag Kits &amp; Badges</span>
+              <span className="poster-date-venue text-[#F8FAFC] font-bold">Swag Kits &amp; Badges</span>
             </div>
           </div>
         </motion.div>
@@ -163,7 +171,7 @@ export const Hero: React.FC<HeroProps> = () => {
             className="group poster-cta-btn jitter-btn-base jitter-btn-ghost px-6 py-4 flex items-center justify-center gap-2 cursor-pointer select-none text-xs sm:text-sm font-semibold"
           >
             <MapPin
-              className="w-4 h-4 group-hover:scale-105 transition-transform shrink-0 stroke-[2] text-[#AD5CFF]"
+              className="w-4 h-4 group-hover:scale-105 transition-transform shrink-0 stroke-[2] text-[#A855F7]"
             />
             <span className="tracking-wide">Campus Venue</span>
           </a>

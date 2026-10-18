@@ -50,10 +50,10 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center overflow-hidden select-none bg-[#110011]"
+          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center overflow-hidden select-none bg-[#100B2E]"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 50% 46%, rgba(173, 92, 255, 0.28) 0%, rgba(25, 25, 112, 0.5) 45%, #110011 85%)',
+              'radial-gradient(circle at 50% 46%, rgba(168, 85, 247, 0.22) 0%, rgba(48, 32, 107, 0.45) 45%, #100B2E 85%)',
           }}
           onClick={handleDismiss}
         >
