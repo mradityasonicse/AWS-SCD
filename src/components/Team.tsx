@@ -141,7 +141,7 @@ export const Team: React.FC = () => {
         <div className="mb-16 sm:mb-20">
           <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b border-white/10">
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
-              CORE MEMBERS (LEAD, CO-LEAD & ORGANIZERS)
+              CORE MEMBERSS (LEAD, CO-LEAD & ORGANIZERS)
             </h3>
           </div>
 
@@ -160,7 +160,7 @@ export const Team: React.FC = () => {
         <div>
           <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b border-white/10">
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
-              CORE MEMBER 
+              CORE MEMBERS 
             </h3>
           </div>
 
