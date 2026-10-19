@@ -16,51 +16,56 @@ const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3
   </svg>
 );
 
-// Division 1: Core Crew Member Card (Features the official ID Card Badge)
+// Division 1: Core Crew Member Card (Features the official Spotlight Poster Artwork)
 const CoreCrewLeaderCard: React.FC<{
   leader: CoreCrewLeader;
 }> = ({ leader }) => {
   return (
     <div
-      className="relative rounded-2xl bg-[#0D111A] hover:bg-[#131926] border border-white/10 hover:border-white/25 p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 ease-out group hover:-translate-y-1.5 shadow-2xl overflow-hidden transform-gpu select-none"
+      className="group relative rounded-2xl bg-[#0D111A] hover:bg-[#121724] border border-white/10 hover:border-[#AD5CFF]/40 p-3 sm:p-3.5 flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1.5 shadow-2xl overflow-hidden transform-gpu select-none hover:shadow-[0_20px_40px_-15px_rgba(173,92,255,0.18)]"
       style={{
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.45)',
       }}
     >
-      {/* Featured ID Card Badge Artwork */}
-      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02] shadow-inner mb-3 group-hover:border-white/25 transition-colors">
+      {/* Featured Official Spotlight Poster Artwork (Exact 3:4 Aspect Ratio of 1080x1440) */}
+      <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden border border-white/10 bg-black/40 shadow-inner group-hover:border-white/25 transition-colors">
         <img
           src={leader.cardImage}
-          alt={`${leader.name} ID Card`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          alt={`${leader.name} - ${leader.title}`}
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
           loading="lazy"
           decoding="async"
         />
         {/* Holographic Specular Highlight */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.08] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      {/* Clean Name & Profile Link */}
-      <div className="flex items-center justify-between gap-2 pt-1 px-0.5 relative z-10">
-        <div className="min-w-0">
-          <h4 className="text-sm sm:text-base font-bold text-white tracking-tight truncate group-hover:text-[#AD5CFF] transition-colors">
-            {leader.name}
-          </h4>
-          <p className="text-xs font-mono font-medium text-slate-400 mt-0.5">
-            {leader.title}
-          </p>
-        </div>
+      {/* Clean Name, Role Badge & Verified Profile Link */}
+      <div className="pt-3 px-1 relative z-10 flex flex-col gap-2.5">
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <h4 className="text-sm sm:text-base font-bold text-white tracking-tight leading-snug group-hover:text-[#AD5CFF] transition-colors">
+              {leader.name}
+            </h4>
+            <div className="flex items-center gap-2 mt-1">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-semibold uppercase tracking-wider bg-white/[0.06] text-slate-300 border border-white/10 group-hover:border-[#AD5CFF]/30 group-hover:text-[#AD5CFF] transition-colors">
+                {leader.title}
+              </span>
+            </div>
+          </div>
 
-        <a
-          href={leader.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-slate-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 transition-all cursor-pointer shrink-0"
-        >
-          <LinkedInIcon className="w-3 h-3 fill-current" />
-          <span>Profile</span>
-          <ArrowUpRight className="w-3 h-3 stroke-[2]" />
-        </a>
+          <a
+            href={leader.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${leader.name} LinkedIn Profile`}
+            className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full text-slate-300 hover:text-white bg-white/[0.05] hover:bg-[#0077B5]/20 border border-white/10 hover:border-[#0077B5]/40 transition-all cursor-pointer shrink-0 group/link active:scale-95 shadow-sm"
+          >
+            <LinkedInIcon className="w-3.5 h-3.5 fill-[#0077B5] group-hover/link:fill-white transition-colors" />
+            <span className="font-mono text-[11px]">Connect</span>
+            <ArrowUpRight className="w-3 h-3 stroke-[2] opacity-70 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all" />
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -141,7 +146,7 @@ export const Team: React.FC = () => {
         <div className="mb-16 sm:mb-20">
           <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b border-white/10">
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
-              CORE MEMBERSS (LEAD, CO-LEAD & ORGANIZERS)
+              CORE MEMBERS (LEAD, CO-LEAD & ORGANIZERS)
             </h3>
           </div>
 
