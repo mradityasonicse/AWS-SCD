@@ -74,12 +74,12 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '100%', opacity: 0 }}
             transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-            className="relative z-10 w-full sm:max-w-lg bg-[var(--theme-surface,#252324)] border-t sm:border border-[var(--theme-border,#383336)] rounded-t-3xl sm:rounded-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.8)] sm:shadow-[0_20px_60px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto"
+            className="relative z-10 w-full sm:max-w-lg bg-[rgba(20,15,35,0.92)] border-t sm:border border-white/20 rounded-t-3xl sm:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl max-h-[90vh] overflow-y-auto"
           >
             {/* Header Lockup */}
-            <div className="sticky top-0 bg-[var(--theme-surface,#252324)]/95 backdrop-blur-md border-b border-[var(--theme-border,#383336)] p-4 sm:p-5 flex items-center justify-between z-20">
+            <div className="sticky top-0 bg-white/[0.03] backdrop-blur-md border-b border-white/10 p-4 sm:p-5 flex items-center justify-between z-20">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-[var(--theme-surface-elevated,#2E2A2C)] p-1 border border-[var(--theme-border,#383336)] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-white/10 p-1 border border-white/15 flex items-center justify-center">
                   <Ticket className="w-4 h-4" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
                 </div>
                 <div>
@@ -95,7 +95,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
               <button
                 type="button"
                 onClick={resetForm}
-                className="w-8 h-8 rounded-full bg-[#161E2D] hover:bg-[#1E293B] border border-[#232F3E] text-slate-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Close dialog"
               >
                 <X className="w-4 h-4" />
@@ -116,7 +116,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       placeholder="e.g. Alex Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-[var(--theme-bg,#110011)] border border-[var(--theme-border,#383336)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
+                      className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
                     />
                   </div>
 
@@ -130,7 +130,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       placeholder="student@rungta.ac.in"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[var(--theme-bg,#110011)] border border-[var(--theme-border,#383336)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
+                      className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
                     />
                   </div>
 
@@ -143,7 +143,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                         type="text"
                         value={formData.college}
                         onChange={(e) => setFormData({ ...formData, college: e.target.value })}
-                        className="w-full bg-[var(--theme-bg,#110011)] border border-[var(--theme-border,#383336)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none font-sans"
+                        className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none font-sans"
                       />
                     </div>
                     <div>
@@ -153,13 +153,13 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       <select
                         value={formData.year}
                         onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                        className="w-full bg-[var(--theme-bg,#110011)] border border-[var(--theme-border,#383336)] focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none font-sans"
+                        className="w-full bg-white/[0.06] border border-white/10 focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none font-sans"
                       >
-                        <option value="1st Year">1st Year</option>
-                        <option value="2nd Year">2nd Year</option>
-                        <option value="3rd Year">3rd Year</option>
-                        <option value="4th Year">4th Year</option>
-                        <option value="Postgraduate / Alumni">Postgraduate / Alumni</option>
+                        <option value="1st Year" className="bg-[#100B2E] text-white">1st Year</option>
+                        <option value="2nd Year" className="bg-[#100B2E] text-white">2nd Year</option>
+                        <option value="3rd Year" className="bg-[#100B2E] text-white">3rd Year</option>
+                        <option value="4th Year" className="bg-[#100B2E] text-white">4th Year</option>
+                        <option value="Postgraduate / Alumni" className="bg-[#100B2E] text-white">Postgraduate / Alumni</option>
                       </select>
                     </div>
                   </div>
@@ -177,7 +177,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                           className={`p-2.5 rounded-xl border text-left font-mono transition-all cursor-pointer ${
                             formData.track === track
                               ? 'border-[var(--theme-accent,#AD5CFF)] bg-[var(--theme-accent,#AD5CFF)]/15 text-white font-bold'
-                              : 'border-[var(--theme-border,#383336)] bg-[var(--theme-bg,#110011)] text-slate-400 hover:text-white'
+                              : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.06] hover:text-white'
                           }`}
                         >
                           {track}
@@ -203,10 +203,10 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                 <div className="space-y-5">
                   {/* Digital Pass Preview */}
                   <div
-                    className="p-5 rounded-2xl border relative overflow-hidden bg-gradient-to-b from-[var(--theme-surface-elevated,#2E2A2C)] to-[var(--theme-bg,#110011)] shadow-2xl"
-                    style={{ borderColor: 'var(--theme-accent, #AD5CFF)' }}
+                    className="p-5 rounded-2xl border relative overflow-hidden bg-white/[0.04] backdrop-blur-xl shadow-2xl"
+                    style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
                   >
-                    <div className="flex items-center justify-between pb-3 border-b border-[var(--theme-border,#383336)]">
+                    <div className="flex items-center justify-between pb-3 border-b border-white/10">
                       <div className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                         <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
@@ -230,7 +230,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3 py-3 border-t border-[var(--theme-border,#383336)] text-xs font-mono">
+                    <div className="grid grid-cols-2 gap-3 py-3 border-t border-white/10 text-xs font-mono">
                       <div>
                         <span className="text-[10px] text-slate-500 block uppercase">Date &amp; Time</span>
                         <span className="text-white font-bold">21 Oct 2026 · 09:00 AM</span>
@@ -242,7 +242,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                     </div>
 
                     {/* Barcode Mock */}
-                    <div className="pt-3 border-t border-[var(--theme-border,#383336)] flex items-center justify-between">
+                    <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                       <div className="flex gap-1 h-6 items-center opacity-70">
                         {[4, 2, 6, 1, 3, 5, 2, 4, 1, 6, 3, 2, 5, 1, 4, 3, 2].map((h, i) => (
                           <div

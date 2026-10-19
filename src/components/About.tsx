@@ -26,7 +26,7 @@ export const About: React.FC = () => {
               >
                 WHAT IS SCD
               </span>
-              <div className="h-px flex-1 bg-gradient-to-r from-[var(--theme-border,#383336)] via-[var(--theme-border,#383336)]/50 to-transparent min-w-[20px]" />
+              <div className="h-px flex-1 bg-gradient-to-r from-white/10 via-white/5 to-transparent min-w-[20px]" />
               <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-mono tracking-widest text-slate-400 uppercase shrink-0">
                 <span
                   className="w-1.5 h-1.5 rounded-full"
@@ -37,7 +37,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* Main Title Row with Vertical Balance */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-[var(--theme-border,#383336)]">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-white/10">
               <div className="max-w-3xl overflow-visible pb-1">
                 <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-none">
                   One day to level up as a builder.
@@ -60,7 +60,7 @@ export const About: React.FC = () => {
         {/* Handcrafted Asymmetric 4-Part Bento Grid — Chronological Summit Timeline */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* Card 01 - Keynotes & Deep Dives (Spans 2 Columns) — 10:40 AM */}
-          <div className="md:col-span-2 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--theme-accent,#AD5CFF)] to-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -83,11 +83,11 @@ export const About: React.FC = () => {
                 Deep-dive architectural sessions by <strong className="text-white">Praful Bagai</strong> (Head of DevRel, AWS India &amp; South Asia) and <strong className="text-white">Jessica Gilmore, EdD</strong> (Amazon). Gain firsthand insights on production Generative AI, distributed serverless scalability, and real cloud systems engineering.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-white/10">
               {['Amazon Bedrock', 'Hyperscale Serverless', 'DevSecOps', 'Industry Roadmaps'].map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-white/[0.04] text-slate-300 border border-white/10"
                 >
                   {tag}
                 </span>
@@ -96,7 +96,7 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 02 - Mentorship & Networking (Spans 1 Column) — 11:30 AM */}
-          <div className="md:col-span-1 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#42B4FF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+          <div className="md:col-span-1 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#42B4FF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -112,11 +112,11 @@ export const About: React.FC = () => {
                 Directly interact with AWS Community Builders, DevOps specialists, and hiring partners during the networking lunch. Receive feedback on your projects and career trajectories.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-white/10">
               {['AWS Builders', '15+ Universities', 'Portfolio Reviews'].map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-white/[0.04] text-slate-300 border border-white/10"
                 >
                   {tag}
                 </span>
@@ -125,7 +125,7 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 03 - Community Cohort (Spans 1 Column) — 01:00 PM */}
-          <div className="md:col-span-1 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+          <div className="md:col-span-1 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#42B4FF] to-[var(--theme-accent,#AD5CFF)] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -148,11 +148,11 @@ export const About: React.FC = () => {
                 Immerse yourself in a full day of high-signal cloud engineering at Rungta International Skills University. Includes verified AWS SBG digital certificates, commemorative developer badges, and lavish buffet lunch.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-white/10">
               {['550+ Student Builders', 'Verified Certificates', 'Buffet Catering', 'Lifetime Alumni Access'].map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-white/[0.04] text-slate-300 border border-white/10"
                 >
                   {tag}
                 </span>
@@ -161,7 +161,7 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 04 - Live Stage Arena & Grand Finale (Spans 2 Columns) — 03:00 PM */}
-          <div className="md:col-span-2 rounded-2xl border border-[#2D2364] bg-[#100B2E]/90 p-6 sm:p-8 flex flex-col justify-between hover:border-[#FF9900]/50 transition-all duration-300 shadow-xl relative overflow-hidden group">
+          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#FF9900]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#FF9900] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -177,11 +177,11 @@ export const About: React.FC = () => {
                 Compete live in the central auditorium against 500+ builders in cloud architecture challenges. Win exclusive official AWS merchandise, builder kits, and commemorative swag, followed by grand distribution.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-white/10">
               {['Live Cloud Trivia', 'Auditorium Kahoot', 'Exclusive AWS Swag', 'Swag Distribution'].map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"
+                  className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-white/[0.04] text-slate-300 border border-white/10"
                 >
                   {tag}
                 </span>

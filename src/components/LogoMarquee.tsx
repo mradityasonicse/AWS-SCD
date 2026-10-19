@@ -74,9 +74,9 @@ export const LogoMarquee: React.FC = () => {
   const marqueeLogos = [...logos, ...logos];
 
   return (
-    <section className="relative bg-[var(--theme-bg,#110011)] border-y border-[var(--theme-border,#383336)] overflow-hidden py-6">
+    <section className="relative bg-[var(--theme-bg,#110011)] border-y border-white/10 overflow-hidden py-6">
       {/* Editorial Bold Phrase Marquee */}
-      <div className="overflow-hidden whitespace-nowrap mb-6 border-b border-[var(--theme-border,#383336)] pb-4">
+      <div className="overflow-hidden whitespace-nowrap mb-6 border-b border-white/10 pb-4">
         <div className="animate-marquee flex items-center gap-10 font-heading font-normal text-3xl sm:text-5xl uppercase tracking-wide will-change-transform">
           {[1, 2, 3].map((set) => (
             <span key={set} className="flex items-center gap-8">
@@ -109,12 +109,7 @@ export const LogoMarquee: React.FC = () => {
             return (
               <div
                 key={`${item.name}-${idx}`}
-                className={cn(
-                  "flex items-center gap-3.5 px-4 py-2.5 rounded-2xl border shadow-md transition-all duration-300 group shrink-0 relative overflow-hidden",
-                  isMeetup || isRungta
-                    ? "bg-black border-slate-700 hover:border-slate-500 shadow-xl"
-                    : "bg-[var(--theme-surface,#252324)] border-[var(--theme-border,#383336)] hover:border-slate-400"
-                )}
+                className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] backdrop-blur-md hover:border-white/20 shadow-lg transition-all duration-300 group shrink-0 relative overflow-hidden"
               >
                 {/* Top accent highlight on card */}
                 <div
@@ -126,8 +121,8 @@ export const LogoMarquee: React.FC = () => {
                   className={cn(
                     "h-9 w-9 rounded-xl border flex items-center justify-center p-1 shrink-0 group-hover:scale-105 transition-transform",
                     isMeetup || isRungta
-                      ? "bg-white border-white shadow-md"
-                      : "bg-[var(--theme-surface-elevated,#303030)] border-[var(--theme-border,#3E3E3E)]"
+                      ? "bg-white border-white/50 shadow-md"
+                      : "bg-white/[0.08] border-white/10"
                   )}
                 >
                   <img

@@ -80,8 +80,8 @@ export const FAQ: React.FC = () => {
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                     className="w-8 h-8 rounded-full flex items-center justify-center border shrink-0 transition-colors"
                     style={{
-                      backgroundColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)' : 'var(--theme-surface-elevated, #2E2A2C)',
-                      borderColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)' : 'var(--theme-border, #383336)',
+                      backgroundColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)' : 'rgba(255, 255, 255, 0.05)',
+                      borderColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)' : 'rgba(255, 255, 255, 0.12)',
                       color: isOpen ? 'var(--theme-accent, #AD5CFF)' : '#94A3B8',
                     }}
                   >

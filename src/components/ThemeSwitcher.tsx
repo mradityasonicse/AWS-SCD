@@ -79,13 +79,13 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-sm bg-[#252324] border border-[#383336] rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white z-10 font-sans"
+              className="relative w-full max-w-sm bg-[rgba(20,15,35,0.92)] backdrop-blur-2xl border border-white/20 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white z-10 font-sans"
             >
               {/* Header */}
-              <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#383336]">
+              <div className="flex items-center justify-between pb-4 mb-5 border-b border-white/10">
                 <div className="flex items-center gap-2.5">
                   <div
-                    className="w-7 h-7 rounded-lg flex items-center justify-center border border-[#383336]"
+                    className="w-7 h-7 rounded-lg flex items-center justify-center border border-white/15"
                     style={{ backgroundColor: currentColorConfig.hex + '20' }}
                   >
                     <Palette className="w-4 h-4" style={{ color: currentColorConfig.hex }} />
@@ -100,7 +100,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-lg hover:bg-[#2E2A2C] text-slate-400 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+                  className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
                   aria-label="Close theme customizer"
                 >
                   <X className="w-4 h-4" />

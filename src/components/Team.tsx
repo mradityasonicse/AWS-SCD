@@ -40,9 +40,9 @@ const CoreCrewLeaderCard: React.FC<{
           cardImage: leader.cardImage,
         })
       }
-      className="relative rounded-2xl bg-[#100B2E]/95 border border-[#2D2364] p-5 flex flex-col justify-between hover:border-[#AD5CFF] transition-all duration-300 ease-out group hover:-translate-y-2 shadow-xl overflow-hidden cursor-pointer transform-gpu"
+      className="relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-xl border border-white/10 hover:border-[#AD5CFF]/60 p-5 flex flex-col justify-between transition-all duration-300 ease-out group hover:-translate-y-2 shadow-2xl overflow-hidden cursor-pointer transform-gpu"
       style={{
-        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
       }}
     >
       {/* Top Accent Color Line */}
@@ -75,7 +75,7 @@ const CoreCrewLeaderCard: React.FC<{
       </div>
 
       {/* Featured ID Card Badge Artwork */}
-      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-[#080518] shadow-inner mb-4 group-hover:border-[#AD5CFF]/60 transition-colors">
+      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02] shadow-inner mb-4 group-hover:border-[#AD5CFF]/60 transition-colors">
         <img
           src={leader.cardImage}
           alt={`${leader.name} ID Card`}
@@ -104,7 +104,7 @@ const CoreCrewLeaderCard: React.FC<{
         {leader.scope.map((tag) => (
           <span
             key={tag}
-            className="text-[9px] font-mono px-2 py-0.5 rounded bg-[#17113A] text-slate-300 border border-[#2D2364]"
+            className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/10"
           >
             {tag}
           </span>
@@ -112,7 +112,7 @@ const CoreCrewLeaderCard: React.FC<{
       </div>
 
       {/* Bottom Bar: Verified + Connect Link */}
-      <div className="flex items-center justify-between pt-3 border-t border-[#2D2364] relative z-10">
+      <div className="flex items-center justify-between pt-3 border-t border-white/10 relative z-10">
         <span className="inline-flex items-center gap-1 text-[9px] font-mono text-emerald-400">
           <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
           VERIFIED CREW
@@ -123,7 +123,7 @@ const CoreCrewLeaderCard: React.FC<{
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full text-slate-200 hover:text-white bg-[#17113A] hover:bg-[#2D2364] border border-[#2D2364] transition-all cursor-pointer"
+          className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full text-slate-200 hover:text-white bg-white/10 hover:bg-white/20 border border-white/15 transition-all cursor-pointer"
         >
           <LinkedInIcon className="w-3 h-3 fill-current" />
           <span>Profile</span>
@@ -150,16 +150,16 @@ const SubCrewIdCardBadge: React.FC<{
           cardImage: member.cardImage,
         })
       }
-      className="group relative rounded-2xl bg-[#0D0924]/90 border border-[#2D2364] p-3 flex flex-col hover:border-[#AD5CFF] transition-all duration-300 ease-out hover:-translate-y-2 shadow-xl overflow-hidden cursor-pointer transform-gpu"
+      className="group relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-xl border border-white/10 hover:border-[#AD5CFF]/60 p-3 flex flex-col transition-all duration-300 ease-out hover:-translate-y-2 shadow-xl overflow-hidden cursor-pointer transform-gpu"
       style={{
-        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.45)',
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
       }}
     >
       {/* Top Lanyard Clip Slit Notch */}
       <div className="w-10 h-1.5 rounded-full bg-white/15 mx-auto mb-2 border border-white/10 group-hover:bg-[#AD5CFF]/40 transition-colors" />
 
       {/* Actual ID Card Graphic */}
-      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-[#080518] shadow-inner">
+      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02] shadow-inner">
         <img
           src={member.cardImage}
           alt={`${member.name} ID Card`}
@@ -333,8 +333,8 @@ export const Team: React.FC = () => {
             /* 2-Line Animated Runner (Line 1: Left-to-Right, Line 2: Right-to-Left) */
             <div className="relative w-full overflow-hidden py-4 -mx-4 px-4 sm:mx-0 sm:px-0 flex flex-col gap-6">
               {/* Side Gradient Masks */}
-              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-24 bg-gradient-to-r from-[#100B2E] via-[#100B2E]/80 to-transparent z-20 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-24 bg-gradient-to-l from-[#100B2E] via-[#100B2E]/80 to-transparent z-20 pointer-events-none" />
+              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-24 bg-gradient-to-r from-transparent via-transparent to-transparent z-20 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-24 bg-gradient-to-l from-transparent via-transparent to-transparent z-20 pointer-events-none" />
 
               {/* LINE 1: Left to Right */}
               <div>
@@ -398,7 +398,7 @@ export const Team: React.FC = () => {
             /* Expanded Grid View with Search Filter */
             <div>
               {/* Search & Counter Bar */}
-              <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-[#0D0924]/80 border border-[#2D2364]">
+              <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-white/[0.03] backdrop-blur-xl border border-white/10">
                 <div className="relative flex-1 max-w-md">
                   <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -406,7 +406,7 @@ export const Team: React.FC = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search by name, handle, or role..."
-                    className="w-full bg-[#17113A] border border-[#2D2364] rounded-lg pl-10 pr-4 py-2 text-xs font-mono text-white placeholder-slate-400 focus:outline-none focus:border-[#AD5CFF] transition-colors"
+                    className="w-full bg-white/[0.04] border border-white/10 rounded-lg pl-10 pr-4 py-2 text-xs font-mono text-white placeholder-slate-400 focus:outline-none focus:border-[#AD5CFF] transition-colors"
                   />
                   {searchQuery && (
                     <button
@@ -442,11 +442,11 @@ export const Team: React.FC = () => {
         {/* Modal Lightbox for High-Res ID Card Badge View */}
         {selectedBadge && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200"
             onClick={() => setSelectedBadge(null)}
           >
             <div
-              className="relative max-w-sm w-full rounded-2xl bg-[#100B2E] border border-[#AD5CFF]/50 p-6 flex flex-col items-center shadow-2xl"
+              className="relative max-w-sm w-full rounded-2xl bg-[rgba(20,15,35,0.9)] backdrop-blur-2xl border border-white/20 p-6 flex flex-col items-center shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -459,7 +459,7 @@ export const Team: React.FC = () => {
               </button>
 
               {/* ID Badge Container */}
-              <div className="w-full max-w-[280px] rounded-xl overflow-hidden shadow-2xl border-2 border-[#AD5CFF]/40 mb-4 bg-black">
+              <div className="w-full max-w-[280px] rounded-xl overflow-hidden shadow-2xl border-2 border-[#AD5CFF]/40 mb-4 bg-white/[0.02]">
                 <img
                   src={selectedBadge.cardImage}
                   alt={`${selectedBadge.name} Summit ID Pass`}

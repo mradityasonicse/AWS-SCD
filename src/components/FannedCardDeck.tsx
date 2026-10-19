@@ -535,7 +535,7 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className={`relative w-full max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-[var(--theme-surface,#252324)] border border-[var(--theme-border,#383336)] shadow-2xl p-4 sm:p-8 md:p-10 overflow-hidden flex flex-col items-center select-none ${className}`}
+      className={`relative w-full max-w-5xl mx-auto rounded-2xl sm:rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-2xl p-4 sm:p-8 md:p-10 overflow-hidden flex flex-col items-center select-none ${className}`}
       style={{
         perspective: "1200px",
         touchAction: "pan-y",
@@ -684,8 +684,8 @@ export const FannedCardDeck: React.FC<FannedCardDeckProps> = ({
               }}
               className={`absolute top-4 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer overflow-hidden ${
                 isActive
-                  ? "bg-[var(--theme-surface,#252324)] text-white shadow-2xl"
-                  : "bg-[var(--theme-surface-card,#252324)] text-slate-300 shadow-md border border-[var(--theme-border,#383336)]/80 hover:border-slate-500"
+                  ? "bg-white/[0.06] backdrop-blur-xl text-white shadow-2xl border border-white/20"
+                  : "bg-white/[0.02] backdrop-blur-md text-slate-300 shadow-md border border-white/10 hover:border-white/20"
               }`}
             >
               {/* Card Top Row: Badge + Direct LinkedIn Connect */}

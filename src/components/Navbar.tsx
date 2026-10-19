@@ -77,11 +77,12 @@ const NAV_CATEGORIES: NavCategory[] = [
       ctaHref: '#agenda',
     },
     numberedLinks: [
-      { num: '01', title: '09:00 AM · REGISTRATION & BREAKFAST', href: '#agenda' },
-      { num: '02', title: '10:00 AM · AWS DEVREL KEYNOTE', href: '#agenda' },
-      { num: '03', title: '11:30 AM · GENAI TECHNICAL LAB', href: '#agenda' },
-      { num: '04', title: '01:00 PM · LUNCH & BUILDER EXPO', href: '#agenda' },
-      { num: '05', title: '03:30 PM · LIVE KAHOOT QUIZ & PRIZES', href: '#agenda' },
+      { num: '01', title: '09:00 AM · REGISTRATION & WELCOME', href: '#agenda' },
+      { num: '02', title: '10:00 AM · INAUGURATION & FELICITATION', href: '#agenda' },
+      { num: '03', title: '10:40 AM · SPEAKER SESSION 1', href: '#agenda' },
+      { num: '04', title: '11:30 AM · LUNCH & REFRESHMENT BREAK', href: '#agenda' },
+      { num: '05', title: '12:40 PM · SPEAKER SESSION 2', href: '#agenda' },
+      { num: '06', title: '03:00 PM · SWAG DISTRIBUTION', href: '#agenda' },
     ],
     rightCard: {
       image: '/summit-stage-feature.jpg',
@@ -277,8 +278,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
         className={cn(
           "fixed top-9 left-0 right-0 z-[100] transition-[background-color,border-color,box-shadow] duration-200 select-none",
           scrolled || openDropdown
-            ? "bg-[#100B2E]/95 backdrop-blur-md border-b border-[#2D2364] shadow-xl shadow-black/40"
-            : "bg-[#100B2E]/90 backdrop-blur-sm border-b border-[#2D2364]/70"
+            ? "bg-[#100B2E]/80 backdrop-blur-xl border-b border-white/10 shadow-xl shadow-black/40"
+            : "bg-[#100B2E]/60 backdrop-blur-md border-b border-white/10"
         )}
         onMouseLeave={() => setOpenDropdown(null)}
       >
@@ -457,14 +458,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
 
                 {/* Column 3: Visual Feature Card (~26%) */}
                 <div className="col-span-4 p-6 flex flex-col justify-center">
-                  <div className="relative rounded-xl overflow-hidden h-full min-h-[220px] flex flex-col justify-end p-6 border border-[#2D2364] group">
+                  <div className="relative rounded-xl overflow-hidden h-full min-h-[220px] flex flex-col justify-end p-6 border border-white/10 group">
                     {/* Background Image with Dark Gradient Overlay */}
                     <img
                       src={activeCategory.rightCard.image}
                       alt={activeCategory.rightCard.title}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#100B2E] via-[#100B2E]/65 to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                     {/* Card Content */}
                     <div className="relative z-10">
@@ -496,7 +497,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden border-t border-[#2D2364] bg-[#140E3B] max-h-[calc(100vh-80px)] overflow-y-auto"
+              className="lg:hidden border-t border-white/10 bg-[#140E3B]/95 backdrop-blur-2xl max-h-[calc(100vh-80px)] overflow-y-auto"
             >
               <div className="p-4 space-y-3">
                 {NAV_CATEGORIES.map((cat) => {
@@ -506,7 +507,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                         key={cat.id}
                         href={`#${cat.id}`}
                         onClick={(e) => handleNavClick(e, `#${cat.id}`)}
-                        className="flex items-center justify-between p-3.5 rounded-xl border border-[#2D2364] bg-[#100B2E]/50 text-xs font-bold uppercase tracking-wider text-white hover:text-[#A855F7] hover:border-[#A855F7]/50 transition-colors"
+                        className="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-white/[0.04] text-xs font-bold uppercase tracking-wider text-white hover:text-[#A855F7] hover:border-[#A855F7]/50 transition-colors"
                       >
                         <span className="flex items-center gap-2.5">
                           <Users className="w-4 h-4 text-[#A855F7]" />
@@ -520,7 +521,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                   const isExpanded = mobileExpandedTab === cat.id;
 
                   return (
-                    <div key={cat.id} className="border border-[#2D2364] rounded-xl overflow-hidden bg-[#100B2E]/50">
+                    <div key={cat.id} className="border border-white/10 rounded-xl overflow-hidden bg-white/[0.04]">
                       <button
                         type="button"
                         onClick={() => setMobileExpandedTab(isExpanded ? null : cat.id)}
@@ -536,7 +537,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="px-3.5 pb-4 pt-1 border-t border-[#2D2364]/50 space-y-2.5"
+                            className="px-3.5 pb-4 pt-1 border-t border-white/10 space-y-2.5"
                           >
                             <p className="text-xs text-slate-300 leading-relaxed mb-3">
                               {cat.leftPanel.description}
@@ -591,11 +592,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
               transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-xl bg-[#140E3B] border border-[#2D2364] rounded-2xl shadow-2xl overflow-hidden"
+              className="w-full max-w-xl bg-[rgba(20,14,59,0.92)] backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Search Bar Input */}
-              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#2D2364]">
+              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10">
                 <Search className="w-4 h-4 text-[#A855F7] shrink-0" />
                 <input
                   ref={searchInputRef}
@@ -639,7 +640,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               </div>
 
               {/* Bottom Shortcut Hint */}
-              <div className="px-4 py-2.5 bg-[#100B2E] border-t border-[#2D2364] flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <div className="px-4 py-2.5 bg-white/[0.03] border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
                 <span>Navigate summit with instant jump</span>
                 <span>Press ESC to close</span>
               </div>

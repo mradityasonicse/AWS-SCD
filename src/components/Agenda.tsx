@@ -62,19 +62,21 @@ export const Agenda: React.FC = () => {
         {/* ==================================================================== */}
         <ScrollReveal delay={0.1}>
           <div
-            className="mb-14 relative rounded-2xl sm:rounded-3xl border border-[#484145] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.85),0_0_40px_rgba(17,0,17,0.7),inset_0_1px_1px_rgba(255,255,255,0.22)]"
+            className="mb-14 relative rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:border-white/20"
             style={{
               background:
-                'radial-gradient(circle at 85% 15%, rgba(173, 92, 255, 0.16) 0%, transparent 55%), linear-gradient(180deg, #252324 0%, #1a1618 60%, #110011 100%)',
+                'radial-gradient(circle at 85% 15%, rgba(173, 92, 255, 0.14) 0%, transparent 60%), linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
             }}
           >
             {/* Specular High-Gloss Sheen Reflection */}
             <div
-              className="absolute inset-x-0 top-0 h-44 pointer-events-none bg-gradient-to-b from-white/[0.08] via-white/[0.02] to-transparent z-[1]"
+              className="absolute inset-x-0 top-0 h-44 pointer-events-none bg-gradient-to-b from-white/[0.06] via-white/[0.01] to-transparent z-[1]"
             />
             {/* Architectural Grid Backdrop Layer */}
             <div
-              className="absolute inset-0 pointer-events-none opacity-30 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:48px_48px]"
+              className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:48px_48px]"
             />
 
             {/* Content Container (16:9 Inspired Studio Board) */}
@@ -112,7 +114,7 @@ export const Agenda: React.FC = () => {
                     <button
                       key={ch.num}
                       onClick={() => setActiveFilter(ch.cat)}
-                      className="group flex items-center gap-4 text-left p-2.5 sm:p-3 rounded-xl transition-all duration-150 hover:bg-white/[0.08] border border-transparent hover:border-[#484145] cursor-pointer"
+                      className="group flex items-center gap-4 text-left p-2.5 sm:p-3 rounded-xl transition-all duration-150 hover:bg-white/[0.06] border border-transparent hover:border-white/10 cursor-pointer"
                     >
                       <span
                         className="font-mono text-base sm:text-xl font-bold shrink-0 transition-transform group-hover:scale-110"
@@ -141,7 +143,7 @@ export const Agenda: React.FC = () => {
               </div>
 
               {/* Bottom Row: Brandmark Bottom Right (Direct from Screenshot 2) */}
-              <div className="pt-6 border-t border-[#383336] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono text-slate-400">
+              <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono text-slate-400">
                 <div className="flex items-center gap-2">
                   <span>RUNGTA INTERNATIONAL SKILLS UNIVERSITY</span>
                   <span>·</span>
@@ -174,7 +176,7 @@ export const Agenda: React.FC = () => {
                   className={`relative cursor-pointer px-4 py-2 rounded-xl text-xs font-bold transition-colors duration-150 border shrink-0 select-none ${
                     isActive
                       ? 'text-[#0B0F17] font-black border-transparent'
-                      : 'bg-[#252324] text-slate-300 border-[#383336] hover:border-slate-400 hover:text-white shadow-sm'
+                      : 'bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 border-white/10 hover:border-white/20 shadow-sm'
                   }`}
                   style={{
                     borderColor: isActive ? currentColorConfig.hex : undefined,
@@ -199,7 +201,7 @@ export const Agenda: React.FC = () => {
         </ScrollReveal>
 
         {/* Timeline Layout with Clean Architectural Borders (Zero AI Slop) */}
-        <div className="relative pl-6 sm:pl-10 border-l border-[#383336] flex flex-col gap-6 sm:gap-8">
+        <div className="relative pl-6 sm:pl-10 border-l border-white/10 flex flex-col gap-6 sm:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredAgenda.map((item: AgendaItem, idx: number) => (
               <motion.div

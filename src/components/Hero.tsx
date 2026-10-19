@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = () => {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-40px)] pt-44 sm:pt-48 lg:pt-52 pb-12 sm:pb-16 flex flex-col justify-start items-center text-center overflow-hidden px-4 bg-[#100B2E]">
+    <section className="relative min-h-[calc(100vh-40px)] pt-44 sm:pt-48 lg:pt-52 pb-12 sm:pb-16 flex flex-col justify-start items-center text-center overflow-hidden px-4 bg-transparent">
       {/* Background & Grid */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Subtle grid with thin lines in #FFFFFF at 4% opacity */}
@@ -87,12 +87,12 @@ export const Hero: React.FC<HeroProps> = () => {
           </p>
         </motion.div>
 
-        {/* Quick Facts Strip (Indigo, Violet, White & Cool Gray Palette) */}
+        {/* Quick Facts Strip (Indigo, Violet, White & Cool Gray Palette with Glassmorphism) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-[#17113A]/90 border border-[#2D2364] rounded-xl p-2 sm:p-2.5 mb-6 sm:mb-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-5 shadow-sm w-full sm:w-auto"
+          className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-2 sm:p-2.5 mb-6 sm:mb-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-5 shadow-2xl w-full sm:w-auto"
         >
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
             <Calendar className="w-4 h-4 text-[#A855F7] shrink-0" />
@@ -101,7 +101,7 @@ export const Hero: React.FC<HeroProps> = () => {
               <span className="poster-date-venue text-[#F8FAFC] font-bold">21 Oct 2026</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[#2D2364]" />
+          <div className="hidden sm:block w-px h-7 bg-white/10" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
             <Users className="w-4 h-4 text-[#A855F7] shrink-0" />
@@ -110,7 +110,7 @@ export const Hero: React.FC<HeroProps> = () => {
               <span className="poster-date-venue text-[#F8FAFC] font-bold">550+ Builders</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[#2D2364]" />
+          <div className="hidden sm:block w-px h-7 bg-white/10" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
             <MapPin className="w-4 h-4 text-[#A855F7] shrink-0" />
@@ -119,7 +119,7 @@ export const Hero: React.FC<HeroProps> = () => {
               <span className="poster-date-venue text-[#F8FAFC] font-bold">Rungta International Skills University, Bhilai</span>
             </div>
           </div>
-          <div className="hidden sm:block w-px h-7 bg-[#2D2364]" />
+          <div className="hidden sm:block w-px h-7 bg-white/10" />
 
           <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
             <Gift className="w-4 h-4 text-[#A855F7] shrink-0" />

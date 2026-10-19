@@ -36,9 +36,9 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative border-t border-[var(--theme-border,#383336)] bg-[var(--theme-bg,#110011)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
+    <footer className="relative border-t border-white/10 bg-[var(--theme-bg,#110011)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--theme-border,#383336)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center">
@@ -163,7 +163,7 @@ export const Footer: React.FC = () => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-[var(--theme-surface-elevated,#2E2A2C)] border border-[var(--theme-border,#383336)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/50 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+            className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-slate-300 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />

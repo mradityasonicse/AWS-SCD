@@ -24,7 +24,7 @@ export const Tracks: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header with [ 02 ] Index */}
         <ScrollReveal>
-          <div className="border-b border-[var(--theme-border,#383336)] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          <div className="border-b border-white/10 pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
               <span
                 className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
