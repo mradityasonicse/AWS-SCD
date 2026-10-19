@@ -131,7 +131,7 @@ export const StackingCardItem = ({
         {children}
         {/* Subtle Darkening Overlay as subsequent cards stack over this card */}
         <motion.div
-          className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-black pointer-events-none z-30"
+          className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-[#0A0D14]/60 pointer-events-none z-30"
           style={{
             opacity: overlayOpacity,
             willChange: "opacity",

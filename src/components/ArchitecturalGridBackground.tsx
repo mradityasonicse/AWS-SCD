@@ -241,7 +241,7 @@ export const ArchitecturalGridBackground: React.FC = () => {
     <div
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
       style={{
-        backgroundColor: 'var(--theme-bg, #110011)',
+        backgroundColor: 'var(--theme-bg, #0A0D14)',
         transform: 'translateZ(0)',
         willChange: 'transform',
       }}

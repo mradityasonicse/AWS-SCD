@@ -45,7 +45,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Lead Organiser",
     initials: "US",
     code: "ORG-01",
-    accentColor: "#AD5CFF", // Electric Purple
+    accentColor: "#FF9900", // AWS Orange
     tagline: "Leading Central India's premier student cloud summit, speaker curation & flagship direction.",
     bio: "AWS Student Builder Group Leader at Rungta International Skills University. Spearheading the inaugural SCD Central India gathering, connecting student builders with AWS DevRel leadership.",
     linkedin: "https://www.linkedin.com/in/uddyan-sahu/",
@@ -73,7 +73,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Co-Tech Lead",
     initials: "AS",
     code: "ORG-03",
-    accentColor: "#AD5CFF", // Electric Purple
+    accentColor: "#FF9900", // AWS Orange
     image: "/aditya_soni.jpg",
     tagline: "Architecting cloud infrastructure, developer pipelines & high-concurrency summit systems.",
     bio: "Co-Technical Lead at AWS SCD Rungta International Skills University. Engineering production cloud workflows, interactive developer platforms, and technical arena infra for 500+ builders.",
@@ -102,7 +102,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Brand & Design",
     initials: "NK",
     code: "ORG-05",
-    accentColor: "#FF57EA", // Neon Pink
+    accentColor: "#FF9900", // AWS Orange
     tagline: "Crafting the visual identity, summit stage animations & community brand aesthetic.",
     bio: "Leading creative direction, conference merchandise, stage motion visuals, and high-fidelity collateral for AWS SCD 2026.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
@@ -130,7 +130,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Faculty Mentors",
     initials: "RM",
     code: "ORG-07",
-    accentColor: "#AD5CFF", // Electric Purple
+    accentColor: "#FF9900", // AWS Orange
     tagline: "Academic patronage, institutional support & mentor guidance from Rungta International Skills University.",
     bio: "Guiding student leaders, coordinating university infrastructure, and fostering academic excellence in cloud education.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
@@ -186,7 +186,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Sub Crew",
     initials: "HS",
     code: "CREW-04",
-    accentColor: "#FF57EA", // Neon Pink
+    accentColor: "#FF9900", // AWS Orange
     tagline: "Capturing high-energy summit moments, social stories & community reels.",
     bio: "Documenting live keynotes, attendee interviews, and community highlights across social platforms.",
     linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",

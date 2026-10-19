@@ -24,7 +24,7 @@ export const BuilderStairs: React.FC<BuilderStairsProps> = ({
   showGridLines = true,
   interactive = true,
 }) => {
-  const fill = color || 'var(--theme-accent, #AD5CFF)';
+  const fill = color || 'var(--theme-accent, #FF9900)';
 
   // 6 columns x 6 rows coordinate space
   // Base unit: 40px

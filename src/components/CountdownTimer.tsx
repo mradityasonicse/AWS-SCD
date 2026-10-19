@@ -23,15 +23,15 @@ const ColonSeparator: React.FC = () => (
     <span
       className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full animate-pulse"
       style={{
-        backgroundColor: 'var(--theme-accent, #AD5CFF)',
-        boxShadow: '0 0 10px var(--theme-accent, #AD5CFF), 0 0 16px var(--theme-accent-glow, rgba(173, 92, 255, 0.6))',
+        backgroundColor: 'var(--theme-accent, #FF9900)',
+        boxShadow: '0 0 10px var(--theme-accent, #FF9900), 0 0 16px var(--theme-accent-glow, rgba(255, 153, 0, 0.5))',
       }}
     />
     <span
       className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full animate-pulse"
       style={{
-        backgroundColor: 'var(--theme-accent, #AD5CFF)',
-        boxShadow: '0 0 10px var(--theme-accent, #AD5CFF), 0 0 16px var(--theme-accent-glow, rgba(173, 92, 255, 0.6))',
+        backgroundColor: 'var(--theme-accent, #FF9900)',
+        boxShadow: '0 0 10px var(--theme-accent, #FF9900), 0 0 16px var(--theme-accent-glow, rgba(255, 153, 0, 0.5))',
       }}
     />
   </div>
@@ -64,8 +64,8 @@ const SplitFlapCard: React.FC<SplitFlapCardProps> = ({ value, label }) => {
       <span
         className="mt-2 sm:mt-2.5 md:mt-3 text-[11px] xs:text-xs sm:text-sm md:text-base font-bold tracking-wider select-none"
         style={{
-          color: 'var(--theme-accent, #AD5CFF)',
-          textShadow: '0 0 14px var(--theme-accent-glow, rgba(173, 92, 255, 0.4))',
+          color: 'var(--theme-accent, #FF9900)',
+          textShadow: '0 0 14px var(--theme-accent-glow, rgba(255, 153, 0, 0.4))',
         }}
       >
         {label}
@@ -87,10 +87,10 @@ const SingleDigitTile: React.FC<SingleDigitTileProps> = ({ digit }) => {
       className="relative w-7 xs:w-8.5 sm:w-12 md:w-15 lg:w-18 h-11 xs:h-13 sm:h-18 md:h-22 lg:h-26 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border"
       style={{
         background:
-          'linear-gradient(180deg, color-mix(in srgb, var(--theme-accent, #AD5CFF) 88%, white 12%) 0%, var(--theme-accent, #AD5CFF) 50%, color-mix(in srgb, var(--theme-accent, #AD5CFF) 75%, black 25%) 100%)',
-        borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 65%, white 35%)',
+          'linear-gradient(180deg, color-mix(in srgb, var(--theme-accent, #FF9900) 88%, white 12%) 0%, var(--theme-accent, #FF9900) 50%, color-mix(in srgb, var(--theme-accent, #FF9900) 75%, black 25%) 100%)',
+        borderColor: 'color-mix(in srgb, var(--theme-accent, #FF9900) 65%, white 35%)',
         boxShadow:
-          '0 10px 28px var(--theme-accent-glow, rgba(173, 92, 255, 0.4)), 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5)',
+          '0 10px 28px var(--theme-accent-glow, rgba(255, 153, 0, 0.4)), 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5)',
         perspective: 800,
       }}
     >
@@ -293,13 +293,13 @@ export const CountdownTimer: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs">
               {/* Event Schedule Info */}
               <div className="flex items-center gap-2 text-slate-300">
-                <Calendar className="w-4 h-4 shrink-0" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
+                <Calendar className="w-4 h-4 shrink-0" style={{ color: 'var(--theme-accent, #FF9900)' }} />
                 <span className="font-medium">
                   <strong className="text-white">Wednesday, 21 October 2026</strong> · 09:00 AM IST
                 </span>
                 <span className="hidden md:inline text-slate-600">|</span>
                 <span className="hidden md:flex items-center gap-1 text-slate-400">
-                  <MapPin className="w-3 h-3 text-[#42B4FF]" />
+                  <MapPin className="w-3 h-3 text-[#FF9900]" />
                   Rungta International Skills University, Bhilai
                 </span>
               </div>
@@ -311,8 +311,8 @@ export const CountdownTimer: React.FC = () => {
                   onClick={() => setCalendarOpen((prev) => !prev)}
                   className="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-white font-bold text-xs transition-all cursor-pointer active:scale-95 hover:brightness-110"
                   style={{
-                    backgroundColor: 'var(--theme-accent, #AD5CFF)',
-                    boxShadow: '0 4px 14px var(--theme-accent-glow, rgba(173, 92, 255, 0.35))',
+                    backgroundColor: 'var(--theme-accent, #FF9900)',
+                    boxShadow: '0 4px 14px var(--theme-accent-glow, rgba(255, 153, 0, 0.35))',
                   }}
                   aria-expanded={calendarOpen}
                   aria-controls={dropdownId}
@@ -331,7 +331,7 @@ export const CountdownTimer: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 6, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 sm:right-0 bottom-full sm:bottom-auto sm:top-full mt-2 mb-2 sm:mb-0 w-64 bg-[rgba(20,15,35,0.92)] backdrop-blur-2xl border border-white/20 rounded-2xl p-2 shadow-[0_16px_40px_rgba(0,0,0,0.9)] z-50 text-left"
+                      className="absolute right-0 sm:right-0 bottom-full sm:bottom-auto sm:top-full mt-2 mb-2 sm:mb-0 w-64 bg-[#0B0F17]/95 backdrop-blur-2xl border border-white/20 rounded-2xl p-2 shadow-[0_16px_40px_rgba(0,0,0,0.9)] z-50 text-left"
                     >
                       <div className="px-3 py-1.5 border-b border-white/10 mb-1">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
@@ -386,9 +386,9 @@ export const CountdownTimer: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-[rgba(20,15,35,0.92)] backdrop-blur-xl border border-[var(--theme-accent,#AD5CFF)] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-2"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] bg-[#0B0F17]/95 backdrop-blur-xl border border-[var(--theme-accent,#FF9900)] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-2"
           >
-            <Check className="w-4 h-4 text-[var(--theme-accent,#AD5CFF)]" />
+            <Check className="w-4 h-4 text-[var(--theme-accent,#FF9900)]" />
             <span>Event invite &amp; date copied to clipboard!</span>
           </motion.div>
         )}

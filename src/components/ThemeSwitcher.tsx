@@ -79,7 +79,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-sm bg-[rgba(20,15,35,0.92)] backdrop-blur-2xl border border-white/20 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white z-10 font-sans"
+              className="relative w-full max-w-sm bg-[#0A0D14]/90 backdrop-blur-2xl border border-white/20 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white z-10 font-sans"
             >
               {/* Header */}
               <div className="flex items-center justify-between pb-4 mb-5 border-b border-white/10">
@@ -100,7 +100,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+                  className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)]"
                   aria-label="Close theme customizer"
                 >
                   <X className="w-4 h-4" />
@@ -117,7 +117,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                   <button
                     type="button"
                     onClick={() => setBgMode('dark')}
-                    className={`relative w-9 h-9 rounded-full bg-[#110011] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
+                    className={`relative w-9 h-9 rounded-full bg-[#0A0D14] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)] ${
                       bgMode === 'dark'
                         ? 'border-white ring-2 ring-white/30 scale-105'
                         : 'border-[#383336] hover:border-slate-400'
@@ -133,16 +133,16 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                   <button
                     type="button"
                     onClick={() => setBgMode('light')}
-                    className={`relative w-9 h-9 rounded-full bg-[#FFFFFF] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
+                    className={`relative w-9 h-9 rounded-full bg-[#FFFFFF] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)] ${
                       bgMode === 'light'
-                        ? 'border-[#AD5CFF] ring-2 ring-[#AD5CFF]/40 scale-105'
+                        ? 'border-[#FF9900] ring-2 ring-[#FF9900]/40 scale-105'
                         : 'border-slate-400 hover:border-white'
                     }`}
                     title="Light Background"
                     aria-label="Select light background"
                     aria-pressed={bgMode === 'light'}
                   >
-                    {bgMode === 'light' && <Check className="w-3.5 h-3.5 text-[#110011] stroke-[3]" />}
+                    {bgMode === 'light' && <Check className="w-3.5 h-3.5 text-[#0A0D14] stroke-[3]" />}
                   </button>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                         type="button"
                         key={key}
                         onClick={() => setSecondaryColor(key)}
-                        className={`relative w-8 h-8 rounded-full cursor-pointer transition-all duration-150 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
+                        className={`relative w-8 h-8 rounded-full cursor-pointer transition-all duration-150 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)] ${
                           isSelected
                             ? 'ring-3 ring-white ring-offset-2 ring-offset-[#131922] scale-110 shadow-lg'
                             : 'hover:scale-105 hover:opacity-90'

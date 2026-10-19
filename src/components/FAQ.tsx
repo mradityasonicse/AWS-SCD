@@ -114,7 +114,7 @@ export const FAQ: React.FC = () => {
           <a
             href={`mailto:${EVENT_DETAILS.contactEmail}`}
             className="font-bold hover:underline"
-            style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+            style={{ color: 'var(--theme-accent, #FF9900)' }}
           >
             {EVENT_DETAILS.contactEmail}
           </a>

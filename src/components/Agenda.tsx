@@ -24,7 +24,7 @@ export const Agenda: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden px-4 sm:px-6" id="agenda">
+    <section className="pt-8 sm:pt-12 pb-20 sm:pb-24 relative overflow-hidden px-4 sm:px-6" id="agenda">
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header with [ 04 ] Index */}
         <ScrollReveal>

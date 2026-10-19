@@ -271,10 +271,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Registration",
     type: "Registration",
-    typeColor: "#00E582",
+    typeColor: "#FF9900",
     duration: "60 min",
     subtitle: "Participant registration, attendance, and welcome.",
-    dotColor: "#00E582",
+    dotColor: "#FF9900",
     category: "Networking"
   },
   {
@@ -282,10 +282,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Inauguration",
     type: "Inauguration",
-    typeColor: "#AD5CFF",
+    typeColor: "#FF9900",
     duration: "20 min",
     subtitle: "Formal opening of the event and inaugural proceedings.",
-    dotColor: "#AD5CFF",
+    dotColor: "#FF9900",
     category: "Ceremony"
   },
   {
@@ -304,10 +304,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Introduction",
     type: "Welcome Address",
-    typeColor: "#42B4FF",
+    typeColor: "#FF9900",
     duration: "10 min",
     subtitle: "Welcome address and introduction to AWS Community Day.",
-    dotColor: "#42B4FF",
+    dotColor: "#FF9900",
     category: "Keynote"
   },
   {
@@ -315,10 +315,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Speaker Session 1",
     type: "Speaker Session",
-    typeColor: "#AD5CFF",
+    typeColor: "#FF9900",
     duration: "50 min",
     subtitle: "Invite the first speaker and conduct the session.",
-    dotColor: "#AD5CFF",
+    dotColor: "#FF9900",
     category: "Tech"
   },
   {
@@ -326,10 +326,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Break",
     type: "Lunch & Refreshment",
-    typeColor: "#42B4FF",
+    typeColor: "#94A3B8",
     duration: "60 min",
     subtitle: "One-hour lunch or refreshment break.",
-    dotColor: "#42B4FF",
+    dotColor: "#94A3B8",
     category: "Networking"
   },
   {
@@ -337,10 +337,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Introduction",
     type: "Welcome Address",
-    typeColor: "#42B4FF",
+    typeColor: "#FF9900",
     duration: "10 min",
     subtitle: "Reopen the event and introduce the next speaker.",
-    dotColor: "#42B4FF",
+    dotColor: "#FF9900",
     category: "Keynote"
   },
   {
@@ -348,10 +348,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Speaker Session 2",
     type: "Speaker Session",
-    typeColor: "#AD5CFF",
+    typeColor: "#FF9900",
     duration: "80 min",
     subtitle: "Invite the next speaker and conduct the session.",
-    dotColor: "#AD5CFF",
+    dotColor: "#FF9900",
     category: "Tech"
   },
   {
@@ -359,10 +359,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Q&A Session",
     type: "Audience Q&A",
-    typeColor: "#FF57EA",
+    typeColor: "#FF9900",
     duration: "30 min",
     subtitle: "Audience questions and interaction with the speakers.",
-    dotColor: "#FF57EA",
+    dotColor: "#FF9900",
     category: "Fun"
   },
   {
@@ -370,10 +370,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Closing Ceremony",
     type: "Closing Ceremony",
-    typeColor: "#00E582",
+    typeColor: "#FF9900",
     duration: "30 min",
     subtitle: "Vote of thanks, acknowledgements, and closing remarks.",
-    dotColor: "#00E582",
+    dotColor: "#FF9900",
     category: "Ceremony"
   },
   {

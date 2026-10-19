@@ -74,12 +74,6 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
             <ArrowRight className="w-3 h-3 text-slate-400 group-hover:text-white" />
           </button>
 
-          {/* Top subtle telemetry label */}
-          <div className="absolute top-6 left-6 z-30 hidden sm:flex items-center gap-2.5 font-mono text-[11px] text-slate-500 tracking-widest uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>AWS-SCD-2026 // CENTRAL INDIA SUMMIT</span>
-          </div>
-
           <AnimatePresence mode="wait">
             {phase === 'video' ? (
               /* ================================================================ */
@@ -152,7 +146,7 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
                   />
                 </motion.div>
 
-                {/* Subtitle / Summit Meta Coordinates */}
+                {/* Subtitle */}
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -161,9 +155,6 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
                 >
                   <p className="text-xs sm:text-sm font-mono tracking-[0.25em] text-slate-300 uppercase font-semibold">
                     CENTRAL INDIA CLOUD SUMMIT · OCTOBER 21, 2026
-                  </p>
-                  <p className="text-[10px] font-mono text-slate-500 tracking-widest uppercase mt-2">
-                    RUNGTA CAMPUS · BHILAI · 21.2185° N, 81.3820° E
                   </p>
                 </motion.div>
 

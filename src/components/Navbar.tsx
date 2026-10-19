@@ -497,7 +497,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden border-t border-white/10 bg-[#140E3B]/95 backdrop-blur-2xl max-h-[calc(100vh-80px)] overflow-y-auto"
+              className="lg:hidden border-t border-white/10 bg-[#0A0D14]/98 backdrop-blur-2xl max-h-[calc(100vh-80px)] overflow-y-auto"
             >
               <div className="p-4 space-y-3">
                 {NAV_CATEGORIES.map((cat) => {
@@ -507,10 +507,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                         key={cat.id}
                         href={`#${cat.id}`}
                         onClick={(e) => handleNavClick(e, `#${cat.id}`)}
-                        className="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-white/[0.04] text-xs font-bold uppercase tracking-wider text-white hover:text-[#A855F7] hover:border-[#A855F7]/50 transition-colors"
+                        className="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-white/[0.04] text-xs font-bold uppercase tracking-wider text-white hover:text-[#FF9900] hover:border-[#FF9900]/50 transition-colors"
                       >
                         <span className="flex items-center gap-2.5">
-                          <Users className="w-4 h-4 text-[#A855F7]" />
+                          <Users className="w-4 h-4 text-[#FF9900]" />
                           <span>{cat.name}</span>
                         </span>
                         <ArrowUpRight className="w-4 h-4 text-slate-400" />
@@ -527,8 +527,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                         onClick={() => setMobileExpandedTab(isExpanded ? null : cat.id)}
                         className="w-full flex items-center justify-between p-3.5 text-xs font-bold uppercase tracking-wider text-white"
                       >
-                        <span className={cn(isExpanded ? "text-[#A855F7]" : "text-white")}>{cat.name}</span>
-                        {isExpanded ? <ChevronUp className="w-4 h-4 text-[#A855F7]" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
+                        <span className={cn(isExpanded ? "text-[#FF9900]" : "text-white")}>{cat.name}</span>
+                        {isExpanded ? <ChevronUp className="w-4 h-4 text-[#FF9900]" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
                       </button>
 
                       <AnimatePresence>
@@ -551,7 +551,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                                   onClick={(e) => handleNavClick(e, link.href)}
                                   className="flex items-center gap-3 py-1 text-xs text-slate-300 hover:text-white"
                                 >
-                                  <span className="font-mono font-bold text-[#A855F7]">{link.num}</span>
+                                  <span className="font-mono font-bold text-[#FF9900]">{link.num}</span>
                                   <span className="font-semibold">{link.title}</span>
                                 </a>
                               ))}
@@ -592,12 +592,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
               transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-xl bg-[rgba(20,14,59,0.92)] backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
+              className="w-full max-w-xl bg-[#0B0F17]/95 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Search Bar Input */}
               <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10">
-                <Search className="w-4 h-4 text-[#A855F7] shrink-0" />
+                <Search className="w-4 h-4 text-[#FF9900] shrink-0" />
                 <input
                   ref={searchInputRef}
                   type="text"
@@ -625,7 +625,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                     className="flex items-center justify-between p-3 rounded-xl hover:bg-white/[0.06] transition-colors group cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-[#A855F7]/40 text-[#A855F7]">
+                      <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-[#FF9900]/40 text-[#FF9900]">
                         <item.icon className="w-4 h-4" />
                       </div>
                       <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white">

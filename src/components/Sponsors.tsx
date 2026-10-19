@@ -16,16 +16,16 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
           <div className="flex items-baseline gap-4 sm:gap-6">
             <span
               className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
-              style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              style={{ color: 'var(--theme-accent, #FF9900)' }}
             >
               [ 06 ]
             </span>
             <div>
               <p
                 className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
-                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                style={{ color: 'var(--theme-accent, #FF9900)' }}
               >
-                <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
+                <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #FF9900)' }} />
                 Partners &amp; Supporters
               </p>
               <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
@@ -49,7 +49,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
                 className="absolute -inset-1.5 rounded-3xl opacity-25 group-hover:opacity-50 blur-2xl transition-all duration-500 pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle, rgba(255, 153, 0, 0.45) 0%, rgba(173, 92, 255, 0.25) 55%, transparent 75%)',
+                    'radial-gradient(circle, rgba(255, 153, 0, 0.35) 0%, rgba(255, 153, 0, 0.08) 55%, transparent 75%)',
                 }}
               />
 
@@ -107,7 +107,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
       <ScrollReveal delay={0.15}>
         <SpotlightCard className="p-8 sm:p-12 relative overflow-hidden text-center max-w-3xl mx-auto shadow-xl bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10">
           <div className="relative z-10 flex flex-col items-center">
-            <div className="w-12 h-12 rounded-xl bg-[var(--theme-accent,#AD5CFF)]/10 border border-[var(--theme-accent,#AD5CFF)]/30 flex items-center justify-center mb-5 text-[var(--theme-accent,#AD5CFF)]">
+            <div className="w-12 h-12 rounded-xl bg-[var(--theme-accent,#FF9900)]/10 border border-[var(--theme-accent,#FF9900)]/30 flex items-center justify-center mb-5 text-[var(--theme-accent,#FF9900)]">
               <HeartHandshake className="w-6 h-6" />
             </div>
 

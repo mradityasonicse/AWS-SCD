@@ -46,7 +46,7 @@ export const Speakers: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden px-4 sm:px-6 scroll-mt-24 sm:scroll-mt-28" id="speakers">
+    <section className="pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 relative overflow-hidden px-4 sm:px-6 scroll-mt-24 sm:scroll-mt-28" id="speakers">
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <ScrollReveal>
@@ -141,14 +141,6 @@ export const Speakers: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Clean Bottom Metadata Strip */}
-        <div className="mt-10 sm:mt-12 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-slate-400 font-mono text-xs">
-          <span>RUNGTA INTERNATIONAL SKILLS UNIVERSITY · BHILAI</span>
-          <span className="font-bold text-[#FF9900]">
-            AWS STUDENT COMMUNITY DAY 2026
-          </span>
         </div>
       </div>
 

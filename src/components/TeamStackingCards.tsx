@@ -230,7 +230,7 @@ export const TeamStackingCards: React.FC<TeamStackingCardsProps> = ({ members })
                     {/* Hardware Telemetry Bottom Bar */}
                     <div className="pt-4 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
                       <span className="flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-[#AD5CFF] shrink-0" />
+                        <MapPin className="w-3 h-3 text-[#FF9900] shrink-0" />
                         <span>Rungta International Skills University, Bhilai · Central India</span>
                       </span>
                       <span className="text-slate-500 hidden sm:inline">

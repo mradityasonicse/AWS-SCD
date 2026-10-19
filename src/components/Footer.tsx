@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative border-t border-white/10 bg-[var(--theme-bg,#110011)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
+    <footer className="relative border-t border-white/10 bg-[var(--theme-bg,#0A0D14)] text-slate-400 pt-16 pb-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand Info */}
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
               </h3>
               <p
                 className="text-xs font-semibold mt-0.5"
-                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                style={{ color: 'var(--theme-accent, #FF9900)' }}
               >
                 Hosted at {EVENT_DETAILS.institution}
               </p>
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
                 href={EVENT_DETAILS.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#FF9900)] hover:border-[var(--theme-accent,#FF9900)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)]"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ export const Footer: React.FC = () => {
                 href={EVENT_DETAILS.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#FF9900)] hover:border-[var(--theme-accent,#FF9900)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)]"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
                 href={EVENT_DETAILS.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#FF9900)] hover:border-[var(--theme-accent,#FF9900)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)]"
                 aria-label="Twitter / X"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
               </a>
               <a
                 href={`mailto:${EVENT_DETAILS.contactEmail}`}
-                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#FF9900)] hover:border-[var(--theme-accent,#FF9900)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)]"
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
@@ -120,7 +120,7 @@ export const Footer: React.FC = () => {
                   <a
                     href={link.href}
                     onClick={(e) => handleFooterNavClick(e, link.href)}
-                    className="hover:text-[var(--theme-accent,#AD5CFF)] transition-colors inline-block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--theme-accent,#AD5CFF)] rounded px-1 -mx-1"
+                    className="hover:text-[var(--theme-accent,#FF9900)] transition-colors inline-block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--theme-accent,#FF9900)] rounded px-1 -mx-1"
                   >
                     {link.name}
                   </a>
@@ -163,7 +163,7 @@ export const Footer: React.FC = () => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-slate-300 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
+            className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-slate-300 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)]"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />

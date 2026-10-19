@@ -47,7 +47,7 @@ export const CosmicBackground: React.FC = () => {
       color: string;
     }[] = [];
 
-    const colors = ['#FF9900', '#42B4FF', '#FF57EA', '#00E582', '#AD5CFF', '#F8FAFC'];
+    const colors = ['#FF9900', '#FFAC33', '#38BDF8', '#94A3B8', '#F8FAFC'];
 
     for (let i = 0; i < numStars; i++) {
       stars.push({
@@ -176,7 +176,7 @@ export const CosmicBackground: React.FC = () => {
       {/* AWS Cloud Ambient glow orbs */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#FF9900]/10 rounded-full blur-[140px]" />
       <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-[#42B4FF]/08 rounded-full blur-[160px]" />
-      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[var(--theme-accent,#AD5CFF)]/06 rounded-full blur-[180px]" />
+      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[var(--theme-accent,#FF9900)]/06 rounded-full blur-[180px]" />
     </div>
   );
 };
