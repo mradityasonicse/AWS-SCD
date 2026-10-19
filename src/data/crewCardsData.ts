@@ -81,7 +81,7 @@ export const CORE_CREW_LEADERSHIP: CoreCrewLeader[] = [
     cardImage: "/cards/card-35.png",
     accentColor: "#00E582",
     tagline: "",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
+    linkedin: "https://www.linkedin.com/in/yash-raj-singh-harsh?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     scope: [],
   },
 ];

@@ -161,7 +161,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#00E582", // Cyber Green
     tagline: "Coordinating student delegations, attendee hospitality & check-in flow.",
     bio: "Welcoming 500+ builders, managing fast-track accreditation, and organizing student cohort hospitality.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
+    linkedin: "https://www.linkedin.com/in/yash-raj-singh-harsh?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     scope: ["Delegations", "Hospitality", "Attendee Flow"],
   },
   {
