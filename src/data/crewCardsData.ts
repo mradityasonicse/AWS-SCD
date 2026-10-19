@@ -53,7 +53,7 @@ export const CORE_CREW_LEADERSHIP: CoreCrewLeader[] = [
     cardImage: "/cards/card-34.png",
     accentColor: "#AD5CFF",
     tagline: "",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
+    linkedin: "https://www.linkedin.com/in/harsh-kumar-shandilya-78b223372?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     scope: [],
   },
   {

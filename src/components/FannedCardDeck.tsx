@@ -189,7 +189,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#AD5CFF", // AWS SBG Purple
     tagline: "Capturing high-energy summit moments, social stories & community reels.",
     bio: "Documenting live keynotes, attendee interviews, and community highlights across social platforms.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
+    linkedin: "https://www.linkedin.com/in/harsh-kumar-shandilya-78b223372?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     scope: ["Live Media", "Social Highlights", "Photo Ops"],
   },
 ];
