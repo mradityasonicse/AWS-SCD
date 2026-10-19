@@ -60,7 +60,7 @@ const NAV_CATEGORIES: NavCategory[] = [
       { num: '05', title: 'VIEW ALL LEARNING TRACKS', href: '#tracks' },
     ],
     rightCard: {
-      image: '/featured-tracks.jpg',
+      image: '/featured-tracks-2026.jpg',
       title: "DISCOVER WHAT 550+ BUILDERS ARE SHAPING",
       ctaText: 'VIEW SESSIONS',
       ctaHref: '#agenda',
