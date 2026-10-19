@@ -5,7 +5,7 @@ import { ScrollReveal, StaggerContainer, StaggerItem, SpotlightCard } from '@/co
 import { cn } from '@/lib/utils';
 
 export const Venue: React.FC = () => {
-  const [mapMode, setMapMode] = useState<'satellite' | 'blueprint'>('satellite');
+  const [mapMode, setMapMode] = useState<'photo' | 'satellite' | 'blueprint'>('photo');
 
   const mapUrl =
     mapMode === 'satellite'
@@ -132,8 +132,21 @@ export const Venue: React.FC = () => {
                     <span className="truncate">RISU Campus · Bhilai</span>
                   </div>
 
-                  {/* Mode Switcher: Satellite vs Blueprint */}
+                  {/* Mode Switcher: Campus Photo vs Satellite vs Blueprint */}
                   <div className="flex items-center gap-1.5 bg-white/5 p-1 rounded-xl border border-white/10">
+                    <button
+                      type="button"
+                      onClick={() => setMapMode('photo')}
+                      className={cn(
+                        "px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 select-none",
+                        mapMode === 'photo'
+                          ? "bg-white/15 text-white shadow-sm border border-white/20"
+                          : "text-slate-400 hover:text-slate-200"
+                      )}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--theme-accent,#AD5CFF)]" />
+                      <span>Campus Photo</span>
+                    </button>
                     <button
                       type="button"
                       onClick={() => setMapMode('satellite')}
@@ -145,7 +158,7 @@ export const Venue: React.FC = () => {
                       )}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      <span>Dark Satellite</span>
+                      <span>Satellite</span>
                     </button>
                     <button
                       type="button"
@@ -158,24 +171,35 @@ export const Venue: React.FC = () => {
                       )}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#42B4FF]" />
-                      <span>Dark Blueprint</span>
+                      <span>Blueprint</span>
                     </button>
                   </div>
                 </div>
 
                 <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-transparent overflow-hidden group">
-                  <iframe
-                    title="Rungta International Skills University - Campus Map"
-                    src={mapUrl}
-                    className="w-full h-full border-0 transition-all duration-300 scale-105 transform-gpu"
-                    style={{
-                      filter: mapFilter,
-                      transform: 'translateZ(0)',
-                    }}
-                    loading="lazy"
-                    allowFullScreen
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
+                  {mapMode === 'photo' ? (
+                    <div className="relative w-full h-full overflow-hidden">
+                      <img
+                        src="/rungta-campus.png"
+                        alt="Rungta International Skills University Campus Building"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    </div>
+                  ) : (
+                    <iframe
+                      title="Rungta International Skills University - Campus Map"
+                      src={mapUrl}
+                      className="w-full h-full border-0 transition-all duration-300 scale-105 transform-gpu"
+                      style={{
+                        filter: mapFilter,
+                        transform: 'translateZ(0)',
+                      }}
+                      loading="lazy"
+                      allowFullScreen
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  )}
 
                   {/* Dark Theme Ambient Inset Vignette */}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
@@ -197,10 +221,16 @@ export const Venue: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Satellite Mode HUD Tag */}
+                  {/* Mode HUD Tag */}
                   <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 pointer-events-none bg-white/[0.08] backdrop-blur-xl px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-white/15 text-[9.5px] sm:text-[10px] font-mono text-slate-300 flex items-center gap-1.5 z-10 shadow-lg">
                     <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
-                    <span>{mapMode === 'satellite' ? 'SATELLITE VIEW' : 'CAMPUS BLUEPRINT'}</span>
+                    <span>
+                      {mapMode === 'photo'
+                        ? 'CAMPUS PHOTO'
+                        : mapMode === 'satellite'
+                        ? 'SATELLITE VIEW'
+                        : 'CAMPUS BLUEPRINT'}
+                    </span>
                   </div>
                 </div>
               </div>

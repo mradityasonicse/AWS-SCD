@@ -204,7 +204,7 @@ export const CountdownTimer: React.FC = () => {
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     'AWS Student Community Day 2026 · Central India'
   )}&dates=20261021T033000Z/20261021T103000Z&details=${encodeURIComponent(
-    'AWS Student Community Day 2026 (Rungta International Skills University, Bhilai Edition).\nKeynotes by Praful Bagai & Jessica Gilmore, Amazon Bedrock GenAI workshops, project showcases, and 500+ student builders.\nVenue: Rungta International Skills University, Bhilai.\nWebsite: https://aws-scd-risu.vercel.app'
+    'AWS Student Community Day 2026 (Rungta International Skills University, Bhilai Edition).\nKeynotes by Harshit Singh (SDE-II, Amazon) & Saptarshi De (SDE-II, AWS), AWS Cloud Architecture masterclasses, live Kahoot quiz, and 500+ student builders.\nVenue: Rungta International Skills University, Bhilai.\nWebsite: https://aws-scd-risu.vercel.app'
   )}&location=${encodeURIComponent(
     'Rungta International Skills University, Bhilai, Chhattisgarh, India'
   )}`;
@@ -223,7 +223,7 @@ export const CountdownTimer: React.FC = () => {
       'DTSTART:20261021T033000Z',
       'DTEND:20261021T103000Z',
       'SUMMARY:AWS Student Community Day 2026 · Central India',
-      'DESCRIPTION:Flagship student AWS conference in Central India at Rungta International Skills University, Bhilai. Keynotes from AWS DevRel leadership and Amazon leaders, hands-on GenAI clinics, and 550+ builders.',
+      'DESCRIPTION:Flagship student AWS conference in Central India at Rungta International Skills University, Bhilai. Keynotes from Harshit Singh (SDE-II, Amazon) & Saptarshi De (SDE-II, AWS), system design deep dives, and 500+ student builders.',
       'LOCATION:Rungta International Skills University, Bhilai, Chhattisgarh 490024',
       'URL:https://aws-scd-risu.vercel.app',
       'STATUS:CONFIRMED',
@@ -243,7 +243,7 @@ export const CountdownTimer: React.FC = () => {
 
   // Copy event share invitation
   const handleCopyInvite = async () => {
-    const text = `🚀 Mark your calendar! AWS Student Community Day 2026 · Central India is happening on Wednesday, 21 October 2026 at Rungta International Skills University, Bhilai. 550+ builders, AWS DevRel keynotes, GenAI workshops & prizes! Details: ${window.location.href}`;
+    const text = `🚀 Mark your calendar! AWS Student Community Day 2026 · Central India is happening on Wednesday, 21 October 2026 at Rungta International Skills University, Bhilai. 500+ builders, keynotes by Harshit Singh (Amazon) & Saptarshi De (AWS), live Kahoot quiz & prizes! Details: ${window.location.href}`;
     try {
       await navigator.clipboard.writeText(text);
       setCopiedToast(true);

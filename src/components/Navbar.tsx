@@ -72,16 +72,16 @@ const NAV_CATEGORIES: NavCategory[] = [
     hasDropdown: true,
     leftPanel: {
       title: 'A FULL DAY OF LIVE TALKS & KEYNOTES',
-      description: "7 hours of technical sessions, architectural deep dives, Praful Bagai's DevRel address, and live stage Kahoot quizzes hosted at RISU Bhilai.",
+      description: "Full day of technical sessions, AWS cloud architecture masterclasses with Harshit Singh (Amazon) & Saptarshi De (AWS), and live stage Kahoot quizzes at RISU Bhilai.",
       ctaText: 'EXPLORE SCHEDULE',
       ctaHref: '#agenda',
     },
     numberedLinks: [
       { num: '01', title: '09:00 AM · REGISTRATION & WELCOME', href: '#agenda' },
       { num: '02', title: '10:00 AM · INAUGURATION & FELICITATION', href: '#agenda' },
-      { num: '03', title: '10:40 AM · SPEAKER SESSION 1', href: '#agenda' },
-      { num: '04', title: '11:30 AM · LUNCH & REFRESHMENT BREAK', href: '#agenda' },
-      { num: '05', title: '12:40 PM · SPEAKER SESSION 2', href: '#agenda' },
+      { num: '03', title: '10:40 AM · HARSHIT SINGH (AMAZON)', href: '#agenda' },
+      { num: '04', title: '11:30 AM · LUNCH & REFRESHMENTS', href: '#agenda' },
+      { num: '05', title: '12:40 PM · SAPTARSHI DE (AWS)', href: '#agenda' },
       { num: '06', title: '03:00 PM · SWAG DISTRIBUTION', href: '#agenda' },
     ],
     rightCard: {
@@ -108,7 +108,7 @@ const NAV_CATEGORIES: NavCategory[] = [
       { num: '04', title: 'FREQUENTLY ASKED QUESTIONS', href: '#faq' },
     ],
     rightCard: {
-      image: '/summit-stage-feature.jpg',
+      image: '/rungta-campus.png',
       title: 'RUNGTA INTERNATIONAL SKILLS UNIVERSITY · BHILAI CAMPUS',
       ctaText: 'CAMPUS VENUE',
       ctaHref: '#venue',
@@ -120,7 +120,7 @@ const NAV_CATEGORIES: NavCategory[] = [
     hasDropdown: false,
     leftPanel: {
       title: 'WORLD-CLASS CLOUD ARCHITECTS & HEROES',
-      description: 'Learn directly from industry leaders including Praful Bagai (Head of DevRel AWS) and Jessica Gilmore, EdD (Amazon).',
+      description: 'Learn directly from industry engineers Harshit Singh (SDE-II, Amazon) and Saptarshi De (SDE-II, AWS).',
       ctaText: 'VIEW SPEAKERS',
       ctaHref: '#speakers',
     },
@@ -257,8 +257,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     { title: 'Generative AI & Amazon Bedrock Track', category: 'Tracks', href: '#tracks', icon: Layers },
     { title: 'Hyperscale Serverless Architectures Track', category: 'Tracks', href: '#tracks', icon: Layers },
     { title: 'DevSecOps & Cloud Security Track', category: 'Tracks', href: '#tracks', icon: Layers },
-    { title: 'Praful Bagai (Head of DevRel AWS)', category: 'Speakers', href: '#speakers', icon: Users },
-    { title: 'Jessica Gilmore, EdD (Amazon)', category: 'Speakers', href: '#speakers', icon: Users },
     { title: 'Harshit Singh (SDE-II, Amazon)', category: 'Speakers', href: '#speakers', icon: Users },
     { title: 'Saptarshi De (SDE-II, AWS)', category: 'Speakers', href: '#speakers', icon: Users },
     { title: 'All Technical Sessions & Agenda', category: 'Agenda', href: '#agenda', icon: Calendar },

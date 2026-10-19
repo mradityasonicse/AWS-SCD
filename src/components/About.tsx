@@ -27,13 +27,6 @@ export const About: React.FC = () => {
                 WHAT IS SCD
               </span>
               <div className="h-px flex-1 bg-gradient-to-r from-white/10 via-white/5 to-transparent min-w-[20px]" />
-              <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-mono tracking-widest text-slate-400 uppercase shrink-0">
-                <span
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
-                />
-                HOSTED AT RUNGTA INTERNATIONAL SKILLS UNIVERSITY · BHILAI
-              </span>
             </div>
 
             {/* Main Title Row with Vertical Balance */}
@@ -67,17 +60,17 @@ export const About: React.FC = () => {
                 <span className="text-[10px] font-mono font-semibold tracking-wider text-slate-300 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 uppercase">
                   Keynote &amp; Architecture
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">AWS DEVREL &amp; AMAZON</span>
+                <span className="text-[11px] font-mono text-slate-400">AMAZON &amp; AWS KEYNOTES</span>
               </div>
               <h3 className="text-white font-bold text-2xl sm:text-3xl mb-3 tracking-tight">
-                Learn Direct From AWS &amp; Amazon Leadership
+                Learn Direct From Amazon &amp; AWS Engineers
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-6">
-                Deep-dive architectural sessions by <strong className="text-white">Praful Bagai</strong> (Head of DevRel, AWS India &amp; South Asia) and <strong className="text-white">Jessica Gilmore, EdD</strong> (Amazon). Gain firsthand insights on production Generative AI, distributed serverless scalability, and real cloud systems engineering.
+                Deep-dive architectural sessions by <strong className="text-white">Harshit Singh</strong> (SDE-II, Amazon) and <strong className="text-white">Saptarshi De</strong> (SDE-II, AWS). Gain firsthand insights on distributed microservices at Amazon scale, resilient cloud infrastructure, and real production systems engineering.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-white/10">
-              {['Amazon Bedrock', 'Hyperscale Serverless', 'DevSecOps', 'Industry Roadmaps'].map((tag) => (
+              {['Distributed Systems', 'Hyperscale Serverless', 'DynamoDB Primitives', 'System Design'].map((tag) => (
                 <span
                   key={tag}
                   className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-white/[0.04] text-slate-300 border border-white/10"

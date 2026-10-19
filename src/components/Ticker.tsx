@@ -28,7 +28,7 @@ export const Ticker: React.FC = () => {
         </span>
         <span className="text-[#AD5CFF] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          KEYNOTES BY <strong className="text-[#AD5CFF]">PRAFUL BAGAI</strong> (HEAD OF DEVREL AWS) &amp; <strong className="text-[#AD5CFF]">JESSICA GILMORE</strong> (AMAZON)
+          KEYNOTES BY <strong className="text-[#AD5CFF]">HARSHIT SINGH</strong> (SDE-II, AMAZON) &amp; <strong className="text-[#AD5CFF]">SAPTARSHI DE</strong> (SDE-II, AWS)
         </span>
         <span className="text-[#42B4FF] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
@@ -64,7 +64,7 @@ export const Ticker: React.FC = () => {
         </span>
         <span className="text-[#AD5CFF] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          KEYNOTES BY <strong className="text-[#AD5CFF]">PRAFUL BAGAI</strong> (HEAD OF DEVREL AWS) &amp; <strong className="text-[#AD5CFF]">JESSICA GILMORE</strong> (AMAZON)
+          KEYNOTES BY <strong className="text-[#AD5CFF]">HARSHIT SINGH</strong> (SDE-II, AMAZON) &amp; <strong className="text-[#AD5CFF]">SAPTARSHI DE</strong> (SDE-II, AWS)
         </span>
         <span className="text-[#42B4FF] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">

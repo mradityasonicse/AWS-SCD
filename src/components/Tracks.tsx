@@ -43,9 +43,7 @@ export const Tracks: React.FC = () => {
                 </h2>
               </div>
             </div>
-            <p className="text-slate-400 text-xs sm:text-sm max-w-sm font-mono uppercase tracking-wider">
-              4 SPECIALIZED DOMAINS · 12+ HANDS-ON DEMOS
-            </p>
+          
           </div>
         </ScrollReveal>
 
