@@ -17,10 +17,10 @@ export const Agenda: React.FC = () => {
 
   // Unified Architectural Agenda Chapters (Senior Engineer Standard: Zero Rainbow Noise)
   const agendaChapters = [
-    { num: '01', title: 'Inauguration, Dignitary Felicitation & Welcome Address', cat: 'Ceremony' },
-    { num: '02', title: 'Speaker Session 1: Harshit Singh (SDE-II, Amazon)', cat: 'Tech' },
-    { num: '03', title: 'Executive Lunch & 1-on-1 Community Networking Break', cat: 'Networking' },
-    { num: '04', title: 'Speaker Session 2: Saptarshi De (SDE-II, AWS) & Swag Distribution', cat: 'Tech' },
+    { num: '01', title: 'Registration, Inauguration & Dignitary Felicitation', cat: 'Ceremony' },
+    { num: '02', title: 'Speaker Session 1 (Harshit Singh, Amazon)', cat: 'Tech' },
+    { num: '03', title: 'One-Hour Lunch & Refreshment Break', cat: 'Networking' },
+    { num: '04', title: 'Speaker Session 2 (Saptarshi De, AWS) & Swag Distribution', cat: 'Tech' },
   ];
 
   return (

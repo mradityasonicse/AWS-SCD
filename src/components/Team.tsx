@@ -199,11 +199,9 @@ export const Team: React.FC = () => {
         <div className="mb-16 sm:mb-20">
           <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b border-white/10">
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
-              Summit Leadership &amp; Directing Organisers
+              CORE MEMBERS (LEAD, CO-LEAD & ORGANIZERS)
             </h3>
-            <span className="text-xs font-mono text-slate-400 hidden sm:inline">
-              LEAD · CO-LEAD · ORGANISERS
-            </span>
+         
           </div>
 
           {/* 4 Cards Grid Featuring Official ID Cards */}
@@ -222,11 +220,9 @@ export const Team: React.FC = () => {
         <div>
           <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b border-white/10">
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
-              Operations, Brand, Logistics &amp; Community Pod
+              SUB CREW MEMBER
             </h3>
-            <span className="text-xs font-mono text-slate-400 hidden sm:inline">
-              CONTINUOUS 2-WAY SLIDER
-            </span>
+           
           </div>
 
           {/* 2-Line Animated Runner (Line 1: Left-to-Right, Line 2: Right-to-Left) */}
