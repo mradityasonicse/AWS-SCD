@@ -8,7 +8,6 @@ import {
 import { ScrollReveal } from '@/components/ui/motion-primitives';
 import {
   ArrowUpRight,
-  ShieldCheck,
 } from 'lucide-react';
 
 const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3.5" }) => (
@@ -23,24 +22,13 @@ const CoreCrewLeaderCard: React.FC<{
 }> = ({ leader }) => {
   return (
     <div
-      className="relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-5 flex flex-col justify-between transition-all duration-300 ease-out group hover:-translate-y-1.5 shadow-2xl overflow-hidden transform-gpu select-none"
+      className="relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 ease-out group hover:-translate-y-1.5 shadow-2xl overflow-hidden transform-gpu select-none"
       style={{
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
       }}
     >
-      {/* Top Meta Bar */}
-      <div className="flex items-center justify-between gap-2 mb-3.5 relative z-10">
-        <span className="text-[10px] font-mono uppercase tracking-wider font-semibold px-2.5 py-0.5 rounded-full bg-white/[0.05] text-slate-300 border border-white/10 flex items-center gap-1.5">
-          <ShieldCheck className="w-3 h-3 text-slate-400" />
-          {leader.title}
-        </span>
-        <span className="text-[10px] font-mono font-medium text-slate-400">
-          {leader.handle}
-        </span>
-      </div>
-
       {/* Featured ID Card Badge Artwork */}
-      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02] shadow-inner mb-4 group-hover:border-white/25 transition-colors">
+      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02] shadow-inner mb-3 group-hover:border-white/25 transition-colors">
         <img
           src={leader.cardImage}
           alt={`${leader.name} ID Card`}
@@ -51,23 +39,22 @@ const CoreCrewLeaderCard: React.FC<{
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      {/* Name and Title Only (No Description, No Extra Tags) */}
-      <div className="mb-4 relative z-10">
-        <h4 className="text-base sm:text-lg font-bold text-white tracking-tight truncate">
-          {leader.name}
-        </h4>
-        <p className="text-xs font-mono font-medium text-slate-400 mt-0.5">
-          {leader.title}
-        </p>
-      </div>
+      {/* Clean Name & Profile Link */}
+      <div className="flex items-center justify-between gap-2 pt-1 px-0.5 relative z-10">
+        <div className="min-w-0">
+          <h4 className="text-sm sm:text-base font-bold text-white tracking-tight truncate group-hover:text-[#AD5CFF] transition-colors">
+            {leader.name}
+          </h4>
+          <p className="text-xs font-mono font-medium text-slate-400 mt-0.5">
+            {leader.title}
+          </p>
+        </div>
 
-      {/* Bottom Bar: Verified + Connect Link */}
-      <div className="flex items-center justify-between pt-3 border-t border-white/10 relative z-10">
         <a
           href={leader.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-slate-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 transition-all cursor-pointer"
+          className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-slate-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 transition-all cursor-pointer shrink-0"
         >
           <LinkedInIcon className="w-3 h-3 fill-current" />
           <span>Profile</span>
@@ -84,14 +71,11 @@ const SubCrewIdCardBadge: React.FC<{
 }> = ({ member }) => {
   return (
     <div
-      className="group relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-3 flex flex-col transition-all duration-300 ease-out hover:-translate-y-1.5 shadow-xl overflow-hidden transform-gpu select-none"
+      className="group relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-2.5 sm:p-3 flex flex-col transition-all duration-300 ease-out hover:-translate-y-1.5 shadow-xl overflow-hidden transform-gpu select-none"
       style={{
         boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
       }}
     >
-      {/* Top Lanyard Clip Slit Notch */}
-      <div className="w-10 h-1.5 rounded-full bg-white/10 mx-auto mb-2 border border-white/10 group-hover:bg-white/20 transition-colors" />
-
       {/* Actual ID Card Graphic */}
       <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02] shadow-inner group-hover:border-white/20 transition-colors">
         <img
@@ -104,24 +88,11 @@ const SubCrewIdCardBadge: React.FC<{
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      {/* Meta Footer */}
-      <div className="pt-2.5 px-0.5 flex flex-col justify-between flex-1">
-        <div className="flex items-center justify-between gap-1 mb-1">
-          <span className="text-[10px] font-mono text-slate-400 font-medium tracking-wider">
-            {member.code}
-          </span>
-          <span className="text-[9px] font-mono uppercase px-1.5 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/10">
-            {member.handle}
-          </span>
-        </div>
-
-        <h4 className="text-sm font-bold text-white tracking-tight truncate group-hover:text-white transition-colors">
+      {/* Clean Member Name (No Crew Number, No Description, No Extra Slop) */}
+      <div className="pt-2 px-1 text-center">
+        <h4 className="text-xs sm:text-sm font-semibold text-white tracking-tight truncate group-hover:text-[#AD5CFF] transition-colors">
           {member.name}
         </h4>
-
-        <p className="text-[11px] text-slate-400 font-mono truncate mt-0.5">
-          {member.role}
-        </p>
       </div>
     </div>
   );
