@@ -456,29 +456,46 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
 
                 {/* Column 3: Visual Feature Card (~26%) */}
                 <div className="col-span-4 p-6 flex flex-col justify-center">
-                  <div className="relative rounded-xl overflow-hidden h-full min-h-[220px] flex flex-col justify-end p-6 border border-white/10 group">
-                    {/* Background Image with Dark Gradient Overlay */}
+                  <a
+                    href={activeCategory.rightCard.ctaHref}
+                    onClick={(e) => handleNavClick(e, activeCategory.rightCard.ctaHref)}
+                    className="relative rounded-xl overflow-hidden h-full min-h-[220px] flex flex-col justify-end p-5 border border-white/10 group cursor-pointer block shadow-lg"
+                  >
+                    {/* Background Image */}
                     <img
                       src={activeCategory.rightCard.image}
                       alt={activeCategory.rightCard.title}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                    {/* Card Content */}
-                    <div className="relative z-10">
-                      <h4 className="text-base xl:text-lg font-black uppercase text-white tracking-wide leading-snug">
-                        {activeCategory.rightCard.title}
-                      </h4>
-                      <a
-                        href={activeCategory.rightCard.ctaHref}
-                        onClick={(e) => handleNavClick(e, activeCategory.rightCard.ctaHref)}
-                        className="mt-4 inline-flex items-center justify-center px-4 py-2 text-[11px] font-bold uppercase tracking-wider bg-white/90 hover:bg-white text-[#0F172A] rounded transition-all cursor-pointer shadow-md active:scale-95"
-                      >
-                        <span>{activeCategory.rightCard.ctaText}</span>
-                      </a>
-                    </div>
-                  </div>
+                    {activeCategory.id === 'tracks' ? (
+                      <>
+                        {/* Subtle ambient edge overlay to preserve track clarity */}
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+                        <div className="relative z-10 flex items-center justify-between mt-auto pt-2">
+                          <span className="text-[10px] font-mono font-bold tracking-wider text-purple-300 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded border border-white/15">
+                            KEYNOTE 2026
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider bg-white/95 hover:bg-white text-[#0F172A] rounded shadow-lg transition-transform group-hover:scale-105">
+                            <span>{activeCategory.rightCard.ctaText}</span>
+                            <ArrowUpRight className="w-3 h-3 stroke-[2.5]" />
+                          </span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                        <div className="relative z-10">
+                          <h4 className="text-base xl:text-lg font-black uppercase text-white tracking-wide leading-snug">
+                            {activeCategory.rightCard.title}
+                          </h4>
+                          <span className="mt-4 inline-flex items-center justify-center px-4 py-2 text-[11px] font-bold uppercase tracking-wider bg-white/90 hover:bg-white text-[#0F172A] rounded transition-all shadow-md">
+                            <span>{activeCategory.rightCard.ctaText}</span>
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </a>
                 </div>
               </div>
             </motion.div>
