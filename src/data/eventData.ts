@@ -87,8 +87,7 @@ export const EVENT_DETAILS = {
   socials: {
     meetup: "https://www.meetup.com/aws-sbg-at-rungta-college-of-engineering-and-technology/events/316879036/?utm_medium=referral&utm_campaign=announce_event&utm_source=link&utm_version=v2&member_id=476107778",
     linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
-    instagram: "https://www.instagram.com/awssbg.rungta?srtk=MWY1czMxMnl4b2hiOQ==",
-    twitter: "https://x.com/awsscrisu/"
+    instagram: "https://www.instagram.com/awssbg.rungta?srtk=MWY1czMxMnl4b2hiOQ=="
   }
 };
 

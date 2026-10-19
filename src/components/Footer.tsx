@@ -89,17 +89,6 @@ export const Footer: React.FC = () => {
                 </svg>
               </a>
               <a
-                href={EVENT_DETAILS.socials.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
-                aria-label="Twitter / X"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a
                 href={`mailto:${EVENT_DETAILS.contactEmail}`}
                 title={EVENT_DETAILS.contactEmail}
                 className="p-2 rounded-xl bg-[var(--theme-surface-elevated,#303030)] border border-[var(--theme-border,#3E3E3E)] text-slate-300 hover:text-[var(--theme-accent,#AD5CFF)] hover:border-[var(--theme-accent,#AD5CFF)]/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
