@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>AWS Student Community Day 2026 · Central India (Rungta International Skills University Edition)</title>
     <meta name="description" content="The flagship student-led AWS conference in Central India at Rungta International Skills University, Bhilai. Hosted by AWS SBG Rungta International Skills University. Keynotes, GenAI workshops, and 500+ builders." />
+    <meta name="robots" content="noarchive, noimageindex, nosnippet" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/main-logo.png" />
     <link rel="apple-touch-icon" href="/main-logo.png" />
@@ -13,8 +14,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        function isInput(el) {
+          if (!el || !el.tagName) return false;
+          var t = el.tagName.toLowerCase();
+          return t === 'input' || t === 'textarea' || t === 'select' || el.isContentEditable;
+        }
+        function block(e) {
+          if (isInput(e.target)) return;
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+        window.addEventListener('contextmenu', block, true);
+        window.addEventListener('dragstart', block, true);
+        window.addEventListener('selectstart', block, true);
+        window.addEventListener('copy', function(e) {
+          if (isInput(e.target)) return;
+          e.preventDefault();
+          e.stopPropagation();
+          if (e.clipboardData) {
+            e.clipboardData.setData('text/plain', '© 2026 AWS Student Community Day Central India · Rungta International Skills University (RISU) Bhilai. All rights reserved. Direct replication is prohibited.');
+          }
+          return false;
+        }, true);
+      })();
+    </script>
   </head>
-  <body class="antialiased min-h-screen font-sans bg-[#0A0D14] text-slate-100 selection:bg-[#AD5CFF] selection:text-white overflow-x-hidden max-w-full">
+  <body class="antialiased min-h-screen font-sans bg-[#0A0D14] text-slate-100 overflow-x-hidden max-w-full select-none" oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+    <noscript>
+      <div style="position:fixed;inset:0;background:#0A0D14;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99999999;font-family:sans-serif;text-align:center;padding:24px;">
+        <h1 style="font-size:24px;font-weight:900;color:#AD5CFF;margin-bottom:8px;">AWS Student Community Day 2026</h1>
+        <p style="color:#94A3B8;max-width:400px;font-size:14px;">JavaScript is strictly required to securely browse this portal.</p>
+      </div>
+    </noscript>
     <div id="root" class="overflow-x-hidden max-w-full"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

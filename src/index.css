@@ -63,10 +63,11 @@
   * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
   }
 
   /* Allow text interaction inside inputs so registration form works seamlessly */
@@ -78,18 +79,43 @@
   }
 
   /* Prevent image dragging, save-as, and mobile long-press preview sheets */
-  img, video, canvas, svg {
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-drag: none;
-    -webkit-touch-callout: none;
+  img, video, canvas {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+    -webkit-touch-callout: none !important;
+    pointer-events: none;
   }
 
+  /* Total selection blackout across page - only allow inside inputs */
   ::selection {
-    background-color: var(--theme-accent, #AD5CFF);
-    color: #FFFFFF;
+    background: transparent !important;
+    color: inherit !important;
+  }
+  ::-moz-selection {
+    background: transparent !important;
+    color: inherit !important;
+  }
+  input::selection, textarea::selection {
+    background-color: var(--theme-accent, #AD5CFF) !important;
+    color: #FFFFFF !important;
+  }
+  input::-moz-selection, textarea::-moz-selection {
+    background-color: var(--theme-accent, #AD5CFF) !important;
+    color: #FFFFFF !important;
+  }
+
+  /* Anti-Print & Anti-PDF Export Defense */
+  @media print {
+    html, body {
+      display: none !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+    }
   }
 
   html {
