@@ -293,10 +293,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
               window.history.pushState(null, '', '/');
             }}
-            className="flex items-center gap-3 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900] rounded-lg p-1 -m-1"
+            className="flex items-center gap-3 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AD5CFF] rounded-lg p-1 -m-1"
           >
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-white p-1 border border-white/50 flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#FF9900] group-hover:shadow-[0_0_12px_rgba(255,153,0,0.3)]">
+              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-white p-1 border border-white/50 flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#AD5CFF] group-hover:shadow-[0_0_12px_rgba(173,92,255,0.3)]">
                 <img
                   src="/rungta-logo.png"
                   alt="Rungta International Skills University"
@@ -312,7 +312,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             </div>
             <div className="flex flex-col">
               <span className="font-extrabold text-sm sm:text-base tracking-tight text-white flex items-center gap-1 leading-tight font-sans">
-                AWS SCD <span className="font-mono font-bold text-sm sm:text-base text-[#FF9900]">2026</span>
+                AWS SCD <span className="font-mono font-bold text-sm sm:text-base text-[#AD5CFF]">2026</span>
               </span>
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest font-mono hidden sm:inline leading-none mt-0.5">
                 Rungta International Skills University · Central India
@@ -347,14 +347,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                   className={cn(
                     "flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-[13px] font-bold uppercase tracking-wider transition-colors cursor-pointer rounded-md select-none",
                     isOpen
-                      ? "text-[#FF9900] bg-white/[0.06]"
+                      ? "text-[#AD5CFF] bg-white/[0.06]"
                       : "text-slate-200 hover:text-white hover:bg-white/[0.04]"
                   )}
                   aria-expanded={isOpen}
                 >
                   <span>{cat.name}</span>
                   {isOpen ? (
-                    <ChevronUp className="w-3.5 h-3.5 text-[#FF9900]" />
+                    <ChevronUp className="w-3.5 h-3.5 text-[#AD5CFF]" />
                   ) : (
                     <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
                   )}
@@ -369,7 +369,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="p-2 sm:p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.08] transition-colors cursor-pointer border border-white/10 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
+              className="p-2 sm:p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.08] transition-colors cursor-pointer border border-white/10 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AD5CFF]"
               aria-label="Search summit sessions, tracks, and speakers"
               title="Search summit (Ctrl+K)"
             >
@@ -382,7 +382,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               target={EVENT_DETAILS.registrationUrl?.startsWith('http') ? '_blank' : undefined}
               rel={EVENT_DETAILS.registrationUrl?.startsWith('http') ? 'noopener noreferrer' : undefined}
               onClick={handleRegisterClick}
-              className="hidden sm:inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded bg-[#FF9900] hover:bg-[#FFAC33] text-[#0A0D14] font-black text-xs uppercase tracking-wider transition-all duration-150 cursor-pointer shadow-md hover:shadow-lg active:scale-[0.98]"
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded bg-[#AD5CFF] hover:bg-[#B870FF] text-[#0A0D14] font-black text-xs uppercase tracking-wider transition-all duration-150 cursor-pointer shadow-md hover:shadow-lg active:scale-[0.98]"
             >
               <span>REGISTER NOW</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -396,7 +396,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               aria-label="Toggle navigation drawer"
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-[#FF9900]" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[#AD5CFF]" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -446,10 +446,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                       onClick={(e) => handleNavClick(e, item.href)}
                       className="group flex items-center gap-3.5 py-1.5 cursor-pointer select-none"
                     >
-                      <span className="font-mono text-xs font-bold text-[#FF9900] group-hover:text-white transition-colors w-6 shrink-0">
+                      <span className="font-mono text-xs font-bold text-[#AD5CFF] group-hover:text-white transition-colors w-6 shrink-0">
                         {item.num}
                       </span>
-                      <span className="text-xs xl:text-[13px] font-bold uppercase tracking-wider text-slate-200 group-hover:text-[#FF9900] group-hover:translate-x-1.5 transition-all">
+                      <span className="text-xs xl:text-[13px] font-bold uppercase tracking-wider text-slate-200 group-hover:text-[#AD5CFF] group-hover:translate-x-1.5 transition-all">
                         {item.title}
                       </span>
                     </a>
@@ -507,10 +507,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                         key={cat.id}
                         href={`#${cat.id}`}
                         onClick={(e) => handleNavClick(e, `#${cat.id}`)}
-                        className="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-white/[0.04] text-xs font-bold uppercase tracking-wider text-white hover:text-[#FF9900] hover:border-[#FF9900]/50 transition-colors"
+                        className="flex items-center justify-between p-3.5 rounded-xl border border-white/10 bg-white/[0.04] text-xs font-bold uppercase tracking-wider text-white hover:text-[#AD5CFF] hover:border-[#AD5CFF]/50 transition-colors"
                       >
                         <span className="flex items-center gap-2.5">
-                          <Users className="w-4 h-4 text-[#FF9900]" />
+                          <Users className="w-4 h-4 text-[#AD5CFF]" />
                           <span>{cat.name}</span>
                         </span>
                         <ArrowUpRight className="w-4 h-4 text-slate-400" />
@@ -527,8 +527,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                         onClick={() => setMobileExpandedTab(isExpanded ? null : cat.id)}
                         className="w-full flex items-center justify-between p-3.5 text-xs font-bold uppercase tracking-wider text-white"
                       >
-                        <span className={cn(isExpanded ? "text-[#FF9900]" : "text-white")}>{cat.name}</span>
-                        {isExpanded ? <ChevronUp className="w-4 h-4 text-[#FF9900]" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
+                        <span className={cn(isExpanded ? "text-[#AD5CFF]" : "text-white")}>{cat.name}</span>
+                        {isExpanded ? <ChevronUp className="w-4 h-4 text-[#AD5CFF]" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
                       </button>
 
                       <AnimatePresence>
@@ -551,7 +551,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                                   onClick={(e) => handleNavClick(e, link.href)}
                                   className="flex items-center gap-3 py-1 text-xs text-slate-300 hover:text-white"
                                 >
-                                  <span className="font-mono font-bold text-[#FF9900]">{link.num}</span>
+                                  <span className="font-mono font-bold text-[#AD5CFF]">{link.num}</span>
                                   <span className="font-semibold">{link.title}</span>
                                 </a>
                               ))}
@@ -597,7 +597,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             >
               {/* Search Bar Input */}
               <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10">
-                <Search className="w-4 h-4 text-[#FF9900] shrink-0" />
+                <Search className="w-4 h-4 text-[#AD5CFF] shrink-0" />
                 <input
                   ref={searchInputRef}
                   type="text"
@@ -625,7 +625,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                     className="flex items-center justify-between p-3 rounded-xl hover:bg-white/[0.06] transition-colors group cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-[#FF9900]/40 text-[#FF9900]">
+                      <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-[#AD5CFF]/40 text-[#AD5CFF]">
                         <item.icon className="w-4 h-4" />
                       </div>
                       <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white">

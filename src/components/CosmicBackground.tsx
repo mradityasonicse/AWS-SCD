@@ -47,7 +47,7 @@ export const CosmicBackground: React.FC = () => {
       color: string;
     }[] = [];
 
-    const colors = ['#FF9900', '#FFAC33', '#38BDF8', '#94A3B8', '#F8FAFC'];
+    const colors = ['#AD5CFF', '#C084FC', '#38BDF8', '#94A3B8', '#F8FAFC'];
 
     for (let i = 0; i < numStars; i++) {
       stars.push({
@@ -98,7 +98,7 @@ export const CosmicBackground: React.FC = () => {
         height / 2,
         Math.max(width, height)
       );
-      gradient.addColorStop(0, 'rgba(255, 153, 0, 0.09)');
+      gradient.addColorStop(0, 'rgba(173, 92, 255, 0.09)');
       gradient.addColorStop(0.35, 'rgba(0, 164, 228, 0.05)');
       gradient.addColorStop(0.8, 'rgba(11, 15, 23, 0.02)');
       gradient.addColorStop(1, 'transparent');
@@ -146,7 +146,7 @@ export const CosmicBackground: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(s.x, s.y);
             ctx.lineTo(s2.x, s2.y);
-            ctx.strokeStyle = '#FF9900';
+            ctx.strokeStyle = '#AD5CFF';
             ctx.globalAlpha = (1 - dist / maxLineDist) * 0.16;
             ctx.lineWidth = 0.7;
             ctx.stroke();
@@ -174,9 +174,9 @@ export const CosmicBackground: React.FC = () => {
       {/* Subtle AWS navy architectural grid mesh */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#232f3e_1px,transparent_1px),linear-gradient(to_bottom,#232f3e_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_45%,#000_40%,transparent_90%)] opacity-35 pointer-events-none" />
       {/* AWS Cloud Ambient glow orbs */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#FF9900]/10 rounded-full blur-[140px]" />
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#AD5CFF]/10 rounded-full blur-[140px]" />
       <div className="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-[#42B4FF]/08 rounded-full blur-[160px]" />
-      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[var(--theme-accent,#FF9900)]/06 rounded-full blur-[180px]" />
+      <div className="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-[var(--theme-accent,#AD5CFF)]/06 rounded-full blur-[180px]" />
     </div>
   );
 };

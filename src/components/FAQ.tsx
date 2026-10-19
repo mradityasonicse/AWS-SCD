@@ -18,15 +18,15 @@ export const FAQ: React.FC = () => {
         <div className="border-b border-white/10 pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-4 sm:gap-6">
             <span
-              className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#FF9900]"
+              className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#AD5CFF]"
             >
               [ 07 ]
             </span>
             <div>
               <p
-                className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2 text-[#FF9900]"
+                className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2 text-[#AD5CFF]"
               >
-                <span className="w-6 h-[1px] bg-[#FF9900]" />
+                <span className="w-6 h-[1px] bg-[#AD5CFF]" />
                 Frequently Asked Questions
               </p>
               <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
@@ -49,14 +49,14 @@ export const FAQ: React.FC = () => {
               <div
                 className={`rounded-xl border transition-all duration-300 overflow-hidden backdrop-blur-[16px] ${
                   isOpen
-                    ? 'bg-white/[0.06] shadow-xl border-[#FF9900]/40'
+                    ? 'bg-white/[0.06] shadow-xl border-[#AD5CFF]/40'
                     : 'border-white/10 bg-white/[0.03] hover:bg-white/[0.05] shadow-sm'
                 }`}
                 style={{
                   backgroundColor: isOpen ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.02)',
                   backdropFilter: 'blur(16px)',
                   WebkitBackdropFilter: 'blur(16px)',
-                  borderColor: isOpen ? 'rgba(255, 153, 0, 0.35)' : 'rgba(255, 255, 255, 0.08)',
+                  borderColor: isOpen ? 'rgba(173, 92, 255, 0.35)' : 'rgba(255, 255, 255, 0.08)',
                 }}
               >
                 <button
@@ -66,7 +66,7 @@ export const FAQ: React.FC = () => {
                 >
                   <span className="text-base sm:text-lg font-bold text-white flex items-center gap-3">
                     <span
-                      className="font-mono text-xs sm:text-sm font-bold text-[#FF9900]"
+                      className="font-mono text-xs sm:text-sm font-bold text-[#AD5CFF]"
                     >
                       {String(index + 1).padStart(2, '0')}.
                     </span>
@@ -77,9 +77,9 @@ export const FAQ: React.FC = () => {
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                     className="w-8 h-8 rounded-full flex items-center justify-center border shrink-0 transition-colors"
                     style={{
-                      backgroundColor: isOpen ? 'rgba(255, 153, 0, 0.15)' : 'rgba(255, 255, 255, 0.04)',
-                      borderColor: isOpen ? 'rgba(255, 153, 0, 0.4)' : 'rgba(255, 255, 255, 0.08)',
-                      color: isOpen ? '#FF9900' : '#94A3B8',
+                      backgroundColor: isOpen ? 'rgba(173, 92, 255, 0.15)' : 'rgba(255, 255, 255, 0.04)',
+                      borderColor: isOpen ? 'rgba(173, 92, 255, 0.4)' : 'rgba(255, 255, 255, 0.08)',
+                      color: isOpen ? '#AD5CFF' : '#94A3B8',
                     }}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -114,7 +114,7 @@ export const FAQ: React.FC = () => {
           <a
             href={`mailto:${EVENT_DETAILS.contactEmail}`}
             className="font-bold hover:underline"
-            style={{ color: 'var(--theme-accent, #FF9900)' }}
+            style={{ color: 'var(--theme-accent, #AD5CFF)' }}
           >
             {EVENT_DETAILS.contactEmail}
           </a>

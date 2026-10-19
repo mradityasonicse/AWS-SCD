@@ -45,7 +45,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Lead Organiser",
     initials: "US",
     code: "ORG-01",
-    accentColor: "#FF9900", // AWS Orange
+    accentColor: "#AD5CFF", // AWS SBG Purple
     tagline: "Leading Central India's premier student cloud summit, speaker curation & flagship direction.",
     bio: "AWS Student Builder Group Leader at Rungta International Skills University. Spearheading the inaugural SCD Central India gathering, connecting student builders with AWS DevRel leadership.",
     linkedin: "https://www.linkedin.com/in/uddyan-sahu/",
@@ -59,7 +59,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Technical Lead",
     initials: "GG",
     code: "ORG-02",
-    accentColor: "#FF9900", // AWS Smile Orange
+    accentColor: "#AD5CFF", // AWS SBG Purple
     tagline: "Architecting hands-on workshops, cloud labs & live hackathon infrastructure.",
     bio: "AWS community enthusiast focusing on serverless workloads and container architectures. Directs technical logistics, coding arena & live demos.",
     linkedin: "https://www.linkedin.com/in/gunjanghangare",
@@ -73,7 +73,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Co-Tech Lead",
     initials: "AS",
     code: "ORG-03",
-    accentColor: "#FF9900", // AWS Orange
+    accentColor: "#AD5CFF", // AWS SBG Purple
     image: "/aditya_soni.jpg",
     tagline: "Architecting cloud infrastructure, developer pipelines & high-concurrency summit systems.",
     bio: "Co-Technical Lead at AWS SCD Rungta International Skills University. Engineering production cloud workflows, interactive developer platforms, and technical arena infra for 500+ builders.",
@@ -91,7 +91,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#42B4FF", // Cloud Blue
     tagline: "Orchestrating stage logistics, hospitality, delegate check-in & welcome kits.",
     bio: "Directing on-ground event operations, venue management at Rungta International Skills University, volunteer brigades, and delegate experience for 500+ builders.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: ["Campus Hospitality", "Welcome Kits", "Registration Desk"],
   },
   {
@@ -102,10 +102,10 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Brand & Design",
     initials: "NK",
     code: "ORG-05",
-    accentColor: "#FF9900", // AWS Orange
+    accentColor: "#AD5CFF", // AWS SBG Purple
     tagline: "Crafting the visual identity, summit stage animations & community brand aesthetic.",
     bio: "Leading creative direction, conference merchandise, stage motion visuals, and high-fidelity collateral for AWS SCD 2026.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: ["Visual Identity", "Stage Motion", "Summit Swag"],
   },
   {
@@ -119,7 +119,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#00E582", // Cyber Green
     tagline: "Uniting 500+ student builders across 15+ universities in Central India.",
     bio: "Fostering university partnerships, campus ambassador programs, and regional student developer chapters across Chhattisgarh.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: ["Campus Outreach", "15+ Colleges", "Builder Network"],
   },
   {
@@ -130,10 +130,10 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Faculty Mentors",
     initials: "RM",
     code: "ORG-07",
-    accentColor: "#FF9900", // AWS Orange
+    accentColor: "#AD5CFF", // AWS SBG Purple
     tagline: "Academic patronage, institutional support & mentor guidance from Rungta International Skills University.",
     bio: "Guiding student leaders, coordinating university infrastructure, and fostering academic excellence in cloud education.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: ["Academic Patronage", "Institutional Ops", "Curriculum Link"],
   },
   {
@@ -147,7 +147,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#42B4FF", // Cloud Blue
     tagline: "Managing technical arena operations, cloud lab support & attendee assistance.",
     bio: "Coordinating hands-on lab setups, speaker stage hardware, and delegate tech support at AWS SCD 2026.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: ["Lab Setup", "Arena Ops", "Tech Support"],
   },
   {
@@ -161,7 +161,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#00E582", // Cyber Green
     tagline: "Coordinating student delegations, attendee hospitality & check-in flow.",
     bio: "Welcoming 500+ builders, managing fast-track accreditation, and organizing student cohort hospitality.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: ["Delegations", "Hospitality", "Attendee Flow"],
   },
   {
@@ -172,10 +172,10 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Sub Crew",
     initials: "AY",
     code: "CREW-03",
-    accentColor: "#FF9900", // AWS Orange
+    accentColor: "#AD5CFF", // AWS SBG Purple
     tagline: "Driving stage transitions, live streaming logistics & AV coordination.",
     bio: "Managing real-time stage AV sync, speaker microphone rotations, and auditorium logistics.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: ["Stage Ops", "AV Logistics", "Event Sync"],
   },
   {
@@ -186,10 +186,10 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     badge: "Sub Crew",
     initials: "HS",
     code: "CREW-04",
-    accentColor: "#FF9900", // AWS Orange
+    accentColor: "#AD5CFF", // AWS SBG Purple
     tagline: "Capturing high-energy summit moments, social stories & community reels.",
     bio: "Documenting live keynotes, attendee interviews, and community highlights across social platforms.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: ["Live Media", "Social Highlights", "Photo Ops"],
   },
 ];

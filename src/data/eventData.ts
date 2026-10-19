@@ -81,12 +81,12 @@ export const EVENT_DETAILS = {
   venueName: "Rungta International Skills University Campus",
   venueAddress: "Rungta Internationa Skills University, Kohka-Kurud Road, Bhilai, Chhattisgarh 490024",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=21.2350,81.3462+(Rungta+International+Skills+University+Bhilai)",
-  contactEmail: "aws.sbg.risu@gmail.com",
+  contactEmail: "awssbg.rungta@gmail.com",
   contactPhone: "+91 8518903022",
   registrationUrl: "https://www.meetup.com/aws-sbg-at-rungta-college-of-engineering-and-technology/events/316879036/?utm_medium=referral&utm_campaign=announce_event&utm_source=link&utm_version=v2&member_id=476107778",
   socials: {
     meetup: "https://www.meetup.com/aws-sbg-at-rungta-college-of-engineering-and-technology/events/316879036/?utm_medium=referral&utm_campaign=announce_event&utm_source=link&utm_version=v2&member_id=476107778",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     instagram: "https://www.instagram.com/aws_student_builder_group_risu/",
     twitter: "https://x.com/awsscrisu/"
   }
@@ -271,10 +271,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Registration",
     type: "Registration",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "60 min",
     subtitle: "Participant registration, attendance, and welcome.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Networking"
   },
   {
@@ -282,10 +282,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Inauguration",
     type: "Inauguration",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "20 min",
     subtitle: "Formal opening of the event and inaugural proceedings.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Ceremony"
   },
   {
@@ -293,10 +293,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Felicitation",
     type: "Felicitation",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "10 min",
     subtitle: "Honouring the dignitaries and invited guests.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Ceremony"
   },
   {
@@ -304,10 +304,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Introduction",
     type: "Welcome Address",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "10 min",
     subtitle: "Welcome address and introduction to AWS Community Day.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Keynote"
   },
   {
@@ -315,10 +315,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "AM",
     title: "Speaker Session 1",
     type: "Speaker Session",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "50 min",
     subtitle: "Invite the first speaker and conduct the session.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Tech"
   },
   {
@@ -337,10 +337,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Introduction",
     type: "Welcome Address",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "10 min",
     subtitle: "Reopen the event and introduce the next speaker.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Keynote"
   },
   {
@@ -348,10 +348,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Speaker Session 2",
     type: "Speaker Session",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "80 min",
     subtitle: "Invite the next speaker and conduct the session.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Tech"
   },
   {
@@ -359,10 +359,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Q&A Session",
     type: "Audience Q&A",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "30 min",
     subtitle: "Audience questions and interaction with the speakers.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Fun"
   },
   {
@@ -370,10 +370,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Closing Ceremony",
     type: "Closing Ceremony",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "30 min",
     subtitle: "Vote of thanks, acknowledgements, and closing remarks.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Ceremony"
   },
   {
@@ -381,10 +381,10 @@ export const AGENDA: AgendaItem[] = [
     ampm: "PM",
     title: "Swag Distribution",
     type: "Swag & Wrap Up",
-    typeColor: "#FF9900",
+    typeColor: "#AD5CFF",
     duration: "60 min",
     subtitle: "Distribute AWS goodies, interact with participants, and wrap up.",
-    dotColor: "#FF9900",
+    dotColor: "#AD5CFF",
     category: "Fun"
   }
 ];
@@ -461,7 +461,7 @@ export const ORGANIZERS: TeamMember[] = [
     role: "Team Lead · Lead Organiser",
     image: "/risu-logo.png",
     linkedin: "https://www.linkedin.com/in/uddyan-sahu/",
-    email: "aws.sbg.risu@gmail.com"
+    email: "awssbg.rungta@gmail.com"
   },
   {
     id: 2,
@@ -477,7 +477,7 @@ export const ORGANIZERS: TeamMember[] = [
     title: "Operations Specialist",
     role: "Event & Operations Lead",
     image: "/risu-logo.png",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/"
   },
   {
     id: 4,
@@ -485,7 +485,7 @@ export const ORGANIZERS: TeamMember[] = [
     title: "Visual Designer",
     role: "Design & Brand Lead",
     image: "/risu-logo.png",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/"
   },
   {
     id: 5,
@@ -493,7 +493,7 @@ export const ORGANIZERS: TeamMember[] = [
     title: "Cloud Outreach Strategist",
     role: "Community & Outreach Lead",
     image: "/risu-logo.png",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/"
   },
   {
     id: 6,
@@ -501,7 +501,7 @@ export const ORGANIZERS: TeamMember[] = [
     title: "Faculty Advisory Board, Rungta International Skills University",
     role: "Academic Patrons",
     image: "/risu-logo.png",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/"
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/"
   }
 ];
 
@@ -536,6 +536,6 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "I want to sponsor, partner, or volunteer. Where should I reach out?",
-    answer: "We welcome industry and community partners! Please write directly to aws.sbg.risu@gmail.com to receive the official sponsorship prospectus and partner deck."
+    answer: "We welcome industry and community partners! Please write directly to awssbg.rungta@gmail.com to receive the official sponsorship prospectus and partner deck."
   }
 ];

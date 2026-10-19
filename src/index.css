@@ -13,12 +13,12 @@
 
 @layer base {
   :root {
-    /* Primary AWS Builder Palette */
-    --primary: #FF9900;              /* AWS Builder Orange */
-    --primary-hover: #FFAC33;        /* Amber hover */
-    --primary-active: #E08500;       /* Active amber */
-    --primary-rgb: 255, 153, 0;
-    --primary-glow: rgba(255, 153, 0, 0.25);
+    /* Primary AWS Student Builder Group Palette */
+    --primary: #AD5CFF;              /* AWS Student Builder Group Electric Purple */
+    --primary-hover: #BC73FF;        /* Light purple hover */
+    --primary-active: #9838FF;       /* Active purple */
+    --primary-rgb: 173, 92, 255;
+    --primary-glow: rgba(173, 92, 255, 0.35);
 
     /* Deep Obsidian & Titanium Theme Tokens */
     --bg-global: #0A0D14;            /* Obsidian Charcoal */
@@ -44,17 +44,17 @@
     --card-backdrop: blur(16px);
 
     /* AWS Student Builder Group Theme Tokens */
-    --theme-accent: #FF9900;         /* AWS Signature Orange */
-    --theme-accent-hover: #FFAC33;
-    --theme-accent-rgb: 255, 153, 0;
-    --theme-accent-glow: rgba(255, 153, 0, 0.25);
+    --theme-accent: #AD5CFF;         /* AWS SBG Purple */
+    --theme-accent-hover: #BC73FF;
+    --theme-accent-rgb: 173, 92, 255;
+    --theme-accent-glow: rgba(173, 92, 255, 0.35);
     --theme-text: #F8FAFC;
     --theme-text-muted: #94A3B8;
 
     /* Semantic Tokens Mapping */
     --amz-nav-dark: #0B0F17;
     --amz-nav-secondary: #161D2A;
-    --amz-accent: #FF9900;
+    --amz-accent: #AD5CFF;
     --amz-border: rgba(255, 255, 255, 0.08);
     --bg-card: rgba(255, 255, 255, 0.04);
     --bg-card-hover: rgba(255, 255, 255, 0.08);
@@ -66,8 +66,8 @@
   }
 
   ::selection {
-    background-color: var(--theme-accent, #FF9900);
-    color: #0A0D14;
+    background-color: var(--theme-accent, #AD5CFF);
+    color: #FFFFFF;
   }
 
   html {
@@ -160,9 +160,9 @@
 
 /* AWS Signature Action CTA Button */
 .amz-btn-buy {
-  background-color: #FF9900;
+  background-color: var(--theme-accent, #AD5CFF);
   color: #0B0F17;
-  border: 1px solid #FFAC33;
+  border: 1px solid var(--primary-hover, #BC73FF);
   border-radius: 9999px;
   font-weight: 700;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -170,8 +170,8 @@
 }
 
 .amz-btn-buy:hover {
-  background-color: #FFAC33;
-  border-color: #FFB84D;
+  background-color: var(--primary-hover, #BC73FF);
+  border-color: #D8B4FE;
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
@@ -385,7 +385,7 @@
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF9900;
+  background: var(--theme-accent, #AD5CFF);
 }
 
 /* 3D Transform Utilities for Text3DFlip */
@@ -539,16 +539,16 @@ body,
   transform: scale(0.98) translateY(0) !important;
 }
 
-/* Variant 1: Official AWS Builder Orange Register Button (Clean & Modern, High Conversion) */
+/* Variant 1: Official AWS Student Builder Group Register Button (Dynamic Theme Accent) */
 .jitter-btn-register {
-  background: linear-gradient(135deg, #FFA41C 0%, #FF9900 50%, #EA580C 100%);
-  color: #0A0D14 !important;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--theme-accent, #AD5CFF) 85%, white 15%) 0%, var(--theme-accent, #AD5CFF) 50%, color-mix(in srgb, var(--theme-accent, #AD5CFF) 80%, black 20%) 100%);
+  color: #FFFFFF !important;
   font-weight: 800;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   box-shadow: 
     0 1px 2px rgba(0, 0, 0, 0.2),
-    0 4px 14px -2px rgba(255, 153, 0, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    0 4px 16px -2px var(--theme-accent-glow, rgba(173, 92, 255, 0.45)),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
     inset 0 -1px 2px rgba(0, 0, 0, 0.25);
 }
 
@@ -556,7 +556,7 @@ body,
   transform: translateY(-1px);
   box-shadow: 
     0 2px 4px rgba(0, 0, 0, 0.25),
-    0 6px 20px -2px rgba(255, 153, 0, 0.55),
+    0 6px 22px -2px var(--theme-accent-glow, rgba(173, 92, 255, 0.6)),
     inset 0 1px 1px rgba(255, 255, 255, 0.65),
     inset 0 -1px 2px rgba(0, 0, 0, 0.3);
 }

@@ -12,17 +12,17 @@ export const About: React.FC = () => {
             <div className="flex items-center gap-3 sm:gap-4 w-full">
               <span
                 className="inline-flex items-center font-mono text-xs sm:text-sm font-bold tracking-wider shrink-0 select-none whitespace-nowrap"
-                style={{ color: 'var(--theme-accent, #FF9900)' }}
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
               >
                 [ 01 ]
               </span>
               <span
                 className="w-8 sm:w-12 h-px shrink-0"
-                style={{ backgroundColor: 'var(--theme-accent, #FF9900)' }}
+                style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
               />
               <span
                 className="text-xs sm:text-sm font-mono font-bold tracking-[0.2em] uppercase shrink-0"
-                style={{ color: 'var(--theme-accent, #FF9900)' }}
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
               >
                 WHAT IS SCD
               </span>
@@ -30,7 +30,7 @@ export const About: React.FC = () => {
               <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-mono tracking-widest text-slate-400 uppercase shrink-0">
                 <span
                   className="w-1.5 h-1.5 rounded-full"
-                  style={{ backgroundColor: 'var(--theme-accent, #FF9900)' }}
+                  style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
                 />
                 HOSTED AT RUNGTA INTERNATIONAL SKILLS UNIVERSITY · BHILAI
               </span>
@@ -53,15 +53,15 @@ export const About: React.FC = () => {
         {/* Lead Narrative */}
         <ScrollReveal delay={0.1}>
           <p className="text-white text-lg sm:text-2xl font-semibold leading-relaxed max-w-4xl mb-12">
-            Student Community Day 2026 brings together <strong style={{ color: 'var(--theme-accent, #FF9900)' }}>550+ students</strong>, AWS Community leaders, AWS DevRel leadership, and the next wave of cloud architects for one full day of high-signal learning at <strong className="text-slate-100">Rungta International Skills University</strong>.
+            Student Community Day 2026 brings together <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>550+ students</strong>, AWS Community leaders, AWS DevRel leadership, and the next wave of cloud architects for one full day of high-signal learning at <strong className="text-slate-100">Rungta International Skills University</strong>.
           </p>
         </ScrollReveal>
 
         {/* Handcrafted Asymmetric 4-Part Bento Grid — Chronological Summit Timeline */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* Card 01 - Keynotes & Deep Dives (Spans 2 Columns) — 10:40 AM */}
-          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#FF9900]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--theme-accent,#FF9900)] to-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
+          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--theme-accent,#AD5CFF)] to-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono font-semibold tracking-wider text-slate-300 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 uppercase">
@@ -118,8 +118,8 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 03 - Community Cohort (Spans 1 Column) — 01:00 PM */}
-          <div className="md:col-span-1 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#FF9900]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#42B4FF] to-[var(--theme-accent,#FF9900)] opacity-70 group-hover:opacity-100 transition-opacity" />
+          <div className="md:col-span-1 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#42B4FF] to-[var(--theme-accent,#AD5CFF)] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono font-semibold tracking-wider text-slate-300 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 uppercase">
@@ -147,8 +147,8 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 04 - Live Stage Arena & Grand Finale (Spans 2 Columns) — 03:00 PM */}
-          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#FF9900]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#FF9900] opacity-70 group-hover:opacity-100 transition-opacity" />
+          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#AD5CFF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono font-semibold tracking-wider text-amber-300 px-2.5 py-0.5 rounded-full bg-amber-500/[0.08] border border-amber-500/20 uppercase">

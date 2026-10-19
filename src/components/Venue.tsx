@@ -26,15 +26,10 @@ export const Venue: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col gap-6">
             <ScrollReveal delay={0.1}>
               <div className="flex items-center gap-3 mb-2">
-                <span
-                  className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-md border border-[var(--theme-accent,#FF9900)]/40 bg-[var(--theme-accent,#FF9900)]/10"
-                  style={{ color: 'var(--theme-accent, #FF9900)' }}
-                >
-                  [ 05 ] EVENT CAMPUS
-                </span>
+               
                 <span
                   className="text-xs font-mono font-bold uppercase tracking-wider block"
-                  style={{ color: 'var(--theme-accent, #FF9900)' }}
+                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
                 >
                   ACADEMIC HOST INSTITUTION
                 </span>
@@ -54,7 +49,7 @@ export const Venue: React.FC = () => {
               </h3>
               <p
                 className="text-sm font-medium flex items-center gap-2 mb-4"
-                style={{ color: 'var(--theme-accent, #FF9900)' }}
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
               >
                 <MapPin className="w-4 h-4 shrink-0 stroke-[2.2]" />
                 <span className="font-mono text-xs sm:text-sm">{EVENT_DETAILS.venueAddress}</span>
@@ -80,7 +75,7 @@ export const Venue: React.FC = () => {
               <StaggerItem>
                 <SpotlightCard className="p-4 flex flex-col min-w-0">
                   <div className="flex items-center gap-2 text-slate-300 text-xs font-bold mb-1 truncate">
-                    <Train className="w-4 h-4 text-[#FF9900] shrink-0" />
+                    <Train className="w-4 h-4 text-[#AD5CFF] shrink-0" />
                     <span className="truncate">Durg Junction</span>
                   </div>
                   <span className="text-white font-mono font-extrabold text-lg sm:text-xl">12 km</span>
@@ -104,7 +99,7 @@ export const Venue: React.FC = () => {
                   <div className="flex items-center gap-2 text-slate-300 text-xs font-bold mb-1 truncate">
                     <Navigation
                       className="w-4 h-4 shrink-0"
-                      style={{ color: 'var(--theme-accent, #FF9900)' }}
+                      style={{ color: 'var(--theme-accent, #AD5CFF)' }}
                     />
                     <span className="truncate">Auditorium</span>
                   </div>
@@ -190,7 +185,7 @@ export const Venue: React.FC = () => {
                   <div className="absolute top-3 left-3 sm:top-4 sm:left-4 pointer-events-none bg-white/[0.08] backdrop-blur-xl px-3 py-2 rounded-xl border border-white/15 text-xs font-mono text-slate-200 shadow-xl flex items-center gap-2.5 z-10 max-w-[calc(100%-1.5rem)] sm:max-w-md">
                     <span
                       className="w-2 h-2 rounded-full shrink-0 animate-pulse"
-                      style={{ backgroundColor: 'var(--theme-accent, #FF9900)' }}
+                      style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
                     />
                     <div className="min-w-0">
                       <div className="font-bold text-white flex items-center gap-1.5 truncate">

@@ -121,8 +121,8 @@ export interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement>
 export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = '',
-  spotlightColor = 'var(--theme-accent-glow, rgba(255, 153, 0, 0.15))',
-  borderColor = 'var(--theme-accent, #FF9900)',
+  spotlightColor = 'var(--theme-accent-glow, rgba(173, 92, 255, 0.15))',
+  borderColor = 'var(--theme-accent, #AD5CFF)',
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);

@@ -30,7 +30,7 @@ export const Agenda: React.FC = () => {
         <ScrollReveal>
           <div className="border-b border-white/10 pb-6 mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
-              <span className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#FF9900]">
+              <span className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#AD5CFF]">
                 [ 04 ]
               </span>
               <div>
@@ -74,7 +74,7 @@ export const Agenda: React.FC = () => {
                     Agenda
                   </h3>
                   <div className="flex items-center gap-2 text-xs font-mono text-slate-400 uppercase tracking-widest">
-                    <span className="inline-block w-2 h-2 rounded-full bg-[#FF9900]" />
+                    <span className="inline-block w-2 h-2 rounded-full bg-[#AD5CFF]" />
                     <span>STUDENT COMMUNITY DAY · CENTRAL INDIA</span>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ export const Agenda: React.FC = () => {
                       onClick={() => setActiveFilter(ch.cat)}
                       className="group flex items-center gap-4 text-left p-3 rounded-xl transition-all duration-200 hover:bg-white/[0.04] border border-transparent hover:border-white/10 cursor-pointer"
                     >
-                      <span className="font-mono text-xs sm:text-sm font-bold text-slate-400 group-hover:text-[#FF9900] shrink-0 transition-colors">
+                      <span className="font-mono text-xs sm:text-sm font-bold text-slate-400 group-hover:text-[#AD5CFF] shrink-0 transition-colors">
                         [{ch.num}]
                       </span>
                       <span className="text-sm sm:text-base font-medium text-slate-200 group-hover:text-white transition-colors flex-1">
@@ -115,7 +115,7 @@ export const Agenda: React.FC = () => {
                 <div className="md:col-span-5 flex justify-center md:justify-end items-center">
                   <div className="w-44 sm:w-60 md:w-64 max-w-full opacity-80 hover:opacity-100 transition-opacity">
                     <BuilderStairs
-                      color="#FF9900"
+                      color="#AD5CFF"
                       className="w-full"
                       showGridLines={true}
                     />
@@ -131,7 +131,7 @@ export const Agenda: React.FC = () => {
                   <span>OCTOBER 21, 2026</span>
                 </div>
                 <div className="font-semibold tracking-wider text-slate-300 uppercase flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF9900]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#AD5CFF]" />
                   <span>AWS Student Builder Group</span>
                 </div>
               </div>
@@ -180,7 +180,7 @@ export const Agenda: React.FC = () => {
               >
                 {/* Timeline Pin Dot (Mechanical Rivet Design, Zero Neon Blob) */}
                 <div
-                  className="absolute -left-[31px] sm:-left-[47px] top-6 w-3 h-3 rounded-full border border-white/20 bg-[#0B0F17] transition-all duration-200 group-hover:scale-125 group-hover:bg-[#FF9900] group-hover:border-[#FF9900]"
+                  className="absolute -left-[31px] sm:-left-[47px] top-6 w-3 h-3 rounded-full border border-white/20 bg-[#0B0F17] transition-all duration-200 group-hover:scale-125 group-hover:bg-[#AD5CFF] group-hover:border-[#AD5CFF]"
                 />
 
                 <SpotlightCard
@@ -189,7 +189,7 @@ export const Agenda: React.FC = () => {
                   className="p-5 sm:p-6 transition-all duration-200 hover:translate-x-1 shadow-lg bg-white/[0.02] hover:bg-white/[0.04] backdrop-blur-xl border border-white/10 relative overflow-hidden rounded-2xl"
                 >
                   {/* Hairline subtle top highlight on hover */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-50 group-hover:opacity-100 group-hover:via-[#FF9900]/40 transition-all" />
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-50 group-hover:opacity-100 group-hover:via-[#AD5CFF]/40 transition-all" />
 
                   {/* Top Row: Time, Category Badge, Duration */}
                   <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-2.5">
@@ -201,7 +201,7 @@ export const Agenda: React.FC = () => {
                       {/* Clean Architectural Badge */}
                       <span className="text-[10px] font-mono font-medium uppercase tracking-wider px-2.5 py-0.5 rounded-md border border-white/10 bg-white/[0.04] text-slate-300 flex items-center gap-1.5">
                         {item.category === 'Keynote' || item.category === 'Tech' ? (
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF9900]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#AD5CFF]" />
                         ) : (
                           <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
                         )}
@@ -223,7 +223,7 @@ export const Agenda: React.FC = () => {
                   {/* Speaker (if assigned) */}
                   {item.speaker && (
                     <div className="flex items-center gap-1.5 mb-2 text-xs font-mono text-slate-300">
-                      <User className="w-3.5 h-3.5 text-[#FF9900]" />
+                      <User className="w-3.5 h-3.5 text-[#AD5CFF]" />
                       <span>{item.speaker}</span>
                     </div>
                   )}

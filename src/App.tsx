@@ -27,7 +27,7 @@ export const App: React.FC = () => {
         className="relative min-h-screen text-[#F8FAFC] font-sans antialiased overflow-x-clip transition-colors duration-300 pb-16 sm:pb-0"
         style={{
           backgroundColor: 'var(--theme-bg, #0A0D14)',
-          backgroundImage: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 153, 0, 0.06) 0%, transparent 70%)',
+          backgroundImage: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(173, 92, 255, 0.08) 0%, transparent 70%)',
           color: 'var(--theme-text, #F8FAFC)',
         }}
       >
@@ -37,7 +37,7 @@ export const App: React.FC = () => {
         {/* Skip to Main Content for Accessibility */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-3 focus:z-[200] focus:px-4 focus:py-2 focus:bg-[var(--theme-accent,#FF9900)] focus:text-[#0A0D14] focus:font-black focus:text-xs focus:rounded-full focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-3 focus:z-[200] focus:px-4 focus:py-2 focus:bg-[var(--theme-accent,#AD5CFF)] focus:text-white focus:font-bold focus:text-xs focus:rounded-full focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white"
         >
           Skip to main content
         </a>

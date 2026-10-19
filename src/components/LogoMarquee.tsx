@@ -5,10 +5,10 @@ export const LogoMarquee: React.FC = () => {
   const phraseWords = [
     { text: 'BUILD', color: '#FFFFFF' },
     { text: 'LEARN', color: '#F1F5F9' },
-    { text: 'CONNECT', color: '#FF9900' },
+    { text: 'CONNECT', color: '#AD5CFF' },
     { text: 'SHIP', color: '#FFFFFF' },
     { text: 'SCALE', color: '#F1F5F9' },
-    { text: 'INNOVATE', color: '#FF9900' },
+    { text: 'INNOVATE', color: '#AD5CFF' },
   ];
 
   const logos = [
@@ -24,9 +24,9 @@ export const LogoMarquee: React.FC = () => {
       name: 'AWS Student Builder Group',
       src: '/AWS_SBG.png',
       badge: 'Global Community',
-      color: '#FF9900',
-      bg: 'rgba(255, 153, 0, 0.12)',
-      border: 'rgba(255, 153, 0, 0.35)',
+      color: '#AD5CFF',
+      bg: 'rgba(173, 92, 255, 0.12)',
+      border: 'rgba(173, 92, 255, 0.35)',
     },
     {
       name: 'Rungta International Skills University',
@@ -56,9 +56,9 @@ export const LogoMarquee: React.FC = () => {
       name: 'AWS Cloud Clubs',
       src: '/AWS_SBG.png',
       badge: 'Student Network',
-      color: '#FF9900',
-      bg: 'rgba(255, 153, 0, 0.12)',
-      border: 'rgba(255, 153, 0, 0.35)',
+      color: '#AD5CFF',
+      bg: 'rgba(173, 92, 255, 0.12)',
+      border: 'rgba(173, 92, 255, 0.35)',
     },
     {
       name: 'Rungta International Skills University Innovation Cell',

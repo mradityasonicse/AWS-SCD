@@ -175,16 +175,16 @@ export const Team: React.FC = () => {
             <div className="flex items-baseline gap-4 sm:gap-6">
               <span
                 className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
-                style={{ color: 'var(--theme-accent, #FF9900)' }}
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
               >
                 [ 06 ]
               </span>
               <div>
                 <p
                   className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
-                  style={{ color: 'var(--theme-accent, #FF9900)' }}
+                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
                 >
-                  <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #FF9900)' }} />
+                  <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                   Summit Leadership &amp; Operational Crew
                 </p>
                 <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none">

@@ -100,7 +100,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)]"
+                  className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)]"
                   aria-label="Close theme customizer"
                 >
                   <X className="w-4 h-4" />
@@ -117,7 +117,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                   <button
                     type="button"
                     onClick={() => setBgMode('dark')}
-                    className={`relative w-9 h-9 rounded-full bg-[#0A0D14] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)] ${
+                    className={`relative w-9 h-9 rounded-full bg-[#0A0D14] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
                       bgMode === 'dark'
                         ? 'border-white ring-2 ring-white/30 scale-105'
                         : 'border-[#383336] hover:border-slate-400'
@@ -133,9 +133,9 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                   <button
                     type="button"
                     onClick={() => setBgMode('light')}
-                    className={`relative w-9 h-9 rounded-full bg-[#FFFFFF] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)] ${
+                    className={`relative w-9 h-9 rounded-full bg-[#FFFFFF] border-2 cursor-pointer transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
                       bgMode === 'light'
-                        ? 'border-[#FF9900] ring-2 ring-[#FF9900]/40 scale-105'
+                        ? 'border-[#AD5CFF] ring-2 ring-[#AD5CFF]/40 scale-105'
                         : 'border-slate-400 hover:border-white'
                     }`}
                     title="Light Background"
@@ -171,7 +171,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className = '', sh
                         type="button"
                         key={key}
                         onClick={() => setSecondaryColor(key)}
-                        className={`relative w-8 h-8 rounded-full cursor-pointer transition-all duration-150 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#FF9900)] ${
+                        className={`relative w-8 h-8 rounded-full cursor-pointer transition-all duration-150 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-accent,#AD5CFF)] ${
                           isSelected
                             ? 'ring-3 ring-white ring-offset-2 ring-offset-[#131922] scale-110 shadow-lg'
                             : 'hover:scale-105 hover:opacity-90'

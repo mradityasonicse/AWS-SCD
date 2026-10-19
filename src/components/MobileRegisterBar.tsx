@@ -19,7 +19,7 @@ export const MobileRegisterBar: React.FC<MobileRegisterBarProps> = () => {
         <div className="flex items-center gap-2.5 min-w-0">
           <span
             className="w-2.5 h-2.5 rounded-full shrink-0 animate-pulse"
-            style={{ backgroundColor: 'var(--theme-accent, #FF9900)' }}
+            style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
           />
           <div className="truncate">
             <div className="flex items-center gap-1.5 font-heading text-base text-white uppercase tracking-wider truncate leading-none">
@@ -27,9 +27,9 @@ export const MobileRegisterBar: React.FC<MobileRegisterBarProps> = () => {
               <span
                 className="text-[10px] font-mono px-1.5 py-0.2 rounded border font-bold"
                 style={{
-                  color: 'var(--theme-accent, #FF9900)',
-                  borderColor: 'color-mix(in srgb, var(--theme-accent, #FF9900) 30%, transparent)',
-                  backgroundColor: 'color-mix(in srgb, var(--theme-accent, #FF9900) 10%, transparent)',
+                  color: 'var(--theme-accent, #AD5CFF)',
+                  borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 30%, transparent)',
+                  backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 10%, transparent)',
                 }}
               >
                 FREE

@@ -37,9 +37,9 @@ export const CORE_CREW_LEADERSHIP: CoreCrewLeader[] = [
     code: "LEAD-01",
     handle: "@abhishekk007",
     cardImage: "/cards/card-36.png",
-    accentColor: "#FF9900",
+    accentColor: "#AD5CFF",
     tagline: "",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: [],
   },
   {
@@ -51,9 +51,9 @@ export const CORE_CREW_LEADERSHIP: CoreCrewLeader[] = [
     code: "LEAD-02",
     handle: "@harsh2008",
     cardImage: "/cards/card-34.png",
-    accentColor: "#FF9900",
+    accentColor: "#AD5CFF",
     tagline: "",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: [],
   },
   {
@@ -67,7 +67,7 @@ export const CORE_CREW_LEADERSHIP: CoreCrewLeader[] = [
     cardImage: "/cards/card-33.png",
     accentColor: "#42B4FF",
     tagline: "",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: [],
   },
   {
@@ -81,7 +81,7 @@ export const CORE_CREW_LEADERSHIP: CoreCrewLeader[] = [
     cardImage: "/cards/card-35.png",
     accentColor: "#00E582",
     tagline: "",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-risu/",
+    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
     scope: [],
   },
 ];

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Mail, HeartHandshake } from 'lucide-react';
-import { SPONSORS } from '../data/eventData';
+import { SPONSORS, EVENT_DETAILS } from '../data/eventData';
 import { ScrollReveal, SpotlightCard } from '@/components/ui/motion-primitives';
 
 interface SponsorsProps {
-  onOpenContact: () => void;
+  onOpenContact?: () => void;
 }
 
-export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
+export const Sponsors: React.FC<SponsorsProps> = () => {
   return (
     <section id="sponsors" className="relative py-28 px-4 sm:px-6 max-w-7xl mx-auto text-white">
       {/* Section Header with [ 07 ] Index */}
@@ -16,16 +16,16 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
           <div className="flex items-baseline gap-4 sm:gap-6">
             <span
               className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
-              style={{ color: 'var(--theme-accent, #FF9900)' }}
+              style={{ color: 'var(--theme-accent, #AD5CFF)' }}
             >
               [ 06 ]
             </span>
             <div>
               <p
                 className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
-                style={{ color: 'var(--theme-accent, #FF9900)' }}
+                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
               >
-                <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #FF9900)' }} />
+                <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                 Partners &amp; Supporters
               </p>
               <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
@@ -54,7 +54,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               />
 
               <SpotlightCard
-                className="relative w-full p-8 sm:p-12 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10 group-hover:border-[#FF9900]/40 shadow-2xl rounded-3xl"
+                className="relative w-full p-8 sm:p-12 flex flex-col items-center justify-between text-center transition-all duration-300 hover:-translate-y-1 bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10 group-hover:border-[#AD5CFF]/40 shadow-2xl rounded-3xl"
               >
                 {/* Category Badge */}
                 <div className="mb-6">
@@ -66,7 +66,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
 
                 {/* Logo Showcase Container */}
                 <div
-                  className="h-36 sm:h-44 w-full rounded-2xl border border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:border-[#FF9900]/30 shadow-inner relative overflow-hidden my-2"
+                  className="h-36 sm:h-44 w-full rounded-2xl border border-white/10 bg-white/5 flex flex-col items-center justify-center p-6 transition-all duration-300 group-hover:border-[#AD5CFF]/30 shadow-inner relative overflow-hidden my-2"
                 >
                   <div
                     className="absolute inset-0 opacity-20 pointer-events-none"
@@ -82,7 +82,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
                     className="h-14 sm:h-16 max-w-[200px] object-contain drop-shadow-[0_4px_18px_rgba(255,153,0,0.35)] transition-transform duration-300 group-hover:scale-105 z-10"
                   />
 
-                  <span className="text-xs font-mono tracking-widest font-bold text-[#FF9900] uppercase px-3 py-1 rounded-full bg-[#FF9900]/10 border border-[#FF9900]/25 mt-4 z-10">
+                  <span className="text-xs font-mono tracking-widest font-bold text-[#AD5CFF] uppercase px-3 py-1 rounded-full bg-[#AD5CFF]/10 border border-[#AD5CFF]/25 mt-4 z-10">
                     {sponsor.collabName || 'AWS CLOUD · TITLE'}
                   </span>
                 </div>
@@ -107,7 +107,7 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
       <ScrollReveal delay={0.15}>
         <SpotlightCard className="p-8 sm:p-12 relative overflow-hidden text-center max-w-3xl mx-auto shadow-xl bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10">
           <div className="relative z-10 flex flex-col items-center">
-            <div className="w-12 h-12 rounded-xl bg-[var(--theme-accent,#FF9900)]/10 border border-[var(--theme-accent,#FF9900)]/30 flex items-center justify-center mb-5 text-[var(--theme-accent,#FF9900)]">
+            <div className="w-12 h-12 rounded-xl bg-[var(--theme-accent,#AD5CFF)]/10 border border-[var(--theme-accent,#AD5CFF)]/30 flex items-center justify-center mb-5 text-[var(--theme-accent,#AD5CFF)]">
               <HeartHandshake className="w-6 h-6" />
             </div>
 
@@ -118,13 +118,13 @@ export const Sponsors: React.FC<SponsorsProps> = ({ onOpenContact }) => {
               Reach 500+ aspiring cloud engineers, showcase developer tools, conduct technical demos, and hire top engineering talent directly from campus.
             </p>
 
-            <button
-              onClick={onOpenContact}
-              className="jitter-btn-base jitter-btn-register font-bold text-sm px-8 py-3.5 flex items-center gap-2 cursor-pointer"
+            <a
+              href={`mailto:${EVENT_DETAILS.contactEmail}?subject=AWS%20SCD%202026%20-%20Sponsorship%20Inquiry`}
+              className="jitter-btn-base jitter-btn-register font-bold text-sm px-8 py-3.5 inline-flex items-center gap-2 cursor-pointer"
             >
               <Mail className="w-4 h-4 stroke-[2.5]" />
               <span>Request Sponsor Prospectus</span>
-            </button>
+            </a>
           </div>
         </SpotlightCard>
       </ScrollReveal>

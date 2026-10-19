@@ -27,7 +27,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#FF9900', '#FFAC33', '#FFFFFF', '#38BDF8'],
+        colors: ['#AD5CFF', '#C084FC', '#FFFFFF', '#38BDF8'],
       });
     } catch {
       // fallback safe
@@ -80,7 +80,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
             <div className="sticky top-0 bg-white/[0.03] backdrop-blur-md border-b border-white/10 p-4 sm:p-5 flex items-center justify-between z-20">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-white/10 p-1 border border-white/15 flex items-center justify-center">
-                  <Ticket className="w-4 h-4" style={{ color: 'var(--theme-accent, #FF9900)' }} />
+                  <Ticket className="w-4 h-4" style={{ color: 'var(--theme-accent, #AD5CFF)' }} />
                 </div>
                 <div>
                   <h3 className="font-heading text-lg sm:text-xl tracking-wide uppercase text-white leading-none">
@@ -116,7 +116,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       placeholder="e.g. Alex Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#FF9900)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#FF9900)] font-sans"
+                      className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
                     />
                   </div>
 
@@ -130,7 +130,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       placeholder="student@rungta.ac.in"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#FF9900)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#FF9900)] font-sans"
+                      className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[var(--theme-accent,#AD5CFF)] font-sans"
                     />
                   </div>
 
@@ -143,7 +143,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                         type="text"
                         value={formData.college}
                         onChange={(e) => setFormData({ ...formData, college: e.target.value })}
-                        className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#FF9900)] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none font-sans"
+                        className="w-full bg-white/[0.04] border border-white/10 focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none font-sans"
                       />
                     </div>
                     <div>
@@ -153,7 +153,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       <select
                         value={formData.year}
                         onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                        className="w-full bg-white/[0.06] border border-white/10 focus:border-[var(--theme-accent,#FF9900)] rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none font-sans"
+                        className="w-full bg-white/[0.06] border border-white/10 focus:border-[var(--theme-accent,#AD5CFF)] rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none font-sans"
                       >
                         <option value="1st Year" className="bg-[#0B0F17] text-white">1st Year</option>
                         <option value="2nd Year" className="bg-[#0B0F17] text-white">2nd Year</option>
@@ -176,7 +176,7 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                           onClick={() => setFormData({ ...formData, track })}
                           className={`p-2.5 rounded-xl border text-left font-mono transition-all cursor-pointer ${
                             formData.track === track
-                              ? 'border-[var(--theme-accent,#FF9900)] bg-[var(--theme-accent,#FF9900)]/15 text-white font-bold'
+                              ? 'border-[var(--theme-accent,#AD5CFF)] bg-[var(--theme-accent,#AD5CFF)]/15 text-white font-bold'
                               : 'border-white/10 bg-white/[0.03] text-slate-300 hover:bg-white/[0.06] hover:text-white'
                           }`}
                         >
@@ -255,9 +255,9 @@ export const QuickRegisterModal: React.FC<QuickRegisterModalProps> = ({ isOpen, 
                       <span
                         className="text-[10px] font-mono font-bold px-2 py-0.5 rounded border uppercase"
                         style={{
-                          color: 'var(--theme-accent, #FF9900)',
-                          borderColor: 'color-mix(in srgb, var(--theme-accent, #FF9900) 30%, transparent)',
-                          backgroundColor: 'color-mix(in srgb, var(--theme-accent, #FF9900) 10%, transparent)',
+                          color: 'var(--theme-accent, #AD5CFF)',
+                          borderColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 30%, transparent)',
+                          backgroundColor: 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 10%, transparent)',
                         }}
                       >
                         {formData.track}

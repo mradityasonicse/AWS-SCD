@@ -7,15 +7,15 @@ export const Tracks: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Brain':
-        return <Brain className="w-6 h-6 text-[#FF9900]" />;
+        return <Brain className="w-6 h-6 text-[#AD5CFF]" />;
       case 'Server':
-        return <Server className="w-6 h-6 text-[#FF9900]" />;
+        return <Server className="w-6 h-6 text-[#AD5CFF]" />;
       case 'ShieldCheck':
-        return <ShieldCheck className="w-6 h-6 text-[#FF9900]" />;
+        return <ShieldCheck className="w-6 h-6 text-[#AD5CFF]" />;
       case 'Zap':
-        return <Zap className="w-6 h-6 text-[#FF9900]" />;
+        return <Zap className="w-6 h-6 text-[#AD5CFF]" />;
       default:
-        return <Brain className="w-6 h-6 text-[#FF9900]" />;
+        return <Brain className="w-6 h-6 text-[#AD5CFF]" />;
     }
   };
 
@@ -27,15 +27,15 @@ export const Tracks: React.FC = () => {
           <div className="border-b border-white/10 pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
               <span
-                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#FF9900]"
+                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#AD5CFF]"
               >
                 [ 02 ]
               </span>
               <div>
                 <p
-                  className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2 text-[#FF9900]"
+                  className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2 text-[#AD5CFF]"
                 >
-                  <span className="w-6 h-[1px] bg-[#FF9900]" />
+                  <span className="w-6 h-[1px] bg-[#AD5CFF]" />
                   Learning Tracks
                 </p>
                 <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
@@ -54,16 +54,16 @@ export const Tracks: React.FC = () => {
           {TRACKS.map((track) => (
             <StaggerItem key={track.num}>
               <SpotlightCard
-                spotlightColor="rgba(255, 153, 0, 0.15)"
-                borderColor="rgba(255, 153, 0, 0.3)"
+                spotlightColor="rgba(173, 92, 255, 0.15)"
+                borderColor="rgba(173, 92, 255, 0.3)"
                 className="h-full p-7 flex flex-col justify-between shadow-xl transition-all duration-300 hover:-translate-y-1.5 bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-xl border border-white/10 group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono font-bold text-2xl text-slate-400 group-hover:text-[#FF9900] transition-colors leading-none">
+                    <span className="font-mono font-bold text-2xl text-slate-400 group-hover:text-[#AD5CFF] transition-colors leading-none">
                       [{track.num}]
                     </span>
-                    <div className="p-2.5 rounded-xl bg-white/[0.04] group-hover:bg-[#FF9900]/10 backdrop-blur-md border border-white/10 group-hover:border-[#FF9900]/30 transition-all group-hover:scale-110">
+                    <div className="p-2.5 rounded-xl bg-white/[0.04] group-hover:bg-[#AD5CFF]/10 backdrop-blur-md border border-white/10 group-hover:border-[#AD5CFF]/30 transition-all group-hover:scale-110">
                       {getIcon(track.icon)}
                     </div>
                   </div>

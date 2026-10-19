@@ -24,11 +24,15 @@ const THEME_STORAGE_KEY_COLOR = 'aws_scd_theme_color';
 const THEME_STORAGE_KEY_BG = 'aws_scd_theme_bg';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default to saved theme color, or AWS Builder Orange (#FF9900) as authentic standard
+  // Default to saved theme color, or AWS Student Builder Group Electric Purple (#AD5CFF) as authentic primary theme
   const [secondaryColor, setSecondaryColorState] = useState<SecondaryColorKey>(() => {
-    if (typeof window === 'undefined') return 'orange';
+    if (typeof window === 'undefined') return 'purple';
     const saved = localStorage.getItem(THEME_STORAGE_KEY_COLOR) as SecondaryColorKey;
-    return saved && SECONDARY_COLORS[saved] ? saved : 'orange';
+    if (saved === 'orange' || !saved || !SECONDARY_COLORS[saved]) {
+      localStorage.setItem(THEME_STORAGE_KEY_COLOR, 'purple');
+      return 'purple';
+    }
+    return saved;
   });
 
   // Default to dark as featured in the AWS Builder Group reference image

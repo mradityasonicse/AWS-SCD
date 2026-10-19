@@ -12,7 +12,7 @@ export const ImpactStats: React.FC = () => {
               key={idx}
               className="flex flex-col items-center text-center relative group p-4 rounded-xl border border-transparent hover:border-white/10 hover:bg-white/[0.03] transition-all duration-200"
             >
-              <span className="text-4xl sm:text-6xl md:text-7xl font-normal font-heading tracking-tight leading-none text-white group-hover:text-[#FF9900] transition-colors">
+              <span className="text-4xl sm:text-6xl md:text-7xl font-normal font-heading tracking-tight leading-none text-white group-hover:text-[#AD5CFF] transition-colors">
                 <AnimatedCounter value={stat.value} duration={1.2 + idx * 0.15} />
               </span>
               <span className="text-slate-100 font-bold text-sm sm:text-base mt-2 group-hover:text-white transition-colors">
