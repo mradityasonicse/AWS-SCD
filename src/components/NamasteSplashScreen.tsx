@@ -10,32 +10,74 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
   const [visible, setVisible] = useState(true);
   const [phase, setPhase] = useState<'video' | 'connection'>('video');
   const videoRef = useRef<HTMLVideoElement>(null);
+  const transitionedRef = useRef(false);
+
+  // Clear any legacy storage flags from prior sessions so reload always triggers
+  useEffect(() => {
+    try {
+      sessionStorage.removeItem('awsscd_splash_seen');
+      localStorage.removeItem('awsscd_splash_seen');
+    } catch (_) {}
+  }, []);
 
   const handleDismiss = useCallback(() => {
     setVisible(false);
     if (onFinish) onFinish();
   }, [onFinish]);
 
+  const transitionToConnection = useCallback(() => {
+    if (transitionedRef.current) return;
+    transitionedRef.current = true;
+    setPhase('connection');
+  }, []);
+
+  // Guarantee cross-browser video autoplay on every load & reload
   useEffect(() => {
-    // Attempt explicit video play for cross-browser autoplay compliance
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {
-        // Autoplay policy fallback
-      });
+    if (phase !== 'video') return;
+
+    const vid = videoRef.current;
+    if (vid) {
+      vid.muted = true;
+      vid.defaultMuted = true;
+      vid.playsInline = true;
+      vid.setAttribute('playsinline', '');
+      vid.setAttribute('webkit-playsinline', '');
+      vid.currentTime = 0;
+      const playPromise = vid.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Fallback if browser requires user gesture
+        });
+      }
     }
 
-    // Phase 1: Video runs for ~2000ms
-    const videoTimer = setTimeout(() => {
-      setPhase('connection');
-    }, 2050);
+    // Safety timeout in case video fails to load or codec issue
+    const fallbackTimer = setTimeout(() => {
+      transitionToConnection();
+    }, 2600);
 
-    // Phase 2: Connection photo splash runs for ~1600ms, then dissolves to website
+    return () => {
+      clearTimeout(fallbackTimer);
+    };
+  }, [phase, transitionToConnection]);
+
+  // Phase 2: Connection photo splash displays for ~1800ms, then smoothly dissolves into summit site
+  useEffect(() => {
+    if (phase !== 'connection') return;
+
     const finishTimer = setTimeout(() => {
       handleDismiss();
-    }, 3650);
+    }, 1800);
 
-    // Keyboard controls for instant skip
+    return () => {
+      clearTimeout(finishTimer);
+    };
+  }, [phase, handleDismiss]);
+
+  // Keyboard controls for instant skip
+  useEffect(() => {
+    if (!visible) return;
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === ' ' || e.key === 'Enter') {
         handleDismiss();
@@ -44,8 +86,6 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      clearTimeout(videoTimer);
-      clearTimeout(finishTimer);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [visible, handleDismiss]);
@@ -97,8 +137,19 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
                   muted
                   playsInline
                   preload="auto"
-                  onError={() => setPhase('connection')}
-                  onEnded={() => setPhase('connection')}
+                  onCanPlay={() => {
+                    if (videoRef.current) {
+                      videoRef.current.muted = true;
+                      videoRef.current.play().catch(() => {});
+                    }
+                  }}
+                  onTimeUpdate={() => {
+                    if (videoRef.current && videoRef.current.currentTime >= 1.9) {
+                      transitionToConnection();
+                    }
+                  }}
+                  onEnded={transitionToConnection}
+                  onError={transitionToConnection}
                   className="w-full h-full object-cover sm:object-contain bg-black"
                 />
 
