@@ -28,16 +28,18 @@ const CoreCrewLeaderCard: React.FC<{
       }}
     >
       {/* Featured Official Spotlight Poster Artwork (Exact 3:4 Aspect Ratio of 1080x1440) */}
-      <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden border border-white/10 bg-black/40 shadow-inner group-hover:border-white/25 transition-colors">
+      <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden border border-white/10 bg-black/40 shadow-inner group-hover:border-white/25 transition-colors select-none">
         <img
           src={leader.cardImage}
           alt={`${leader.name} - ${leader.title}`}
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] select-none pointer-events-none"
           loading="lazy"
           decoding="async"
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
         />
-        {/* Holographic Specular Highlight */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.08] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Anti-Theft Protective Shield & Holographic Specular Highlight */}
+        <div className="absolute inset-0 z-10 select-none pointer-events-none bg-gradient-to-tr from-transparent via-white/[0.08] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Clean Name, Role Badge & Verified Profile Link */}
@@ -83,16 +85,18 @@ const SubCrewIdCardBadge: React.FC<{
       }}
     >
       {/* Actual ID Card Graphic */}
-      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02] shadow-inner group-hover:border-white/20 transition-colors">
+      <div className="relative aspect-[363/513] w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02] shadow-inner group-hover:border-white/20 transition-colors select-none">
         <img
           src={member.cardImage}
           alt={`${member.name} ID Card`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02] select-none pointer-events-none"
           loading="lazy"
           decoding="async"
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
         />
-        {/* Holographic Gloss Sheen on Hover */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Anti-Theft Shield & Holographic Gloss Sheen on Hover */}
+        <div className="absolute inset-0 z-10 select-none pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Clean Member Name (No Crew Number, No Description, No Extra Slop) */}

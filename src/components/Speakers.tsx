@@ -104,9 +104,11 @@ export const Speakers: React.FC = () => {
                   <img
                     src={speaker.poster}
                     alt={`${speaker.name} - ${speaker.role}, ${speaker.company}`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover/poster:scale-[1.02]"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover/poster:scale-[1.02] select-none pointer-events-none"
                     loading="lazy"
                     decoding="async"
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
                   />
 
                   {/* Hover Overlay Hint */}
@@ -176,11 +178,13 @@ export const Speakers: React.FC = () => {
             </div>
 
             {/* Poster Preview */}
-            <div className="relative w-full max-h-[72vh] rounded-2xl overflow-hidden border border-white/10 shadow-inner flex items-center justify-center bg-black/40">
+            <div className="relative w-full max-h-[72vh] rounded-2xl overflow-hidden border border-white/10 shadow-inner flex items-center justify-center bg-black/40 select-none">
               <img
                 src={selectedPoster.poster}
                 alt={selectedPoster.name}
-                className="max-h-[72vh] w-auto object-contain rounded-xl"
+                className="max-h-[72vh] w-auto object-contain rounded-xl select-none pointer-events-none"
+                draggable={false}
+                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
 

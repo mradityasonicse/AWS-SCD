@@ -17,6 +17,7 @@ import { Footer } from './components/Footer';
 import { QuickRegisterModal } from './components/QuickRegisterModal';
 import { MobileRegisterBar } from './components/MobileRegisterBar';
 import { NamasteSplashScreen } from './components/NamasteSplashScreen';
+import { ContentProtection } from './components/ContentProtection';
 
 export const App: React.FC = () => {
   const [registerModalOpen, setRegisterModalOpen] = useState(false);
@@ -24,13 +25,16 @@ export const App: React.FC = () => {
   return (
     <ThemeProvider>
       <div
-        className="relative min-h-screen text-[#F8FAFC] font-sans antialiased overflow-x-clip transition-colors duration-300 pb-16 sm:pb-0"
+        className="relative min-h-screen text-[#F8FAFC] font-sans antialiased overflow-x-clip transition-colors duration-300 pb-16 sm:pb-0 select-none"
         style={{
           backgroundColor: 'var(--theme-bg, #0A0D14)',
           backgroundImage: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(173, 92, 255, 0.08) 0%, transparent 70%)',
           color: 'var(--theme-text, #F8FAFC)',
         }}
       >
+        {/* Anti-Theft & Content Protection Guardian */}
+        <ContentProtection />
+
         {/* Cultural Namaste Welcome Splash Screen (Intro on page start) */}
         <NamasteSplashScreen />
 
