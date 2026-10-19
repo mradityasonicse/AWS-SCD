@@ -175,7 +175,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#AD5CFF", // AWS SBG Purple
     tagline: "Driving stage transitions, live streaming logistics & AV coordination.",
     bio: "Managing real-time stage AV sync, speaker microphone rotations, and auditorium logistics.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
+    linkedin: "https://www.linkedin.com/in/abhishek-yadav-064616328?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     scope: ["Stage Ops", "AV Logistics", "Event Sync"],
   },
   {
