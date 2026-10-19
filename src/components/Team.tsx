@@ -220,7 +220,7 @@ export const Team: React.FC = () => {
         <div>
           <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b border-white/10">
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
-              SUB CREW MEMBER
+              CORE MEMBER 
             </h3>
            
           </div>

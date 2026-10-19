@@ -17,18 +17,18 @@ interface TimeLeft {
 // ---------------------------------------------------------------------------
 const ColonSeparator: React.FC = () => (
   <div
-    className="h-11 xs:h-13 sm:h-18 md:h-22 lg:h-26 flex flex-col items-center justify-center gap-1.5 sm:gap-2.5 md:gap-3 px-0.5 sm:px-1 md:px-1.5 select-none"
+    className="h-10 xs:h-13 sm:h-18 md:h-22 lg:h-26 flex flex-col items-center justify-center gap-1 xs:gap-1.5 sm:gap-2.5 md:gap-3 px-0.5 sm:px-1 md:px-1.5 select-none"
     aria-hidden="true"
   >
     <span
-      className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full animate-pulse"
+      className="w-1 h-1 xs:w-1.5 xs:h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full animate-pulse"
       style={{
         backgroundColor: 'var(--theme-accent, #AD5CFF)',
         boxShadow: '0 0 10px var(--theme-accent, #AD5CFF), 0 0 16px var(--theme-accent-glow, rgba(173, 92, 255, 0.5))',
       }}
     />
     <span
-      className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full animate-pulse"
+      className="w-1 h-1 xs:w-1.5 xs:h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full animate-pulse"
       style={{
         backgroundColor: 'var(--theme-accent, #AD5CFF)',
         boxShadow: '0 0 10px var(--theme-accent, #AD5CFF), 0 0 16px var(--theme-accent-glow, rgba(173, 92, 255, 0.5))',
@@ -52,7 +52,7 @@ const SplitFlapCard: React.FC<SplitFlapCardProps> = ({ value, label }) => {
   return (
     <div className="flex flex-col items-center">
       {/* Dual Flip Digit Housing */}
-      <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
+      <div className="flex items-center gap-0.5 xs:gap-1 sm:gap-1.5 md:gap-2">
         {/* Digit 1 (Tens) */}
         <SingleDigitTile digit={tens} />
 
@@ -62,7 +62,7 @@ const SplitFlapCard: React.FC<SplitFlapCardProps> = ({ value, label }) => {
 
       {/* Unit Label Pill */}
       <span
-        className="mt-2 sm:mt-2.5 md:mt-3 text-[11px] xs:text-xs sm:text-sm md:text-base font-bold tracking-wider select-none"
+        className="mt-1.5 xs:mt-2 sm:mt-2.5 md:mt-3 text-[10px] xs:text-xs sm:text-sm md:text-base font-bold tracking-wider select-none"
         style={{
           color: 'var(--theme-accent, #AD5CFF)',
           textShadow: '0 0 14px var(--theme-accent-glow, rgba(173, 92, 255, 0.4))',
@@ -84,7 +84,7 @@ interface SingleDigitTileProps {
 const SingleDigitTile: React.FC<SingleDigitTileProps> = ({ digit }) => {
   return (
     <div
-      className="relative w-7 xs:w-8.5 sm:w-12 md:w-15 lg:w-18 h-11 xs:h-13 sm:h-18 md:h-22 lg:h-26 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border"
+      className="relative w-[26px] xs:w-8.5 sm:w-12 md:w-15 lg:w-18 h-10 xs:h-13 sm:h-18 md:h-22 lg:h-26 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border"
       style={{
         background:
           'linear-gradient(180deg, color-mix(in srgb, var(--theme-accent, #AD5CFF) 88%, white 12%) 0%, var(--theme-accent, #AD5CFF) 50%, color-mix(in srgb, var(--theme-accent, #AD5CFF) 75%, black 25%) 100%)',
@@ -119,7 +119,7 @@ const SingleDigitTile: React.FC<SingleDigitTileProps> = ({ digit }) => {
           className="w-full h-full flex items-center justify-center select-none transform-gpu will-change-transform"
           style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}
         >
-          <span className="text-white font-black font-sans select-none tracking-tight leading-none text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+          <span className="text-white font-black font-sans select-none tracking-tight leading-none text-xl xs:text-2xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
             {digit}
           </span>
         </motion.div>
@@ -257,10 +257,10 @@ export const CountdownTimer: React.FC = () => {
   return (
     <div className="w-full max-w-4xl mx-auto mb-6 sm:mb-8 select-none">
       {/* Technical Countdown Chassis */}
-      <div className="relative rounded-2xl bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-4 sm:p-7 md:p-8 shadow-2xl">
+      <div className="relative rounded-2xl bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-2.5 xs:p-4 sm:p-7 md:p-8 shadow-2xl">
 
         {/* Centerpiece: Mechanical Split-Flap Countdown Units with glowing colon separators */}
-        <div className="relative z-10 flex items-start justify-center gap-1 xs:gap-1.5 sm:gap-3 md:gap-5 lg:gap-6 my-3 sm:my-5">
+        <div className="relative z-10 flex items-start justify-center gap-0.5 xs:gap-1.5 sm:gap-3 md:gap-5 lg:gap-6 my-2 sm:my-5">
           {/* Ambient glow matching theme accent behind the digits */}
           <div
             className="absolute inset-0 pointer-events-none -z-10"

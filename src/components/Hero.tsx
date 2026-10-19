@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = () => {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-40px)] pt-44 sm:pt-48 lg:pt-52 pb-12 sm:pb-16 flex flex-col justify-start items-center text-center overflow-hidden px-4 bg-transparent">
+    <section className="relative min-h-[calc(100vh-40px)] pt-32 xs:pt-36 sm:pt-44 lg:pt-52 pb-12 sm:pb-16 flex flex-col justify-start items-center text-center overflow-hidden px-4 bg-transparent">
       {/* Background & Grid */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Subtle grid with thin lines in #FFFFFF at 3% opacity */}
@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-4 sm:mb-6 select-none w-full"
+          className="text-center mb-3 sm:mb-6 select-none w-full"
         >
           <h1
             className="poster-main-hook text-center select-none w-full"
@@ -60,9 +60,9 @@ export const Hero: React.FC<HeroProps> = () => {
             <span className="block text-[#AD5CFF]">COMMUNITY DAY</span>
           </h1>
 
-          {/* Edition line in Inter Bold (700), 20-24px, #CBD5E1 with [ 2026 ] in #AD5CFF */}
+          {/* Edition line in Inter Bold (700), responsive scaling */}
           <div
-            className="flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-3 gap-y-1 mt-3 sm:mt-4 text-[#CBD5E1] font-bold text-[20px] sm:text-[22px] md:text-[24px] tracking-wide uppercase"
+            className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 gap-y-1 mt-2.5 sm:mt-4 text-[#CBD5E1] font-bold text-xs xs:text-sm sm:text-lg md:text-[22px] tracking-wide uppercase"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <span className="whitespace-nowrap text-[#AD5CFF]">[ 2026 ]</span>
@@ -77,10 +77,10 @@ export const Hero: React.FC<HeroProps> = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl mx-auto text-center mb-6 sm:mb-8 px-4"
+          className="max-w-3xl mx-auto text-center mb-5 sm:mb-8 px-2 sm:px-4"
         >
           <p
-            className="text-[18px] sm:text-[20px] font-medium leading-relaxed text-[#F1F5F9]"
+            className="text-base sm:text-[20px] font-medium leading-relaxed text-[#F1F5F9]"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             The Premier Student Cloud &amp; AI Summit in Central India.
@@ -92,40 +92,40 @@ export const Hero: React.FC<HeroProps> = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-2 sm:p-2.5 mb-6 sm:mb-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-5 shadow-2xl w-full sm:w-auto"
+          className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-2 sm:p-2.5 mb-5 sm:mb-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-5 shadow-2xl w-full sm:w-auto"
         >
-          <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
+          <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5 min-w-0">
             <Calendar className="w-4 h-4 text-[#AD5CFF] shrink-0" />
-            <div className="text-left">
+            <div className="text-left min-w-0">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Date</span>
-              <span className="poster-date-venue text-[#F8FAFC] font-bold">21 Oct 2026</span>
+              <span className="poster-date-venue text-[#F8FAFC] font-bold text-xs sm:text-sm truncate block">21 Oct 2026</span>
             </div>
           </div>
           <div className="hidden sm:block w-px h-7 bg-white/10" />
 
-          <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
+          <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5 min-w-0">
             <Users className="w-4 h-4 text-[#AD5CFF] shrink-0" />
-            <div className="text-left">
+            <div className="text-left min-w-0">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Audience</span>
-              <span className="poster-date-venue text-[#F8FAFC] font-bold">550+ Builders</span>
+              <span className="poster-date-venue text-[#F8FAFC] font-bold text-xs sm:text-sm truncate block">550+ Builders</span>
             </div>
           </div>
           <div className="hidden sm:block w-px h-7 bg-white/10" />
 
-          <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
+          <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5 min-w-0">
             <MapPin className="w-4 h-4 text-[#AD5CFF] shrink-0" />
-            <div className="text-left">
+            <div className="text-left min-w-0">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Host Campus</span>
-              <span className="poster-date-venue text-[#F8FAFC] font-bold">Rungta International Skills University, Bhilai</span>
+              <span className="poster-date-venue text-[#F8FAFC] font-bold text-xs sm:text-sm truncate block">RISU Campus, Bhilai</span>
             </div>
           </div>
           <div className="hidden sm:block w-px h-7 bg-white/10" />
 
-          <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5">
+          <div className="flex items-center gap-2 px-2 py-1 sm:px-2.5 sm:py-1.5 min-w-0">
             <Gift className="w-4 h-4 text-[#AD5CFF] shrink-0" />
-            <div className="text-left">
+            <div className="text-left min-w-0">
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest block font-mono">Builder Perks</span>
-              <span className="poster-date-venue text-[#F8FAFC] font-bold">Swag Kits &amp; Badges</span>
+              <span className="poster-date-venue text-[#F8FAFC] font-bold text-xs sm:text-sm truncate block">Swag Kits &amp; Badges</span>
             </div>
           </div>
         </motion.div>

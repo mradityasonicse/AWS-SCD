@@ -38,7 +38,7 @@ export const Tracks: React.FC = () => {
                   <span className="w-6 h-[1px] bg-[#AD5CFF]" />
                   Learning Tracks
                 </p>
-                <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
+                <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none">
                   Engineered for every stage of builder.
                 </h2>
               </div>
@@ -48,13 +48,13 @@ export const Tracks: React.FC = () => {
         </ScrollReveal>
 
         {/* Tracks Grid with Stagger & SpotlightCards */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.08}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" staggerDelay={0.08}>
           {TRACKS.map((track) => (
             <StaggerItem key={track.num}>
               <SpotlightCard
                 spotlightColor="rgba(173, 92, 255, 0.15)"
                 borderColor="rgba(173, 92, 255, 0.3)"
-                className="h-full p-7 flex flex-col justify-between shadow-xl transition-all duration-300 hover:-translate-y-1.5 bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-xl border border-white/10 group"
+                className="h-full p-5 sm:p-7 flex flex-col justify-between shadow-xl transition-all duration-300 hover:-translate-y-1.5 bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-xl border border-white/10 group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">

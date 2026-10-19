@@ -29,7 +29,7 @@ export const FAQ: React.FC = () => {
                 <span className="w-6 h-[1px] bg-[#AD5CFF]" />
                 Frequently Asked Questions
               </p>
-              <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
+              <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none">
                 Everything you need to know.
               </h2>
             </div>

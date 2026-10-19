@@ -28,7 +28,7 @@ export const Sponsors: React.FC<SponsorsProps> = () => {
                 <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
                 Partners &amp; Supporters
               </p>
-              <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
+              <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none">
                 Backed by the best in the ecosystem.
               </h2>
             </div>

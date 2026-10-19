@@ -567,7 +567,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                     target={EVENT_DETAILS.registrationUrl?.startsWith('http') ? '_blank' : undefined}
                     rel={EVENT_DETAILS.registrationUrl?.startsWith('http') ? 'noopener noreferrer' : undefined}
                     onClick={handleRegisterClick}
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded bg-[#E2E8F0] hover:bg-white text-[#0F172A] font-bold text-xs uppercase tracking-wider shadow-sm"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded bg-[#AD5CFF] hover:bg-[#B870FF] text-[#0A0D14] font-black text-xs uppercase tracking-wider shadow-md active:scale-[0.98] transition-all"
                   >
                     <span>REGISTER NOW</span>
                     <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />

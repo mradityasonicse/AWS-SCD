@@ -32,7 +32,7 @@ export const About: React.FC = () => {
             {/* Main Title Row with Vertical Balance */}
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-5 pb-8 border-b border-white/10">
               <div className="max-w-3xl overflow-visible pb-1">
-                <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-none">
+                <h2 className="font-heading text-3xl sm:text-5xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none">
                   One day to level up as a builder.
                 </h2>
               </div>
@@ -45,15 +45,15 @@ export const About: React.FC = () => {
 
         {/* Lead Narrative */}
         <ScrollReveal delay={0.1}>
-          <p className="text-white text-lg sm:text-2xl font-semibold leading-relaxed max-w-4xl mb-12">
+          <p className="text-white text-base sm:text-2xl font-semibold leading-relaxed max-w-4xl mb-8 sm:mb-12">
             Student Community Day 2026 brings together <strong style={{ color: 'var(--theme-accent, #AD5CFF)' }}>550+ students</strong>, AWS Community leaders, AWS DevRel leadership, and the next wave of cloud architects for one full day of high-signal learning at <strong className="text-slate-100">Rungta International Skills University</strong>.
           </p>
         </ScrollReveal>
 
         {/* Handcrafted Asymmetric 4-Part Bento Grid — Chronological Summit Timeline */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {/* Card 01 - Keynotes & Deep Dives (Spans 2 Columns) — 10:40 AM */}
-          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
+          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-5 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--theme-accent,#AD5CFF)] to-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -82,7 +82,7 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 02 - Mentorship & Networking (Spans 1 Column) — 11:30 AM */}
-          <div className="md:col-span-1 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#42B4FF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
+          <div className="md:col-span-1 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-5 sm:p-8 flex flex-col justify-between hover:border-[#42B4FF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -111,7 +111,7 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 03 - Community Cohort (Spans 1 Column) — 01:00 PM */}
-          <div className="md:col-span-1 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
+          <div className="md:col-span-1 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-5 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#42B4FF] to-[var(--theme-accent,#AD5CFF)] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -140,7 +140,7 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 04 - Live Stage Arena & Grand Finale (Spans 2 Columns) — 03:00 PM */}
-          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
+          <div className="md:col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-5 sm:p-8 flex flex-col justify-between hover:border-[#AD5CFF]/40 transition-all duration-300 shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#AD5CFF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">

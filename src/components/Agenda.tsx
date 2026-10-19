@@ -38,7 +38,7 @@ export const Agenda: React.FC = () => {
                   <span className="w-6 h-[1px] bg-white/20" />
                   Official Program Schedule
                 </p>
-                <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
+                <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none">
                   Agenda &amp; Timeline.
                 </h2>
               </div>
@@ -66,11 +66,11 @@ export const Agenda: React.FC = () => {
             />
 
             {/* Content Container */}
-            <div className="relative z-10 p-6 sm:p-10 md:p-12 min-h-[400px] flex flex-col justify-between">
+            <div className="relative z-10 p-5 sm:p-10 md:p-12 min-h-[360px] flex flex-col justify-between">
               {/* Top Row: Left Headline + Right AWS Mark */}
               <div className="flex items-start justify-between gap-6 mb-8">
                 <div>
-                  <h3 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none mb-3">
+                  <h3 className="font-heading text-3xl sm:text-5xl md:text-6xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none mb-3">
                     Agenda
                   </h3>
                   <div className="flex items-center gap-2 text-xs font-mono text-slate-400 uppercase tracking-widest">
@@ -166,7 +166,7 @@ export const Agenda: React.FC = () => {
         </ScrollReveal>
 
         {/* Timeline Layout with Clean Architectural Vertical Hairline */}
-        <div className="relative pl-6 sm:pl-10 border-l border-white/10 flex flex-col gap-5 sm:gap-6">
+        <div className="relative ml-2 sm:ml-0 pl-5 xs:pl-6 sm:pl-10 border-l border-white/10 flex flex-col gap-5 sm:gap-6">
           <AnimatePresence mode="popLayout">
             {filteredAgenda.map((item: AgendaItem, idx: number) => (
               <motion.div
