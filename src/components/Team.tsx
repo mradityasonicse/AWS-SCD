@@ -7,13 +7,9 @@ import {
 } from '@/data/crewCardsData';
 import { ScrollReveal } from '@/components/ui/motion-primitives';
 import {
-  Layers,
-  LayoutGrid,
   ArrowUpRight,
   ShieldCheck,
-  Search,
   X,
-  Sparkles,
 } from 'lucide-react';
 
 const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3.5" }) => (
@@ -78,10 +74,7 @@ const CoreCrewLeaderCard: React.FC<{
 
       {/* Bottom Bar: Verified + Connect Link */}
       <div className="flex items-center justify-between pt-3 border-t border-white/10 relative z-10">
-        <span className="inline-flex items-center gap-1 text-[9px] font-mono text-slate-400">
-          <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
-          OFFICIAL CREW
-        </span>
+       
 
         <a
           href={leader.linkedin}
@@ -161,7 +154,6 @@ const SubCrewIdCardBadge: React.FC<{
 export const Team: React.FC = () => {
   const [line1Paused, setLine1Paused] = useState(false);
   const [line2Paused, setLine2Paused] = useState(false);
-  const [subCrewView, setSubCrewView] = useState<'glider' | 'grid'>('glider');
   const [selectedBadge, setSelectedBadge] = useState<{
     name: string;
     handle: string;
@@ -169,24 +161,10 @@ export const Team: React.FC = () => {
     code: string;
     cardImage: string;
   } | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
 
   // Split the 32 Sub-Crew cards into 2 lines of 16 cards each
   const line1Cards = useMemo(() => SUB_CREW_CARDS.slice(0, 16), []);
   const line2Cards = useMemo(() => SUB_CREW_CARDS.slice(16, 32), []);
-
-  // Filter cards in grid view
-  const filteredCards = useMemo(() => {
-    if (!searchQuery.trim()) return SUB_CREW_CARDS;
-    const q = searchQuery.toLowerCase();
-    return SUB_CREW_CARDS.filter(
-      (c) =>
-        c.name.toLowerCase().includes(q) ||
-        c.handle.toLowerCase().includes(q) ||
-        c.role.toLowerCase().includes(q) ||
-        c.code.toLowerCase().includes(q)
-    );
-  }, [searchQuery]);
 
   return (
     <section className="py-20 sm:py-24 relative overflow-visible px-4 sm:px-6" id="team">
@@ -242,148 +220,79 @@ export const Team: React.FC = () => {
 
         {/* Division 2: Sub Crew (Dual-Line Continuous Gliders: Top L-to-R, Bottom R-to-L) */}
         <div>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-white/10">
+          <div className="flex items-center justify-between gap-3 mb-6 pb-3 border-b border-white/10">
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
               Operations, Brand, Logistics &amp; Community Pod
             </h3>
-
-            {/* Toggle Glider vs Expanded Grid */}
-            <div className="inline-flex items-center p-1 rounded-xl bg-white/[0.03] border border-white/10 shrink-0 self-start sm:self-auto shadow-sm">
-              <button
-                type="button"
-                onClick={() => setSubCrewView('glider')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all cursor-pointer ${
-                  subCrewView === 'glider'
-                    ? 'bg-white/15 text-white border border-white/20 shadow-sm font-bold'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Layers className="w-3.5 h-3.5" />
-                <span>2-Line Gliders</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setSubCrewView('grid')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all cursor-pointer ${
-                  subCrewView === 'grid'
-                    ? 'bg-white/15 text-white border border-white/20 shadow-sm font-bold'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <LayoutGrid className="w-3.5 h-3.5" />
-                <span>All Grid ({SUB_CREW_CARDS.length})</span>
-              </button>
-            </div>
+            <span className="text-xs font-mono text-slate-400 hidden sm:inline">
+              CONTINUOUS 2-WAY SLIDER
+            </span>
           </div>
 
-          {subCrewView === 'glider' ? (
-            /* 2-Line Animated Runner (Line 1: Left-to-Right, Line 2: Right-to-Left) */
-            <div className="relative w-full overflow-hidden py-4 -mx-4 px-4 sm:mx-0 sm:px-0 flex flex-col gap-6">
-              {/* Side Gradient Masks */}
-              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-24 bg-gradient-to-r from-transparent via-transparent to-transparent z-20 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-24 bg-gradient-to-l from-transparent via-transparent to-transparent z-20 pointer-events-none" />
+          {/* 2-Line Animated Runner (Line 1: Left-to-Right, Line 2: Right-to-Left) */}
+          <div className="relative w-full overflow-hidden py-4 -mx-4 px-4 sm:mx-0 sm:px-0 flex flex-col gap-6">
+            {/* Side Gradient Masks */}
+            <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-24 bg-gradient-to-r from-transparent via-transparent to-transparent z-20 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-24 bg-gradient-to-l from-transparent via-transparent to-transparent z-20 pointer-events-none" />
 
-              {/* LINE 1: Left to Right */}
-              <div>
-                <div
-                  className="overflow-hidden w-full py-1"
-                  onMouseEnter={() => setLine1Paused(true)}
-                  onMouseLeave={() => setLine1Paused(false)}
-                  onTouchStart={() => setLine1Paused(true)}
-                  onTouchEnd={() => setLine1Paused(false)}
-                >
-                  <div
-                    className={`subcrew-slider-track flex gap-4 sm:gap-5 will-change-transform ${
-                      line1Paused ? 'is-paused' : ''
-                    }`}
-                    style={{
-                      animationDuration: '50s',
-                    }}
-                  >
-                    {[...line1Cards, ...line1Cards].map((member, idx) => (
-                      <div
-                        key={`line1-card-${member.id}-${idx}`}
-                        className="w-[200px] sm:w-[220px] md:w-[240px] shrink-0"
-                      >
-                        <SubCrewIdCardBadge member={member} onSelect={setSelectedBadge} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* LINE 2: Right to Left */}
-              <div>
-                <div
-                  className="overflow-hidden w-full py-1"
-                  onMouseEnter={() => setLine2Paused(true)}
-                  onMouseLeave={() => setLine2Paused(false)}
-                  onTouchStart={() => setLine2Paused(true)}
-                  onTouchEnd={() => setLine2Paused(false)}
-                >
-                  <div
-                    className={`subcrew-slider-track-reverse flex gap-4 sm:gap-5 will-change-transform ${
-                      line2Paused ? 'is-paused' : ''
-                    }`}
-                    style={{
-                      animationDuration: '50s',
-                    }}
-                  >
-                    {[...line2Cards, ...line2Cards].map((member, idx) => (
-                      <div
-                        key={`line2-card-${member.id}-${idx}`}
-                        className="w-[200px] sm:w-[220px] md:w-[240px] shrink-0"
-                      >
-                        <SubCrewIdCardBadge member={member} onSelect={setSelectedBadge} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : (
-            /* Expanded Grid View with Search Filter */
+            {/* LINE 1: Left to Right */}
             <div>
-              {/* Search & Counter Bar */}
-              <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-white/[0.03] backdrop-blur-xl border border-white/10">
-                <div className="relative flex-1 max-w-md">
-                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search by name, handle, or role..."
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-lg pl-10 pr-4 py-2 text-xs font-mono text-white placeholder-slate-400 focus:outline-none focus:border-[#AD5CFF] transition-colors"
-                  />
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery('')}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+              <div
+                className="overflow-hidden w-full py-1"
+                onMouseEnter={() => setLine1Paused(true)}
+                onMouseLeave={() => setLine1Paused(false)}
+                onTouchStart={() => setLine1Paused(true)}
+                onTouchEnd={() => setLine1Paused(false)}
+              >
+                <div
+                  className={`subcrew-slider-track flex gap-4 sm:gap-5 will-change-transform ${
+                    line1Paused ? 'is-paused' : ''
+                  }`}
+                  style={{
+                    animationDuration: '50s',
+                  }}
+                >
+                  {[...line1Cards, ...line1Cards].map((member, idx) => (
+                    <div
+                      key={`line1-card-${member.id}-${idx}`}
+                      className="w-[200px] sm:w-[220px] md:w-[240px] shrink-0"
                     >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  )}
+                      <SubCrewIdCardBadge member={member} onSelect={setSelectedBadge} />
+                    </div>
+                  ))}
                 </div>
-                <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
-                  <Sparkles className="w-3.5 h-3.5 text-[#AD5CFF]" />
-                  <span>
-                    Showing {filteredCards.length} of {SUB_CREW_CARDS.length} Sub-Crew Badges
-                  </span>
-                </div>
-              </div>
-
-              {/* Grid of Cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
-                {filteredCards.map((member) => (
-                  <SubCrewIdCardBadge
-                    key={`subcrew-grid-${member.id}`}
-                    member={member}
-                    onSelect={setSelectedBadge}
-                  />
-                ))}
               </div>
             </div>
-          )}
+
+            {/* LINE 2: Right to Left */}
+            <div>
+              <div
+                className="overflow-hidden w-full py-1"
+                onMouseEnter={() => setLine2Paused(true)}
+                onMouseLeave={() => setLine2Paused(false)}
+                onTouchStart={() => setLine2Paused(true)}
+                onTouchEnd={() => setLine2Paused(false)}
+              >
+                <div
+                  className={`subcrew-slider-track-reverse flex gap-4 sm:gap-5 will-change-transform ${
+                    line2Paused ? 'is-paused' : ''
+                  }`}
+                  style={{
+                    animationDuration: '50s',
+                  }}
+                >
+                  {[...line2Cards, ...line2Cards].map((member, idx) => (
+                    <div
+                      key={`line2-card-${member.id}-${idx}`}
+                      className="w-[200px] sm:w-[220px] md:w-[240px] shrink-0"
+                    >
+                      <SubCrewIdCardBadge member={member} onSelect={setSelectedBadge} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Modal Lightbox for High-Res ID Card Badge View */}

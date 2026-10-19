@@ -4,11 +4,9 @@ import { Clock, User, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ScrollReveal, SpotlightCard } from '@/components/ui/motion-primitives';
 import { BuilderStairs } from '@/components/ui/BuilderStairs';
-import { useTheme } from '../context/ThemeContext';
 
 export const Agenda: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('All');
-  const { currentColorConfig } = useTheme();
 
   const categories = ['All', 'Keynote', 'Tech', 'Networking', 'Fun', 'Ceremony'];
 
@@ -17,12 +15,12 @@ export const Agenda: React.FC = () => {
       ? AGENDA
       : AGENDA.filter((item) => item.category === activeFilter);
 
-  // Agenda High-Level Chapters (Matches Screenshot 2 layout)
+  // Unified Architectural Agenda Chapters (Senior Engineer Standard: Zero Rainbow Noise)
   const agendaChapters = [
-    { num: '1', title: 'Inauguration, Felicitation & Welcome Address', cat: 'Ceremony', color: '#00E582' },
-    { num: '2', title: 'Keynote & Technical Speaker Sessions', cat: 'Tech', color: 'var(--theme-accent, #AD5CFF)' },
-    { num: '3', title: 'One-Hour Lunch & Refreshment Break', cat: 'Networking', color: '#42B4FF' },
-    { num: '4', title: 'Q&A, Closing Ceremony & Swag Distribution', cat: 'Fun', color: '#FF9900' },
+    { num: '01', title: 'Inauguration, Dignitary Felicitation & Welcome Address', cat: 'Ceremony' },
+    { num: '02', title: 'Keynote Architectural Dive & Speaker Session 1', cat: 'Tech' },
+    { num: '03', title: 'Executive Lunch & 1-on-1 Community Networking Break', cat: 'Networking' },
+    { num: '04', title: 'Speaker Session 2, Live Q&A, Closing & Swag Distribution', cat: 'Fun' },
   ];
 
   return (
@@ -30,20 +28,14 @@ export const Agenda: React.FC = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header with [ 04 ] Index */}
         <ScrollReveal>
-          <div className="border-b border-[#232F3E] pb-6 mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          <div className="border-b border-white/10 pb-6 mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div className="flex items-baseline gap-4 sm:gap-6">
-              <span
-                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
-                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-              >
+              <span className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#FF9900]">
                 [ 04 ]
               </span>
               <div>
-                <p
-                  className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
-                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
-                >
-                  <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
+                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2 text-slate-400">
+                  <span className="w-6 h-[1px] bg-white/20" />
                   Official Program Schedule
                 </p>
                 <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
@@ -58,29 +50,23 @@ export const Agenda: React.FC = () => {
         </ScrollReveal>
 
         {/* ==================================================================== */}
-        {/* SIGNATURE AWS BUILDER AGENDA SHOWCASE BOARD (Modeled from Screenshot 2) */}
+        {/* SIGNATURE AWS BUILDER AGENDA SHOWCASE BOARD (Senior Engineering Standard) */}
         {/* ==================================================================== */}
         <ScrollReveal delay={0.1}>
           <div
-            className="mb-14 relative rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:border-white/20"
-            style={{
-              background:
-                'radial-gradient(circle at 85% 15%, rgba(173, 92, 255, 0.14) 0%, transparent 60%), linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
-              backdropFilter: 'blur(24px)',
-              WebkitBackdropFilter: 'blur(24px)',
-            }}
+            className="mb-14 relative rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:border-white/20 bg-white/[0.02]"
           >
             {/* Specular High-Gloss Sheen Reflection */}
             <div
-              className="absolute inset-x-0 top-0 h-44 pointer-events-none bg-gradient-to-b from-white/[0.06] via-white/[0.01] to-transparent z-[1]"
+              className="absolute inset-x-0 top-0 h-32 pointer-events-none bg-gradient-to-b from-white/[0.05] via-white/[0.01] to-transparent z-[1]"
             />
             {/* Architectural Grid Backdrop Layer */}
             <div
-              className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:48px_48px]"
+              className="absolute inset-0 pointer-events-none opacity-15 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:48px_48px]"
             />
 
-            {/* Content Container (16:9 Inspired Studio Board) */}
-            <div className="relative z-10 p-6 sm:p-10 md:p-14 min-h-[420px] flex flex-col justify-between">
+            {/* Content Container */}
+            <div className="relative z-10 p-6 sm:p-10 md:p-12 min-h-[400px] flex flex-col justify-between">
               {/* Top Row: Left Headline + Right AWS Mark */}
               <div className="flex items-start justify-between gap-6 mb-8">
                 <div>
@@ -88,41 +74,36 @@ export const Agenda: React.FC = () => {
                     Agenda
                   </h3>
                   <div className="flex items-center gap-2 text-xs font-mono text-slate-400 uppercase tracking-widest">
-                    <span
-                      className="inline-block w-2 h-2 rounded-full"
-                      style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
-                    />
+                    <span className="inline-block w-2 h-2 rounded-full bg-[#FF9900]" />
                     <span>STUDENT COMMUNITY DAY · CENTRAL INDIA</span>
                   </div>
                 </div>
 
-                {/* Crisp AWS Brand Mark Top Right (Direct from Screenshot 2) */}
+                {/* Crisp AWS Brand Mark Top Right */}
                 <div className="flex items-center gap-2 shrink-0">
                   <img
                     src="/AWS.png"
                     alt="AWS"
-                    className="h-8 sm:h-10 w-auto object-contain brightness-0 invert opacity-95"
+                    className="h-8 sm:h-9 w-auto object-contain brightness-0 invert opacity-90"
                   />
                 </div>
               </div>
 
               {/* Middle Section: Left Numbered Tracks + Right Ascending Stairs */}
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center my-4">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center my-2">
                 {/* Left: 4-Point Agenda Blueprint */}
-                <div className="md:col-span-7 flex flex-col gap-3 sm:gap-4">
+                <div className="md:col-span-7 flex flex-col gap-2.5 sm:gap-3">
                   {agendaChapters.map((ch) => (
                     <button
                       key={ch.num}
+                      type="button"
                       onClick={() => setActiveFilter(ch.cat)}
-                      className="group flex items-center gap-4 text-left p-2.5 sm:p-3 rounded-xl transition-all duration-150 hover:bg-white/[0.06] border border-transparent hover:border-white/10 cursor-pointer"
+                      className="group flex items-center gap-4 text-left p-3 rounded-xl transition-all duration-200 hover:bg-white/[0.04] border border-transparent hover:border-white/10 cursor-pointer"
                     >
-                      <span
-                        className="font-mono text-base sm:text-xl font-bold shrink-0 transition-transform group-hover:scale-110"
-                        style={{ color: ch.color }}
-                      >
-                        {ch.num}.
+                      <span className="font-mono text-xs sm:text-sm font-bold text-slate-400 group-hover:text-[#FF9900] shrink-0 transition-colors">
+                        [{ch.num}]
                       </span>
-                      <span className="text-sm sm:text-lg md:text-xl font-medium text-white group-hover:text-white transition-colors flex-1">
+                      <span className="text-sm sm:text-base font-medium text-slate-200 group-hover:text-white transition-colors flex-1">
                         {ch.title}
                       </span>
                       <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100 shrink-0" />
@@ -130,11 +111,11 @@ export const Agenda: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Right: Signature Diagonal Ascending Stair Block Pattern (From Screenshot 2) */}
+                {/* Right: Signature Diagonal Ascending Stair Block Pattern */}
                 <div className="md:col-span-5 flex justify-center md:justify-end items-center">
-                  <div className="w-48 sm:w-64 md:w-72 max-w-full">
+                  <div className="w-44 sm:w-60 md:w-64 max-w-full opacity-80 hover:opacity-100 transition-opacity">
                     <BuilderStairs
-                      color="var(--theme-accent, #AD5CFF)"
+                      color="#FF9900"
                       className="w-full"
                       showGridLines={true}
                     />
@@ -142,18 +123,15 @@ export const Agenda: React.FC = () => {
                 </div>
               </div>
 
-              {/* Bottom Row: Brandmark Bottom Right (Direct from Screenshot 2) */}
+              {/* Bottom Row: Metadata Bottom Right */}
               <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono text-slate-400">
                 <div className="flex items-center gap-2">
                   <span>RUNGTA INTERNATIONAL SKILLS UNIVERSITY</span>
                   <span>·</span>
                   <span>OCTOBER 21, 2026</span>
                 </div>
-                <div className="font-bold tracking-wider text-slate-200 uppercase flex items-center gap-2">
-                  <span
-                    className="w-1.5 h-1.5 rounded-full"
-                    style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }}
-                  />
+                <div className="font-semibold tracking-wider text-slate-300 uppercase flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF9900]" />
                   <span>AWS Student Builder Group</span>
                 </div>
               </div>
@@ -164,7 +142,7 @@ export const Agenda: React.FC = () => {
         {/* ==================================================================== */}
         {/* INTERACTIVE TIMETABLE & DETAILED SESSION SCHEDULE */}
         {/* ==================================================================== */}
-        {/* Category Filter Tabs with Sliding Animated Pill */}
+        {/* Category Filter Tabs (Clean Senior Engineer Obsidian Minimalist Standard) */}
         <ScrollReveal delay={0.15}>
           <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap no-scrollbar">
             {categories.map((cat) => {
@@ -172,27 +150,14 @@ export const Agenda: React.FC = () => {
               return (
                 <button
                   key={cat}
+                  type="button"
                   onClick={() => setActiveFilter(cat)}
-                  className={`relative cursor-pointer px-4 py-2 rounded-xl text-xs font-bold transition-colors duration-150 border shrink-0 select-none ${
+                  className={`relative cursor-pointer px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all duration-200 border shrink-0 select-none ${
                     isActive
-                      ? 'text-[#0B0F17] font-black border-transparent'
-                      : 'bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 border-white/10 hover:border-white/20 shadow-sm'
+                      ? 'bg-white text-black font-bold border-white shadow-lg'
+                      : 'bg-white/[0.03] hover:bg-white/[0.08] text-slate-400 hover:text-white border-white/10 hover:border-white/20'
                   }`}
-                  style={{
-                    borderColor: isActive ? currentColorConfig.hex : undefined,
-                  }}
                 >
-                  {isActive && (
-                    <motion.div
-                      layoutId="agenda-filter-pill"
-                      transition={{ type: 'spring', stiffness: 420, damping: 32 }}
-                      className="absolute inset-0 rounded-xl -z-10"
-                      style={{
-                        backgroundColor: 'var(--theme-accent, #AD5CFF)',
-                        boxShadow: `0 4px 16px ${currentColorConfig.glow}`,
-                      }}
-                    />
-                  )}
                   <span>{cat}</span>
                 </button>
               );
@@ -200,96 +165,76 @@ export const Agenda: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Timeline Layout with Clean Architectural Borders (Zero AI Slop) */}
-        <div className="relative pl-6 sm:pl-10 border-l border-white/10 flex flex-col gap-6 sm:gap-8">
+        {/* Timeline Layout with Clean Architectural Vertical Hairline */}
+        <div className="relative pl-6 sm:pl-10 border-l border-white/10 flex flex-col gap-5 sm:gap-6">
           <AnimatePresence mode="popLayout">
             {filteredAgenda.map((item: AgendaItem, idx: number) => (
               <motion.div
                 key={`${item.time}-${item.title}`}
                 layout
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.3, delay: idx * 0.03, ease: [0.16, 1, 0.3, 1] }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25, delay: idx * 0.02, ease: [0.16, 1, 0.3, 1] }}
                 className="relative group"
               >
-                {(() => {
-                  const sessionColor =
-                    item.typeColor === '#D946EF'
-                      ? 'var(--theme-accent, #AD5CFF)'
-                      : item.typeColor || item.dotColor || 'var(--theme-accent, #AD5CFF)';
+                {/* Timeline Pin Dot (Mechanical Rivet Design, Zero Neon Blob) */}
+                <div
+                  className="absolute -left-[31px] sm:-left-[47px] top-6 w-3 h-3 rounded-full border border-white/20 bg-[#0B0F17] transition-all duration-200 group-hover:scale-125 group-hover:bg-[#FF9900] group-hover:border-[#FF9900]"
+                />
 
-                  return (
-                    <>
-                      {/* Timeline Pin Dot */}
-                      <div
-                        className="absolute -left-[31px] sm:-left-[47px] top-6 w-3.5 h-3.5 rounded-full border-2 border-[var(--theme-bg,#110011)] transition-transform duration-200 group-hover:scale-125"
-                        style={{
-                          backgroundColor: sessionColor,
-                          boxShadow: `0 0 10px ${sessionColor}50`,
-                        }}
-                      />
+                <SpotlightCard
+                  spotlightColor="rgba(255, 255, 255, 0.04)"
+                  borderColor="rgba(255, 255, 255, 0.12)"
+                  className="p-5 sm:p-6 transition-all duration-200 hover:translate-x-1 shadow-lg bg-white/[0.02] hover:bg-white/[0.04] backdrop-blur-xl border border-white/10 relative overflow-hidden rounded-2xl"
+                >
+                  {/* Hairline subtle top highlight on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-50 group-hover:opacity-100 group-hover:via-[#FF9900]/40 transition-all" />
 
-                      <SpotlightCard
-                        spotlightColor={`${sessionColor}25`}
-                        borderColor={`${sessionColor}35`}
-                        className="p-5 sm:p-7 transition-all duration-200 hover:translate-x-1 shadow-md bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border-white/10 relative overflow-hidden"
-                      >
-                        {/* Top subtle highlight */}
-                        <div
-                          className="absolute top-0 left-0 right-0 h-[2px] opacity-75 group-hover:opacity-100 transition-opacity"
-                          style={{ backgroundColor: sessionColor }}
-                        />
+                  {/* Top Row: Time, Category Badge, Duration */}
+                  <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-2.5">
+                    <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+                      <span className="font-mono font-bold text-white text-base sm:text-lg tracking-tight">
+                        {item.time.includes('AM') || item.time.includes('PM') ? item.time : `${item.time} ${item.ampm}`}
+                      </span>
 
-                        <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-2.5 sm:mb-3">
-                          <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
-                            <span
-                              className="font-mono font-bold text-base sm:text-xl tracking-tight"
-                              style={{ color: sessionColor }}
-                            >
-                              {item.time.includes('AM') || item.time.includes('PM') ? item.time : `${item.time} ${item.ampm}`}
-                            </span>
-                            <span
-                              className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border"
-                              style={{
-                                color: sessionColor,
-                                backgroundColor: `color-mix(in srgb, ${sessionColor} 12%, transparent)`,
-                                borderColor: `color-mix(in srgb, ${sessionColor} 30%, transparent)`,
-                              }}
-                            >
-                              {item.type}
-                            </span>
-                          </div>
-
-                          <span className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-400 font-mono">
-                            <Clock className="w-3.5 h-3.5" style={{ color: sessionColor }} />
-                            {item.duration}
-                          </span>
-                        </div>
-
-                        <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-white transition-colors">
-                          {item.title}
-                        </h3>
-
-                        {item.speaker && (
-                          <div
-                            className="flex items-center gap-2 mb-3 text-xs font-semibold"
-                            style={{ color: sessionColor }}
-                          >
-                            <User className="w-3.5 h-3.5" />
-                            <span>{item.speaker}</span>
-                          </div>
+                      {/* Clean Architectural Badge */}
+                      <span className="text-[10px] font-mono font-medium uppercase tracking-wider px-2.5 py-0.5 rounded-md border border-white/10 bg-white/[0.04] text-slate-300 flex items-center gap-1.5">
+                        {item.category === 'Keynote' || item.category === 'Tech' ? (
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF9900]" />
+                        ) : (
+                          <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
                         )}
+                        <span>{item.type}</span>
+                      </span>
+                    </div>
 
-                        {item.subtitle && (
-                          <p className="text-slate-400 text-sm leading-relaxed">
-                            {item.subtitle}
-                          </p>
-                        )}
-                      </SpotlightCard>
-                    </>
-                  );
-                })()}
+                    <span className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-400 font-mono">
+                      <Clock className="w-3.5 h-3.5 text-slate-500" />
+                      <span>{item.duration}</span>
+                    </span>
+                  </div>
+
+                  {/* Session Title */}
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 group-hover:text-white transition-colors">
+                    {item.title}
+                  </h3>
+
+                  {/* Speaker (if assigned) */}
+                  {item.speaker && (
+                    <div className="flex items-center gap-1.5 mb-2 text-xs font-mono text-slate-300">
+                      <User className="w-3.5 h-3.5 text-[#FF9900]" />
+                      <span>{item.speaker}</span>
+                    </div>
+                  )}
+
+                  {/* Subtitle / Description */}
+                  {item.subtitle && (
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
+                      {item.subtitle}
+                    </p>
+                  )}
+                </SpotlightCard>
               </motion.div>
             ))}
           </AnimatePresence>

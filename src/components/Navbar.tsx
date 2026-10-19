@@ -86,7 +86,7 @@ const NAV_CATEGORIES: NavCategory[] = [
     ],
     rightCard: {
       image: '/summit-stage-feature.jpg',
-      title: '12+ TECHNICAL SESSIONS & STAGE DEMOS',
+      title: 'TECHNICAL SESSION & MUCH MORE',
       ctaText: 'FULL TIMETABLE',
       ctaHref: '#agenda',
     },
@@ -103,13 +103,13 @@ const NAV_CATEGORIES: NavCategory[] = [
     },
     numberedLinks: [
       { num: '01', title: 'SUMMIT MISSION & CAMPUS VISION', href: '#about' },
-      { num: '02', title: 'CAMPUS VENUE & TRAVEL GUIDE', href: '#venue' },
-      { num: '03', title: 'CORE STUDENT ORGANIZING TEAM', href: '#team' },
+      { num: '02', title: 'CAMPUS VENUE', href: '#venue' },
+      { num: '03', title: 'CORE ORGANIZING TEAM', href: '#team' },
       { num: '04', title: 'FREQUENTLY ASKED QUESTIONS', href: '#faq' },
     ],
     rightCard: {
       image: '/summit-stage-feature.jpg',
-      title: 'RUNGTA KNOWLEDGE CITY · BHILAI CAMPUS',
+      title: 'RUNGTA INTERNATIONAL SKILLS UNIVERSITY · BHILAI CAMPUS',
       ctaText: 'CAMPUS VENUE',
       ctaHref: '#venue',
     },

@@ -64,15 +64,8 @@ export const About: React.FC = () => {
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[var(--theme-accent,#AD5CFF)] to-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span
-                  className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border"
-                  style={{
-                    color: 'var(--theme-accent, #AD5CFF)',
-                    borderColor: 'rgba(173, 92, 255, 0.3)',
-                    backgroundColor: 'rgba(173, 92, 255, 0.08)',
-                  }}
-                >
-                  [ 01 / 10:40 AM · KEYNOTE STAGE ]
+                <span className="text-[10px] font-mono font-semibold tracking-wider text-slate-300 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 uppercase">
+                  Keynote &amp; Architecture
                 </span>
                 <span className="text-[11px] font-mono text-slate-400">AWS DEVREL &amp; AMAZON</span>
               </div>
@@ -100,10 +93,10 @@ export const About: React.FC = () => {
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#42B4FF] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border text-[#42B4FF] border-[#42B4FF]/30 bg-[#42B4FF]/10">
-                  [ 02 / 11:30 AM · CONNECT ]
+                <span className="text-[10px] font-mono font-semibold tracking-wider text-sky-300 px-2.5 py-0.5 rounded-full bg-sky-500/[0.08] border border-sky-500/20 uppercase">
+                  Mentorship
                 </span>
-                <span className="text-[11px] font-mono text-sky-400">MENTORSHIP</span>
+                <span className="text-[11px] font-mono text-sky-400">1-ON-1 SESSIONS</span>
               </div>
               <h3 className="text-white font-bold text-xl sm:text-2xl mb-3 tracking-tight">
                 1-on-1 Community Mentorship
@@ -129,15 +122,8 @@ export const About: React.FC = () => {
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#42B4FF] to-[var(--theme-accent,#AD5CFF)] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span
-                  className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border"
-                  style={{
-                    color: 'var(--theme-accent, #AD5CFF)',
-                    borderColor: 'rgba(173, 92, 255, 0.3)',
-                    backgroundColor: 'rgba(173, 92, 255, 0.08)',
-                  }}
-                >
-                  [ 03 / 01:00 PM · ECOSYSTEM ]
+                <span className="text-[10px] font-mono font-semibold tracking-wider text-slate-300 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 uppercase">
+                  Cohort
                 </span>
                 <span className="text-[11px] font-mono text-slate-400">RUNGTA CAMPUS · BHILAI</span>
               </div>
@@ -165,13 +151,13 @@ export const About: React.FC = () => {
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#FF9900] opacity-70 group-hover:opacity-100 transition-opacity" />
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold tracking-widest px-2.5 py-1 rounded-full border text-[#FF9900] border-[#FF9900]/30 bg-[#FF9900]/10">
-                  [ 04 / 03:00 PM · LIVE ARENA ]
+                <span className="text-[10px] font-mono font-semibold tracking-wider text-amber-300 px-2.5 py-0.5 rounded-full bg-amber-500/[0.08] border border-amber-500/20 uppercase">
+                  Commemorative
                 </span>
                 <span className="text-[11px] font-mono text-amber-400">STAGE TRIVIA &amp; SWAG</span>
               </div>
               <h3 className="text-white font-bold text-2xl sm:text-3xl mb-3 tracking-tight">
-                Kahoot Cloud Quiz &amp; Official AWS Swag
+                Official AWS Swag &amp; Builder Kits
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-6">
                 Compete live in the central auditorium against 500+ builders in cloud architecture challenges. Win exclusive official AWS merchandise, builder kits, and commemorative swag, followed by grand distribution.

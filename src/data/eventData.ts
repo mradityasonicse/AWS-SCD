@@ -79,7 +79,7 @@ export const EVENT_DETAILS = {
   institutionAcronym: "Rungta International Skills University",
   city: "Bhilai, Chhattisgarh, India",
   venueName: "Rungta International Skills University Campus",
-  venueAddress: "Rungta Knowledge City, Kohka-Kurud Road, Bhilai, Chhattisgarh 490024",
+  venueAddress: "Rungta Internationa Skills University, Kohka-Kurud Road, Bhilai, Chhattisgarh 490024",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=21.2350,81.3462+(Rungta+International+Skills+University+Bhilai)",
   contactEmail: "aws.sbg.risu@gmail.com",
   contactPhone: "+91 8518903022",

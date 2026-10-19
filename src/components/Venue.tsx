@@ -132,13 +132,9 @@ export const Venue: React.FC = () => {
             <ScrollReveal delay={0.15}>
               <div className="rounded-3xl bg-[rgba(255,255,255,0.08)] backdrop-blur-[16px] border border-white/10 shadow-2xl overflow-hidden flex flex-col">
                 <div className="p-3.5 sm:p-4 bg-white/5 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-400" />
-                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-400" />
-                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-400" />
-                    <span className="text-[11px] sm:text-xs font-mono text-slate-400 ml-1 truncate">
-                      campus-radar · Rungta International Skills University, Bhilai
-                    </span>
+                  <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-slate-400">
+                    <span className="w-2 h-2 rounded-full bg-white/20" />
+                    <span className="truncate">RISU Campus · Bhilai</span>
                   </div>
 
                   {/* Mode Switcher: Satellite vs Blueprint */}
@@ -207,9 +203,9 @@ export const Venue: React.FC = () => {
                   </div>
 
                   {/* Satellite Mode HUD Tag */}
-                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 pointer-events-none bg-white/[0.08] backdrop-blur-xl px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-white/15 text-[9.5px] sm:text-[10px] font-mono text-emerald-400 flex items-center gap-1.5 z-10 shadow-lg">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{mapMode === 'satellite' ? 'DARK SATELLITE HUD' : 'DARK BLUEPRINT'}</span>
+                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 pointer-events-none bg-white/[0.08] backdrop-blur-xl px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-white/15 text-[9.5px] sm:text-[10px] font-mono text-slate-300 flex items-center gap-1.5 z-10 shadow-lg">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                    <span>{mapMode === 'satellite' ? 'SATELLITE VIEW' : 'CAMPUS BLUEPRINT'}</span>
                   </div>
                 </div>
               </div>

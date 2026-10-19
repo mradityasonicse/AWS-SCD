@@ -144,7 +144,7 @@ export const Footer: React.FC = () => {
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 leading-relaxed">
-                Rungta Knowledge City, Kohka-Kurud Road, Bhilai, Chhattisgarh 490024
+                Rungta International Skills University, Kohka-Kurud Road, Bhilai, Chhattisgarh 490024
               </p>
               <p className="text-[11px] text-slate-500">
                 Department of Computer Science &amp; Cloud Technologies
