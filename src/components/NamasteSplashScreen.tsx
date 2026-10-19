@@ -7,35 +7,33 @@ interface NamasteSplashScreenProps {
 }
 
 export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFinish }) => {
-  const [visible, setVisible] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return sessionStorage.getItem('awsscd_splash_seen') !== 'true';
-    }
-    return true;
-  });
+  const [visible, setVisible] = useState(true);
   const [phase, setPhase] = useState<'video' | 'connection'>('video');
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleDismiss = useCallback(() => {
     setVisible(false);
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('awsscd_splash_seen', 'true');
-    }
     if (onFinish) onFinish();
   }, [onFinish]);
 
   useEffect(() => {
-    if (!visible) return;
+    // Attempt explicit video play for cross-browser autoplay compliance
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {
+        // Autoplay policy fallback
+      });
+    }
 
-    // Phase 1: Video runs for ~1600ms
+    // Phase 1: Video runs for ~2000ms
     const videoTimer = setTimeout(() => {
       setPhase('connection');
-    }, 1600);
+    }, 2050);
 
-    // Phase 2: Connection photo splash runs for ~1100ms, then smoothly dissolves
+    // Phase 2: Connection photo splash runs for ~1600ms, then dissolves to website
     const finishTimer = setTimeout(() => {
       handleDismiss();
-    }, 2700);
+    }, 3650);
 
     // Keyboard controls for instant skip
     const handleKeyDown = (e: KeyboardEvent) => {
