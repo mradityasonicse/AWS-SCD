@@ -9,7 +9,6 @@ import { ScrollReveal } from '@/components/ui/motion-primitives';
 import {
   ArrowUpRight,
   ShieldCheck,
-  X,
 } from 'lucide-react';
 
 const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3.5" }) => (
@@ -21,20 +20,10 @@ const LinkedInIcon: React.FC<{ className?: string }> = ({ className = "w-3.5 h-3
 // Division 1: Core Crew Member Card (Features the official ID Card Badge)
 const CoreCrewLeaderCard: React.FC<{
   leader: CoreCrewLeader;
-  onSelect: (item: { name: string; handle: string; role: string; code: string; cardImage: string }) => void;
-}> = ({ leader, onSelect }) => {
+}> = ({ leader }) => {
   return (
     <div
-      onClick={() =>
-        onSelect({
-          name: leader.name,
-          handle: leader.handle,
-          role: leader.role,
-          code: leader.code,
-          cardImage: leader.cardImage,
-        })
-      }
-      className="relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-5 flex flex-col justify-between transition-all duration-300 ease-out group hover:-translate-y-1.5 shadow-2xl overflow-hidden cursor-pointer transform-gpu"
+      className="relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-5 flex flex-col justify-between transition-all duration-300 ease-out group hover:-translate-y-1.5 shadow-2xl overflow-hidden transform-gpu select-none"
       style={{
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
       }}
@@ -74,13 +63,10 @@ const CoreCrewLeaderCard: React.FC<{
 
       {/* Bottom Bar: Verified + Connect Link */}
       <div className="flex items-center justify-between pt-3 border-t border-white/10 relative z-10">
-       
-
         <a
           href={leader.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
           className="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-slate-300 hover:text-white bg-white/[0.05] hover:bg-white/[0.12] border border-white/10 transition-all cursor-pointer"
         >
           <LinkedInIcon className="w-3 h-3 fill-current" />
@@ -95,20 +81,10 @@ const CoreCrewLeaderCard: React.FC<{
 // Sub-Crew ID Card Component
 const SubCrewIdCardBadge: React.FC<{
   member: SubCrewCard;
-  onSelect: (item: { name: string; handle: string; role: string; code: string; cardImage: string }) => void;
-}> = ({ member, onSelect }) => {
+}> = ({ member }) => {
   return (
     <div
-      onClick={() =>
-        onSelect({
-          name: member.name,
-          handle: member.handle,
-          role: member.role,
-          code: member.code,
-          cardImage: member.cardImage,
-        })
-      }
-      className="group relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-3 flex flex-col transition-all duration-300 ease-out hover:-translate-y-1.5 shadow-xl overflow-hidden cursor-pointer transform-gpu"
+      className="group relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-3 flex flex-col transition-all duration-300 ease-out hover:-translate-y-1.5 shadow-xl overflow-hidden transform-gpu select-none"
       style={{
         boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
       }}
@@ -154,13 +130,6 @@ const SubCrewIdCardBadge: React.FC<{
 export const Team: React.FC = () => {
   const [line1Paused, setLine1Paused] = useState(false);
   const [line2Paused, setLine2Paused] = useState(false);
-  const [selectedBadge, setSelectedBadge] = useState<{
-    name: string;
-    handle: string;
-    role: string;
-    code: string;
-    cardImage: string;
-  } | null>(null);
 
   // Split the 32 Sub-Crew cards into 2 lines of 16 cards each
   const line1Cards = useMemo(() => SUB_CREW_CARDS.slice(0, 16), []);
@@ -201,7 +170,6 @@ export const Team: React.FC = () => {
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
               CORE MEMBERS (LEAD, CO-LEAD & ORGANIZERS)
             </h3>
-         
           </div>
 
           {/* 4 Cards Grid Featuring Official ID Cards */}
@@ -210,7 +178,6 @@ export const Team: React.FC = () => {
               <CoreCrewLeaderCard
                 key={leader.id}
                 leader={leader}
-                onSelect={setSelectedBadge}
               />
             ))}
           </div>
@@ -222,7 +189,6 @@ export const Team: React.FC = () => {
             <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight">
               CORE MEMBER 
             </h3>
-           
           </div>
 
           {/* 2-Line Animated Runner (Line 1: Left-to-Right, Line 2: Right-to-Left) */}
@@ -253,7 +219,7 @@ export const Team: React.FC = () => {
                       key={`line1-card-${member.id}-${idx}`}
                       className="w-[200px] sm:w-[220px] md:w-[240px] shrink-0"
                     >
-                      <SubCrewIdCardBadge member={member} onSelect={setSelectedBadge} />
+                      <SubCrewIdCardBadge member={member} />
                     </div>
                   ))}
                 </div>
@@ -282,7 +248,7 @@ export const Team: React.FC = () => {
                       key={`line2-card-${member.id}-${idx}`}
                       className="w-[200px] sm:w-[220px] md:w-[240px] shrink-0"
                     >
-                      <SubCrewIdCardBadge member={member} onSelect={setSelectedBadge} />
+                      <SubCrewIdCardBadge member={member} />
                     </div>
                   ))}
                 </div>
@@ -290,61 +256,6 @@ export const Team: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Modal Lightbox for High-Res ID Card Badge View */}
-        {selectedBadge && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in duration-200"
-            onClick={() => setSelectedBadge(null)}
-          >
-            <div
-              className="relative max-w-sm w-full rounded-2xl bg-[#0A0D14]/90 backdrop-blur-2xl border border-white/20 p-6 flex flex-col items-center shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={() => setSelectedBadge(null)}
-                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-
-              {/* ID Badge Container */}
-              <div className="w-full max-w-[280px] rounded-xl overflow-hidden shadow-2xl border border-white/15 mb-4 bg-white/[0.02]">
-                <img
-                  src={selectedBadge.cardImage}
-                  alt={`${selectedBadge.name} Summit ID Pass`}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Member Details */}
-              <div className="text-center w-full mb-4">
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.05] text-slate-300 border border-white/10 inline-block mb-1.5">
-                  {selectedBadge.code} · {selectedBadge.handle}
-                </span>
-                <h3 className="text-xl font-bold text-white tracking-tight">
-                  {selectedBadge.name}
-                </h3>
-                <p className="text-xs text-slate-400 font-mono mt-1">
-                  {selectedBadge.role}
-                </p>
-              </div>
-
-              {/* Action Button: Close */}
-              <div className="w-full">
-                <button
-                  type="button"
-                  onClick={() => setSelectedBadge(null)}
-                  className="w-full py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-mono font-medium transition-colors cursor-pointer border border-white/10"
-                >
-                  Close Pass
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
