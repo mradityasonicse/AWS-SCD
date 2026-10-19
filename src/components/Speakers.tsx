@@ -83,35 +83,13 @@ export const Speakers: React.FC = () => {
           {SPEAKERS_LIST.map((speaker, idx) => (
             <div
               key={speaker.id}
-              className="group rounded-3xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] backdrop-blur-xl p-4 sm:p-5 transition-all duration-300 hover:border-white/20 shadow-2xl relative flex flex-col justify-between overflow-hidden"
-              style={{
-                boxShadow: `0 20px 45px -15px ${speaker.accentColor}18`,
-              }}
+              className="group rounded-3xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-4 sm:p-5 transition-all duration-300 hover:border-white/20 shadow-xl relative flex flex-col justify-between overflow-hidden"
             >
-              {/* Subtle Ambient Accent Glow */}
-              <div
-                className="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-10 group-hover:opacity-20 blur-3xl transition-opacity pointer-events-none"
-                style={{ backgroundColor: speaker.accentColor }}
-              />
-
-              {/* Top Accent Line */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px] opacity-75 group-hover:opacity-100 transition-opacity"
-                style={{ backgroundColor: speaker.accentColor }}
-              />
-
               <div>
                 {/* Top Badge Strip */}
                 <div className="flex items-center justify-between gap-2 mb-3.5">
-                  <span
-                    className="font-mono text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border flex items-center gap-1.5"
-                    style={{
-                      color: speaker.accentColor,
-                      backgroundColor: `${speaker.accentColor}12`,
-                      borderColor: `${speaker.accentColor}35`,
-                    }}
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: speaker.accentColor }} />
+                  <span className="font-mono text-[10px] font-medium uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white/[0.05] text-slate-300 border border-white/10 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
                     <span>{speaker.badge}</span>
                   </span>
 
@@ -136,18 +114,18 @@ export const Speakers: React.FC = () => {
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/poster:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                     <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-black/80 text-white border border-white/20 backdrop-blur-sm shadow-xl">
                       <Maximize2 className="w-3.5 h-3.5" />
-                      <span>Click to Enlarge 4K Poster</span>
+                      <span>Click to Enlarge Poster</span>
                     </span>
                   </div>
                 </div>
 
-                {/* Speaker Identity: Photo + Name + Company/Role Only (Zero AI Slop) */}
+                {/* Speaker Identity: Photo + Name + Company/Role Only (Clean & Senior) */}
                 <div className="pt-3.5 pb-1 flex items-center justify-between gap-3 border-t border-white/10 mt-3.5">
                   <div>
-                    <h3 className="text-lg sm:text-xl font-black text-white tracking-tight leading-snug">
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
                       {speaker.name}
                     </h3>
-                    <p className="text-xs sm:text-[13px] font-mono font-semibold" style={{ color: speaker.accentColor }}>
+                    <p className="text-xs sm:text-[13px] font-mono font-medium text-slate-400 mt-0.5">
                       {speaker.role} · {speaker.company}
                     </p>
                   </div>
@@ -156,7 +134,7 @@ export const Speakers: React.FC = () => {
                     type="button"
                     onClick={() => setSelectedPoster(speaker)}
                     className="p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-mono font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all cursor-pointer flex items-center gap-1.5 shrink-0"
-                    title="Enlarge 4K Poster"
+                    title="Enlarge Poster"
                   >
                     <Maximize2 className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">Enlarge</span>
@@ -189,7 +167,7 @@ export const Speakers: React.FC = () => {
             {/* Modal Header */}
             <div className="flex items-center justify-between w-full mb-3 pb-2.5 border-b border-white/10">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-purple-400 font-bold block">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-medium block">
                   AWS SCD 2026 · Official Announcement Poster
                 </span>
                 <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
