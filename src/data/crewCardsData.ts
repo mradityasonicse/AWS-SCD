@@ -67,7 +67,7 @@ export const CORE_CREW_LEADERSHIP: CoreCrewLeader[] = [
     cardImage: "/cards/card-33.png",
     accentColor: "#42B4FF",
     tagline: "",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
+    linkedin: "https://www.linkedin.com/in/aditya-mohan-cse?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     scope: [],
   },
   {

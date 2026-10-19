@@ -147,7 +147,7 @@ export const ORGANIZER_TEAM: TeamOrganizer[] = [
     accentColor: "#42B4FF", // Cloud Blue
     tagline: "Managing technical arena operations, cloud lab support & attendee assistance.",
     bio: "Coordinating hands-on lab setups, speaker stage hardware, and delegate tech support at AWS SCD 2026.",
-    linkedin: "https://www.linkedin.com/company/aws-sbg-rungta/",
+    linkedin: "https://www.linkedin.com/in/aditya-mohan-cse?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     scope: ["Lab Setup", "Arena Ops", "Tech Support"],
   },
   {
