@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]" />
         {/* Subtle understated purple specular glow behind the headline */}
         <div 
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[900px] h-[440px] rounded-full blur-[120px] pointer-events-none opacity-40"
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[900px] h-[440px] rounded-full pointer-events-none opacity-40"
           style={{ background: 'radial-gradient(ellipse at center, rgba(173, 92, 255, 0.22) 0%, rgba(173, 92, 255, 0.05) 45%, transparent 70%)' }}
         />
       </div>

@@ -17,8 +17,8 @@ export interface ScrollRevealProps {
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   delay = 0,
-  duration = 0.7,
-  yOffset = 28,
+  duration = 0.55,
+  yOffset = 20,
   className = '',
   once = true,
 }) => {
@@ -26,7 +26,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     <motion.div
       initial={{ opacity: 0, y: yOffset }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once, margin: '-60px' }}
+      viewport={{ once, margin: '0px' }}
       transition={{
         duration,
         delay,
@@ -51,7 +51,7 @@ export interface StaggerContainerProps {
 
 export const StaggerContainer: React.FC<StaggerContainerProps> = ({
   children,
-  staggerDelay = 0.08,
+  staggerDelay = 0.06,
   className = '',
   once = true,
 }) => {
@@ -59,7 +59,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once, margin: '-60px' }}
+      viewport={{ once, margin: '0px' }}
       variants={{
         hidden: { opacity: 0 },
         show: {
@@ -85,7 +85,7 @@ export interface StaggerItemProps {
 export const StaggerItem: React.FC<StaggerItemProps> = ({
   children,
   className = '',
-  yOffset = 24,
+  yOffset = 20,
 }) => {
   return (
     <motion.div
@@ -96,7 +96,7 @@ export const StaggerItem: React.FC<StaggerItemProps> = ({
           y: 0,
           scale: 1,
           transition: {
-            duration: 0.6,
+            duration: 0.5,
             ease: [0.16, 1, 0.3, 1],
           },
         },
@@ -126,16 +126,24 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (typeof window !== 'undefined' && window.matchMedia && !window.matchMedia('(hover: hover)').matches) {
       return;
     }
-    const card = cardRef.current;
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty('--spotlight-x', `${e.clientX - rect.left}px`);
-    card.style.setProperty('--spotlight-y', `${e.clientY - rect.top}px`);
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const card = cardRef.current;
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--spotlight-x', `${clientX - rect.left}px`);
+      card.style.setProperty('--spotlight-y', `${clientY - rect.top}px`);
+    });
   };
 
   const handleMouseEnter = () => {
@@ -148,6 +156,10 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   };
 
   const handleMouseLeave = () => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
     if (cardRef.current) {
       cardRef.current.style.setProperty('--spotlight-opacity', '0');
     }
@@ -160,13 +172,11 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        'relative rounded-xl sm:rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 group backdrop-blur-[16px]',
+        'relative rounded-xl sm:rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 group',
         className
       )}
       style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.08)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
+        backgroundColor: 'rgba(15, 20, 30, 0.65)',
         borderColor: 'var(--theme-border, rgba(255, 255, 255, 0.12))',
         ['--spotlight-opacity' as any]: '0',
         ['--spotlight-x' as any]: '-1000px',

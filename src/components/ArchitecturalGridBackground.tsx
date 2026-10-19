@@ -247,20 +247,20 @@ export const ArchitecturalGridBackground: React.FC = () => {
       }}
     >
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-      {/* Midnight Blue (#191970) Atmospheric Aurora Overlays */}
+      {/* Midnight Blue (#191970) Atmospheric Aurora Overlays (Native GPU Analytical Gradients - Zero Blur Filter Overhead) */}
       {bgMode === 'dark' && (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
-            className="absolute -top-32 left-1/2 -translate-x-1/2 w-[92vw] max-w-[1250px] h-[650px] rounded-full blur-[140px] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(25, 25, 112, 0.55) 0%, rgba(25, 25, 112, 0.2) 50%, transparent 75%)' }}
+            className="absolute -top-32 left-1/2 -translate-x-1/2 w-[92vw] max-w-[1250px] h-[650px] rounded-full pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse at center, rgba(25, 25, 112, 0.35) 0%, rgba(25, 25, 112, 0.12) 45%, transparent 70%)' }}
           />
           <div
-            className="absolute top-1/3 -right-24 w-[650px] h-[650px] rounded-full blur-[150px] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(25, 25, 112, 0.4) 0%, transparent 70%)' }}
+            className="absolute top-1/3 -right-24 w-[650px] h-[650px] rounded-full pointer-events-none"
+            style={{ background: 'radial-gradient(circle at center, rgba(25, 25, 112, 0.25) 0%, rgba(25, 25, 112, 0.08) 45%, transparent 70%)' }}
           />
           <div
-            className="absolute -bottom-32 left-10 w-[700px] h-[700px] rounded-full blur-[160px] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(25, 25, 112, 0.35) 0%, transparent 70%)' }}
+            className="absolute -bottom-32 left-10 w-[700px] h-[700px] rounded-full pointer-events-none"
+            style={{ background: 'radial-gradient(circle at center, rgba(25, 25, 112, 0.22) 0%, rgba(25, 25, 112, 0.06) 45%, transparent 70%)' }}
           />
         </div>
       )}

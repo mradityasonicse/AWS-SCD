@@ -212,7 +212,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     const scrollToTarget = () => {
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        const headerOffset = 100;
+        const headerOffset = 90;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -224,12 +224,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
       }
     };
 
-    // Immediate attempt
-    scrollToTarget();
-
-    // Re-trigger after mobile menu drawer collapse to prevent browser scroll interruption
-    setTimeout(scrollToTarget, 80);
-    setTimeout(scrollToTarget, 260);
+    // Smooth execution without stuttering multi-calls
+    requestAnimationFrame(() => {
+      scrollToTarget();
+    });
   }, []);
 
   const handleRegisterClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

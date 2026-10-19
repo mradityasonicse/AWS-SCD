@@ -22,7 +22,7 @@ const CoreCrewLeaderCard: React.FC<{
 }> = ({ leader }) => {
   return (
     <div
-      className="relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 ease-out group hover:-translate-y-1.5 shadow-2xl overflow-hidden transform-gpu select-none"
+      className="relative rounded-2xl bg-[#0D111A] hover:bg-[#131926] border border-white/10 hover:border-white/25 p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 ease-out group hover:-translate-y-1.5 shadow-2xl overflow-hidden transform-gpu select-none"
       style={{
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
       }}
@@ -34,6 +34,7 @@ const CoreCrewLeaderCard: React.FC<{
           alt={`${leader.name} ID Card`}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           loading="lazy"
+          decoding="async"
         />
         {/* Holographic Specular Highlight */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -71,7 +72,7 @@ const SubCrewIdCardBadge: React.FC<{
 }> = ({ member }) => {
   return (
     <div
-      className="group relative rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl border border-white/10 hover:border-white/25 p-2.5 sm:p-3 flex flex-col transition-all duration-300 ease-out hover:-translate-y-1.5 shadow-xl overflow-hidden transform-gpu select-none"
+      className="group relative rounded-2xl bg-[#0D111A] hover:bg-[#131926] border border-white/10 hover:border-white/25 p-2.5 sm:p-3 flex flex-col transition-all duration-300 ease-out hover:-translate-y-1.5 shadow-xl overflow-hidden transform-gpu select-none"
       style={{
         boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
       }}
@@ -83,6 +84,7 @@ const SubCrewIdCardBadge: React.FC<{
           alt={`${member.name} ID Card`}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           loading="lazy"
+          decoding="async"
         />
         {/* Holographic Gloss Sheen on Hover */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -7,30 +7,35 @@ interface NamasteSplashScreenProps {
 }
 
 export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFinish }) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return sessionStorage.getItem('awsscd_splash_seen') !== 'true';
+    }
+    return true;
+  });
   const [phase, setPhase] = useState<'video' | 'connection'>('video');
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleDismiss = useCallback(() => {
     setVisible(false);
-    document.body.style.overflow = '';
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('awsscd_splash_seen', 'true');
+    }
     if (onFinish) onFinish();
   }, [onFinish]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    document.body.style.overflow = 'hidden';
+    if (!visible) return;
 
-    // Phase 1: Video runs for ~2000ms (hands-only video length)
+    // Phase 1: Video runs for ~1600ms
     const videoTimer = setTimeout(() => {
       setPhase('connection');
-    }, 2050);
+    }, 1600);
 
-    // Phase 2: Connection photo splash runs for ~1600ms, then dissolves to website
+    // Phase 2: Connection photo splash runs for ~1100ms, then smoothly dissolves
     const finishTimer = setTimeout(() => {
       handleDismiss();
-    }, 3700);
+    }, 2700);
 
     // Keyboard controls for instant skip
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -44,9 +49,8 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
       clearTimeout(videoTimer);
       clearTimeout(finishTimer);
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
     };
-  }, [handleDismiss]);
+  }, [visible, handleDismiss]);
 
   return (
     <AnimatePresence>
@@ -95,6 +99,7 @@ export const NamasteSplashScreen: React.FC<NamasteSplashScreenProps> = ({ onFini
                   muted
                   playsInline
                   preload="auto"
+                  onError={() => setPhase('connection')}
                   onEnded={() => setPhase('connection')}
                   className="w-full h-full object-cover sm:object-contain bg-black"
                 />

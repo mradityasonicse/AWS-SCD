@@ -72,6 +72,7 @@
 
   html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     overflow-x: clip;
@@ -289,6 +290,7 @@
   transform: translate3d(-50%, 0, 0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  contain: content;
 }
 
 .subcrew-slider-track.is-paused,
@@ -315,6 +317,7 @@
   transform: translate3d(0%, 0, 0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  contain: content;
 }
 
 .subcrew-slider-track-reverse.is-paused,

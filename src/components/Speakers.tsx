@@ -81,7 +81,7 @@ export const Speakers: React.FC = () => {
           {SPEAKERS_LIST.map((speaker, idx) => (
             <div
               key={speaker.id}
-              className="group rounded-3xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-xl p-4 sm:p-5 transition-all duration-300 hover:border-white/20 shadow-xl relative flex flex-col justify-between overflow-hidden"
+              className="group rounded-3xl border border-white/10 bg-[#0D111A] hover:bg-[#131926] p-4 sm:p-5 transition-all duration-300 hover:border-white/20 shadow-xl relative flex flex-col justify-between overflow-hidden"
             >
               <div>
                 {/* Top Badge Strip */}
@@ -106,6 +106,7 @@ export const Speakers: React.FC = () => {
                     alt={`${speaker.name} - ${speaker.role}, ${speaker.company}`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/poster:scale-[1.02]"
                     loading="lazy"
+                    decoding="async"
                   />
 
                   {/* Hover Overlay Hint */}

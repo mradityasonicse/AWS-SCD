@@ -109,7 +109,7 @@ export const LogoMarquee: React.FC = () => {
             return (
               <div
                 key={`${item.name}-${idx}`}
-                className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] backdrop-blur-md hover:border-white/20 shadow-lg transition-all duration-300 group shrink-0 relative overflow-hidden"
+                className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl border border-white/10 bg-[#0D111A] hover:bg-[#131926] hover:border-white/20 shadow-lg transition-all duration-300 group shrink-0 relative overflow-hidden"
               >
                 {/* Top accent highlight on card */}
                 <div
