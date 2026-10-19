@@ -171,14 +171,14 @@ export const About: React.FC = () => {
                 <span className="text-[11px] font-mono text-amber-400">STAGE TRIVIA &amp; SWAG</span>
               </div>
               <h3 className="text-white font-bold text-2xl sm:text-3xl mb-3 tracking-tight">
-                Kahoot Cloud Quiz &amp; Gadgets
+                Kahoot Cloud Quiz &amp; Official AWS Swag
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-6">
-                Compete live in the central auditorium against 500+ builders in cloud architecture challenges. Win Amazon Echo Dots, smart devices, and official AWS gear, followed by grand swag distribution.
+                Compete live in the central auditorium against 500+ builders in cloud architecture challenges. Win exclusive official AWS merchandise, builder kits, and commemorative swag, followed by grand distribution.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#2D2364]/60">
-              {['Echo Dot Prizes', 'Auditorium Kahoot', 'Instant Swag', 'Swag Distribution'].map((tag) => (
+              {['Live Cloud Trivia', 'Auditorium Kahoot', 'Exclusive AWS Swag', 'Swag Distribution'].map((tag) => (
                 <span
                   key={tag}
                   className="text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#1B1344] text-slate-300 border border-[#2D2364]"

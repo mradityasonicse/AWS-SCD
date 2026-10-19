@@ -7,6 +7,8 @@ interface SpeakerPoster {
   name: string;
   role: string;
   company: string;
+  badge: string;
+  accentColor: string;
   poster: string;
 }
 
@@ -16,6 +18,8 @@ const SPEAKERS_LIST: SpeakerPoster[] = [
     name: 'Harshit Singh',
     role: 'SDE-II',
     company: 'Amazon',
+    badge: 'AMAZON · SDE-II',
+    accentColor: '#00E582',
     poster: '/speakers/harshit_singh_poster.png',
   },
   {
@@ -23,6 +27,8 @@ const SPEAKERS_LIST: SpeakerPoster[] = [
     name: 'Saptarshi De',
     role: 'SDE-II',
     company: 'AWS (Amazon Web Services)',
+    badge: 'AWS · SDE-II',
+    accentColor: '#38BDF8',
     poster: '/speakers/saptarshi_de_poster.png',
   },
 ];
@@ -40,7 +46,7 @@ export const Speakers: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden px-4 sm:px-6" id="speakers">
+    <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden px-4 sm:px-6 scroll-mt-24 sm:scroll-mt-28" id="speakers">
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
         <ScrollReveal>
@@ -72,47 +78,90 @@ export const Speakers: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Structured Poster Showcase */}
+        {/* Structured Transparent Poster Showcase (Photo + Name + Company/Role Only) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
           {SPEAKERS_LIST.map((speaker, idx) => (
             <div
               key={speaker.id}
-              className="group rounded-2xl border border-white/10 bg-[#160E28]/70 backdrop-blur-md p-3 sm:p-4 transition-all duration-300 hover:border-white/25 hover:shadow-2xl flex flex-col justify-between"
+              className="group rounded-3xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] backdrop-blur-xl p-4 sm:p-5 transition-all duration-300 hover:border-white/20 shadow-2xl relative flex flex-col justify-between overflow-hidden"
+              style={{
+                boxShadow: `0 20px 45px -15px ${speaker.accentColor}18`,
+              }}
             >
-              {/* Poster Image Container */}
+              {/* Subtle Ambient Accent Glow */}
               <div
-                onClick={() => setSelectedPoster(speaker)}
-                className="relative rounded-xl overflow-hidden aspect-[4/5] bg-black/40 border border-white/5 cursor-pointer group/poster shadow-inner"
-              >
-                <img
-                  src={speaker.poster}
-                  alt={`${speaker.name} - ${speaker.role}, ${speaker.company}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover/poster:scale-[1.02]"
-                  loading="lazy"
-                />
+                className="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-10 group-hover:opacity-20 blur-3xl transition-opacity pointer-events-none"
+                style={{ backgroundColor: speaker.accentColor }}
+              />
 
-                {/* Hover overlay hint */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/poster:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-black/80 text-white border border-white/20 backdrop-blur-sm shadow-lg">
-                    <Maximize2 className="w-3.5 h-3.5" />
-                    <span>View Full Poster</span>
+              {/* Top Accent Line */}
+              <div
+                className="absolute top-0 left-0 right-0 h-[2px] opacity-75 group-hover:opacity-100 transition-opacity"
+                style={{ backgroundColor: speaker.accentColor }}
+              />
+
+              <div>
+                {/* Top Badge Strip */}
+                <div className="flex items-center justify-between gap-2 mb-3.5">
+                  <span
+                    className="font-mono text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border flex items-center gap-1.5"
+                    style={{
+                      color: speaker.accentColor,
+                      backgroundColor: `${speaker.accentColor}12`,
+                      borderColor: `${speaker.accentColor}35`,
+                    }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: speaker.accentColor }} />
+                    <span>{speaker.badge}</span>
+                  </span>
+
+                  <span className="text-[11px] font-mono text-slate-400 tracking-wider">
+                    [ 0{idx + 1} / 0{SPEAKERS_LIST.length} ]
                   </span>
                 </div>
-              </div>
 
-              {/* Minimal Clean Metadata Caption */}
-              <div className="pt-3.5 pb-1 px-1 flex items-center justify-between gap-2 border-t border-white/5 mt-3">
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug">
-                    {speaker.name}
-                  </h3>
-                  <p className="text-xs font-mono text-slate-400">
-                    {speaker.role} · {speaker.company}
-                  </p>
+                {/* Poster Image Container */}
+                <div
+                  onClick={() => setSelectedPoster(speaker)}
+                  className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-white/[0.01] border border-white/10 cursor-pointer group/poster shadow-inner"
+                >
+                  <img
+                    src={speaker.poster}
+                    alt={`${speaker.name} - ${speaker.role}, ${speaker.company}`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover/poster:scale-[1.02]"
+                    loading="lazy"
+                  />
+
+                  {/* Hover Overlay Hint */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/poster:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-black/80 text-white border border-white/20 backdrop-blur-sm shadow-xl">
+                      <Maximize2 className="w-3.5 h-3.5" />
+                      <span>Click to Enlarge 4K Poster</span>
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[11px] font-mono text-slate-500 shrink-0">
-                  0{idx + 1}
-                </span>
+
+                {/* Speaker Identity: Photo + Name + Company/Role Only (Zero AI Slop) */}
+                <div className="pt-3.5 pb-1 flex items-center justify-between gap-3 border-t border-white/10 mt-3.5">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-black text-white tracking-tight leading-snug">
+                      {speaker.name}
+                    </h3>
+                    <p className="text-xs sm:text-[13px] font-mono font-semibold" style={{ color: speaker.accentColor }}>
+                      {speaker.role} · {speaker.company}
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPoster(speaker)}
+                    className="p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-mono font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all cursor-pointer flex items-center gap-1.5 shrink-0"
+                    title="Enlarge 4K Poster"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Enlarge</span>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -127,29 +176,56 @@ export const Speakers: React.FC = () => {
         </div>
       </div>
 
-      {/* Minimalist High-Resolution Poster Lightbox Modal */}
+      {/* Minimalist High-Resolution Poster Lightbox Modal (No Download Option) */}
       {selectedPoster && (
         <div
-          className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
           onClick={() => setSelectedPoster(null)}
         >
           <div
-            className="relative max-w-lg w-full max-h-[90vh] flex flex-col items-center"
+            className="relative max-w-lg w-full max-h-[90vh] flex flex-col items-center bg-white/[0.03] border border-white/15 backdrop-blur-2xl rounded-3xl p-4 sm:p-5 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              type="button"
-              onClick={() => setSelectedPoster(null)}
-              className="absolute -top-10 right-0 p-1.5 text-slate-400 hover:text-white transition-colors cursor-pointer"
-              aria-label="Close"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <img
-              src={selectedPoster.poster}
-              alt={selectedPoster.name}
-              className="max-h-[85vh] w-auto object-contain rounded-2xl shadow-2xl border border-white/10"
-            />
+            {/* Modal Header */}
+            <div className="flex items-center justify-between w-full mb-3 pb-2.5 border-b border-white/10">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-purple-400 font-bold block">
+                  AWS SCD 2026 · Official Announcement Poster
+                </span>
+                <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                  {selectedPoster.name} ({selectedPoster.role}, {selectedPoster.company})
+                </h4>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedPoster(null)}
+                className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Poster Preview */}
+            <div className="relative w-full max-h-[72vh] rounded-2xl overflow-hidden border border-white/10 shadow-inner flex items-center justify-center bg-black/40">
+              <img
+                src={selectedPoster.poster}
+                alt={selectedPoster.name}
+                className="max-h-[72vh] w-auto object-contain rounded-xl"
+              />
+            </div>
+
+            {/* Modal Footer (Clean, No Download Button) */}
+            <div className="flex items-center justify-between w-full mt-3.5 pt-2.5 border-t border-white/10 text-xs font-mono text-slate-400">
+              <span>{selectedPoster.role} · {selectedPoster.company}</span>
+              <button
+                type="button"
+                onClick={() => setSelectedPoster(null)}
+                className="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/15 text-white transition-colors cursor-pointer font-sans text-xs font-medium"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       )}

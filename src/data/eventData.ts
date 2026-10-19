@@ -121,7 +121,7 @@ export const WHY_ATTEND = [
   { title: "AWS DevRel Leadership Session", desc: "Keynote by Praful Bagai (Head of DevRel, AWS India & South Asia)" },
   { title: "Amazon Global Education Address", desc: "Special address by Jessica Gilmore, EdD (Amazon)" },
   { title: "Free Meals + Official AWS Swag Kit", desc: "Breakfast, lavish buffet lunch, custom t-shirt, stickers & lanyard" },
-  { title: "AWS Live Kahoot Quiz on Stage", desc: "Compete in live cloud trivia and win Amazon Echo Dots & smart electronics" },
+  { title: "AWS Live Kahoot Quiz on Stage", desc: "Compete in live cloud trivia and win exclusive official AWS merchandise & swag kits" },
   { title: "Official Verified Certificate", desc: "AWS SBG & Rungta International Skills University co-branded verified completion certificate" },
   { title: "All-Attendee Group Photo & Networking", desc: "Direct 1-on-1 networking with speakers, organizers and tech partners" }
 ];
@@ -193,7 +193,7 @@ export const SPEAKERS: Speaker[] = [
     topic: "Building High-Throughput Distributed Microservices at Amazon Scale",
     image: "/speakers/harshit_singh.png",
     poster: "/speakers/harshit_singh_poster.png",
-    bio: "Software Development Engineer II at Amazon, specializing in large-scale distributed architectures, low-latency microservices, and high-concurrency event pipelines.",
+    bio: "Backend systems engineer at Amazon focused on distributed services and low-latency pipelines. Breaks down pragmatic production engineering: managing high-concurrency event loops, designing idempotent APIs, handling partial network partitions, and mitigating cascading failures during massive traffic spikes.",
     linkedin: "https://www.linkedin.com/search/results/all/?keywords=Harshit+Singh+Amazon"
   },
   {
@@ -202,10 +202,10 @@ export const SPEAKERS: Speaker[] = [
     company: "AWS",
     category: "speaker",
     current_designation: "SDE-II , AWS",
-    topic: "Architecting Next-Gen Cloud Infrastructure & Serverless Engineering on AWS",
+    topic: "Architecting Resilient Cloud Infrastructure & Serverless at AWS",
     image: "/speakers/saptarshi_de.png",
     poster: "/speakers/saptarshi_de_poster.png",
-    bio: "Software Development Engineer II at Amazon Web Services (AWS), architecting foundational cloud infrastructure, scalable serverless platforms, and developer ecosystems.",
+    bio: "Cloud systems and infrastructure engineer at AWS specializing in resilient serverless platforms. Focuses on production-grade cloud primitives: single-table DynamoDB data access patterns, cold-start telemetry optimization, event-driven orchestration with SQS/Step Functions, and zero-downtime deployment pipelines.",
     linkedin: "https://www.linkedin.com/search/results/all/?keywords=Saptarshi+De+AWS"
   },
   {
@@ -381,11 +381,11 @@ export const AGENDA: AgendaItem[] = [
   {
     time: "03:00 – 04:00 PM",
     ampm: "PM",
-    title: "Kahoot Cloud Quiz, Smart Gadgets & Swag Distribution",
+    title: "Kahoot Cloud Quiz & Grand Swag Distribution",
     type: "Live Stage Arena",
     typeColor: "#FF9900",
     duration: "60 min",
-    subtitle: "Live auditorium Kahoot quiz for Amazon Echo Dots, smart devices, and official AWS commemorative swag kits.",
+    subtitle: "Live auditorium Kahoot quiz for exclusive official AWS merchandise, builder kits, and commemorative swag.",
     dotColor: "#FF9900",
     category: "Fun"
   }
@@ -402,7 +402,7 @@ export const CONTESTS: ContestItem[] = [
       "Bring a charged smartphone — the quiz runs live during the summit.",
       "Answer fast and accurately to climb the real-time auditorium scoreboard.",
       "Stay sharp across questions covering AWS services, Bedrock, and cloud trivia.",
-      "Top 3 fastest builders walk away with Amazon Echo and premium gear on the spot."
+      "Top 3 fastest builders walk away with exclusive AWS hoodies, swag kits, and premium merchandise on the spot."
     ]
   },
   {
@@ -414,7 +414,7 @@ export const CONTESTS: ContestItem[] = [
       "Join the AWS SCD 2026 community and get your unique referral code.",
       "Share it with your classmates, peers, and tech clubs across colleges.",
       "Ensure your crew checks in on event day at Rungta International Skills University.",
-      "Top referrers take home smart wearables, AWS hoodies, and exclusive swags."
+      "Top referrers take home exclusive AWS hoodies, customized builder swags, and special community recognition."
     ]
   }
 ];
@@ -422,23 +422,23 @@ export const CONTESTS: ContestItem[] = [
 export const PRIZES: PrizeItem[] = [
   {
     rank: "1st Prize",
-    worth: "Worth ₹4,499",
-    name: "Amazon Echo Dot (5th Gen)",
-    item: "Smart speaker with Alexa & deep bass sound + AWS Swag Box",
+    worth: "Champion Swag Box",
+    name: "Official AWS Cloud Champion Kit",
+    item: "Exclusive AWS Embroidered Hoodie + Premium Builder Backpack & Gold Dev Badge",
     image: "/AWS.png"
   },
   {
     rank: "2nd Prize",
-    worth: "Worth ₹2,999",
-    name: "Amazon Fire TV Stick Lite",
-    item: "Full HD streaming device with Alexa Voice Remote + AWS Hoodie",
+    worth: "Runner-Up Kit",
+    name: "AWS Builder Runner-Up Pack",
+    item: "AWS Limited Edition Hoodie + Insulated Stainless Steel Flask & Dev Pack",
     image: "/AWS.png"
   },
   {
     rank: "3rd Prize",
-    worth: "Worth ₹1,899",
-    name: "Fastrack Smart Fitness Band",
-    item: "AMOLED fitness tracker + AWS Cloud Builder Kit",
+    worth: "Contender Kit",
+    name: "AWS Community Contender Pack",
+    item: "AWS Builder Tee + Custom Cap, Metal Pins & Cloud Swag Bundle",
     image: "/AWS.png"
   }
 ];
@@ -534,7 +534,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "How does the live AWS Kahoot Quiz work?",
-    answer: "The quiz takes place live on the auditorium main screen. All attendees connect via their smartphones at kahoot.it, answer speed and accuracy questions on AWS, and the top 3 live scorers win Amazon Echo Dots, smart gear, and hoodies on stage."
+    answer: "The quiz takes place live on the auditorium main screen. All attendees connect via their smartphones at kahoot.it, answer speed and accuracy questions on AWS, and the top 3 live scorers win exclusive official AWS hoodies, premium builder swag kits, and stage recognition."
   },
   {
     question: "I want to sponsor, partner, or volunteer. Where should I reach out?",

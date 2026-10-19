@@ -194,7 +194,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Smooth scroll handler
+  // Smooth scroll handler with robust mobile drawer timing
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setOpenDropdown(null);
@@ -208,13 +208,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
       return;
     }
 
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      const yOffset = -90;
-      const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-      window.history.pushState(null, '', href);
-    }
+    const scrollToTarget = () => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerOffset = 100;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth',
+        });
+        window.history.pushState(null, '', href);
+      }
+    };
+
+    // Immediate attempt
+    scrollToTarget();
+
+    // Re-trigger after mobile menu drawer collapse to prevent browser scroll interruption
+    setTimeout(scrollToTarget, 80);
+    setTimeout(scrollToTarget, 260);
   }, []);
 
   const handleRegisterClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -492,9 +506,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                         key={cat.id}
                         href={`#${cat.id}`}
                         onClick={(e) => handleNavClick(e, `#${cat.id}`)}
-                        className="block px-3 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wider text-slate-200 hover:text-white hover:bg-white/[0.04]"
+                        className="flex items-center justify-between p-3.5 rounded-xl border border-[#2D2364] bg-[#100B2E]/50 text-xs font-bold uppercase tracking-wider text-white hover:text-[#A855F7] hover:border-[#A855F7]/50 transition-colors"
                       >
-                        {cat.name}
+                        <span className="flex items-center gap-2.5">
+                          <Users className="w-4 h-4 text-[#A855F7]" />
+                          <span>{cat.name}</span>
+                        </span>
+                        <ArrowUpRight className="w-4 h-4 text-slate-400" />
                       </a>
                     );
                   }

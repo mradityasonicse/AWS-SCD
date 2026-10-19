@@ -73,7 +73,7 @@ export const Ticker: React.FC = () => {
         </span>
         <span className="text-[#00E582] text-[10px]">✦</span>
         <span className="text-slate-300 text-[11.5px] tracking-wide font-medium">
-          WIN AMAZON ECHO DOTS &amp; TECH GEAR IN LIVE AUDITORIUM KAHOOT QUIZ
+          WIN EXCLUSIVE OFFICIAL AWS SWAG &amp; MERCH IN LIVE AUDITORIUM KAHOOT QUIZ
         </span>
         <span className="text-[#FF57EA] text-[10px]">✦</span>
       </div>
