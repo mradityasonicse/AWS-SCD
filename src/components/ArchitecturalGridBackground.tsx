@@ -38,29 +38,19 @@ export const ArchitecturalGridBackground: React.FC = () => {
 
       const isDark = bgMode === 'dark';
       if (isDark) {
-        // Base deep glossy black #110011
-        offscreenCtx.fillStyle = '#110011';
+        // Base clean titanium obsidian #0A0D14
+        offscreenCtx.fillStyle = '#0A0D14';
         offscreenCtx.fillRect(0, 0, width, height);
 
-        // Midnight Blue (#191970) Atmospheric Gradient in Background
-        const midnightWash = offscreenCtx.createRadialGradient(
+        // Subtle dark slate atmospheric depth from top
+        const topWash = offscreenCtx.createRadialGradient(
           width * 0.5, 0, 0,
-          width * 0.5, 0, Math.max(width, height) * 0.9
+          width * 0.5, 0, Math.max(width, height) * 0.8
         );
-        midnightWash.addColorStop(0, 'rgba(25, 25, 112, 0.65)'); // #191970
-        midnightWash.addColorStop(0.5, 'rgba(25, 25, 112, 0.28)');
-        midnightWash.addColorStop(1, 'rgba(17, 0, 17, 0)');
-        offscreenCtx.fillStyle = midnightWash;
-        offscreenCtx.fillRect(0, 0, width, height);
-
-        // Lower right secondary Midnight Blue (#191970) ambient depth
-        const secondaryWash = offscreenCtx.createRadialGradient(
-          width * 0.85, height * 0.55, 0,
-          width * 0.85, height * 0.55, Math.max(width, height) * 0.65
-        );
-        secondaryWash.addColorStop(0, 'rgba(25, 25, 112, 0.45)');
-        secondaryWash.addColorStop(1, 'rgba(17, 0, 17, 0)');
-        offscreenCtx.fillStyle = secondaryWash;
+        topWash.addColorStop(0, 'rgba(15, 23, 42, 0.35)');
+        topWash.addColorStop(0.5, 'rgba(15, 23, 42, 0.12)');
+        topWash.addColorStop(1, 'rgba(10, 13, 20, 0)');
+        offscreenCtx.fillStyle = topWash;
         offscreenCtx.fillRect(0, 0, width, height);
       } else {
         offscreenCtx.fillStyle = '#FFFFFF';

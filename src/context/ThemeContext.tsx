@@ -24,11 +24,11 @@ const THEME_STORAGE_KEY_COLOR = 'aws_scd_theme_color';
 const THEME_STORAGE_KEY_BG = 'aws_scd_theme_bg';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default to saved theme color, or Electric purple (#AD5CFF) as fallback
+  // Default to saved theme color, or AWS Builder Orange (#FF9900) as authentic standard
   const [secondaryColor, setSecondaryColorState] = useState<SecondaryColorKey>(() => {
-    if (typeof window === 'undefined') return 'purple';
+    if (typeof window === 'undefined') return 'orange';
     const saved = localStorage.getItem(THEME_STORAGE_KEY_COLOR) as SecondaryColorKey;
-    return saved && SECONDARY_COLORS[saved] ? saved : 'purple';
+    return saved && SECONDARY_COLORS[saved] ? saved : 'orange';
   });
 
   // Default to dark as featured in the AWS Builder Group reference image
@@ -70,13 +70,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     // Apply background & surface variables
     if (bgMode === 'dark') {
-      root.style.setProperty('--theme-bg', '#100B2E');
-      root.style.setProperty('--theme-surface', 'rgba(255, 255, 255, 0.08)');
-      root.style.setProperty('--theme-surface-card', 'rgba(255, 255, 255, 0.08)');
-      root.style.setProperty('--theme-surface-elevated', 'rgba(255, 255, 255, 0.12)');
-      root.style.setProperty('--theme-border', 'rgba(255, 255, 255, 0.12)');
-      root.style.setProperty('--theme-border-strong', 'rgba(255, 255, 255, 0.22)');
-      root.style.setProperty('--theme-grid', 'rgba(255, 255, 255, 0.04)');
+      root.style.setProperty('--theme-bg', '#0A0D14');
+      root.style.setProperty('--theme-surface', 'rgba(255, 255, 255, 0.04)');
+      root.style.setProperty('--theme-surface-card', 'rgba(255, 255, 255, 0.04)');
+      root.style.setProperty('--theme-surface-elevated', 'rgba(255, 255, 255, 0.08)');
+      root.style.setProperty('--theme-border', 'rgba(255, 255, 255, 0.08)');
+      root.style.setProperty('--theme-border-strong', 'rgba(255, 255, 255, 0.16)');
+      root.style.setProperty('--theme-grid', 'rgba(255, 255, 255, 0.03)');
       root.style.setProperty('--theme-text', '#F8FAFC');
       root.style.setProperty('--theme-text-muted', '#94A3B8');
       root.classList.remove('light');

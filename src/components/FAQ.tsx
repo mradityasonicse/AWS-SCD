@@ -13,22 +13,20 @@ export const FAQ: React.FC = () => {
 
   return (
     <section id="faq" className="relative py-28 px-4 sm:px-6 max-w-4xl mx-auto text-[#F8FAFC]">
-      {/* Section Header with [ 09 ] Index */}
+      {/* Section Header with [ 07 ] Index */}
       <ScrollReveal>
-        <div className="border-b border-[var(--theme-border,#3E3E3E)] pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        <div className="border-b border-white/10 pb-6 mb-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-4 sm:gap-6">
             <span
-              className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
-              style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+              className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#FF9900]"
             >
-              [ 08 ]
+              [ 07 ]
             </span>
             <div>
               <p
-                className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2"
-                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                className="text-xs font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2 text-[#FF9900]"
               >
-                <span className="w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
+                <span className="w-6 h-[1px] bg-[#FF9900]" />
                 Frequently Asked Questions
               </p>
               <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal text-white tracking-wide uppercase leading-none">
@@ -51,14 +49,14 @@ export const FAQ: React.FC = () => {
               <div
                 className={`rounded-xl border transition-all duration-300 overflow-hidden backdrop-blur-[16px] ${
                   isOpen
-                    ? 'bg-white/[0.14] shadow-md border-[var(--theme-accent,#AD5CFF)]'
-                    : 'border-white/10 bg-[rgba(255,255,255,0.08)] hover:bg-white/[0.12] shadow-sm'
+                    ? 'bg-white/[0.06] shadow-xl border-[#FF9900]/40'
+                    : 'border-white/10 bg-white/[0.03] hover:bg-white/[0.05] shadow-sm'
                 }`}
                 style={{
-                  backgroundColor: isOpen ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.08)',
+                  backgroundColor: isOpen ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.02)',
                   backdropFilter: 'blur(16px)',
                   WebkitBackdropFilter: 'blur(16px)',
-                  borderColor: isOpen ? 'var(--theme-accent, #AD5CFF)' : 'rgba(255, 255, 255, 0.12)',
+                  borderColor: isOpen ? 'rgba(255, 153, 0, 0.35)' : 'rgba(255, 255, 255, 0.08)',
                 }}
               >
                 <button
@@ -68,8 +66,7 @@ export const FAQ: React.FC = () => {
                 >
                   <span className="text-base sm:text-lg font-bold text-white flex items-center gap-3">
                     <span
-                      className="font-mono text-xs sm:text-sm font-bold"
-                      style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                      className="font-mono text-xs sm:text-sm font-bold text-[#FF9900]"
                     >
                       {String(index + 1).padStart(2, '0')}.
                     </span>
@@ -80,9 +77,9 @@ export const FAQ: React.FC = () => {
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                     className="w-8 h-8 rounded-full flex items-center justify-center border shrink-0 transition-colors"
                     style={{
-                      backgroundColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 15%, transparent)' : 'rgba(255, 255, 255, 0.05)',
-                      borderColor: isOpen ? 'color-mix(in srgb, var(--theme-accent, #AD5CFF) 40%, transparent)' : 'rgba(255, 255, 255, 0.12)',
-                      color: isOpen ? 'var(--theme-accent, #AD5CFF)' : '#94A3B8',
+                      backgroundColor: isOpen ? 'rgba(255, 153, 0, 0.15)' : 'rgba(255, 255, 255, 0.04)',
+                      borderColor: isOpen ? 'rgba(255, 153, 0, 0.4)' : 'rgba(255, 255, 255, 0.08)',
+                      color: isOpen ? '#FF9900' : '#94A3B8',
                     }}
                   >
                     <ChevronDown className="w-4 h-4" />

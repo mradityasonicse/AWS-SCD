@@ -278,8 +278,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
         className={cn(
           "fixed top-9 left-0 right-0 z-[100] transition-[background-color,border-color,box-shadow] duration-200 select-none",
           scrolled || openDropdown
-            ? "bg-[#100B2E]/80 backdrop-blur-xl border-b border-white/10 shadow-xl shadow-black/40"
-            : "bg-[#100B2E]/60 backdrop-blur-md border-b border-white/10"
+            ? "bg-[#0A0D14]/90 backdrop-blur-xl border-b border-white/10 shadow-xl shadow-black/60"
+            : "bg-[#0A0D14]/75 backdrop-blur-md border-b border-white/10"
         )}
         onMouseLeave={() => setOpenDropdown(null)}
       >
@@ -293,17 +293,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
               window.history.pushState(null, '', '/');
             }}
-            className="flex items-center gap-3 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A855F7] rounded-lg p-1 -m-1"
+            className="flex items-center gap-3 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900] rounded-lg p-1 -m-1"
           >
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-white p-1 border border-white/50 flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#A855F7] group-hover:shadow-[0_0_12px_rgba(168,85,247,0.4)]">
+              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-xl bg-white p-1 border border-white/50 flex items-center justify-center transition-all duration-200 shadow-sm relative group-hover:border-[#FF9900] group-hover:shadow-[0_0_12px_rgba(255,153,0,0.3)]">
                 <img
                   src="/rungta-logo.png"
                   alt="Rungta International Skills University"
                   className="h-full w-full object-contain"
                 />
               </div>
-              <div className="h-5 sm:h-6 w-px bg-[#2D2364]" />
+              <div className="h-5 sm:h-6 w-px bg-white/20" />
               <img
                 src="/AWS.png"
                 alt="AWS Logo"
@@ -312,7 +312,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             </div>
             <div className="flex flex-col">
               <span className="font-extrabold text-sm sm:text-base tracking-tight text-white flex items-center gap-1 leading-tight font-sans">
-                AWS SCD <span className="italic font-serif text-sm sm:text-base text-[#A855F7]">2026</span>
+                AWS SCD <span className="font-mono font-bold text-sm sm:text-base text-[#FF9900]">2026</span>
               </span>
               <span className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-widest font-mono hidden sm:inline leading-none mt-0.5">
                 Rungta International Skills University · Central India
@@ -347,14 +347,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                   className={cn(
                     "flex items-center gap-1.5 px-3.5 py-2 text-xs xl:text-[13px] font-bold uppercase tracking-wider transition-colors cursor-pointer rounded-md select-none",
                     isOpen
-                      ? "text-[#A855F7] bg-white/[0.06]"
+                      ? "text-[#FF9900] bg-white/[0.06]"
                       : "text-slate-200 hover:text-white hover:bg-white/[0.04]"
                   )}
                   aria-expanded={isOpen}
                 >
                   <span>{cat.name}</span>
                   {isOpen ? (
-                    <ChevronUp className="w-3.5 h-3.5 text-[#A855F7]" />
+                    <ChevronUp className="w-3.5 h-3.5 text-[#FF9900]" />
                   ) : (
                     <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-white" />
                   )}
@@ -369,7 +369,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="p-2 sm:p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.08] transition-colors cursor-pointer border border-[#2D2364] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A855F7]"
+              className="p-2 sm:p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/[0.08] transition-colors cursor-pointer border border-white/10 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
               aria-label="Search summit sessions, tracks, and speakers"
               title="Search summit (Ctrl+K)"
             >
@@ -382,7 +382,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               target={EVENT_DETAILS.registrationUrl?.startsWith('http') ? '_blank' : undefined}
               rel={EVENT_DETAILS.registrationUrl?.startsWith('http') ? 'noopener noreferrer' : undefined}
               onClick={handleRegisterClick}
-              className="hidden sm:inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded bg-[#E2E8F0] hover:bg-white text-[#0F172A] font-bold text-xs uppercase tracking-wider transition-all duration-150 cursor-pointer shadow-sm hover:shadow active:scale-[0.98]"
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded bg-[#FF9900] hover:bg-[#FFAC33] text-[#0A0D14] font-black text-xs uppercase tracking-wider transition-all duration-150 cursor-pointer shadow-md hover:shadow-lg active:scale-[0.98]"
             >
               <span>REGISTER NOW</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -392,11 +392,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="lg:hidden p-2 text-slate-300 hover:text-white hover:bg-white/[0.08] rounded-lg transition-colors cursor-pointer border border-[#2D2364]"
+              className="lg:hidden p-2 text-slate-300 hover:text-white hover:bg-white/[0.08] rounded-lg transition-colors cursor-pointer border border-white/10"
               aria-label="Toggle navigation drawer"
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-[#A855F7]" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-[#FF9900]" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -411,12 +411,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="hidden lg:block border-t border-[#2D2364] bg-[#140E3B] shadow-2xl shadow-black/80"
+              className="hidden lg:block border-t border-white/10 bg-[#0B0F17]/95 backdrop-blur-2xl shadow-2xl shadow-black/80"
               onMouseEnter={() => setOpenDropdown(activeCategory.id)}
             >
               <div className="max-w-7xl mx-auto grid grid-cols-12 min-h-[300px]">
                 {/* Column 1: Editorial Headline & Overview (~32%) */}
-                <div className="col-span-4 p-8 flex flex-col justify-between border-r border-[#2D2364]">
+                <div className="col-span-4 p-8 flex flex-col justify-between border-r border-white/10">
                   <div>
                     <h3 className="text-xl xl:text-2xl font-bold uppercase tracking-tight text-white leading-tight font-sans">
                       {activeCategory.leftPanel.title}
@@ -438,7 +438,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                 </div>
 
                 {/* Column 2: Numbered Menu Links (~42%) */}
-                <div className="col-span-4 p-8 flex flex-col justify-center border-r border-[#2D2364] space-y-3.5">
+                <div className="col-span-4 p-8 flex flex-col justify-center border-r border-white/10 space-y-3.5">
                   {activeCategory.numberedLinks.map((item) => (
                     <a
                       key={item.num + item.title}
@@ -446,10 +446,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                       onClick={(e) => handleNavClick(e, item.href)}
                       className="group flex items-center gap-3.5 py-1.5 cursor-pointer select-none"
                     >
-                      <span className="font-mono text-xs font-bold text-[#A855F7] group-hover:text-white transition-colors w-6 shrink-0">
+                      <span className="font-mono text-xs font-bold text-[#FF9900] group-hover:text-white transition-colors w-6 shrink-0">
                         {item.num}
                       </span>
-                      <span className="text-xs xl:text-[13px] font-bold uppercase tracking-wider text-slate-200 group-hover:text-[#A855F7] group-hover:translate-x-1.5 transition-all">
+                      <span className="text-xs xl:text-[13px] font-bold uppercase tracking-wider text-slate-200 group-hover:text-[#FF9900] group-hover:translate-x-1.5 transition-all">
                         {item.title}
                       </span>
                     </a>

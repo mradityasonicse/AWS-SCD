@@ -53,17 +53,15 @@ export const Speakers: React.FC = () => {
           <div className="border-b border-white/10 pb-5 sm:pb-6 mb-8 sm:mb-12 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
             <div className="flex items-baseline gap-3 sm:gap-5">
               <span
-                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0"
-                style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                className="font-mono text-sm tracking-widest font-bold whitespace-nowrap shrink-0 text-[#FF9900]"
               >
                 [ 03 ]
               </span>
               <div>
                 <p
-                  className="text-xs font-bold uppercase tracking-[0.2em] mb-1.5 flex items-center gap-2"
-                  style={{ color: 'var(--theme-accent, #AD5CFF)' }}
+                  className="text-xs font-bold uppercase tracking-[0.2em] mb-1.5 flex items-center gap-2 text-[#FF9900]"
                 >
-                  <span className="w-5 sm:w-6 h-[1px]" style={{ backgroundColor: 'var(--theme-accent, #AD5CFF)' }} />
+                  <span className="w-5 sm:w-6 h-[1px] bg-[#FF9900]" />
                   Summit Speakers
                 </p>
                 <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-normal text-white tracking-wide uppercase leading-tight sm:leading-none">
@@ -148,7 +146,7 @@ export const Speakers: React.FC = () => {
         {/* Clean Bottom Metadata Strip */}
         <div className="mt-10 sm:mt-12 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-slate-400 font-mono text-xs">
           <span>RUNGTA INTERNATIONAL SKILLS UNIVERSITY · BHILAI</span>
-          <span style={{ color: 'var(--theme-accent, #AD5CFF)' }} className="font-bold">
+          <span className="font-bold text-[#FF9900]">
             AWS STUDENT COMMUNITY DAY 2026
           </span>
         </div>

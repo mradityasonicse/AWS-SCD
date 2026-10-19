@@ -5,10 +5,10 @@ export const LogoMarquee: React.FC = () => {
   const phraseWords = [
     { text: 'BUILD', color: '#FFFFFF' },
     { text: 'LEARN', color: '#F1F5F9' },
-    { text: 'CONNECT', color: 'var(--theme-accent, #AD5CFF)' },
+    { text: 'CONNECT', color: '#FF9900' },
     { text: 'SHIP', color: '#FFFFFF' },
     { text: 'SCALE', color: '#F1F5F9' },
-    { text: 'INNOVATE', color: 'var(--theme-accent, #AD5CFF)' },
+    { text: 'INNOVATE', color: '#FF9900' },
   ];
 
   const logos = [
@@ -24,9 +24,9 @@ export const LogoMarquee: React.FC = () => {
       name: 'AWS Student Builder Group',
       src: '/AWS_SBG.png',
       badge: 'Global Community',
-      color: 'var(--theme-accent, #AD5CFF)',
-      bg: 'rgba(173, 92, 255, 0.12)',
-      border: 'rgba(173, 92, 255, 0.35)',
+      color: '#FF9900',
+      bg: 'rgba(255, 153, 0, 0.12)',
+      border: 'rgba(255, 153, 0, 0.35)',
     },
     {
       name: 'Rungta International Skills University',
@@ -48,17 +48,17 @@ export const LogoMarquee: React.FC = () => {
       name: 'Amazon Bedrock',
       src: '/AWS.png',
       badge: 'Generative AI',
-      color: '#FF57EA',
-      bg: 'rgba(255, 87, 234, 0.12)',
-      border: 'rgba(255, 87, 234, 0.35)',
+      color: '#42B4FF',
+      bg: 'rgba(66, 180, 255, 0.12)',
+      border: 'rgba(66, 180, 255, 0.35)',
     },
     {
       name: 'AWS Cloud Clubs',
       src: '/AWS_SBG.png',
       badge: 'Student Network',
-      color: 'var(--theme-accent, #AD5CFF)',
-      bg: 'rgba(173, 92, 255, 0.12)',
-      border: 'rgba(173, 92, 255, 0.35)',
+      color: '#FF9900',
+      bg: 'rgba(255, 153, 0, 0.12)',
+      border: 'rgba(255, 153, 0, 0.35)',
     },
     {
       name: 'Rungta International Skills University Innovation Cell',
@@ -74,7 +74,7 @@ export const LogoMarquee: React.FC = () => {
   const marqueeLogos = [...logos, ...logos];
 
   return (
-    <section className="relative bg-[var(--theme-bg,#110011)] border-y border-white/10 overflow-hidden py-6">
+    <section className="relative bg-[var(--theme-bg,#0A0D14)] border-y border-white/10 overflow-hidden py-6">
       {/* Editorial Bold Phrase Marquee */}
       <div className="overflow-hidden whitespace-nowrap mb-6 border-b border-white/10 pb-4">
         <div className="animate-marquee flex items-center gap-10 font-heading font-normal text-3xl sm:text-5xl uppercase tracking-wide will-change-transform">
@@ -97,8 +97,8 @@ export const LogoMarquee: React.FC = () => {
       </div>
 
       {/* Side gradient feather masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[var(--theme-bg,#110011)] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[var(--theme-bg,#110011)] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-[var(--theme-bg,#0A0D14)] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-[var(--theme-bg,#0A0D14)] to-transparent z-10 pointer-events-none" />
 
       {/* Brand Logos Stream */}
       <div className="flex w-full overflow-hidden">
